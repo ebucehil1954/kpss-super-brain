@@ -28,71 +28,45 @@ class FactChecker:
         self.numerical_validator = numerical_validator
 
     def _load_ground_truth_db(self) -> Dict[str, Any]:
-        """Tüm ground_truth dosyalarını birleştirilmiş sözlük olarak yükler."""
-        db = {
-            "Anayasa Mahkemesi": {
-                "Üye_Sayısı": "15",
-                "Görev_Süresi": "12",
-                "Seçilme_Yaşı": "45",
-                "Emeklilik_Yaşı": "65",
-                "Tekrar_Seçilebilme": "Hayır"
-            },
-            "AYM": {
-                "Üye_Sayısı": "15",
-                "Görev_Süresi": "12",
-                "Tekrar_Seçilebilme": "Hayır"
-            },
-            "TBMM": {
-                "Üye_Sayısı": "600",
-                "Toplantı_Yeter_Sayısı": "200",
-                "Karar_Yeter_En_Az": "151",
-                "Genel_Af_Çoğunluğu": "360",
-                "Seçim_Yenileme_Çoğunluğu": "360",
-                "Anayasa_Değişikliği_Kabul": "400"
-            },
-            "Milletvekili": {
-                "Seçilme_Yaşı": "18",
-                "Öğrenim_Şartı": "İlkokul",
-                "Askerlik": "İlişiği_Olmayan"
-            },
-            "Cumhurbaşkanı": {
-                "Seçilme_Yaşı": "40",
-                "Görev_Süresi": "5",
-                "Dönem_Sınırı": "2",
-                "Öğrenim_Şartı": "Yükseköğrenim"
-            },
-            "HSK": {
-                "Üye_Sayısı": "13",
-                "Başkanı": "Adalet Bakanı",
-                "Görev_Süresi": "4"
-            },
-            "Lale Devri": {
-                "Padişah": "III. Ahmet",
-                "Sadrazam": "Nevşehirli Damat İbrahim Paşa",
-                "Askeri_Islahat": "Yok",
-                "İlk_Geçici_Elçilik": "Paris"
-            },
-            "Balkan Antantı": {
-                "Tarih": "1934",
-                "Katılanlar": ["Türkiye", "Yunanistan", "Yugoslavya", "Romanya"],
-                "Katılmayanlar": ["Bulgaristan", "Arnavutluk"]
-            },
-            "Sadabat Paktı": {
-                "Tarih": "1937",
-                "Katılanlar": ["Türkiye", "İran", "Irak", "Afganistan"],
-                "Katılmayan": "Suriye"
-            }
-        }
+        """canonical_facts/ klasöründeki tüm .jsonl dosyalarını dinamik olarak okur ve birleştirir."""
+        db: Dict[str, Any] = {}
+        canonical_dir = super_brain_config.BASE_DIR / "canonical_facts"
         
-        # Dosyadan genişlet
-        gt_leg = super_brain_config.GROUND_TRUTH_DIR / "legislation.json"
-        if gt_leg.exists():
-            try:
-                with open(gt_leg, "r", encoding="utf-8") as f:
-                    data = json.load(f)
-                    db["legislation_raw"] = data
-            except Exception:
-                pass
+        if canonical_dir.exists():
+            for filepath in canonical_dir.glob("*.jsonl"):
+                try:
+                    with open(filepath, "r", encoding="utf-8") as f:
+                        for line in f:
+                            line = line.strip()
+                            if not line:
+                                continue
+                            try:
+                                record = json.loads(line)
+                                topic = record.get("topic")
+                                attrs = record.get("attributes", {})
+                                if topic:
+                                    if topic not in db:
+                                        db[topic] = {}
+                                    db[topic].update(attrs)
+                            except Exception:
+                                pass
+                except Exception:
+                    pass
+
+        # Fallback kalıplar (Dizin boşsa veya yoksa)
+        if not db:
+            db = {
+                "Anayasa Mahkemesi": {"Üye_Sayısı": "15", "Görev_Süresi": "12", "Seçilme_Yaşı": "45", "Emeklilik_Yaşı": "65", "Tekrar_Seçilebilme": "Hayır"},
+                "AYM": {"Üye_Sayısı": "15", "Görev_Süresi": "12", "Tekrar_Seçilebilme": "Hayır"},
+                "TBMM": {"Üye_Sayısı": "600", "Toplantı_Yeter_Sayısı": "200", "Karar_Yeter_En_Az": "151", "Genel_Af_Çoğunluğu": "360", "Seçim_Yenileme_Çoğunluğu": "360", "Anayasa_Değişikliği_Kabul": "400"},
+                "Milletvekili": {"Seçilme_Yaşı": "18", "Öğrenim_Şartı": "İlkokul", "Askerlik": "İlişiği_Olmayan"},
+                "Cumhurbaşkanı": {"Seçilme_Yaşı": "40", "Görev_Süresi": "5", "Dönem_Sınırı": "2", "Öğrenim_Şartı": "Yükseköğrenim"},
+                "HSK": {"Üye_Sayısı": "13", "Başkanı": "Adalet Bakanı", "Görev_Süresi": "4"},
+                "Lale Devri": {"Padişah": "III. Ahmet", "Sadrazam": "Nevşehirli Damat İbrahim Paşa", "Askeri_Islahat": "Yok", "İlk_Geçici_Elçilik": "Paris"},
+                "Balkan Antantı": {"Tarih": "1934", "Katılanlar": ["Türkiye", "Yunanistan", "Yugoslavya", "Romanya"], "Katılmayanlar": ["Bulgaristan", "Arnavutluk"]},
+                "Sadabat Paktı": {"Tarih": "1937", "Katılanlar": ["Türkiye", "İran", "Irak", "Afganistan"], "Katılmayan": "Suriye"}
+            }
+
         return db
 
     # ==========================================

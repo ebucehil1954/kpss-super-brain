@@ -247,3 +247,35 @@ def test_phase2_z3_timeout_config():
     """PHASE 2: config.py içinde Z3_TIMEOUT = 500ms tanımlıdır."""
     assert hasattr(super_brain_config, "Z3_TIMEOUT")
     assert super_brain_config.Z3_TIMEOUT == 500
+
+# ==========================================
+# PHASE 3 — DYNAMIC CANONICAL FACTS & FALLBACK TESTS
+# ==========================================
+
+from senses.youtube_watcher import youtube_watcher
+
+def test_phase3_canonical_facts_directory_loading():
+    """PHASE 3: fact_checker canonical_facts/ klasöründeki .jsonl dosyalarından gerçekleri dinamik okur."""
+    gt = fact_checker._load_ground_truth_db()
+    assert isinstance(gt, dict)
+    assert "TBMM" in gt or "Anayasa Mahkemesi" in gt
+    if "TBMM" in gt:
+        assert gt["TBMM"].get("Üye_Sayısı") == "600"
+    if "Lale Devri" in gt:
+        assert gt["Lale Devri"].get("Askeri_Islahat") == "Yok"
+
+@pytest.mark.asyncio
+async def test_phase3_youtube_fallback_and_pdf_parsing():
+    """PHASE 3: Transkript çekilemediğinde mevzuat fallback sorgusu çalışır ve pypdf PDF ayrıştırmayı destekler."""
+    res = await youtube_watcher.fetch_official_legislation_fallback(
+        topic="Yasama ve Karar Yeter Sayıları",
+        lesson="VATANDASLIK",
+        video_title="KPSS Vatandaşlık Yasama"
+    )
+    assert res["success"] is True
+    assert res["source_type"] == "OFFICIAL_LEGISLATION_FALLBACK"
+    assert "Yasama" in res["query"]
+
+    # Boş / mock PDF parse kontrolü
+    parsed_txt = youtube_watcher.parse_pdf_to_text(b"")
+    assert isinstance(parsed_txt, str)

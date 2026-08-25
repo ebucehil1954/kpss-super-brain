@@ -1,12 +1,108 @@
 [
   {
+    "record_id": "kr_4eab23a400b0",
+    "text": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konusu ÖSYM KPSS sınav standartlarında kesin bilgi içeren temel kazanımdır.",
+    "record_type": "FACT",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "subtopic": "Doğrulanmış Web Araştırması",
+    "confidence": 0.995805696,
+    "source_chain": [
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:20:15.126918"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:21:05.556650"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:21:35.610912"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:22:00.873022"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:22:05.115095"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T23:21:45.582060"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T23:21:57.544062"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T23:29:10.715868"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 8,
+    "first_learned": "2026-08-25T21:20:15.130591",
+    "last_reinforced": "2026-08-25T23:29:10.718476",
+    "tags": [
+      "VERIFIED_WEB",
+      "COGRAFYA",
+      "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi"
+    ]
+  },
+  {
+    "record_id": "kr_7623f705965d",
+    "text": "Doğrulanmamış şüpheli not supheli_kpss_notu_274bbfe2",
+    "record_type": "FACT",
+    "lesson": "VATANDASLIK",
+    "topic": "GENEL",
+    "subtopic": "",
+    "confidence": 0.5,
+    "source_chain": [
+      {
+        "type": "direct_ingest",
+        "date": "2026-08-25T23:28:47.382831"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 1,
+    "first_learned": "2026-08-25T23:28:47.382831",
+    "last_reinforced": "2026-08-25T23:28:47.382831",
+    "tags": []
+  },
+  {
     "record_id": "kr_aff8fff0e31b",
     "text": "Anayasa Mahkemesi 15 üyeden oluşur",
     "record_type": "FACT",
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.9966223002794722,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -160,17 +256,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 17,
+    "times_reinforced": 27,
     "first_learned": "2026-08-25T23:03:19.871137",
-    "last_reinforced": "2026-08-25T23:22:01.236891",
+    "last_reinforced": "2026-08-25T23:28:46.589848",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -180,7 +366,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -307,17 +493,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.533853",
-    "last_reinforced": "2026-08-25T23:22:01.226365",
+    "last_reinforced": "2026-08-25T23:28:46.577907",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -327,7 +603,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -454,17 +730,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.519537",
-    "last_reinforced": "2026-08-25T23:22:01.215709",
+    "last_reinforced": "2026-08-25T23:28:46.566064",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -474,7 +840,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -601,17 +967,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.507932",
-    "last_reinforced": "2026-08-25T23:22:01.204260",
+    "last_reinforced": "2026-08-25T23:28:46.553947",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -621,7 +1077,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -748,17 +1204,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.494041",
-    "last_reinforced": "2026-08-25T23:22:01.193397",
+    "last_reinforced": "2026-08-25T23:28:46.542372",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -768,7 +1314,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -895,17 +1441,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.479467",
-    "last_reinforced": "2026-08-25T23:22:01.182844",
+    "last_reinforced": "2026-08-25T23:28:46.530900",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -915,7 +1551,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -1042,17 +1678,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.464932",
-    "last_reinforced": "2026-08-25T23:22:01.170244",
+    "last_reinforced": "2026-08-25T23:28:46.519073",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
+      "ramazan yetgin"
     ]
   },
   {
@@ -1062,7 +1788,7 @@
     "lesson": "VATANDASLIK",
     "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
     "subtopic": "",
-    "confidence": 0.993402930233344,
+    "confidence": 0.999,
     "source_chain": [
       {
         "type": "youtube_lecture",
@@ -1189,86 +1915,107 @@
         "lesson": "VATANDASLIK",
         "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
         "date": "2026-08-25T23:21:58.794479"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:22:01.249493"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:12.279470"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:14.721068"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:16.703481"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:17.169079"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:19.132006"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:24:21.568070"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ramazan Yetgin",
+        "video_id": "v_succ_101",
+        "video_title": "Yasama 1",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:39.312298"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap Özkaraca",
+        "video_id": "v_succ_102",
+        "video_title": "Yasama 2",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:41.740229"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Esra Özkan Karaoğlu",
+        "video_id": "v_succ_103",
+        "video_title": "Yasama 3",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası: Yasama Organı ve Fonksiyonları",
+        "date": "2026-08-25T23:28:44.178342"
       }
     ],
     "related_records": [],
-    "times_reinforced": 14,
+    "times_reinforced": 24,
     "first_learned": "2026-08-25T23:04:18.445661",
-    "last_reinforced": "2026-08-25T23:22:01.158475",
+    "last_reinforced": "2026-08-25T23:28:46.507188",
     "tags": [
       "esra özkan karaoğlu",
-      "ramazan yetgin",
+      "rule_extracted",
       "emrah vahap özkaraca",
-      "rule_extracted"
-    ]
-  },
-  {
-    "record_id": "kr_4eab23a400b0",
-    "text": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konusu ÖSYM KPSS sınav standartlarında kesin bilgi içeren temel kazanımdır.",
-    "record_type": "FACT",
-    "lesson": "COGRAFYA",
-    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-    "subtopic": "Doğrulanmış Web Araştırması",
-    "confidence": 0.99475712,
-    "source_chain": [
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T21:20:15.126918"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T21:21:05.556650"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T21:21:35.610912"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T21:22:00.873022"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T21:22:05.115095"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T23:21:45.582060"
-      },
-      {
-        "type": "verified_web",
-        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "url": "https://www.meb.gov.tr",
-        "source": "MEB Müfredatı",
-        "date": "2026-08-25T23:21:57.544062"
-      }
-    ],
-    "related_records": [],
-    "times_reinforced": 7,
-    "first_learned": "2026-08-25T21:20:15.130591",
-    "last_reinforced": "2026-08-25T23:21:57.547867",
-    "tags": [
-      "VERIFIED_WEB",
-      "COGRAFYA",
-      "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi"
+      "ramazan yetgin"
     ]
   },
   {
@@ -1522,12 +2269,48 @@
         "lesson": "VATANDASLIK",
         "topic": "Anayasa Mahkemesi",
         "date": "2026-08-25T23:21:45.097806"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:23:14.964444"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:23:55.536595"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:27:18.268314"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:28:19.659826"
       }
     ],
     "related_records": [],
-    "times_reinforced": 27,
+    "times_reinforced": 31,
     "first_learned": "2026-08-25T21:34:32.359651",
-    "last_reinforced": "2026-08-25T23:21:47.476985",
+    "last_reinforced": "2026-08-25T23:28:21.993706",
     "tags": [
       "emrah vahap",
       "rule_extracted"
@@ -1784,16 +2567,132 @@
         "lesson": "VATANDASLIK",
         "topic": "Anayasa Mahkemesi",
         "date": "2026-08-25T23:21:45.097806"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:23:14.964444"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:23:55.536595"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:27:18.268314"
+      },
+      {
+        "type": "youtube_lecture",
+        "teacher": "Emrah Vahap",
+        "video_id": "test_prov_vid_01",
+        "video_title": "Anayasa Yargısı",
+        "lesson": "VATANDASLIK",
+        "topic": "Anayasa Mahkemesi",
+        "date": "2026-08-25T23:28:19.659826"
       }
     ],
     "related_records": [],
-    "times_reinforced": 27,
+    "times_reinforced": 31,
     "first_learned": "2026-08-25T21:34:32.338866",
-    "last_reinforced": "2026-08-25T23:21:47.464736",
+    "last_reinforced": "2026-08-25T23:28:21.983139",
     "tags": [
       "emrah vahap",
       "rule_extracted"
     ]
+  },
+  {
+    "record_id": "kr_eae03a78009a",
+    "text": "Doğrulanmamış şüpheli not supheli_kpss_notu_5ee7c4b4",
+    "record_type": "FACT",
+    "lesson": "VATANDASLIK",
+    "topic": "GENEL",
+    "subtopic": "",
+    "confidence": 0.5,
+    "source_chain": [
+      {
+        "type": "direct_ingest",
+        "date": "2026-08-25T23:27:39.936000"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 1,
+    "first_learned": "2026-08-25T23:27:39.936000",
+    "last_reinforced": "2026-08-25T23:27:39.936000",
+    "tags": []
+  },
+  {
+    "record_id": "kr_80cd0302209b",
+    "text": "Doğrulanmamış şüpheli not supheli_kpss_notu_d41e96e4",
+    "record_type": "FACT",
+    "lesson": "VATANDASLIK",
+    "topic": "GENEL",
+    "subtopic": "",
+    "confidence": 0.5,
+    "source_chain": [
+      {
+        "type": "direct_ingest",
+        "date": "2026-08-25T23:25:28.228840"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 1,
+    "first_learned": "2026-08-25T23:25:28.228840",
+    "last_reinforced": "2026-08-25T23:25:28.228840",
+    "tags": []
+  },
+  {
+    "record_id": "kr_a73601d9f472",
+    "text": "Doğrulanmamış şüpheli not supheli_kpss_notu_5b4c34ef",
+    "record_type": "FACT",
+    "lesson": "VATANDASLIK",
+    "topic": "GENEL",
+    "subtopic": "",
+    "confidence": 0.5,
+    "source_chain": [
+      {
+        "type": "direct_ingest",
+        "date": "2026-08-25T23:25:12.046758"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 1,
+    "first_learned": "2026-08-25T23:25:12.046758",
+    "last_reinforced": "2026-08-25T23:25:12.046758",
+    "tags": []
+  },
+  {
+    "record_id": "kr_b128fcf826dd",
+    "text": "Doğrulanmamış şüpheli not supheli_kpss_notu_aea4fece",
+    "record_type": "FACT",
+    "lesson": "VATANDASLIK",
+    "topic": "GENEL",
+    "subtopic": "",
+    "confidence": 0.5,
+    "source_chain": [
+      {
+        "type": "direct_ingest",
+        "date": "2026-08-25T23:22:48.301082"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 1,
+    "first_learned": "2026-08-25T23:22:48.301082",
+    "last_reinforced": "2026-08-25T23:22:48.301082",
+    "tags": []
   },
   {
     "record_id": "kr_4b1b5494167b",

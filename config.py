@@ -28,6 +28,8 @@ class SuperBrainConfig(BaseModel):
     Z3_TIMEOUT: int = 500  # milisaniye cinsinden Z3 timeout sınırı
     
     # Dizin Yolları
+    BASE_DIR: Path = BASE_DIR
+    CANONICAL_FACTS_DIR: Path = BASE_DIR / "canonical_facts"
     DATA_DIR: Path = BASE_DIR / "data"
     GROUND_TRUTH_DIR: Path = BASE_DIR / "data" / "ground_truth"
     OUTPUTS_DIR: Path = BASE_DIR / "outputs"

@@ -1,0 +1,8 @@
+{"topic": "Anayasa Mahkemesi", "attributes": {"Üye_Sayısı": "15", "Görev_Süresi": "12", "Seçilme_Yaşı": "45", "Emeklilik_Yaşı": "65", "Tekrar_Seçilebilme": "Hayır"}}
+{"topic": "AYM", "attributes": {"Üye_Sayısı": "15", "Görev_Süresi": "12", "Tekrar_Seçilebilme": "Hayır"}}
+{"topic": "TBMM", "attributes": {"Üye_Sayısı": "600", "Toplantı_Yeter_Sayısı": "200", "Karar_Yeter_En_Az": "151", "Genel_Af_Çoğunluğu": "360", "Seçim_Yenileme_Çoğunluğu": "360", "Anayasa_Değişikliği_Kabul": "400"}}
+{"topic": "Milletvekili", "attributes": {"Seçilme_Yaşı": "18", "Öğrenim_Şartı": "İlkokul", "Askerlik": "İlişiği_Olmayan"}}
+{"topic": "Cumhurbaşkanı", "attributes": {"Seçilme_Yaşı": "40", "Görev_Süresi": "5", "Dönem_Sınırı": "2", "Öğrenim_Şartı": "Yükseköğrenim"}}
+{"topic": "HSK", "attributes": {"Üye_Sayısı": "13", "Başkanı": "Adalet Bakanı", "Görev_Süresi": "4"}}
+{"topic": "Danıştay", "attributes": {"Daire_Sayısı": "10", "Başkanı": "Zeki Yiğit", "Görev_Süresi": "4"}}
+{"topic": "Yargıtay", "attributes": {"Daire_Sayısı": "24", "Başsavcısı": "Muhsin Şentürk"}}

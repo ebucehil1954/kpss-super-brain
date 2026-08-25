@@ -187,8 +187,8 @@
     "name": "Mehmet Eğit",
     "channel": "Mehmet Eğit",
     "lesson": "COGRAFYA",
-    "videos_watched": 1,
-    "total_transcript_words": 90,
+    "videos_watched": 2,
+    "total_transcript_words": 178,
     "teaching_patterns": {
       "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
       "anahtar_kaliplar": []
@@ -196,7 +196,7 @@
     "favorite_topics": [
       {
         "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-        "mention_count": 1
+        "mention_count": 2
       }
     ],
     "mnemonics_used": [],
@@ -204,6 +204,6 @@
     "reasoning_chains_count": 0,
     "unique_facts_count": 0,
     "trap_warnings_count": 0,
-    "updated_at": "2026-08-25T23:22:01.689571"
+    "updated_at": "2026-08-25T23:29:14.844583"
   }
 ]
