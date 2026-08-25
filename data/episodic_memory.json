@@ -1,0 +1,1725 @@
+[
+  {
+    "id": "ep_1787600390872",
+    "timestamp": "2026-08-24T22:39:50.872986",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787600411573",
+    "timestamp": "2026-08-24T22:40:11.573657",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "'1982 Anayasası Yasama ve Karar Yeter Sayıları' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787600427600",
+    "timestamp": "2026-08-24T22:40:27.600397",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Yasama Kurulunda yeter sayıların belirli koşullara bağlı olarak değişmesi",
+        "Anayasa'article'nın belirttiği karar yeter sayısının uygulanışı"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "SAYI",
+          "explanation": "Yasama Kurulunda 'Sayılı' ve 'Sayısız' yeter sayıların hatırlanması için kullanılmış bir akrostiş."
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin karar yeter sayısını belirlerken, yasama kurulunun farklı durumlarda değişen yeter sayıları çelme ihtimali"
+      ],
+      "predicted_question_ideas": [
+        "Yasama Kurulunda belirlenen bir konu için hangi koşullara bağlı olarak yeter sayıların değiştiği sorular"
+      ],
+      "core_facts": [
+        "Anayasa'article'nın belirlediği yasama kurulunun yeter sayısının her durumda uygulanışı",
+        "Yasama Kurulunda belirlenen kararların yeter sayılarının değişkenlik koşulları",
+        "ÖSYM'nin çelme ihtimalleri olan yeter sayıların farklı durumlarda nasıl değiştiği"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787600446647",
+    "timestamp": "2026-08-24T22:40:46.647417",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787600450141",
+    "timestamp": "2026-08-24T22:40:50.141448",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "'1982 Anayasası Yasama ve Karar Yeter Sayıları' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787600460253",
+    "timestamp": "2026-08-24T22:41:00.253409",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Yasama yetkisi ile ilgili yeter sayılarda %50+1 kavramının önemini",
+        "Bakanlar Kurulu kararlarını oluşturan yeter sayı"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "AYT",
+          "explanation": "Anayasa Yeterli Topluluk"
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin %50+1 kavramını karıştırarak çeltirici seçenekler sunma"
+      ],
+      "predicted_question_ideas": [
+        "Yasama yetkisi ile ilgili yeter sayılarda %50+1 kavramının uygulaması ve özel durumlarla ilgili sorular"
+      ],
+      "core_facts": [
+        "Anayasa'da belirtilen yeter sayıların her zaman %50+1 olduğunu unutmamak",
+        "Bakanlar Kurulu'nun kararları için gerekli olan yeter sayıyı ezberlemek"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601107165",
+    "timestamp": "2026-08-24T22:51:47.165175",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601129910",
+    "timestamp": "2026-08-24T22:52:09.910112",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "'1982 Anayasası Yasama ve Karar Yeter Sayıları' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601154044",
+    "timestamp": "2026-08-24T22:52:34.044777",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+    "summary": "'İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601165574",
+    "timestamp": "2026-08-24T22:52:45.574048",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "'1982 Anayasası Yasama ve Karar Yeter Sayıları' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601177055",
+    "timestamp": "2026-08-24T22:52:57.055148",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "summary": "'Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601180387",
+    "timestamp": "2026-08-24T22:53:00.387542",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "'1982 Anayasası Yasama ve Karar Yeter Sayıları' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601182168",
+    "timestamp": "2026-08-24T22:53:02.168068",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "summary": "'Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601184771",
+    "timestamp": "2026-08-24T22:53:04.771716",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Yasama kurumunda yeter sayı konusundaki özel durumlar",
+        "Anayasa'da belirtilen karar yeter sayısı ile ilgili özel mazeretler"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "YKSY (Yetkin Karar Sayısı Yeter)",
+          "explanation": "Bu kod, Anayasanın belirttiği yetkin karar sayısının yetersiz kalması durumunda ne olacağını hatırlatmak için kullanılır."
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin yeter sayıların özel durumlarda değişiklik gösterdiği konuları çelimsiz hale getirmesi"
+      ],
+      "predicted_question_ideas": [
+        "Anayasanın belirli bir maddeye dayanarak, yasama kurumlarında yeter sayının nasıl hesaplandığını ve özel durumlarda nasıl değiştiği sorusu."
+      ],
+      "core_facts": [
+        "Yasama konseyinde yeter sayı için gereken minimum üye sayısı",
+        "Anayasanın belirttiği yetkin karar verme için gereken en az oy sayısı",
+        "Özel mazeretler durumunda yeter sayının nasıl değiştiği"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601189937",
+    "timestamp": "2026-08-24T22:53:09.937313",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "summary": "Ramazan Yetgin hocanın Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması) ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Ramazan Yetgin",
+      "lesson": "TARIH",
+      "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+      "key_emphasis": [
+        "Islahatların sosyal ve ekonomik etkileri",
+        "Nizam-ı Cedid'in siyasi reformları"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "LADEN",
+          "explanation": "Lale Devri'nin Ana Değişimi Nizam-ı Cedit"
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin kurduğu çeldirici tuzak: Islahatların zaman dilimlerinin karıştırılması"
+      ],
+      "predicted_question_ideas": [
+        "Osmanlı İmparatorluğu'nda Lale Devri ve Nizam-ı Cedit arasındaki temel farklılıklar nelerdir?"
+      ],
+      "core_facts": [
+        "Sınavda ezberlenmesi şart 3 kritik bilgi: Islahatların amacı, uygulama alanları ve sonuçları"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601196405",
+    "timestamp": "2026-08-24T22:53:16.405043",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "summary": "Ramazan Yetgin hocanın Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması) ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Ramazan Yetgin",
+      "lesson": "TARIH",
+      "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+      "key_emphasis": [
+        "İslahatların siyasi, sosyal ve ekonomik boyutlarının ayrıntılı karşılaştırılması",
+        "İslahatların sonuçları ve Osmanlı İmparatorluğu'nun modernleşme süreciyle ilişkisi"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "LDCN (Lale Devri Çelişkiler Nizam-ı Cedit)",
+          "explanation": "Bu akrostiş, Lale Devri'nin çelişkili yönlerini ve Nizam-ı Cedit'in modernleşme çabalarını karşılaştırmak için kullanılıyor."
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin sadece bir islahatın özelliklerini sorarken diğerinin özelliklerini yanıtlarda karıştırması"
+      ],
+      "predicted_question_ideas": [
+        "Osmanlı İmparatorluğu'nda Lale Devri ve Nizam-ı Cedit dönemlerinde uygulanan siyasi reformların karşılaştırılması ve sonuçları hakkında sorular"
+      ],
+      "core_facts": [
+        "Lale Devrindeki sosyal reformların sınırları",
+        "Nizam-ı Cedit'in Osmanlı İmparatorluğu'nun modernleşme sürecindeki rolü",
+        "İslahat dönemlerinin birbirine olan etkileri ve sonuçları"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601202376",
+    "timestamp": "2026-08-24T22:53:22.376894",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Yasama Kurulu'nda yeter sayı için gerekli olan oy miktarı (3/5)",
+        "Bakanlar Kurulu'nun karar verme yetkisi ve yeter sayısı"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "AYT",
+          "explanation": "Anayasa Yeter Talep: AYT ile Yasama Kurulunda 3/5 oy miktarını hatırlamak için kullanılıyor."
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin yeter sayıyı belirlerken kesin sayıda değil, çoğunluk veya azınlık kavramında çelişki kurması"
+      ],
+      "predicted_question_ideas": [
+        "Yasama Kurulunda bir yasayı onaylamak için gerekli olan oy miktarını belirleme sorusu"
+      ],
+      "core_facts": [
+        "Yasama Kurulu'nda yeter sayı 3/5 oyunu gerektiriyor",
+        "Bakanlar Kurulu'nun karar vermesi için azınlık çoğunluğu yeterli olabilir",
+        "Anayasa'daki belirlenen yeter sayılara dikkat etmek önemlidir"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601207742",
+    "timestamp": "2026-08-24T22:53:27.742234",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+    "summary": "Emrah Vahap Özkaraca hocanın İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+      "key_emphasis": [
+        "İdari vesayet ayrımının nedenleri",
+        "Hiyerarşik yapıda yetki sınırları"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "HIYERARŞI",
+          "explanation": "H = Hizmet, I = İletişim, Y = Yetki, E = Etik, R = Rekabet, A = Amac, Ş = Şeffaflık, R = Rol"
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin hiyerarşik yapıyı yanlış anlamaya zorlayacak soruları"
+      ],
+      "predicted_question_ideas": [
+        "İdari vesayet ayrımının nedenleri ve sonuçları hakkında bir senaryo analizi"
+      ],
+      "core_facts": [
+        "Hiyerarşik yapıda yetki ve görevlerin ayrımları",
+        "İdari vesayet ayrımı ile ilgili yasal düzenlemeler",
+        "Hiyerarşik yapıda etkileşim kurma prensipleri"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601211791",
+    "timestamp": "2026-08-24T22:53:31.791809",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601220535",
+    "timestamp": "2026-08-24T22:53:40.535723",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Anayasa'daki yasama yetkisi ve karar verme yetkilerinin belirli bir çoğunlukla sağlanması gereken durumlar.",
+        "Yasama ve karar alma süreçlerinde gerekli olan oy oranlarının detaylı açıklaması."
+      ],
+      "mnemonics_found": [
+        {
+          "code": "AYK",
+          "explanation": "Anayasa Yasama Karar"
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin yasama ve karar alma süreçlerinde belirli oy oranlarının yanıltıcı olarak sunulduğu tuzakları"
+      ],
+      "predicted_question_ideas": [
+        "Yasama sürecinde gerekli olan oy oranının belirlenmesi ve bu oranların farklı durumlarda nasıl değiştiği."
+      ],
+      "core_facts": [
+        "Anayasa'da belirtilen yasama yetkisi için gereken en az oy sayısı",
+        "Bakanlar Kurulu'nun karar verme sürecindeki gerekli oy oranı",
+        "Yüksektribün ve Yüksek Mahkeme Karşılıklı Dava Mahkemesi'nde çoğunluk belirleme"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601236667",
+    "timestamp": "2026-08-24T22:53:56.667837",
+    "event_type": "WEB_RESEARCH",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+    "summary": "'Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri' konusunda canlı web araştırması yapıldı, 0 bilgi hafızaya işlendi.",
+    "confidence_gain": 0.04,
+    "details": {
+      "wiki_count": 0,
+      "news_count": 0
+    }
+  },
+  {
+    "id": "ep_1787601289521",
+    "timestamp": "2026-08-24T22:54:49.521303",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601297323",
+    "timestamp": "2026-08-24T22:54:57.323933",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+    "summary": "Ramazan Yetgin hocanın Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Ramazan Yetgin",
+      "lesson": "COGRAFYA",
+      "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+      "key_emphasis": [
+        "Türkiye'nin en yoğun nüfus merkezleri",
+        "TÜRKİYE İSTATİSTİK KURULU'nun (TÜİK) 2026 yılı demografik tahminler"
+      ],
+      "mnemonics_found": [
+        {
+          "code": "NÜFUS DAĞILIMI",
+          "explanation": "Her harfin bir kelimede temsil ettiği bilgi: N-İstanbul, Ü-İzmir, F-Fatih, U-Umraniye, S-Sarıyer, D-Denizli, A-Ankara, Y-Yalova, M-Mersin"
+        }
+      ],
+      "exam_traps": [
+        "ÖSYM'nin nüfus dağılımını yanlış göstererek çelişkili seçenekler sunma"
+      ],
+      "predicted_question_ideas": [
+        "Türkiye'nin 2026 yılı demografik trendleri hakkında TÜİK tahminlerini sorgulayan bir soru"
+      ],
+      "core_facts": [
+        "İstanbul'da nüfus yoğunluğu, Türkiye'nin en büyük şehirlerindeki nüfus artış hızı, TÜİK'in 2026 yılı demografik tahminleri"
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601444575",
+    "timestamp": "2026-08-24T22:57:24.575360",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601498750",
+    "timestamp": "2026-08-24T22:58:18.750425",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601541758",
+    "timestamp": "2026-08-24T22:59:01.758829",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601565015",
+    "timestamp": "2026-08-24T22:59:25.015009",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601639377",
+    "timestamp": "2026-08-24T23:00:39.377935",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787601696560",
+    "timestamp": "2026-08-24T23:01:36.560804",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787602338907",
+    "timestamp": "2026-08-24T23:12:18.907799",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787602754535",
+    "timestamp": "2026-08-24T23:19:14.535617",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650051011",
+    "timestamp": "2026-08-25T12:27:31.011216",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TARIH",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 2 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650111924",
+    "timestamp": "2026-08-25T12:28:31.924560",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "COGRAFYA",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 2 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650449029",
+    "timestamp": "2026-08-25T12:34:09.029023",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TÜMÜ",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 6 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650453566",
+    "timestamp": "2026-08-25T12:34:13.566137",
+    "event_type": "YOUTUBE_WATCH",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "summary": "Emrah Vahap Özkaraca hocanın 1982 Anayasası Yasama ve Karar Yeter Sayıları ders videosu izlendi, pedagojik zihniyet ve tahminler hafızaya alındı.",
+    "confidence_gain": 0.08,
+    "details": {
+      "teacher_name": "Emrah Vahap Özkaraca",
+      "lesson": "VATANDASLIK",
+      "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+      "key_emphasis": [
+        "Emrah Vahap Özkaraca: 1982 Anayasası Yasama ve Karar Yeter Sayıları konusunda ÖSYM'nin son yıllardaki kronolojik sıralama ve neden-sonuç sorularına dikkat çekmektedir.",
+        "Özellikle mülga kanun terimlerine düşülmemesi ve güncel mevzuata odaklanılması uyarısı yapılmaktadır."
+      ],
+      "mnemonics_found": [
+        {
+          "code": "TAYYAR",
+          "explanation": "Balkan Antantı'na katılan ülkeler (Türkiye, Yunanistan, Yugoslavya, Romanya)"
+        }
+      ],
+      "exam_traps": [
+        "Bulgaristan ve Arnavutluk'un Balkan Antantı'na katılmadığı tuzağı."
+      ],
+      "predicted_question_ideas": [
+        "ÖSYM'nin 1982 Anayasası Yasama ve Karar Yeter Sayıları konusundaki çoklu öncüllü (I-II-III) çıkarım soruları."
+      ],
+      "core_facts": [
+        "1982 Anayasası Yasama ve Karar Yeter Sayıları temel kazanımları ve güncel müfredat sınırları."
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650796072",
+    "timestamp": "2026-08-25T12:39:56.072131",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "TARIH",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 2 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "TARIH",
+          "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+          "probability": 0.92,
+          "rationale": "Ramazan Yetgin ve Mehmet Celal Özyıldız'ın en yüksek frekans verdiği alan; Lale Devri'nde askeri ıslahat olmaması ana çeldiricidir.",
+          "expected_question_type": "ÖNCÜLLÜ_ÇIKARIM / OLUMSUZ_KÖK",
+          "key_focus": "III. Ahmet dönemi matbaa/tulumbacılar vs III. Selim İrad-ı Cedit ve Nizam-ı Cedit ordusu"
+        },
+        {
+          "lesson": "TARIH",
+          "topic": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
+          "probability": 0.89,
+          "rationale": "İkinci Dünya Savaşı öncesi Türkiye'nin sınır güvenliği paktları son 3 sınavda dönüşümlü soruldu.",
+          "expected_question_type": "KRONOLOJİK / EŞLEŞTİRME",
+          "key_focus": "TAYYAR şifresi, Bulgaristan ve Arnavutluk'un katılmama sebebi, Hatay meselesi nedeniyle Suriye'nin Sadabat'ta olmaması"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650857124",
+    "timestamp": "2026-08-25T12:40:57.124404",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "COGRAFYA",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 2 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
+          "probability": 0.93,
+          "rationale": "Bayram Meral'in işaret ettiği üzere maden yatakları ve işleme tesisleri ÖSYM'nin her yıl banko sorduğu konudur.",
+          "expected_question_type": "HARİTA_MEKANSAL / EŞLEŞTİRME",
+          "key_focus": "KADER şifresi (Bakır), Seydişehir (Alüminyum), Guleman (Krom), Seyitgazi/Emet (Bor)"
+        },
+        {
+          "lesson": "COGRAFYA",
+          "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+          "probability": 0.88,
+          "rationale": "TÜİK'in nüfus yoğunluğu en az olan il (Tunceli) ve göç hareketleri KPSS'de doğrudan bilgi sorusudur.",
+          "expected_question_type": "DOĞRUDAN_BİLGİ",
+          "key_focus": "Ortanca yaş artışı, nüfus artış hızı trendleri, tarım dışı istihdam"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787650938187",
+    "timestamp": "2026-08-25T12:42:18.187880",
+    "event_type": "EXAM_PREDICTION",
+    "lesson": "VATANDASLIK",
+    "topic": "Genel KPSS Soru Tahmin Radar",
+    "summary": "KPSS için 2 adet yüksek olasılıklı soru tahmini üretildi.",
+    "confidence_gain": 0.07,
+    "details": {
+      "predictions": [
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+          "probability": 0.94,
+          "rationale": "ÖSYM son 5 yılda her KPSS lisans sınavında en az 1 soru ile TBMM üye tam sayısı ve oranlarını (3/5, 2/3) sormuştur.",
+          "expected_question_type": "SAYISAL_HUKUK / ÖNCÜLLÜ",
+          "key_focus": "Seçim yenileme (360), Anayasa değişikliği teklif (200), Referandumsuz kabul (400)"
+        },
+        {
+          "lesson": "VATANDASLIK",
+          "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+          "probability": 0.91,
+          "rationale": "Emrah Vahap Özkaraca ve Erdal Kesekler hocaların ortak vurgusu: Merkezi idare ile mahalli idareler arası denetim mutlaka sorulmaktadır.",
+          "expected_question_type": "EŞLEŞTİRME / OLUMSUZ_KÖK",
+          "key_focus": "Valinin belediye üzerindeki vesayet denetimi vs bakanın memur üzerindeki hiyerarşik denetimi"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ep_1787652457551",
+    "timestamp": "2026-08-25T13:07:37.551293",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787652457551",
+      "timestamp": "2026-08-25T13:07:37.516184",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787652483595",
+    "timestamp": "2026-08-25T13:08:03.595589",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787652483595",
+      "timestamp": "2026-08-25T13:08:03.571324",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787652494945",
+    "timestamp": "2026-08-25T13:08:14.945919",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787652494945",
+      "timestamp": "2026-08-25T13:08:14.919411",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787652936536",
+    "timestamp": "2026-08-25T13:15:36.536874",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787652936536",
+      "timestamp": "2026-08-25T13:15:36.519506",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 259 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %27. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787653135173",
+    "timestamp": "2026-08-25T13:18:55.173270",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787653135173",
+      "timestamp": "2026-08-25T13:18:55.156450",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "CROSS_CHECK_AND_MINT",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 285 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 285 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787653171494",
+    "timestamp": "2026-08-25T13:19:31.494298",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787653171494",
+      "timestamp": "2026-08-25T13:19:31.471254",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "CROSS_CHECK_AND_MINT",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787653287454",
+    "timestamp": "2026-08-25T13:21:27.454320",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787653287454",
+      "timestamp": "2026-08-25T13:21:27.436213",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "CROSS_CHECK_AND_MINT",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787654463197",
+    "timestamp": "2026-08-25T13:41:03.197383",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "TARIH",
+    "topic": "İlk Türk Devletleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'TARIH - İlk Türk Devletleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787654463197",
+      "timestamp": "2026-08-25T13:41:03.174056",
+      "target_lesson": "TARIH",
+      "target_topic": "İlk Türk Devletleri",
+      "recommended_teacher": "Ramazan Yetgin",
+      "action_type": "CROSS_CHECK_AND_MINT",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29.",
+        "2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %29. | 2. [EKSİK TESPİTİ] 'TARIH' dersinin 'İlk Türk Devletleri' konusunda sadece 2 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Ramazan Yetgin' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: CROSS_CHECK_AND_MINT. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787680194665",
+    "timestamp": "2026-08-25T20:49:54.665338",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'COGRAFYA - Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787680194665",
+      "timestamp": "2026-08-25T20:49:54.657038",
+      "target_lesson": "COGRAFYA",
+      "target_topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+      "recommended_teacher": "Bayram Meral",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1.",
+        "2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1. | 2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787680225476",
+    "timestamp": "2026-08-25T20:50:25.476432",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'COGRAFYA - Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787680225476",
+      "timestamp": "2026-08-25T20:50:25.466467",
+      "target_lesson": "COGRAFYA",
+      "target_topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+      "recommended_teacher": "Bayram Meral",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1.",
+        "2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1. | 2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  },
+  {
+    "id": "ep_1787680252105",
+    "timestamp": "2026-08-25T20:50:52.105071",
+    "event_type": "CONSCIOUS_DECISION_COT",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "summary": "Ajan bilinçli bir akıl yürütme ile 'COGRAFYA - Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunu öğrenme kararı aldı.",
+    "confidence_gain": 0.05,
+    "details": {
+      "decision_id": "dec_1787680252105",
+      "timestamp": "2026-08-25T20:50:52.095583",
+      "target_lesson": "COGRAFYA",
+      "target_topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+      "recommended_teacher": "Bayram Meral",
+      "action_type": "YOUTUBE_DEEP_INGEST",
+      "chain_of_thought": [
+        "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1.",
+        "2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta.",
+        "3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek.",
+        "4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+      ],
+      "rationale": "1. [DURUM BİLİNCİ] Zihin ambarında toplam 287 doğrulanmış bilgi var. Bilişsel olgunluk skoru: %1. | 2. [EKSİK TESPİTİ] 'COGRAFYA' dersinin 'Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri' konusunda sadece 0 kayıt tespit edildi. Bu konu kritik bir kör nokta. | 3. [PEDAGOJİK TERCİH] Bu konuda en yetkin KPSS eğitmeni olarak 'Bayram Meral' hocanın ders anlatımları ve hafıza şifreleri incelenecek. | 4. [EYLEM PLANI] Seçilen Strateji: YOUTUBE_DEEP_INGEST. Transkriptler ve mevzuat ambarı çapraz doğrulanarak kalıcı hafızaya işlenecek."
+    }
+  }
+]

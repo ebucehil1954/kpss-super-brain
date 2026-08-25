@@ -1,0 +1,822 @@
+[
+  {
+    "chain_id": "rc_3dab985e",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama",
+    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+      },
+      {
+        "step": 2,
+        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+      }
+    ],
+    "learned_from": [],
+    "teacher_source": "Emrah Vahap Özkaraca",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-25T13:40:05.197372",
+    "updated_at": "2026-08-25T13:40:05.197372"
+  },
+  {
+    "chain_id": "rc_6127ff4b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama",
+    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+      },
+      {
+        "step": 2,
+        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+      }
+    ],
+    "learned_from": [],
+    "teacher_source": "Emrah Vahap Özkaraca",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:57:08.093110",
+    "updated_at": "2026-08-24T23:57:08.093110"
+  },
+  {
+    "chain_id": "rc_e7c6decb",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Belirli bir olay veya yıl dönemi ile ilgili soruları ilk olarak dikkate al"
+      },
+      {
+        "step": 2,
+        "action": "Çok sık kullanılan kelimeleri ve unvanları doğru şekilde anlama"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:48:08.191810",
+    "updated_at": "2026-08-24T23:48:08.191810"
+  },
+  {
+    "chain_id": "rc_363a6c21",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Savaş taktiklerinin analizi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Savaşın neden olduğu doğal koşullar ve taktiklerin etkilerini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Çin'in ve Hunların stratejiler arasındaki farkları inceleme"
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:48:00.259772",
+    "updated_at": "2026-08-24T23:48:00.259772"
+  },
+  {
+    "chain_id": "rc_9c0f89ab",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun hangi sanat dalına ait olduğunu belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen dalda önemli isimleri düşün"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:47:48.128632",
+    "updated_at": "2026-08-24T23:47:48.128632"
+  },
+  {
+    "chain_id": "rc_7e501904",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar bilgilerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Kesin bilgiye dayalı cevapları seç"
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:47:36.108770",
+    "updated_at": "2026-08-24T23:47:36.108770"
+  },
+  {
+    "chain_id": "rc_805e0f10",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen kelimelere göre verilen bilgileri analiz et"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:47:22.399614",
+    "updated_at": "2026-08-24T23:47:22.399614"
+  },
+  {
+    "chain_id": "rc_5d360173",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgileri kullanarak seçenekleri inceleyin"
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:47:12.069124",
+    "updated_at": "2026-08-24T23:47:12.069124"
+  },
+  {
+    "chain_id": "rc_41a43433",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen kelimelere göre verilen bilgileri kontrol et"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:47:02.095281",
+    "updated_at": "2026-08-24T23:47:02.095281"
+  },
+  {
+    "chain_id": "rc_42420009",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Türk Kelimesi'nin Anlamının Çeşitli Kaynaklarda Karşılaştırılması",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Çin kaynaklarında Türk kelimesinin anlamlarını belirle."
+      },
+      {
+        "step": 2,
+        "action": "Kaşkarlı Mahmut ve İran kaynaklarındaki anlamları karşılaştır."
+      },
+      {
+        "step": 3,
+        "action": "Kültürel bağlamda farklı kaynaklardan gelen bilgileri birleştirerek genel anlam oluştur."
+      },
+      {
+        "step": 4,
+        "action": "Türk kelimesinin zamanla değişen anlamlarını ve bu değişimlerin nedenleri analiz et."
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:46:50.979647",
+    "updated_at": "2026-08-24T23:46:50.979647"
+  },
+  {
+    "chain_id": "rc_7c638a21",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun temelini merkantilizm ve altın alımına dayalı ekonomi olarak belirle"
+      },
+      {
+        "step": 2,
+        "action": "ÖSYM'nin sıklıkla soru aldığı etki faktörlerine dikkat ederek yanıt oluştur"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:46:36.245465",
+    "updated_at": "2026-08-24T23:46:36.245465"
+  },
+  {
+    "chain_id": "rc_f2054d94",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Ramazan Yetgin hocasının soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "ÖSYM'nin genel sınav türlerini ve konularını anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Kesin bilgiye dayalı olarak yanıltıcı seçenekleri eleme"
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:46:17.127542",
+    "updated_at": "2026-08-24T23:46:17.127542"
+  },
+  {
+    "chain_id": "rc_9d41bb26",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen kelimelere göre verilen bilgileri kontrol et"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:45:56.855267",
+    "updated_at": "2026-08-24T23:45:56.855267"
+  },
+  {
+    "chain_id": "rc_4648256c",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar detaylarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen detaylarla ilgili bilgiyi hatırlama"
+      },
+      {
+        "step": 3,
+        "action": "Kronolojik ve neden sonuç ilişkilerini kullanarak çözümü bul"
+      }
+    ],
+    "learned_from": [
+      "yt_l51qG1kx9cY"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:45:39.907740",
+    "updated_at": "2026-08-24T23:45:39.907740"
+  },
+  {
+    "chain_id": "rc_a33f52c1",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun ana hatlarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Bilinen bilgileri kullanarak yanıt oluştur"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:45:26.154093",
+    "updated_at": "2026-08-24T23:45:26.154093"
+  },
+  {
+    "chain_id": "rc_e94bcb30",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun ana hatlarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgileri kullanarak seçenekleri sınıflandır"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:45:11.622349",
+    "updated_at": "2026-08-24T23:45:11.622349"
+  },
+  {
+    "chain_id": "rc_e49de282",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerine odaklan"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgileri kullanarak seçenekleri ele"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:44:59.374027",
+    "updated_at": "2026-08-24T23:44:59.374027"
+  },
+  {
+    "chain_id": "rc_1f0091f7",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Osmanlı'nın İlk Deniz Gücü",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Karesoğulları'nın Osmanlı Devleti tarafından son verilmesini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Bu olayın Osmanlı'nın ilk deniz gücüne erişimi anlamına geldiğini anlama"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:44:51.023240",
+    "updated_at": "2026-08-24T23:44:51.023240"
+  },
+  {
+    "chain_id": "rc_352bdf1b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun temel bilgilerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Egitim sisteminin farklı yönlerini incele"
+      },
+      {
+        "step": 3,
+        "action": "ÖSYM'nin sorması muhtemel konuları belirle"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:44:38.964697",
+    "updated_at": "2026-08-24T23:44:38.964697"
+  },
+  {
+    "chain_id": "rc_2fff5bc7",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Seyfiye ve Ilmiye Gruplarının Tanımlanması",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Osmanlı yöneticilik sınıflarının üç kısma ayrılmasıyla başlayın."
+      },
+      {
+        "step": 2,
+        "action": "Seyfiye grubunun kılıç tutan ve yönetici olacak kişilere verilen isim olduğunu belirleyin."
+      },
+      {
+        "step": 3,
+        "action": "İlmiye grubunun din sınıfı, hukuk ve eğitim sayıyla uğraşan kişilere verildiğini anlayın."
+      },
+      {
+        "step": 4,
+        "action": "Kaz asker teriminin ilmiye sınıfının bir parçası olduğunu belirleyin."
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:44:25.630408",
+    "updated_at": "2026-08-24T23:44:25.630408"
+  },
+  {
+    "chain_id": "rc_1171ad7a",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Milli Mücadele Dönemi ve Kongreler",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun ana hatlarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgileri konulara göre sınıflandır"
+      }
+    ],
+    "learned_from": [
+      "yt_IRfQl2Dq6u8"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:44:09.779966",
+    "updated_at": "2026-08-24T23:44:09.779966"
+  },
+  {
+    "chain_id": "rc_3263327c",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Soru anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen anahtar kelimelere göre verilen bilgiyi analiz et"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:43:59.598884",
+    "updated_at": "2026-08-24T23:43:59.598884"
+  },
+  {
+    "chain_id": "rc_c7f7a3de",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun ana hatlarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Osmanlı Devleti'nde kadıların yetkilerini ve görevlerini hatırlayın"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:43:35.485705",
+    "updated_at": "2026-08-24T23:43:35.485705"
+  },
+  {
+    "chain_id": "rc_5c0e8dcb",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Osmanlı Devleti'nin vergi toplama sistemi ve modern devletler arasındaki benzerlikleri anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Osmanlı Devleti'nin vergi toplama yöntemini anlama"
+      },
+      {
+        "step": 2,
+        "action": "Modern devletlerdeki vergi toplama sistemlerini incelemek"
+      },
+      {
+        "step": 3,
+        "action": "Benzerlikleri ve farklılıkları belirleme"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:43:20.716084",
+    "updated_at": "2026-08-24T23:43:20.716084"
+  },
+  {
+    "chain_id": "rc_b6286d69",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen kelimelere göre verilen bilgileri ilişkilendir"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:43:04.817570",
+    "updated_at": "2026-08-24T23:43:04.817570"
+  },
+  {
+    "chain_id": "rc_2a4beede",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Divan-ı Hümayun'da alınan kararların geçerliliği",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Divan-ı Hümayun'daki kararlara mühimme defterlerinde yer verilir."
+      },
+      {
+        "step": 2,
+        "action": "Son karar genellikle padişahın onayına bağlıdır."
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:42:47.078653",
+    "updated_at": "2026-08-24T23:42:47.078653"
+  },
+  {
+    "chain_id": "rc_b81e83e8",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Enderun'un özelliklerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Verilen seçenekleri dikkatlice inceleyin"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:42:33.826480",
+    "updated_at": "2026-08-24T23:42:33.826480"
+  },
+  {
+    "chain_id": "rc_7cec1119",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen anahtar kelimelere göre verilen bilgileri analiz et"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:42:22.804815",
+    "updated_at": "2026-08-24T23:42:22.804815"
+  },
+  {
+    "chain_id": "rc_72f732a7",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Osmanlı Padişahının Görevlerini Anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Padişahın asıl görevlerini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Sadrazam ve diğer vezirlerin görevleri arasındaki farkları inceleme"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:41:29.227893",
+    "updated_at": "2026-08-24T23:41:29.227893"
+  },
+  {
+    "chain_id": "rc_dd179762",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "TARIH",
+    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "description": "Hocanın soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun ana hatlarını belirle"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgileri dikkatlice incele"
+      }
+    ],
+    "learned_from": [
+      "yt_Ym4F2-VcgF4"
+    ],
+    "teacher_source": "Ramazan Yetgin",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:41:07.805836",
+    "updated_at": "2026-08-24T23:41:07.805836"
+  },
+  {
+    "chain_id": "rc_42b651ae",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama",
+    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+      },
+      {
+        "step": 2,
+        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+      }
+    ],
+    "learned_from": [],
+    "teacher_source": "Emrah Vahap Özkaraca",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:22:49.228023",
+    "updated_at": "2026-08-24T23:22:49.228023"
+  },
+  {
+    "chain_id": "rc_d8476017",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama",
+    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+      },
+      {
+        "step": 2,
+        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+      }
+    ],
+    "learned_from": [],
+    "teacher_source": "Emrah Vahap Özkaraca",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-24T23:22:37.743047",
+    "updated_at": "2026-08-24T23:22:37.743047"
+  }
+]

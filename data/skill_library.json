@@ -1,0 +1,206 @@
+{
+  "SKILL_ELIMINATE_EXTREMES": {
+    "id": "SKILL_ELIMINATE_EXTREMES",
+    "title": "Keskin İfadeleri Eleme Tekniği",
+    "category": "DISTRACTOR_ELIMINATION",
+    "description": "ÖSYM sorularında 'sadece', 'yalnızca', 'hiçbir zaman', 'kesinlikle' gibi keskin ifadeler genellikle yanlıştır.",
+    "steps": [
+      "1. Seçenekteki mutlak/keskin kısıtlayıcı sözcükleri (sadece, asla, yalnızca) tespit et.",
+      "2. İstisnaların varlığını kontrol et.",
+      "3. İstisna varsa seçeneği çeldirici olarak işaretle."
+    ],
+    "examples": []
+  },
+  "SKILL_CHRONOLOGY_ANCHORS": {
+    "id": "SKILL_CHRONOLOGY_ANCHORS",
+    "title": "Tarihsel Çıpa Olaylar ile Kronoloji Çözümü",
+    "category": "QUESTION_SOLVING",
+    "description": "Bilinmeyen olayları 1919 Samsun, 1920 TBMM, 1923 Cumhuriyet ve 1930 Serbest Fırka çıpalarına göre sıralama.",
+    "steps": [
+      "1. Verilen olayları bilinen 4 ana dönüm noktasına yerleştir.",
+      "2. Mantıksal sebep-sonuç bağını kur."
+    ],
+    "examples": []
+  },
+  "SKILL_RAMAZAN_YETGIN_STYLE": {
+    "id": "SKILL_RAMAZAN_YETGIN_STYLE",
+    "title": "Ramazan Yetgin ÖSYM Bakış Açısı Heuristiği",
+    "category": "TEACHER_HEURISTIC",
+    "description": "ÖSYM'nin son yıllarda soru sormadığı ama müfredatta bekleyen ıslahatlar ve ilkler üzerine odaklanma.",
+    "steps": [
+      "1. 'ÖSYM bunu daha önce sormadı ama sorabilir' dediği vurguları filtrele.",
+      "2. Konu anlatımındaki soru tahminlerini vektör bellekle eşleştir."
+    ],
+    "examples": []
+  },
+  "MNEMONIC_SAYI": {
+    "id": "MNEMONIC_SAYI",
+    "title": "Şifre: SAYI (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Yasama Kurulunda 'Sayılı' ve 'Sayısız' yeter sayıların hatırlanması için kullanılmış bir akrostiş.",
+    "steps": [
+      "1. SAYI akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_AYT": {
+    "id": "MNEMONIC_AYT",
+    "title": "Şifre: AYT (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Anayasa Yeter Talep: AYT ile Yasama Kurulunda 3/5 oy miktarını hatırlamak için kullanılıyor.",
+    "steps": [
+      "1. AYT akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_YKSY (Yetkin Karar Sayısı Yeter)": {
+    "id": "MNEMONIC_YKSY (Yetkin Karar Sayısı Yeter)",
+    "title": "Şifre: YKSY (Yetkin Karar Sayısı Yeter) (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Bu kod, Anayasanın belirttiği yetkin karar sayısının yetersiz kalması durumunda ne olacağını hatırlatmak için kullanılır.",
+    "steps": [
+      "1. YKSY (Yetkin Karar Sayısı Yeter) akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_LADEN": {
+    "id": "MNEMONIC_LADEN",
+    "title": "Şifre: LADEN (Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması))",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Lale Devri'nin Ana Değişimi Nizam-ı Cedit",
+    "steps": [
+      "1. LADEN akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Ramazan Yetgin",
+        "lesson": "TARIH",
+        "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)"
+      }
+    ]
+  },
+  "MNEMONIC_LDCN (Lale Devri Çelişkiler Nizam-ı Cedit)": {
+    "id": "MNEMONIC_LDCN (Lale Devri Çelişkiler Nizam-ı Cedit)",
+    "title": "Şifre: LDCN (Lale Devri Çelişkiler Nizam-ı Cedit) (Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması))",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Bu akrostiş, Lale Devri'nin çelişkili yönlerini ve Nizam-ı Cedit'in modernleşme çabalarını karşılaştırmak için kullanılıyor.",
+    "steps": [
+      "1. LDCN (Lale Devri Çelişkiler Nizam-ı Cedit) akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Ramazan Yetgin",
+        "lesson": "TARIH",
+        "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)"
+      }
+    ]
+  },
+  "MNEMONIC_HIYERARŞI": {
+    "id": "MNEMONIC_HIYERARŞI",
+    "title": "Şifre: HIYERARŞI (İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "H = Hizmet, I = İletişim, Y = Yetki, E = Etik, R = Rekabet, A = Amac, Ş = Şeffaflık, R = Rol",
+    "steps": [
+      "1. HIYERARŞI akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı"
+      }
+    ]
+  },
+  "MNEMONIC_AYK": {
+    "id": "MNEMONIC_AYK",
+    "title": "Şifre: AYK (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Anayasa Yasama Karar",
+    "steps": [
+      "1. AYK akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_YK": {
+    "id": "MNEMONIC_YK",
+    "title": "Şifre: YK (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Yasama-Karar, her iki kavramın yeter sayısını hatırlamak için kullanılıyor",
+    "steps": [
+      "1. YK akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_YASAMA": {
+    "id": "MNEMONIC_YASAMA",
+    "title": "Şifre: YASAMA (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Yeter Sayı: Anayasanın %50+1 kavramını hatırlamak için kullanıldı.",
+    "steps": [
+      "1. YASAMA akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  },
+  "MNEMONIC_TAYYAR": {
+    "id": "MNEMONIC_TAYYAR",
+    "title": "Şifre: TAYYAR (1982 Anayasası Yasama ve Karar Yeter Sayıları)",
+    "category": "MNEMONIC_GENERATION",
+    "description": "Balkan Antantı'na katılan ülkeler (Türkiye, Yunanistan, Yugoslavya, Romanya)",
+    "steps": [
+      "1. TAYYAR akrostişini hatırla.",
+      "2. Harfleri ders konusuyla eşleştir."
+    ],
+    "examples": [
+      {
+        "teacher": "Emrah Vahap Özkaraca",
+        "lesson": "VATANDASLIK",
+        "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları"
+      }
+    ]
+  }
+}

@@ -1,0 +1,157 @@
+[
+  {
+    "teacher_id": "emrah_vahap_zkaraca",
+    "name": "Emrah Vahap Özkaraca",
+    "channel": "YouTube",
+    "lesson": "GENEL",
+    "videos_watched": 0,
+    "total_transcript_words": 0,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 0,
+    "unique_facts_count": 0,
+    "trap_warnings_count": 0,
+    "updated_at": "2026-08-24T23:41:03.662999"
+  },
+  {
+    "teacher_id": "ramazan_yetgin",
+    "name": "Ramazan Yetgin",
+    "channel": "Benim Hocam",
+    "lesson": "TARIH",
+    "videos_watched": 10,
+    "total_transcript_words": 42205,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [
+      {
+        "topic": "Atatürk Dönemi İç ve Dış Politika",
+        "mention_count": 2
+      },
+      {
+        "topic": "Milli Mücadele Dönemi ve Kongreler",
+        "mention_count": 1
+      },
+      {
+        "topic": "Osmanlı Kültür ve Medeniyeti",
+        "mention_count": 1
+      },
+      {
+        "topic": "9)   / AGS Tarih   Anadolu Selçuklu Devleti    Ramazan YETGİN",
+        "mention_count": 1
+      },
+      {
+        "topic": "5)   / AGS Tarih   İlk Türk İslam Devletleri    Ramazan Yetgin",
+        "mention_count": 1
+      },
+      {
+        "topic": "14)   / AGS Tarih   Osmanlı Devleti Kültür ve Medeniyeti IV   Ramazan YETGİN",
+        "mention_count": 1
+      },
+      {
+        "topic": "2)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
+        "mention_count": 1
+      },
+      {
+        "topic": "34)   / AGS Tarih   Mondros Ateşkes Antlaşması ve Cemiyetler   Ramazan YETGİN",
+        "mention_count": 1
+      },
+      {
+        "topic": "12)   / AGS Tarih   Osmanlı Devleti Kültür ve Medeniyeti 2   Ramazan YETGİN",
+        "mention_count": 1
+      }
+    ],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 22,
+    "unique_facts_count": 66,
+    "trap_warnings_count": 28,
+    "updated_at": "2026-08-25T13:19:19.188428"
+  },
+  {
+    "teacher_id": "mehmet_celal_zyldz",
+    "name": "Mehmet Celal Özyıldız",
+    "channel": "YouTube",
+    "lesson": "TARIH",
+    "videos_watched": 8,
+    "total_transcript_words": 312,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [
+      {
+        "topic": "TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "Tarih Genel Tekrar Kampı   TEK VİDEO   Tüm Sınavlar   Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "Tarih Genel Tekrar Tek Video / Mehmet Celal Özyıldız",
+        "mention_count": 1
+      },
+      {
+        "topic": "1) Pre Islamic Turkish History   1   Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "Practice Test Solutions   1 ~ Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "Practice Test Solutions   3 ~ Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "80) Tripoli War   Mehmet Celal ÖZYILDIZ",
+        "mention_count": 1
+      },
+      {
+        "topic": "Practice 2 export",
+        "mention_count": 1
+      }
+    ],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 0,
+    "unique_facts_count": 0,
+    "trap_warnings_count": 0,
+    "updated_at": "2026-08-25T13:18:41.458972"
+  },
+  {
+    "teacher_id": "bayram_meral",
+    "name": "Bayram Meral",
+    "channel": "YouTube",
+    "lesson": "COGRAFYA",
+    "videos_watched": 2,
+    "total_transcript_words": 72,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [
+      {
+        "topic": "1)    MEB / AGS Coğrafya   Coğrafyaya Giriş   Bayram Meral",
+        "mention_count": 1
+      },
+      {
+        "topic": "7)    MEB / AGS Coğrafya   Türkiye'de İklim Bilgisi   Sıcaklık   Bayram Meral",
+        "mention_count": 1
+      }
+    ],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 0,
+    "unique_facts_count": 0,
+    "trap_warnings_count": 0,
+    "updated_at": "2026-08-25T13:19:01.743783"
+  }
+]

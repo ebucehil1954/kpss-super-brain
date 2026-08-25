@@ -1,0 +1,80 @@
+{
+  "mines_and_minerals": {
+    "Bor": {
+      "reserves_rank": "Dünyada 1. sırada (%72)",
+      "locations": ["Balıkesir (Bigadiç, Susurluk)", "Bursa (Mustafakemalpaşa)", "Kütahya (Emet)", "Eskişehir (Seyitgazi - Kırka)"],
+      "processing_plant": ["Balıkesir (Bandırma Bor Asit Fabrikası)", "Eskişehir (Kırka)"]
+    },
+    "Boksit (Alüminyum)": {
+      "locations": ["Konya (Seydişehir)", "Antalya (Akseki)", "Gaziantep (İslahiye)", "Muğla (Milas)"],
+      "processing_plant": ["Konya (Seydişehir Alüminyum Tesisleri)"]
+    },
+    "Bakır": {
+      "mnemonic": "KADER (Kastamonu, Artvin, Diyarbakır, Elazığ, Rize)",
+      "locations": ["Artvin (Murgul)", "Kastamonu (Küre)", "Elazığ (Maden)", "Rize (Çayeli)", "Diyarbakır (Ergani)"],
+      "processing_plant": ["Samsun Bakır İşletmeleri (Liman & Ulaşım nedeniyle)", "Artvin (Murgul)"]
+    },
+    "Krom": {
+      "locations": ["Elazığ (Guleman)", "Muğla (Fethiye, Köyceğiz)", "Bursa (Orhaneli)", "Adana (Karsantı)", "Eskişehir (Mihalıççık)"],
+      "processing_plant": ["Elazığ (Ferrokrom Tesisleri)", "Antalya (Ferrokrom Tesisleri)"]
+    },
+    "Demir": {
+      "locations": ["Sivas (Divriği)", "Malatya (Hekimhan, Hasançelebi)", "Balıkesir (Eymir)", "İzmir (Torbalı)", "Kayseri"],
+      "processing_plant": ["Karabük (KARDEMİR - Kömüre yakınlık)", "Zonguldak (ERDEMİR - Ereğli)", "İskenderun (İSDEMİR - Liman & Ulaşım)", "Kırıkkale", "Sivas"]
+    },
+    "Linyit": {
+      "characteristics": "3. Jeolojik Zaman (Tersiyer) oluşumu, Türkiye'nin her bölgesinde yaygın.",
+      "locations": ["Manisa (Soma)", "Kütahya (Tavşanlı, Tunçbilek, Seyitömer)", "Kahramanmaraş (Afşin-Elbistan)", "Muğla (Yatağan, Yeniköy)", "Ankara (Çayırhan)"],
+      "thermal_power_plants": ["Afşin-Elbistan", "Soma", "Yatağan", "Seyitömer", "Tunçbilek", "Çayırhan", "Çatalağzı (Taş Kömürü)"]
+    },
+    "Taş Kömürü": {
+      "characteristics": "1. Jeolojik Zaman (Paleozoik) oluşumu, kalori değeri çok yüksek, demir-çelik sanayisinde enerji kaynağı.",
+      "locations": ["Zonguldak", "Bartın (Amasra)", "Karabük"],
+      "processing_plant": ["Çatalağzı Termik Santrali (Zonguldak)"]
+    },
+    "Doğalgaz": {
+      "locations": ["Kırklareli (Hamitabat)", "Tekirdağ (Hayrabolu)", "Mardin (Çamurlu)", "Karadeniz (Sakarya Gaz Sahası)"],
+      "power_plants": ["Kırklareli (Hamitabat)", "İstanbul (Ambarlı)", "Bursa (Ovaakça)", "İzmir (Aliağa)"]
+    },
+    "Jeotermal": {
+      "locations": ["Denizli (Sarayköy)", "Aydın (Germencik)", "Çanakkale", "Manisa"],
+      "characteristics": "Fay hatlarına bağlı sıcak su buharı enerjisi (Ege Bölgesi 1. sırada)."
+    }
+  },
+  "agriculture_first_places": {
+    "Findik": "Ordu - Giresun (Karadeniz 1. sırada)",
+    "Cay": "Rize - Artvin (Doğu Karadeniz %100)",
+    "İncir": "Aydın (Ege Bölgesi 1. sırada)",
+    "Zeytin": "Manisa - Aydın - Balıkesir (Ege 1. sırada, Akdeniz ve Marmara takip eder)",
+    "Turuncgiller": "Adana - Mersin - Hatay - Antalya (Akdeniz %85+)",
+    "Pamuk": "Şanlıurfa (GAP ile Güneydoğu Anadolu 1. sıraya geçmiştir)",
+    "Bugday_Arpa": "Konya - Ankara (İç Anadolu 1. sırada)",
+    "Misir": "Konya - Adana - Şanlıurfa (Sulama ile İç Anadolu ve GAP öne geçmiştir)",
+    "Ayçiçeği": "Tekirdağ - Edirne (Ergene Havzası / Marmara 1. sırada)",
+    "Kırmızı Mercimek": "Şanlıurfa - Diyarbakır (Güneydoğu Anadolu 1. sırada)",
+    "Yeşil Mercimek": "Yozgat - Çorum (İç Anadolu 1. sırada)"
+  },
+  "landforms_and_geology": {
+    "volcanic_mountains": {
+      "İç Anadolu": ["Erciyes", "Hasan Dağı", "Melendiz", "Karadağ", "Karacadağ"],
+      "Doğu Anadolu": ["Ağrı (Büyük ve Küçük)", "Tendürek", "Süphan", "Nemrut"],
+      "Güneydoğu Anadolu": ["Karacadağ (Kalkan volkan)"],
+      "Ege": ["Kula Volkanları (Türkiye'nin en genç volkanik arazisi)"]
+    },
+    "horst_graben_systems": {
+      "Horstlar (Kırık Dağlar)": ["Kaz Dağı", "Madra Dağı", "Yunt Dağı", "Bozdağlar", "Aydın Dağları", "Menteşe Dağları", "Nur (Amanos) Dağları"],
+      "Grabenler (Çöküntü Ovaları)": ["Bakırçay", "Gediz", "Küçük Menderes", "Büyük Menderes", "Amik Ovası"]
+    }
+  },
+  "demographics_tuik_2026": {
+    "total_population_approx": "85.8 Milyon",
+    "most_populated_province": "İstanbul",
+    "least_populated_province": "Bayburt (veya Tunceli - nüfus yoğunluğu en az olan il Tunceli'dir)",
+    "highest_population_density": "İstanbul (km² başına düşen kişi sayısı en fazla)",
+    "lowest_population_density": "Tunceli (km² başına düşen kişi sayısı en az)",
+    "median_age_trend": "Ortanca yaş sürekli yükselmektedir (Nüfus yaşlanma eğilimindedir).",
+    "population_growth_rate": "Binde 1.1 bandında olup düşüş eğilimindedir.",
+    "urban_rural_ratio": "Şehir nüfusu %93'ün üzerinde, kır nüfusu %7'nin altındadır.",
+    "top_export_industry": "Otomotiv sanayi, kimyevi maddeler, hazır giyim."
+  }
+}

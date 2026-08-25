@@ -1,0 +1,130 @@
+{
+  "balkan antantı": {
+    "code": "TAYYAR",
+    "title": "Balkan Antantı'na Katılan Ülkeler (1934)",
+    "lesson": "TARIH",
+    "topic": "Atatürk Dönemi Dış Politika",
+    "description": "1934 Balkan Antantı'na katılan ve katılmayan devletlerin kodlamasıdır.",
+    "importance": "KRİTİK",
+    "examFrequency": "ÖSYM Sıkça Sorar",
+    "breakdown": [
+      {
+        "letter": "T",
+        "word": "Türkiye (Kurucu üye)"
+      },
+      {
+        "letter": "A",
+        "word": "Arnavutluk (İtalya baskısıyla KATILMADI - Çeldirici)"
+      },
+      {
+        "letter": "Y",
+        "word": "Yunanistan (Katıldı)"
+      },
+      {
+        "letter": "Y",
+        "word": "Yugoslavya (Katıldı)"
+      },
+      {
+        "letter": "A",
+        "word": "Bulgaristan (Revizyonist olduğu için KATILMADI - Çeldirici)"
+      },
+      {
+        "letter": "R",
+        "word": "Romanya (Katıldı)"
+      }
+    ]
+  },
+  "sadabat paktı": {
+    "code": "TİAİ",
+    "title": "Sadabat Paktı'na Katılan Ülkeler (1937)",
+    "lesson": "TARIH",
+    "topic": "Atatürk Dönemi Dış Politika",
+    "description": "İtalya'nın Akdeniz tehdidine karşı Doğu sınırını güvenceye alan pakt.",
+    "importance": "YÜKSEK",
+    "examFrequency": "ÖSYM 3 Yılda Bir Sorar",
+    "breakdown": [
+      {
+        "letter": "T",
+        "word": "Türkiye"
+      },
+      {
+        "letter": "İ",
+        "word": "İran"
+      },
+      {
+        "letter": "A",
+        "word": "Afganistan"
+      },
+      {
+        "letter": "İ",
+        "word": "Irak (Suriye Hatay sorunu nedeniyle KATILMADI)"
+      }
+    ]
+  },
+  "bakır": {
+    "code": "KADER",
+    "title": "Türkiye'nin Önemli Bakır Çıkarım Alanları",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Madenleri",
+    "description": "Bakır madeni yataklarının bulunduğu merkezler.",
+    "importance": "KRİTİK",
+    "examFrequency": "ÖSYM Her Yıl Sorar",
+    "breakdown": [
+      {
+        "letter": "K",
+        "word": "Kastamonu (Küre)"
+      },
+      {
+        "letter": "A",
+        "word": "Artvin (Murgul)"
+      },
+      {
+        "letter": "D",
+        "word": "Diyarbakır (Ergani)"
+      },
+      {
+        "letter": "E",
+        "word": "Elazığ (Maden)"
+      },
+      {
+        "letter": "R",
+        "word": "Rize (Çayeli)"
+      }
+    ]
+  },
+  "rüzgarlar": {
+    "code": "KAYIP SAKAL",
+    "title": "Türkiye'yi Etkileyen Yerel Rüzgarlar",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye İklimi",
+    "description": "Kuzeyden ve güneyden esen yerel rüzgarların yön sıralaması.",
+    "importance": "TEMEL",
+    "examFrequency": "ÖSYM Klasik Soru Tipi",
+    "breakdown": [
+      {
+        "letter": "K",
+        "word": "Karayel (Kuzeybatı)"
+      },
+      {
+        "letter": "Y",
+        "word": "Yıldız (Kuzey)"
+      },
+      {
+        "letter": "P",
+        "word": "Poyraz (Kuzeydoğu)"
+      },
+      {
+        "letter": "S",
+        "word": "Samyeli / Keşişleme (Güneydoğu)"
+      },
+      {
+        "letter": "K",
+        "word": "Kıble (Güney)"
+      },
+      {
+        "letter": "L",
+        "word": "Lodos (Güneybatı)"
+      }
+    ]
+  }
+}

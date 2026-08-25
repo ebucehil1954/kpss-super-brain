@@ -1,0 +1,36 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+env/
+venv/
+ENV/
+
+# Databases & ChromaDB Vector Files
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+data/chroma_db/
+data/audio_downloads/
+data/uploads/
+
+# Dynamic transcript cache (re-fetched/cached dynamically)
+data/transcripts/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env

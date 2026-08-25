@@ -1,0 +1,91 @@
+{
+  "valid_laws": {
+    "1982 Anayasası": {
+      "full_name": "Türkiye Cumhuriyeti Anayasası",
+      "law_number": "2709",
+      "key_articles": {
+        "m. 2": "Türkiye Cumhuriyeti, toplumun huzuru, millî dayanışma ve adalet anlayışı içinde, insan haklarına saygılı, Atatürk milliyetçiliğine bağlı, başlangıçta belirtilen temel ilkelere dayanan, demokratik, lâik ve sosyal bir hukuk Devletidir.",
+        "m. 6": "Egemenlik, kayıtsız şartsız Milletindir. Türk Milleti, egemenliğini, Anayasanın koyduğu esaslara göre, yetkili organları eliyle kullanır.",
+        "m. 7": "Yasama yetkisi Türk Milleti adına Türkiye Büyük Millet Meclisinindir. Bu yetki devredilemez.",
+        "m. 8": "Yürütme yetkisi ve görevi, Cumhurbaşkanı tarafından, Anayasaya ve kanunlara uygun olarak kullanılır ve yerine getirilir.",
+        "m. 9": "Yargı yetkisi, Türk Milleti adına bağımsız ve tarafsız mahkemelerce kullanılır.",
+        "m. 75": "TBMM üye tamsayısı 600 milletvekilidir.",
+        "m. 76": "18 yaşını dolduran her Türk vatandaşı milletvekili seçilebilir. En az ilkokul mezunu olma şartı aranır. Askerlikle ilişiği olanlar aday olamaz.",
+        "m. 77": "TBMM ve Cumhurbaşkanlığı seçimleri 5 yılda bir aynı gün yapılır.",
+        "m. 83": "Yasama dokunulmazlığı ve yasama sorumsuzluğu. Sorumsuzluk mutlak ve süreklidir; dokunulmazlık nisbidir, Meclis kararıyla kaldırılabilir.",
+        "m. 85": "Milletvekilliğinin düşmesi halinde Anayasa Mahkemesine 7 gün içinde iptal başvurusu yapılabilir; AYM 15 gün içinde kesin karara bağlar.",
+        "m. 87": "TBMM'nin görev ve yetkileri: Kanun koymak, değiştirmek, kaldırmak; bütçe ve kesinhesap kanun tekliflerini görüşmek ve kabul etmek; para basılmasına ve savaş ilanına karar vermek; milletlerarası antlaşmaların onaylanmasını uygun bulmak; genel ve özel af ilanına üye tamsayısının 3/5 çoğunluğu (360 MV) ile karar vermek.",
+        "m. 88": "Kanun teklif etmeye sadece milletvekilleri yetkilidir (Kanun tasarısı 2017'de kaldırılmıştır; Bakanlar Kurulu veya Başbakan kanun teklif edemez). Bütçe kanun teklifini ise sadece Cumhurbaşkanı sunar.",
+        "m. 93": "TBMM her yıl Ekim ayının ilk günü kendiliğinden toplanır. Bir yasama yılında en çok 3 ay tatil yapabilir.",
+        "m. 94": "TBMM Başkanlık Divanı: TBMM Başkanı, Başkanvekilleri, Katip Üyeler ve İdare Amirlerinden oluşur. Başkanlık için 4 turlu seçim yapılır (1. tur 400, 2. tur 400, 3. tur 301, 4. tur en çok oy alan).",
+        "m. 96": "TBMM, yapacağı seçimler dahil bütün işlerinde üye tamsayısının en az üçte biriyle (200 milletvekili) toplanır. TBMM, Anayasada başkaca bir hüküm yoksa toplantıya katılanların salt çoğunluğu ile karar verir; ancak karar yeter sayısı hiçbir şekilde üye tamsayısının dörtte birinin bir fazlasından (151 milletvekili) az olamaz.",
+        "m. 101": "Cumhurbaşkanı 40 yaşını doldurmuş, yükseköğrenim görmüş, milletvekili seçilme yeterliğine sahip Türk vatandaşları arasından, doğrudan halk tarafından seçilir. Görev süresi 5 yıldır. Bir kimse en fazla iki defa Cumhurbaşkanı seçilebilir. Siyasi parti grupları, en son yapılan genel seçimlerde geçerli oyların tek başına veya birlikte en az %5'ini almış olan siyasi partiler ile en az 100.000 seçmen aday gösterebilir.",
+        "m. 104": "Cumhurbaşkanı Devletin başıdır. Yürütme yetkisi Cumhurbaşkanına aittir. Cumhurbaşkanlığı Kararnamesi (CBK) çıkarabilir. Kanunda açıkça düzenlenen konularda CBK çıkarılamaz. Temel haklar, kişi hakları ve siyasi haklar CBK ile düzenlenemez.",
+        "m. 106": "Cumhurbaşkanı yardımcıları ve bakanlar, Cumhurbaşkanı tarafından atanır ve görevden alınır. Milletvekili iken bakan atananların milletvekilliği sona erer.",
+        "m. 116": "TBMM, üye tamsayısının 3/5 çoğunluğuyla (360 milletvekili) seçimlerin yenilenmesine karar verebilir. Cumhurbaşkanı da dilediği zaman seçimlerin yenilenmesine karar verebilir.",
+        "m. 119": "Cumhurbaşkanı, olağanüstü hal (OHAL) ilan edebilir. OHAL süresi bir defada 6 ayı geçemez. TBMM, Cumhurbaşkanının talebiyle bu süreyi her defasında 4 ayı geçmemek üzere uzatabilir.",
+        "m. 146": "Anayasa Mahkemesi 15 üyeden kurulur. Üyelerin 3'ünü TBMM (2 Sayıştay, 1 Baro başkanları), 12'sini Cumhurbaşkanı seçer. Üyeler 12 yıl için seçilir ve 65 yaşını doldurunca emekliye ayrılır.",
+        "m. 148": "Bireysel başvuru: Herkes, Anayasada güvence altına alınmış temel hak ve özgürlüklerinden AİHS kapsamındakilerin ihlal edildiği iddiasıyla AYM'ye başvurabilir.",
+        "m. 154": "Yargıtay, adliye mahkemelerince verilen karar ve hükümlerin son inceleme merciidir. Üyelerini HSK seçer.",
+        "m. 155": "Danıştay, idari mahkemelerce verilen kararların son inceleme merciidir. Üyelerinin 3/4'ünü HSK, 1/4'ünü Cumhurbaşkanı seçer.",
+        "m. 158": "Uyuşmazlık Mahkemesi adli ve idari yargı mercileri arasındaki görev ve hüküm uyuşmazlıklarını kesin olarak çözer. Başkanını AYM kendi üyeleri arasından seçer.",
+        "m. 159": "Hâkimler ve Savcılar Kurulu (HSK) 13 üyeden oluşur; iki daire halinde çalışır. Kurulun Başkanı Adalet Bakanıdır. Adalet Bakanlığı İlgili Bakan Yardımcısı tabii üyedir. Üyelerin 4'ünü Cumhurbaşkanı, 7'sini TBMM seçer. Görev süresi 4 yıldır.",
+        "m. 160": "Sayıştay, merkezi yönetim bütçesi kapsamındaki kamu idareleri ile sosyal güvenlik kurumlarının bütün gelir ve giderleri ile mallarını TBMM adına denetler. Sayıştay bir yüksek mahkeme değildir, hesap yargısı yapar.",
+        "m. 175": "Anayasa değişikliği teklifi için üye tamsayısının en az 1/3'ü (200 milletvekili) gerekir. Kabul için en az 3/5 (360 milletvekili) gerekir. 360-399 arası oy alan değişiklikler Cumhurbaşkanınca zorunlu referanduma sunulur. 400 ve üzeri (2/3) oy alanlar doğrudan yayımlanabilir veya isteğe bağlı referanduma sunulabilir."
+      }
+    },
+    "657 Sayılı Devlet Memurları Kanunu": {
+      "full_name": "Devlet Memurları Kanunu",
+      "law_number": "657",
+      "key_rules": {
+        "adaylik_suresi": "Aday memurluk süresi 1 yıldan az, 2 yıldan çok olamaz.",
+        "disiplin_cezalari": ["Uyarma", "Kınama", "Aylıktan Kesme (1/30 - 1/8)", "Kademe İlerlemesinin Durdurulması (1 - 3 yıl)", "Devlet Memurluğundan Çıkarma"],
+        "memurluktan_cikarma_yetkisi": "Yüksek Disiplin Kurulu tarafından verilir.",
+        "savunma_hakki": "7 günden az olmamak üzere savunma süresi verilmeden disiplin cezası verilemez.",
+        "yillik_izin": "Hizmeti 1 yıldan 10 yıla kadar olan memurlar için 20 gün, 10 yıldan fazla olanlar için 30 gündür.",
+        "istihdam_turleri": "Memur (4/A), Sözleşmeli Personel (4/B), İşçi (4/D). (Geçici Personel 4/C kaldırılmıştır)."
+      }
+    },
+    "5442 Sayılı İl İdaresi Kanunu": {
+      "full_name": "İl İdaresi Kanunu",
+      "law_number": "5442",
+      "key_rules": {
+        "vali": "İlde devletin ve Cumhurbaşkanının temsilcisidir. Yetki genişliği ilkesine sahiptir. Cumhurbaşkanı Kararı ile atanır.",
+        "kaymakam": "İlçede sadece Cumhurbaşkanının temsilcisidir. Yetki genişliği yetkisi YOKTUR. Cumhurbaşkanı Onayı ile atanır.",
+        "il_kurulusu": "İl ve ilçelerin kurulması, kaldırılması, adlarının değiştirilmesi KANUN ile olur.",
+        "bucak_koy": "Bucak kurulması İdari Kararla, Köy kurulması İçişleri Bakanlığı kararıyla olur."
+      }
+    },
+    "5393 Sayılı Belediye Kanunu": {
+      "full_name": "Belediye Kanunu",
+      "law_number": "5393",
+      "key_rules": {
+        "nufus_kriteri": "Nüfusu 5.000 ve üzeri olan yerleşim yerlerinde belediye kurulabilir. İl ve ilçe merkezlerinde nüfusa bakılmaksızın belediye kurulması zorunludur.",
+        "buyuksehir_nufus": "Büyükşehir belediyesi kurulması için toplam nüfusun en az 750.000 olması ve KANUNLA kurulması şarttır.",
+        "kurulus_usulu": "Belediye Cumhurbaşkanı Kararı ile kurulur.",
+        "organlar": ["Belediye Başkanı (Yürütme)", "Belediye Meclisi (Karar Organı)", "Belediye Encümeni (Danışma & İcra Organı)"],
+        "baskanin_gorevden_uzaklastirilmasi": "İçişleri Bakanı tarafından geçici tedbir olarak görevden uzaklaştırılabilir; kesin görev sonlandırma Danıştay kararıyla olur."
+      }
+    },
+    "2577 Sayılı İdari Yargılama Usulü Kanunu": {
+      "full_name": "İdari Yargılama Usulü Kanunu",
+      "law_number": "2577",
+      "key_rules": {
+        "dava_acma_sureleri": "Danıştay ve İdare Mahkemelerinde 60 gün, Vergi Mahkemelerinde 30 gündür.",
+        "yurutmenin_durdurulmasi": "İdari işlemin uygulanması halinde telafisi güç veya imkânsız zararların doğması ve idari işlemin açıkça hukuka aykırı olması şartlarının birlikte gerçekleşmesi durumunda verilir.",
+        "idari_yargi_mercileri": ["İdare Mahkemesi (İlk Derece)", "Vergi Mahkemesi (İlk Derece)", "Bölge İdare Mahkemesi (İstinaf)", "Danıştay (Temyiz & İlk/Son Derece)"]
+      }
+    }
+  },
+  "forbidden_fake_laws": [
+    "İdare Hukuku Kanunu",
+    "İdare Hukuku Yasası",
+    "Türkiye İdare Kanunu",
+    "İdari Teşkilat Kanunu",
+    "Anayasa Hukuku Kanunu",
+    "Vatandaşlık Kanunnamesi",
+    "Kamu Personeli Kanunu",
+    "Yüksek Seçim Kurulu Kanunnamesi",
+    "Türkiye Cumhuriyeti Yasama Kanunu"
+  ]
+}

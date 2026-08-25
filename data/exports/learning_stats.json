@@ -1,0 +1,19 @@
+{
+  "total_records": 287,
+  "by_lesson": {
+    "COGRAFYA": 33,
+    "TARIH": 222,
+    "VATANDASLIK": 32
+  },
+  "by_type": {
+    "FACT": 174,
+    "MNEMONIC": 30,
+    "TEACHER_INSIGHT": 48,
+    "TRAP": 35
+  },
+  "total_reasoning_chains": 32,
+  "total_teacher_profiles": 4,
+  "exported_at": "2026-08-25T20:50:55.883242",
+  "total_videos_watched": 20,
+  "total_videos_pending": 59
+}

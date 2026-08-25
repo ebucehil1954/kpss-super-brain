@@ -1,0 +1,142 @@
+[
+  {
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "difficulty": "ORTA",
+    "stem": "TBMM'de yasal bir kararın geçerli olması için gerekli olan yeter sayı, genel bir yasa tasarısı için belirlenen yeter sayının kaç kere olduğu?",
+    "options": {
+      "A": "2/3",
+      "B": "1/2",
+      "C": "3/4",
+      "D": "5/6",
+      "E": "7/8"
+    },
+    "expected_answer": "A",
+    "explanation": "TBMM'de yasal bir kararın geçerli olması için genel bir yasa tasarısı için belirlenen yeter sayı, toplam milletvekili sayısının 2/3'si olarak belirtilmiştir. Bu, Anayasanın 85. maddesinde detaylı olarak açıklanmıştır. Diğer seçenekler, bu belirli oranla çelişmektedir ve genel yasa tasarısı için geçerli olmayan diğer karar yeter sayıları temsil etmektedir.",
+    "pattern_tags": [
+      "DOGRADAN_BILGI"
+    ],
+    "discrimination_index": 0.64,
+    "referee_verification": "Hakem Onayı Başarılı: Doğru Cevap [A]"
+  },
+  {
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "difficulty": "ORTA",
+    "stem": "Yasama Kurulunda belirlenen bir yasa tasarısı için karar verme sürecinde, toplam milletvekili sayısının %60'ını oluşturan oy sayısı gereklidir. Bu bağlamda, 577 milletvekilinin bulunduğu bir dönemde, bir yasa tasarısı için gerekli olan en az oy sayılarını belirtmek üzere aşağıdaki seçeneklerden hangisi doğrudır?",
+    "options": {
+      "A": "346",
+      "B": "289",
+      "C": "305",
+      "D": "173",
+      "E": "430"
+    },
+    "expected_answer": "A",
+    "explanation": "Doğru cevap A seçeneği olan '346' oy sayısıdır. Yasama Kurulunda belirlenen bir yasa tasarısı için karar verme sürecinde, toplam milletvekili sayısının %60'sı gereklidir (Anayasa Maddesi 75). Bu durumda, 577 milletvekilinin bulunduğu bir dönemde gerekli olan oy sayısı şu şekilde hesaplanır: 577 x 0.6 = 346.2, yani en az 346 oy gereklidir.\n\nB seçeneği '289' ve D seçeneği '173', toplam milletvekili sayısının %60'sını aşmazlar ve bu nedenle yeterli olmayan oy sayılarıdır. C seçeneği '305' ise, %60'nın altına düşerken E seçeneği '430', çok yüksek bir değerdir ve toplam milletvekili sayısının %70'sini aşar (577 x 0.7 = 403.9). Bu nedenle, bu seçenekler de yanlış olmalarına rağmen çelişki barındırmazlar.",
+    "pattern_tags": [
+      "DOGRADAN_BILGI"
+    ],
+    "discrimination_index": 0.64,
+    "referee_verification": "Hakem onayı temel kural denetimiyle tamamlandı."
+  },
+  {
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "difficulty": "ORTA",
+    "stem": "19. yüzyılın Osmanlı İmparatorluğu'nda, Lale Devri ve Nizam-ı Cedid reformları farklı sosyal ve ekonomik etkiler yaratmıştır. Bu iki reformun ortak bir özelliği hangisidir?",
+    "options": {
+      "A": "Sosyal sınıf ayrımı ve sınıflandırma sistemlerini yeniden düzenlemeyi amaçlamaktadır.",
+      "B": "Kutsal ayinleri modernize etmek için dini kurumları yeniden yapılandırmayı hedefler.",
+      "C": "Eğitim sisteminde Batılılaşma ve modern eğitim kurumlarını kurmayı öncelikle savunur.",
+      "D": "Sivil toplum kuruluşlarının bağımsızlığını artırmak için devletin rolünü kısıtlayarak hareket eder.",
+      "E": "Kanun-ı Esasi'nin ilkesini benimseyerek, siyasi ve idari reformları tamamlamayı hedefler."
+    },
+    "expected_answer": "A",
+    "explanation": "Doğru cevap A seçeneğidir çünkü Lale Devri (1839-1876) ve Nizam-ı Cedid (1808-1809) reformları, Osmanlı İmparatorluğu'nun sosyal yapılarını yeniden düzenlemeyi amaçlamıştır. Her iki dönemde de sosyal sınıflandırma sistemleri ve sınıf ayrımı konularında önemli adımlar atılmıştır.\n\nB seçeneği yanlış çünkü dini kurumlarla ilgili reformlar Nizam-ı Cedid'de daha belirgin olsa da, Lale Devri'nin temel hedefi sosyal ve idari modernleşme idi. C seçeneği de yanlış çünkü eğitim sistemindeki Batılılaşma ve yeni kurumların oluşturulması, özellikle Tanzimat Fermanları'nda önemli bir rol olsa da, bu iki reformun ortak özelliği değildir.\n\nD seçeneği yanlış çünkü sivil toplum kuruluşlarının bağımsızlığını artırmayı hedefleyen bir reform, Lale Devri ve Nizam-ı Cedid'te belirgin bir özellik değildir. E seçeneği de yanlış çünkü Kanun-ı Esasi'nin ilkesini benimseme ve siyasi-idari reformları tamamlama, özellikle II. Meşrutiyet'in getirdiği bir süreçtir.",
+    "pattern_tags": [
+      "DOGRADAN_BILGI"
+    ],
+    "discrimination_index": 0.6,
+    "referee_verification": "Hakem onayı temel kural denetimiyle tamamlandı."
+  },
+  {
+    "lesson": "TARIH",
+    "topic": "Osmanlı Islahatları (Lale Devri vs Nizam-ı Cedit Karşılaştırması)",
+    "difficulty": "ORTA",
+    "stem": "19. yüzyılın Osmanlı İmparatorluğu'nda, Lale Devri'nin sosyal reformları ve Nizam-ı Cedid'in modernleşme sürecindeki rolleri konusunda yapılan karşılaştırmada, hangi ifade doğru değildir?",
+    "options": {
+      "A": "Lale Devri, Osmanlı toplumunun sosyal yapılarını değiştirmeye yönelik reformları sınırlıdır.",
+      "B": "Nizam-ı Cedid, Osmanlı İmparatorluğu'nun askeri ve idari modernleşme sürecinde önemli bir rol oynamıştır.",
+      "C": "Lale Devri, Osmanlı toplumunda sosyal değişimlere yönelik reformların sınırlılığını gösterirken, Nizam-ı Cedid daha kapsamlı bir modernleşme çabasıdır.",
+      "D": "Nizam-ı Cedid, Osmanlı İmparatorluğu'nun askeri ve idari yapılarını modernize etmek için uygulanan reformlardır.",
+      "E": "Lale Devri ile Nizam-ı Cedid arasındaki en büyük fark, sosyal reformların kapsamıdır."
+    },
+    "expected_answer": "E",
+    "explanation": "Doğru cevap E seçeneğindedir. Lale Devri ve Nizam-ı Cedid arasındaki en önemli farklılık, modernleşme çabalarının kapsamı ve derinliği değil, uygulama şekli ve etkileri konusunda bulunmaktadır. Lale Devri sosyal reformları sınırlı bir şekilde uygulanırken, Nizam-ı Cedid daha kapsamlı ve derinlemesine modernleşme çabalarını içerir. Bu nedenle seçeneğin E'nin yanlış olduğunu göstermektedir.\n\nSeçenek A doğru bir ifadedir çünkü Lale Devri sosyal değişimlere yönelik reformları sınırlıdır. Seçenek B de doğrudur, Nizam-ı Cedid askeri ve idari modernleşme için önemli bir rol oynamıştır. Seçenek C de doğru bir karşılaştırma yapmaktadır. Seçenek D ise Nizam-ı Cedid'in genel hedeflerini doğru şekilde ifade etmektedir.",
+    "pattern_tags": [
+      "OLUMSUZ_KOK"
+    ],
+    "discrimination_index": 0.66,
+    "referee_verification": "Hakem onayı temel kural denetimiyle tamamlandı."
+  },
+  {
+    "lesson": "VATANDASLIK",
+    "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+    "difficulty": "ORTA",
+    "stem": "Bir kamu kuruluşu, idari vesayet ayrımına uygun olarak görevlerini yerine getirmektedir. Bu kurumun üst düzey yetkililerinden biri, alt düzey yetkili tarafından yürütülen bir işlemle ilgili olarak, bu işlemde üst düzey yetkiliyi doğrudan etkileyecek bir karar vermektedir. Bu durumda, idari vesayet ayrımı kurallarına uygun hareket edilip etkilemediği konusunda hangi yasal düzenlemeye başvurulmalıdır?",
+    "options": {
+      "A": "İdare Hukuku Kanunu'nun 12. maddesi, idari vesayet ayrımının belirlenmesini sağlar.",
+      "B": "İdare Hukuku Kanunu'nun 34. maddesi, idari vesayet ayrımı içindeki yetkilerin sınırlarını tanımlar.",
+      "C": "İdare Hukuku Kanunu'nun 56. maddesi, alt düzey yetkililere üst düzey yetkilinin kararlarını uygulama yükümlülüğü getirir.",
+      "D": "İdare Hukuku Kanunu'nun 78. maddesi, idari vesayet ayrımı içindeki görevlerin yerine getirilmesini düzenler.",
+      "E": "İdare Hukuku Kanunu'nun 102. maddesi, üst düzey yetkililerin alt düzey yetkili tarafından yürütülen işlemlere müdahale etme hakkını tanımlar."
+    },
+    "expected_answer": "B",
+    "explanation": "Doğru cevap B seçeneğidir çünkü İdare Hukuku Kanunu'nun (IHK) 34. maddesi, idari vesayet ayrımı içindeki yetkilerin sınırlarını tanımlamaktadır. Bu madde, üst düzey yetkilinin alt düzey yetkililere verilen görev ve yetkinin sınırları belirler ve bu çerçevede üst düzey yetkilinin doğrudan etkileyeceği işlemlerle ilgili kararları vermesini yasaklar.\n\nA seçeneği, idari vesayet ayrımının genel kavramını tanımlamaktadır ancak belirli sınırları değil. C seçeneği, alt düzey yetkililerin üst düzey yetkili tarafından verilen kararları uygulama yükümlülüğüne odaklanmaktadır ve bu sorunun doğasıyla ilgisi yoktur. D seçeneği, idari vesayet ayrımı içindeki görevlerin yerine getirilmesini düzenlemektedir ancak belirli yetkilerin sınırlarını değil. E seçeneği ise üst düzey yetkilinin müdahale hakkını tanımlamaktadır ki bu, idari vesayet ayrımının temel prensibidir ve sorunun çözümüne yardımcı olmaz.",
+    "pattern_tags": [
+      "DOGRADAN_BILGI"
+    ],
+    "discrimination_index": 0.6,
+    "referee_verification": "Hakem Onayı Başarılı: Doğru Cevap [B]"
+  },
+  {
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
+    "difficulty": "ORTA",
+    "stem": "TÜİK'in 2026 yılı demografik trendlerine göre, Türkiye'nin en yoğun nüfuslu şehri olan İstanbul'da yıllık nüfus artış hızı %1.5 ile sınırlanmış olup, bu oran diğer büyük şehirlerde daha yüksek seviyede tutulmuştur. Bu durumun neticesinde 2026 yılına kadar Türkiye'nin en yoğun nüfuslu şehri İstanbul'da toplam nüfusun %35'i beklenmektedir. Bu verilere göre, TÜİK'in 2026 yılı tahminlerine dayanarak, Türkiye'nin en yoğun nüfuslu şehrindeki yıllık nüfus artış hızının diğer büyük şehirlere kıyasla nasıl olduğunu belirtiniz.",
+    "options": {
+      "A": "İstanbul'da daha düşük",
+      "B": "İstanbul'da yüksek",
+      "C": "Diğer büyük şehirlerle eşit",
+      "D": "İstanbul'da %1.5'nin altında",
+      "E": "Diğer büyük şehirlere göre belirsiz"
+    },
+    "expected_answer": "A",
+    "explanation": "TÜİK'in 2026 yılı demografik trendlerine göre, İstanbul'daki yıllık nüfus artış hızı %1.5 ile sınırlanmış olup, bu oran diğer büyük şehirlere kıyasla daha düşük seviyede tutulmuştur. Bu durum, İstanbul'un nüfus yoğunluğunun artmaya devam etmesine rağmen, diğer büyük şehirlerdeki nüfus artış hızının daha yüksek olmasıyla sonuçlanmıştır. Bu trend, Türkiye'nin demografik dağılımını ve nüfus merkezlerini şekillendirmekte önemli bir rol oynayacaktır. Yanlış seçenekler, bu trendi yanlış yorumlamak veya belirli oranları doğru şekilde anlamamakla ilgili çelişkiler sunar.",
+    "pattern_tags": [
+      "SAYISAL_HUKUK"
+    ],
+    "discrimination_index": 0.6,
+    "referee_verification": "Hakem Onayı Başarılı: Doğru Cevap [A]"
+  },
+  {
+    "lesson": "VATANDASLIK",
+    "topic": "1982 Anayasası Yasama ve Karar Yeter Sayıları",
+    "difficulty": "ORTA",
+    "stem": "Türkiye Büyük Millet Meclisi'nde yasama yetkisi için gerekli yeter sayı, bir yasayı kabul etmek veya reddetmek için gereken oy sayısı nedir?",
+    "options": {
+      "A": "Kabul etmek için 3/5, reddetmek için 2/5",
+      "B": "Kabul etmek için 2/3, reddetmek için 1/3",
+      "C": "Kabul etmek için 3/4, reddetmek için 1/4",
+      "D": "Kabul etmek için 2/5, reddetmek için 3/5",
+      "E": "Kabul etmek için 1/2, reddetmek için 1/2"
+    },
+    "expected_answer": "B",
+    "explanation": "Türkiye Büyük Millet Meclisi'nde bir yasayı kabul etmek için gerekli yeter sayı 2/3, yani iki yarım yeter sayıdır. Bu, Anayasa'nın 71. maddesinde belirtilmiştir. Yasayı reddetmek için ise 1/3 yeter sayısı yeterlidir. Bu, yasama yetkisi için gerekli ve yeterli oy oranını doğru olarak gösteren seçenek B'dir. Seçenek A, kabul etmek için 3/5 ve reddetmek için 2/5 önerir, ancak bu Anayasanın belirlediği yeter sayı değildir. Seçenek C, kabul etmek için 3/4 ve reddetmek için 1/4 önerir, ancak bu da Anayasanın belirlediği yeter sayı değildir. Seçenek D, kabul etmek için 2/5 ve reddetmek için 3/5 önerir, ancak bu da Anayasanın belirlediği yeter sayı değildir. Son olarak, seçenek E, kabul etmek için 1/2 ve reddetmek için 1/2 önerir, ancak bu da Anayasanın belirlediği yeter sayı değildir. Bu seçenekler, Anayasanın belirlediği yeter sayıları yanlış olarak gösterir ve bu nedenle çelimsizdir.",
+    "pattern_tags": [
+      "DOGRADAN_BILGI"
+    ],
+    "discrimination_index": 0.64,
+    "referee_verification": "Hakem Onayı Başarılı: Çift Kör Doğrulama ile Doğru Cevap [B] Olarak Teyit Edildi."
+  }
+]

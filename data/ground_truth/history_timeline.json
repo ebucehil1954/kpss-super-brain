@@ -1,0 +1,102 @@
+{
+  "eras_and_periods": {
+    "Lale Devri": {
+      "start_year": 1718,
+      "end_year": 1730,
+      "start_event": "Pasarofça Antlaşması",
+      "end_event": "Patrona Halil İsyanı",
+      "sultan": "III. Ahmet",
+      "grand_vizier": "Nevşehirli Damat İbrahim Paşa",
+      "key_characteristics": "Batı'nın üstünlüğü ilk kez kabul edilmiştir. İlk geçici elçilikler açılmıştır (Paris - 28 Çelebi Mehmet). İlk özel Türk matbaası kurulmuştur (İbrahim Müteferrika). Çiçek aşısı uygulanmış, Tulumbacılar Ocağı (itfaiye) kurulmuştur.",
+      "strictly_forbidden_facts": [
+        "Lale Devri'nde askeri ıslahat YAPILMAMIŞTIR.",
+        "Lale Devri 19. yüzyıl DEĞİLDİR (18. yüzyıl başıdır).",
+        "Lale Devri Tanzimat dönemi DEĞİLDİR."
+      ]
+    },
+    "I. Mahmut Dönemi": {
+      "start_year": 1730,
+      "end_year": 1754,
+      "key_reforms": "İlk kez Batı tarzı askeri ıslahat yapılmıştır. Humbaracı Ahmet Paşa (Comte de Bonneval) orduda düzenlemeler yapmış ve Kara Mühendishanesi (Hendesehane) kurulmuştur."
+    },
+    "III. Mustafa Dönemi": {
+      "start_year": 1757,
+      "end_year": 1774,
+      "key_reforms": "Baron de Tott sürat topçuları ocağını kurmuştur. Deniz Mühendishanesi (Mühendishane-i Bahr-i Hümayun) temelleri atılmıştır. Esham senetleri (iç borçlanma) hazırlanmıştır."
+    },
+    "I. Abdülhamit Dönemi": {
+      "start_year": 1774,
+      "end_year": 1789,
+      "key_reforms": "Ulufe alım-satımı yasaklanmış, cülus bahşişi kaldırılmıştır. İstihkam Okulu açılmıştır. Yeniçeri sayımı yapılmıştır."
+    },
+    "III. Selim Nizam-ı Cedit": {
+      "start_year": 1789,
+      "end_year": 1807,
+      "sultan": "III. Selim",
+      "end_event": "Kabakçı Mustafa İsyanı",
+      "key_reforms": "Nizam-ı Cedit ordusu kuruldu. İrad-ı Cedit hazinesi oluşturuldu. İlk daimi elçilik Londra'da açıldı (Yusuf Agah Efendi). İlk devlet matbaası (Matbaa-i Amire) kuruldu. Akka Kalesi'nde Cezzar Ahmet Paşa komutasında Napolyon mağlup edildi."
+    },
+    "II. Mahmut Dönemi": {
+      "start_year": 1808,
+      "end_year": 1839,
+      "start_event": "Sened-i İttifak (1808 - Ayanlarla imzalandı)",
+      "key_reforms": "Yeniçeri Ocağı kaldırıldı (Vaka-i Hayriye - 1826). Asakir-i Mansure-i Muhammediye ordusu kuruldu. Divan-ı Hümayun kaldırılarak Heyet-i Vükela (Bakanlıklar) kuruldu. Köy ve mahalle muhtarlıkları oluşturuldu. İlk resmi gazete Takvim-i Vekayi çıkarıldı. İlk nüfus sayımı yapıldı. İlköğretim İstanbul'da zorunlu hale getirildi."
+    },
+    "Tanzimat Dönemi": {
+      "start_year": 1839,
+      "end_year": 1876,
+      "start_event": "Tanzimat Fermanı (Gülhane Hatt-ı Hümayunu - 1839)",
+      "key_events": ["Islahat Fermanı (1856)", "Kırım Savaşı (1853-1856 - İlk dış borç İngiltere'den alındı)"],
+      "sultans": ["Abdülmecit", "Abdülaziz", "V. Murat"]
+    },
+    "I. Meşrutiyet": {
+      "year": 1876,
+      "sultan": "II. Abdülhamit",
+      "key_facts": "İlk Türk anayasası Kanun-ı Esasi ilan edildi. Meclis-i Mebusan ve Meclis-i Ayan açıldı. Çift meclisli sistem kuruldu."
+    },
+    "II. Meşrutiyet": {
+      "year": 1908,
+      "sultan": "II. Abdülhamit",
+      "key_facts": "İttihat ve Terakki Cemiyeti'nin etkisiyle ilan edildi. 1909 Anayasa değişiklikleriyle padişahın yetkileri kısıtlandı, parti kurma hakkı getirildi ve ilk çok partili hayata geçildi."
+    },
+    "Atatürk Dönemi Dış Politika": {
+      "Milletler Cemiyeti Üyeliği": "1932 (İspanya'nın daveti, Yunanistan'ın desteği ile üye olundu)",
+      "Balkan Antantı": "9 Şubat 1934 (Türkiye, Yunanistan, Yugoslavya, Romanya - Şifre: TAYYAR; Bulgaristan ve Arnavutluk KATILMAMIŞTIR)",
+      "Montrö Boğazlar Sözleşmesi": "20 Temmuz 1936 (Boğazlar Komisyonu kaldırıldı, tam Türk egemenliği sağlandı)",
+      "Sadabat Paktı": "8 Temmuz 1937 (Türkiye, İran, Irak, Afganistan - Suriye Hatay sorunu yüzünden KATILMAMIŞTIR)",
+      "Hatay'ın Anavatana Katılması": "1939 (Bağımsız Hatay Cumhuriyeti Cumhurbaşkanı Tayfur Sökmen, Başbakanı Abdurrahman Melek)"
+    },
+    "Milli Mücadele Kronolojisi": [
+      {"event": "Mondros Ateşkes Antlaşması", "date": "30 Ekim 1918"},
+      {"event": "Mustafa Kemal'in Samsun'a Çıkışı", "date": "19 Mayıs 1919"},
+      {"event": "Havza Genelgesi", "date": "28 Mayıs 1919"},
+      {"event": "Amasya Genelgesi", "date": "22 Haziran 1919"},
+      {"event": "Erzurum Kongresi", "date": "23 Temmuz - 7 Ağustos 1919"},
+      {"event": "Sivas Kongresi", "date": "4 - 11 Eylül 1919"},
+      {"event": "Amasya Görüşmeleri", "date": "20 - 22 Ekim 1919"},
+      {"event": "Son Osmanlı Mebusan Meclisi Misakımilli Kabulü", "date": "28 Ocak 1920"},
+      {"event": "İstanbul'un İtilaf Devletlerince Resmen İşgali", "date": "16 Mart 1920"},
+      {"event": "I. TBMM'nin Açılışı", "date": "23 Nisan 1920"},
+      {"event": "Sevr Barış Antlaşması", "date": "10 Ağustos 1920"},
+      {"event": "Gümrü Antlaşması (Ermenistan ile - İlk Askeri & Siyasi Başarı)", "date": "3 Aralık 1920"},
+      {"event": "I. İnönü Muharebesi", "date": "6 - 10 Ocak 1921"},
+      {"event": "1921 Teşkilat-ı Esasiye Kanunu", "date": "20 Ocak 1921"},
+      {"event": "Londra Konferansı", "date": "21 Şubat - 12 Mart 1921"},
+      {"event": "İstiklal Marşı'nın Kabulü", "date": "12 Mart 1921"},
+      {"event": "Moskova Antlaşması (Sovyetler ile - İlk Büyük Avrupa Devleti Tanıdı)", "date": "16 Mart 1921"},
+      {"event": "II. İnönü Muharebesi", "date": "23 Mart - 1 Nisan 1921"},
+      {"event": "Eskişehir-Kütahya Muharebeleri (Tek Yenilgi)", "date": "10 - 24 Temmuz 1921"},
+      {"event": "Tekalif-i Milliye Emirleri", "date": "7 - 8 Ağustos 1921"},
+      {"event": "Sakarya Meydan Muharebesi (Subaylar Savaşı)", "date": "23 Ağustos - 13 Eylül 1921"},
+      {"event": "Kars Antlaşması (Doğu Sınırı Kesinleşti)", "date": "13 Ekim 1921"},
+      {"event": "Ankara Antlaşması (Fransa ile - Güney Cephesi Kapandı, İlk İtilaf Devleti Tanıdı)", "date": "20 Ekim 1921"},
+      {"event": "Büyük Taarruz ve Başkomutanlık Meydan Muharebesi", "date": "26 - 30 Ağustos 1922"},
+      {"event": "Mudanya Ateşkes Antlaşması", "date": "11 Ekim 1922"},
+      {"event": "Saltanatın Kaldırılması", "date": "1 Kasım 1922"},
+      {"event": "Lozan Barış Antlaşması", "date": "24 Temmuz 1923"},
+      {"event": "Ankara'nın Başkent Oluşu", "date": "13 Ekim 1923"},
+      {"event": "Cumhuriyetin İlanı", "date": "29 Ekim 1923"},
+      {"event": "Halifeliğin Kaldırılması & Tevhid-i Tedrisat & Şeriye-Evkaf İlgası", "date": "3 Mart 1924"}
+    ]
+  }
+}
