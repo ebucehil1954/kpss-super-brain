@@ -16,6 +16,8 @@ from generators.mnemonic_engine import mnemonic_engine
 from generators.flashcard_generator import flashcard_generator
 from brain.episodic_memory import episodic_memory
 
+from loguru import logger
+
 class ContinuousLearningLoop:
     OUTPUTS_DIR = str(super_brain_config.OUTPUTS_DIR)
 
@@ -23,13 +25,15 @@ class ContinuousLearningLoop:
     def _save_json(cls, filename: str, new_data: Any) -> str:
         os.makedirs(cls.OUTPUTS_DIR, exist_ok=True)
         filepath = os.path.join(cls.OUTPUTS_DIR, filename)
+        tmp_filepath = filepath + ".tmp"
         
         existing_data = []
         if os.path.exists(filepath):
             try:
                 with open(filepath, "r", encoding="utf-8") as f:
                     existing_data = json.load(f)
-            except Exception:
+            except Exception as e:
+                logger.error(f"Hata: {filepath} dosyası okunurken hata oluştu: {e}", exc_info=True)
                 existing_data = []
                 
         if isinstance(new_data, list):
@@ -37,8 +41,18 @@ class ContinuousLearningLoop:
         elif new_data is not None:
             existing_data.append(new_data)
             
-        with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(existing_data, f, ensure_ascii=False, indent=2)
+        try:
+            with open(tmp_filepath, "w", encoding="utf-8") as f:
+                json.dump(existing_data, f, ensure_ascii=False, indent=2)
+            os.replace(tmp_filepath, filepath)
+        except Exception as e:
+            logger.error(f"Hata: {filepath} dosyası atomik olarak kaydedilirken hata oluştu: {e}", exc_info=True)
+            if os.path.exists(tmp_filepath):
+                try:
+                    os.remove(tmp_filepath)
+                except Exception:
+                    pass
+            raise
             
         return filepath
 
