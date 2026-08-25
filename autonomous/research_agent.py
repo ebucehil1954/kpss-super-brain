@@ -115,6 +115,7 @@ class ResearchAgent:
     ) -> Dict[str, Any]:
         """
         Tam otonom, durum makineli (stateful), döngüsel gap-tamamlayıcı araştırma motoru.
+        Hard Invariant: COMPLETED yalnızca ve yalnızca CompletionEvaluator.approved == True olduğunda atanabilir.
         """
         research_id = f"res_{hashlib.sha256(f'{lesson}:{topic}:{datetime.now().isoformat()}'.encode()).hexdigest()[:12]}"
         concepts = target_concepts or [f"{topic} Temel İlkeleri", f"{topic} Sınav Tuzakları", f"{topic} Yargı Kararları"]
@@ -137,161 +138,172 @@ class ResearchAgent:
         is_completed = False
         final_status = "FAILED"
 
-        while iteration < cls.MAX_ITERATIONS and not is_completed:
-            iteration += 1
+        try:
+            while iteration < cls.MAX_ITERATIONS and not is_completed:
+                iteration += 1
 
-            # 1. PLANLAMA (Planning)
-            prev_state = job.state
-            job.state = ResearchJobState.PLANNING
-            job.updated_at = datetime.now().isoformat()
-            cls._save_job_state(job)
-            cls._log_event(research_id, f"PLAN_GENERATED_ITER_{iteration}", prev_state, ResearchJobState.PLANNING, {
-                "iteration": iteration,
-                "strategy": f"Iterasyon {iteration}: Hedefli video taraması ve resmî mevzuat çapraz doğrulaması"
-            })
-
-            # 2. KEŞİF (Discovering Sources)
-            job.state = ResearchJobState.DISCOVERING
-            cls._save_job_state(job)
-            
-            # Arama sorgusu: İterasyon 1'de ana konu; sonraki iterasyonlarda eksik kavramlar (Gap Queries)
-            search_query = topic if iteration == 1 else f"{topic} {concepts[(iteration - 1) % len(concepts)]}"
-            yt_search_res = await tool_registry.execute("youtube_search", {"topic": search_query, "lesson": lesson, "limit": 4})
-            discovered_raw = yt_search_res.get("output", {}).get("videos", []) if yt_search_res.get("success") else []
-            
-            # Mükerrer Video Filtreleme (P0-05)
-            new_videos = [v for v in discovered_raw if v.get("video_id") and v.get("video_id") not in seen_video_ids]
-            for v in new_videos:
-                seen_video_ids.add(v["video_id"])
-
-            job.discovered_sources_count += len(new_videos)
-            cls._log_event(research_id, "SOURCES_DISCOVERED", ResearchJobState.PLANNING, ResearchJobState.DISCOVERING, {
-                "search_query": search_query,
-                "videos_found": len(new_videos),
-                "iteration": iteration
-            })
-
-            # 3. TRANSKRİPT VE KANIT TOPLAMA (Acquiring & Extracting)
-            job.state = ResearchJobState.ACQUIRING
-            cls._save_job_state(job)
-
-            for v in new_videos:
-                vid = v.get("video_id")
-                teacher = v.get("teacher_name", "Genel")
-                if not vid:
-                    continue
-
-                t_res = await tool_registry.execute("transcript_fetch", {"video_id": vid})
-                if t_res.get("success") and t_res.get("output", {}).get("text"):
-                    job.ingested_sources_count += 1
-                    unique_teachers.add(teacher)
-                    full_text = t_res["output"]["text"]
-                    
-                    # Atomik Claim Çıkarımı
-                    from senses.transcript_processor import transcript_processor
-                    proc = await transcript_processor.process_video_transcript(
-                        video_id=vid,
-                        title=v.get("title", topic),
-                        teacher_name=teacher,
-                        lesson=lesson,
-                        topic=topic,
-                        full_transcript=full_text,
-                        segments=t_res["output"].get("segments", [])
-                    )
-                    
-                    # Claim Deduplication (P0-06)
-                    for c_dict in proc.get("claims", []):
-                        c_id = c_dict.get("claim_id")
-                        if c_id and c_id not in claims_by_id:
-                            claims_by_id[c_id] = c_dict
-                            job.extracted_claims_count += 1
-
-            # 4. RESMİ MEVZUAT VE BİREYSEL CLAIM DOĞRULAMA (Verifying per claim)
-            job.state = ResearchJobState.VERIFYING
-            cls._save_job_state(job)
-
-            mevzuat_res = await tool_registry.execute("official_mevzuat_search", {"query": f"{lesson} {topic}", "topic": topic})
-            mevzuat_text = mevzuat_res.get("output", {}).get("text", "") if mevzuat_res.get("success") else ""
-            if mevzuat_text:
-                m_cid = f"claim_mevzuat_{hashlib.sha256(mevzuat_text[:100].encode()).hexdigest()[:10]}"
-                if m_cid not in claims_by_id:
-                    claims_by_id[m_cid] = {
-                        "claim_id": m_cid,
-                        "text": f"{topic}: {mevzuat_text[:300]}",
-                        "lesson": lesson,
-                        "topic": topic,
-                        "source": "Resmî Mevzuat / Mevzuat.gov.tr"
-                    }
-                    job.extracted_claims_count += 1
-
-            all_claims_list = list(claims_by_id.values())
-            verified_count = 0
-            for c_obj in all_claims_list:
-                v_res = fact_checker.verify_claim(c_obj)
-                if v_res.is_valid:
-                    verified_count += 1
-
-            job.verified_claims_count = verified_count
-
-            # 5. ÇELİŞKİ TESPİTİ VE ÇÖZÜMÜ (Comparing & Contradictions on real claims)
-            job.state = ResearchJobState.COMPARING
-            cls._save_job_state(job)
-
-            contradictions = contradiction_engine.detect_and_resolve_contradictions(lesson, topic, all_claims_list)
-            job.contradictions_count = len(contradictions)
-
-            # 6. EKSİK ANALİZİ VE DETERMINISTIK HAKİMİYET HESAPLAMA (Gap Analysis & Mastery)
-            job.state = ResearchJobState.GAP_ANALYSIS
-            cls._save_job_state(job)
-
-            mastery_data = curriculum_matrix.calculate_deterministic_mastery(topic)
-            calculated_mastery = mastery_data.get("overall_mastery", 0.0)
-            job.mastery_score = calculated_mastery
-
-            # Gerçek Çözümlenmemiş Çelişki Sayısı (P0-02)
-            unresolved = contradiction_engine.count_unresolved_high_severity(lesson, topic)
-
-            # Completion Evaluator Kararı
-            eval_res = CompletionEvaluator.evaluate(job, mastery_data, unresolved_contradictions=unresolved)
-            
-            if eval_res["approved"]:
-                job.state = ResearchJobState.COMPLETED
-                job.completed_at = datetime.now().isoformat()
-                final_status = "COMPLETED"
-                is_completed = True
-            elif iteration < cls.MAX_ITERATIONS:
-                # Eksikleri Gerçek Arama ile Tamamlama Adımı (P0-04: RESEARCHING_GAPS)
-                job.state = ResearchJobState.RESEARCHING_GAPS
+                # 1. PLANLAMA (Planning)
+                prev_state = job.state
+                job.state = ResearchJobState.PLANNING
+                job.updated_at = datetime.now().isoformat()
                 cls._save_job_state(job)
-                cls._log_event(research_id, "RESEARCHING_GAPS_TRIGGERED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.RESEARCHING_GAPS, {
+                cls._log_event(research_id, f"PLAN_GENERATED_ITER_{iteration}", prev_state, ResearchJobState.PLANNING, {
                     "iteration": iteration,
-                    "target_gap_concept": concepts[iteration % len(concepts)],
-                    "reasons": eval_res.get("reasons", [])
+                    "strategy": f"Iterasyon {iteration}: Hedefli video taraması ve resmî mevzuat çapraz doğrulaması"
+                })
+
+                # 2. KEŞİF (Discovering Sources)
+                job.state = ResearchJobState.DISCOVERING
+                cls._save_job_state(job)
+                
+                # Arama sorgusu: İterasyon 1'de ana konu; sonraki iterasyonlarda eksik kavramlar (Gap Queries)
+                search_query = topic if iteration == 1 else f"{topic} {concepts[(iteration - 1) % len(concepts)]}"
+                yt_search_res = await tool_registry.execute("youtube_search", {"topic": search_query, "lesson": lesson, "limit": 4})
+                discovered_raw = yt_search_res.get("output", {}).get("videos", []) if yt_search_res.get("success") else []
+                
+                # Mükerrer Video Filtreleme (P0-05)
+                new_videos = [v for v in discovered_raw if v.get("video_id") and v.get("video_id") not in seen_video_ids]
+                for v in new_videos:
+                    seen_video_ids.add(v["video_id"])
+
+                job.discovered_sources_count += len(new_videos)
+                cls._log_event(research_id, "SOURCES_DISCOVERED", ResearchJobState.PLANNING, ResearchJobState.DISCOVERING, {
+                    "search_query": search_query,
+                    "videos_found": len(new_videos),
+                    "iteration": iteration
+                })
+
+                # 3. TRANSKRİPT VE KANIT TOPLAMA (Acquiring & Extracting)
+                job.state = ResearchJobState.ACQUIRING
+                cls._save_job_state(job)
+
+                for v in new_videos:
+                    vid = v.get("video_id")
+                    teacher = v.get("teacher_name", "Genel")
+                    if not vid:
+                        continue
+
+                    t_res = await tool_registry.execute("transcript_fetch", {"video_id": vid})
+                    if t_res.get("success") and t_res.get("output", {}).get("text"):
+                        job.ingested_sources_count += 1
+                        unique_teachers.add(teacher)
+                        full_text = t_res["output"]["text"]
+                        
+                        # Atomik Claim Çıkarımı
+                        from senses.transcript_processor import transcript_processor
+                        proc = await transcript_processor.process_video_transcript(
+                            video_id=vid,
+                            title=v.get("title", topic),
+                            teacher_name=teacher,
+                            lesson=lesson,
+                            topic=topic,
+                            full_transcript=full_text,
+                            segments=t_res["output"].get("segments", [])
+                        )
+                        
+                        # Claim Deduplication (P0-06)
+                        for c_dict in proc.get("claims", []):
+                            c_id = c_dict.get("claim_id")
+                            if c_id and c_id not in claims_by_id:
+                                claims_by_id[c_id] = c_dict
+                                job.extracted_claims_count += 1
+
+                # 4. RESMİ MEVZUAT VE BİREYSEL CLAIM DOĞRULAMA (Verifying per claim)
+                job.state = ResearchJobState.VERIFYING
+                cls._save_job_state(job)
+
+                mevzuat_res = await tool_registry.execute("official_mevzuat_search", {"query": f"{lesson} {topic}", "topic": topic})
+                mevzuat_text = mevzuat_res.get("output", {}).get("text", "") if mevzuat_res.get("success") else ""
+                if mevzuat_text:
+                    m_cid = f"claim_mevzuat_{hashlib.sha256(mevzuat_text[:100].encode()).hexdigest()[:10]}"
+                    if m_cid not in claims_by_id:
+                        claims_by_id[m_cid] = {
+                            "claim_id": m_cid,
+                            "text": f"{topic}: {mevzuat_text[:300]}",
+                            "lesson": lesson,
+                            "topic": topic,
+                            "source": "Resmî Mevzuat / Mevzuat.gov.tr"
+                        }
+                        job.extracted_claims_count += 1
+
+                all_claims_list = list(claims_by_id.values())
+                verified_count = 0
+                for c_obj in all_claims_list:
+                    v_res = fact_checker.verify_claim(c_obj)
+                    if v_res.is_valid:
+                        verified_count += 1
+
+                job.verified_claims_count = verified_count
+
+                # 5. ÇELİŞKİ TESPİTİ VE ÇÖZÜMÜ (Comparing & Contradictions on real claims)
+                job.state = ResearchJobState.COMPARING
+                cls._save_job_state(job)
+
+                contradictions = contradiction_engine.detect_and_resolve_contradictions(lesson, topic, all_claims_list)
+                job.contradictions_count = len(contradictions)
+
+                # 6. EKSİK ANALİZİ VE DETERMINISTIK HAKİMİYET HESAPLAMA (Gap Analysis & Mastery)
+                job.state = ResearchJobState.GAP_ANALYSIS
+                cls._save_job_state(job)
+
+                mastery_data = curriculum_matrix.calculate_deterministic_mastery(topic)
+                calculated_mastery = mastery_data.get("overall_mastery", 0.0)
+                job.mastery_score = calculated_mastery
+
+                # Gerçek Çözümlenmemiş Çelişki Sayısı (P0-02)
+                unresolved = contradiction_engine.count_unresolved_high_severity(lesson, topic)
+
+                # Completion Evaluator Kararı (Hard Invariant)
+                eval_res = CompletionEvaluator.evaluate(job, mastery_data, unresolved_contradictions=unresolved)
+                
+                if eval_res["approved"]:
+                    # YALNIZCA approved == True olduğunda COMPLETED state'ine geçilebilir!
+                    job.state = ResearchJobState.COMPLETED
+                    job.completed_at = datetime.now().isoformat()
+                    final_status = "COMPLETED"
+                    is_completed = True
+                elif iteration < cls.MAX_ITERATIONS:
+                    # Eksikleri Gerçek Arama ile Tamamlama Adımı (P0-04: RESEARCHING_GAPS)
+                    job.state = ResearchJobState.RESEARCHING_GAPS
+                    cls._save_job_state(job)
+                    cls._log_event(research_id, "RESEARCHING_GAPS_TRIGGERED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.RESEARCHING_GAPS, {
+                        "iteration": iteration,
+                        "target_gap_concept": concepts[iteration % len(concepts)],
+                        "reasons": eval_res.get("reasons", [])
+                    })
+                else:
+                    # P0-01: MAX_ITERATIONS aşıldı ve onay alınamadıysa kesinlikle FAILED üretilir!
+                    job.state = ResearchJobState.FAILED
+                    job.error = f"MAX_ITERATIONS_REACHED: Araştırma onay kriterlerini karşılayamadı ({'; '.join(eval_res.get('reasons', []))})"
+                    final_status = "FAILED"
+                    is_completed = True
+
+            # 7. SON DURUMU KAYDET
+            job.updated_at = datetime.now().isoformat()
+            if final_status == "COMPLETED":
+                curriculum_matrix.update_score(topic, job.mastery_score)
+                cls._log_event(research_id, "RESEARCH_COMPLETED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.COMPLETED, {
+                    "mastery_score": job.mastery_score,
+                    "verified_claims": job.verified_claims_count,
+                    "iterations_executed": iteration
                 })
             else:
-                # P0-01: MAX_ITERATIONS aşıldı ve onay alınamadıysa kesinlikle FAILED üretilir!
-                job.state = ResearchJobState.FAILED
-                job.error = f"MAX_ITERATIONS_REACHED: Araştırma onay kriterlerini karşılayamadı ({'; '.join(eval_res.get('reasons', []))})"
-                final_status = "FAILED"
-                is_completed = True
+                cls._log_event(research_id, "RESEARCH_FAILED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.FAILED, {
+                    "error": job.error,
+                    "mastery_score": job.mastery_score,
+                    "iterations_executed": iteration
+                })
 
-        # 7. SON DURUMU KAYDET
-        job.updated_at = datetime.now().isoformat()
-        if final_status == "COMPLETED":
-            curriculum_matrix.update_score(topic, job.mastery_score)
-            cls._log_event(research_id, "RESEARCH_COMPLETED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.COMPLETED, {
-                "mastery_score": job.mastery_score,
-                "verified_claims": job.verified_claims_count,
-                "iterations_executed": iteration
-            })
-        else:
-            cls._log_event(research_id, "RESEARCH_FAILED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.FAILED, {
-                "error": job.error,
-                "mastery_score": job.mastery_score,
-                "iterations_executed": iteration
-            })
+            cls._save_job_state(job)
 
-        cls._save_job_state(job)
+        except Exception as e:
+            # Beklenmeyen istisnalarda (timeout, tool error vb.) ASLA COMPLETED üretilmez!
+            job.state = ResearchJobState.FAILED
+            job.error = f"RESEARCH_EXCEPTION: {str(e)}"
+            final_status = "FAILED"
+            job.updated_at = datetime.now().isoformat()
+            cls._save_job_state(job)
+            cls._log_event(research_id, "RESEARCH_EXCEPTION", job.state, ResearchJobState.FAILED, {"error": str(e)})
 
         return {
             "research_id": research_id,

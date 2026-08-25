@@ -125,3 +125,35 @@ def test_p1_10_knowledge_store_filters_unverified_records():
     # Arama yapıldığında confidence >= 0.85 filtresi nedeniyle bu kayıt gelmemelidir
     results = knowledge_store.search("şüpheli KPSS notu", lesson="VATANDASLIK")
     assert len(results) == 0
+
+# ==========================================
+# TASK 01 — COMPLETION STATE INTEGRITY TESTS
+# ==========================================
+
+def test_task01_low_mastery_not_approved():
+    """TASK 01: Düşük mastery (0.50 < 0.80) kesinlikle approved=False üretir."""
+    res = CompletionEvaluator.evaluate(
+        job=None,
+        mastery_data={"overall_mastery": 0.50, "source_coverage": 0.30, "concept_coverage": 0.40},
+        unresolved_contradictions=0
+    )
+    assert res["approved"] is False
+
+def test_task01_unresolved_contradiction_not_approved():
+    """TASK 01: Unresolved contradiction varsa (1 > 0) kesinlikle approved=False üretir."""
+    res = CompletionEvaluator.evaluate(
+        job=None,
+        mastery_data={"overall_mastery": 0.95, "source_coverage": 0.90, "concept_coverage": 0.90},
+        unresolved_contradictions=1
+    )
+    assert res["approved"] is False
+
+def test_task01_evaluator_approved_true_when_all_criteria_met():
+    """TASK 01: Tüm kriterler sağlandığında (mastery>=0.80, concept>=0.80, source>=0.50, contra==0) approved=True döner."""
+    res = CompletionEvaluator.evaluate(
+        job=None,
+        mastery_data={"overall_mastery": 0.88, "source_coverage": 0.75, "concept_coverage": 0.85},
+        unresolved_contradictions=0
+    )
+    assert res["approved"] is True
+    assert res["has_material_gaps"] is False
