@@ -11,7 +11,13 @@ import os
 import asyncio
 import signal
 from typing import Set
-from loguru import logger
+
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger("KPSS_SUPER_BRAIN")
+
 from autonomous.hungry_engine import hungry_engine
 
 # Windows konsol UTF-8 ayarı

@@ -16,7 +16,11 @@ from generators.mnemonic_engine import mnemonic_engine
 from generators.flashcard_generator import flashcard_generator
 from brain.episodic_memory import episodic_memory
 
-from loguru import logger
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger("KPSS_SUPER_BRAIN")
 
 class ContinuousLearningLoop:
     OUTPUTS_DIR = str(super_brain_config.OUTPUTS_DIR)

@@ -20,6 +20,7 @@ from anti_hallucination.fact_checker import fact_checker
 from cognition.contradiction_engine import contradiction_engine
 from cognition.teacher_identity import teacher_identity
 from brain.curriculum_matrix import curriculum_matrix
+from brain.database import db_session
 
 def test_task11_verification_status_is_defined_in_research_agent():
     """TASK 11: VerificationStatus autonomous/research_agent.py modülünde tanımlıdır ve NameError vermez."""
@@ -35,6 +36,10 @@ async def test_task11_mocked_end_to_end_reaches_completed():
     topic_name = "1982 Anayasası: Yasama Organı ve Fonksiyonları"
     lesson_name = "VATANDASLIK"
     target_concepts = ["TBMM üye sayısı", "seçimler"]
+
+    with db_session() as conn:
+        conn.cursor().execute("DELETE FROM contradictions WHERE topic = ?", (topic_name,))
+        conn.cursor().execute("DELETE FROM topic_mastery WHERE topic_name = ?", (topic_name,))
 
     mock_videos = [
         {"video_id": "v_succ_101", "teacher_name": "Ramazan Yetgin", "title": "Yasama 1", "channel": "Benim Hocam"},
@@ -213,3 +218,32 @@ def test_int_10_final_completion_gate_strict_invariants():
         unresolved_contradictions=0
     )
     assert res_pass["approved"] is True
+
+# ==========================================
+# PHASE 2 — SEMANTIC AI CONTRADICTION & Z3 TESTS
+# ==========================================
+
+from cognition.contradiction_engine import check_contradiction
+from config import super_brain_config
+
+def test_phase2_check_contradiction_semantic_and_numerical():
+    """PHASE 2: check_contradiction fonksiyonu sayısal ve semantik çelişkileri doğru tespit eder."""
+    # 1. Sayısal çelişki
+    res_num = check_contradiction(
+        "1982 Anayasası'na göre Anayasa Mahkemesi 15 üyeden kurulur.",
+        "1982 Anayasası'na göre Anayasa Mahkemesi 11 üyeden kurulur."
+    )
+    assert res_num["is_contradictory"] is True
+    assert res_num["severity"] == "HIGH"
+
+    # 2. Tamamen farklı konu (çelişki yok)
+    res_diff = check_contradiction(
+        "Türkiye'de en yüksek dağ Ağrı Dağı'dır.",
+        "TBMM seçimleri 5 yılda bir yapılır."
+    )
+    assert res_diff["is_contradictory"] is False
+
+def test_phase2_z3_timeout_config():
+    """PHASE 2: config.py içinde Z3_TIMEOUT = 500ms tanımlıdır."""
+    assert hasattr(super_brain_config, "Z3_TIMEOUT")
+    assert super_brain_config.Z3_TIMEOUT == 500

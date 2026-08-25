@@ -7,6 +7,8 @@ import re
 import itertools
 from typing import Tuple, Dict, Any, List, Optional, Set
 
+from config import super_brain_config
+
 try:
     from z3 import Solver, Int, Distinct, Or, sat, unsat
     Z3_AVAILABLE = True
@@ -31,6 +33,7 @@ class Z3LogicValidator:
             return member_count == 15 and term_years == 12
 
         s = Solver()
+        s.set("timeout", super_brain_config.Z3_TIMEOUT)
         aym_members = Int('aym_members')
         aym_term = Int('aym_term')
 
@@ -53,6 +56,7 @@ class Z3LogicValidator:
             return member_count == 600 and quorum == 200 and decision_min == 151
 
         s = Solver()
+        s.set("timeout", super_brain_config.Z3_TIMEOUT)
         tbmm_total = Int('tbmm_total')
         tbmm_quorum = Int('tbmm_quorum')
         tbmm_dec = Int('tbmm_dec')

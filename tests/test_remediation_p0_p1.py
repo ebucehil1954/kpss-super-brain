@@ -23,6 +23,7 @@ from brain.models import (
 from autonomous.research_agent import CompletionEvaluator, ResearchAgent
 from cognition.contradiction_engine import contradiction_engine
 from anti_hallucination.fact_checker import fact_checker
+from brain.database import db_session
 from cognition.teacher_identity import teacher_identity
 from brain.curriculum_matrix import curriculum_matrix
 from brain.knowledge_store import knowledge_store
@@ -357,6 +358,9 @@ def test_task04_multi_source_consensus_resolution():
 
 def test_task04_duplicate_contradiction_is_idempotent():
     """TASK 04: Aynı çelişki tekrar tespit edildiğinde veritabanında mükerrer kayıt üretilmez (idempotent)."""
+    with db_session() as conn:
+        conn.cursor().execute("DELETE FROM contradictions WHERE topic = 'YARGI_TEST'")
+
     claims = [
         {"claim_id": "c_idemp_1", "text": "AYM 15 üyeden oluşur.", "source": "Öğretmen X", "speaker_or_author": "Öğretmen X"},
         {"claim_id": "c_idemp_2", "text": "AYM 11 üyeden oluşur.", "source": "Öğretmen Y", "speaker_or_author": "Öğretmen Y"}

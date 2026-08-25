@@ -23,6 +23,9 @@ class SuperBrainConfig(BaseModel):
     FACT_TEMPERATURE: float = 0.1
     CREATIVE_TEMPERATURE: float = 0.6
     STRICT_TEMPERATURE: float = 0.0
+
+    # Z3 SMT Formal Logic Kısıtları
+    Z3_TIMEOUT: int = 500  # milisaniye cinsinden Z3 timeout sınırı
     
     # Dizin Yolları
     DATA_DIR: Path = BASE_DIR / "data"

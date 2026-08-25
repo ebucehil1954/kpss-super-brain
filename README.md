@@ -14,19 +14,18 @@
    - Transkripti olmayan video asla web özetiyle doldurulmaz; açıkça `TRANSCRIPT_UNAVAILABLE` olarak işaretlenir.
    - Çıkarılan her atomik iddia (`AtomicClaim`), video kimliği, zaman damgalı segment (`TranscriptSegment`) ve SHA-256 `provenance_hash` taşır.
 
-3. **⚖️ Çelişki Tespit ve Çözüm Motoru (Contradiction Engine)**:
-   - Farklı hocaların veya mülga kaynakların çelişkili ifadelerini tespit eder.
+3. **⚖️ Semantik Çelişki Tespit ve Çözüm Motoru (Contradiction Engine)**:
+   - `sentence-transformers/all-MiniLM-L6-v2` vektör kosinüs benzerliği (> 0.75) ve yerel **Ollama** (`qwen2.5:7b`) ile bağlamsal çelişkileri tespit eder.
    - `OFFICIAL_SOURCE_WINS` politikası ile 1982 Anayasası ve Resmî Gazete normları üstün tutulur.
 
-4. **🛡️ 4 Katmanlı Anti-Halüsinasyon Kalkanı**:
+4. **🛡️ 4 Katmanlı Doğrulama ve Kısıt Çözücü**:
    - **RefChecker**: İddiaları `(Özne, İlişki, Nesne)` üçlülerine ayırıp doğrular.
    - **SelfCheckGPT**: $T=0.7$ örneklem tutarlılık skoru ($< 0.85$ çelişkileri engeller).
-   - **Z3 SMT Solver**: Anayasal sayıları ve sözel mantık bulmacalarını matematiksel kısıt çözücüsüyle denetler.
+   - **Z3 SMT Solver (Timeout: 500ms)**: Anayasal ve sayısal kısıtları (üye sayıları, yaşlar, oranlar) matematiksel olarak denetler.
 
-5. **📊 Deterministik Çok Faktörlü Hakimiyet Modeli**:
-   - Sabit ve yapay skor atamaları tamamen kaldırılmıştır.
-   - Formül:
-     $$\text{Mastery} = 0.25 \times \text{SourceCov} + 0.20 \times \text{EvidenceDens} + 0.20 \times \text{VerifScore} + 0.15 \times \text{Agreement} + 0.10 \times \text{ConceptCov} + 0.10 \times \text{Freshness}$$
+5. **📊 Derin Müfredat ve Kaynak Kapsamı Modeli**:
+   - Konu başına minimum **8-10 farklı kaynak** (Video, Mevzuat, ÖSYM Çıkmış Sorular) taranır.
+   - Gerçek kanıt yoğunluğu, eğitmen mutabakatı ve zamansal tazelik ile dinamik konu hakimiyeti hesaplanır.
 
 ---
 
