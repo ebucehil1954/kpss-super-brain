@@ -602,17 +602,72 @@ class CurriculumMatrixEngine:
             channels = json.loads(row["distinct_channels_json"])
             consumed_count = row["consumed_videos_count"]
             facts_count = row["facts_count"]
+            matched_lesson = row["lesson"]
+            matched_tname = row["topic_name"]
+
+            # Gerçek doğrulanmış iddiaları sorgula
+            cursor.execute("""
+            SELECT COUNT(*) as v_count, subtopic, text FROM atomic_claims
+            WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+            AND verification_status = 'VERIFIED'
+            GROUP BY subtopic
+            """, (matched_lesson, matched_tname, row["topic_id"]))
+            verified_rows = cursor.fetchall()
+            verified_claims_total = sum(r["v_count"] for r in verified_rows) if verified_rows else facts_count
+
+            # Hedef alt kavramları çek
+            target_subtopics = []
+            curric_lesson = cls.OFFICIAL_CURRICULUM.get(matched_lesson, {})
+            if row["topic_id"] in curric_lesson:
+                target_subtopics = curric_lesson[row["topic_id"]].get("subtopics", [])
 
             # 1. Source Coverage (Öğretmen ve kanal çeşitliliği)
             source_cov = min(1.0, len(teachers) / max(1, row["target_videos_count"]))
-            # 2. Evidence Density (Çıkarılan atomik iddia yoğunluğu)
-            evidence_dens = min(1.0, facts_count / 20.0)
+            
+            # 2. Evidence Density (Çıkarılan doğrulanmış iddia yoğunluğu)
+            expected_min_claims = max(8, len(target_subtopics) * 2)
+            evidence_dens = min(1.0, verified_claims_total / expected_min_claims)
+            
             # 3. Verification Score (Doğruluk oranı)
-            verif_score = 0.95 if facts_count >= 5 else 0.50
-            # 4. Cross-Teacher Agreement (Öğretmen mutabakatı)
-            agreement = 0.90 if len(teachers) >= 2 else 0.60
+            cursor.execute("""
+            SELECT 
+                SUM(CASE WHEN verification_status = 'VERIFIED' THEN 1 ELSE 0 END) as v_cnt,
+                COUNT(*) as t_cnt
+            FROM atomic_claims
+            WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+            """, (matched_lesson, matched_tname, row["topic_id"]))
+            v_stats = cursor.fetchone()
+            if v_stats and v_stats["t_cnt"] > 0:
+                verif_score = round(v_stats["v_cnt"] / v_stats["t_cnt"], 2)
+            else:
+                verif_score = 0.90 if facts_count >= 5 else 0.50
+
+            # 4. Cross-Teacher Agreement (Çelişki durumu)
+            cursor.execute("""
+            SELECT COUNT(*) as c_cnt FROM contradictions
+            WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+            AND resolution = 'UNRESOLVED'
+            """, (matched_lesson, matched_tname, row["topic_id"]))
+            contra_row = cursor.fetchone()
+            unresolved_contra = contra_row["c_cnt"] if contra_row else 0
+            agreement = 0.95 if unresolved_contra == 0 and len(teachers) >= 2 else (0.60 if unresolved_contra > 0 else 0.80)
+
             # 5. Concept Coverage (Kavram doluluk oranı)
-            concept_cov = min(1.0, (consumed_count * 0.25) + (facts_count * 0.05))
+            if target_subtopics:
+                covered_subs = 0
+                for st in target_subtopics:
+                    cursor.execute("""
+                    SELECT 1 FROM atomic_claims
+                    WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+                    AND (subtopic LIKE ? OR text LIKE ?) AND verification_status = 'VERIFIED'
+                    LIMIT 1
+                    """, (matched_lesson, matched_tname, row["topic_id"], f"%{st[:15]}%", f"%{st[:15]}%"))
+                    if cursor.fetchone():
+                        covered_subs += 1
+                concept_cov = min(1.0, max(0.20, covered_subs / max(1, len(target_subtopics))))
+            else:
+                concept_cov = min(1.0, (consumed_count * 0.25) + (facts_count * 0.05))
+
             # 6. Freshness (Zamansal tazelik)
             freshness = 0.95
 

@@ -281,6 +281,44 @@ class FactChecker:
             "verified_triplets": triplets
         }
 
+    def verify_claim(self, claim: Any) -> Any:
+        """
+        Tek bir atomik iddiayı (AtomicClaim) bağımsız olarak tüm katmanlarda denetler ve VerificationResult üretir.
+        """
+        from brain.models import VerificationResult, VerificationStatus
+        from brain.database import db_session
+
+        claim_id = getattr(claim, "claim_id", None) or (claim.get("claim_id") if isinstance(claim, dict) else "unknown_claim")
+        text = getattr(claim, "text", "") or (claim.get("text", "") if isinstance(claim, dict) else str(claim))
+        lesson = getattr(claim, "lesson", "GENEL") or (claim.get("lesson", "GENEL") if isinstance(claim, dict) else "GENEL")
+
+        val_res = self.validate(topic_id=lesson, text=text)
+        is_valid = val_res.get("passed", False)
+        status = VerificationStatus.VERIFIED if is_valid else VerificationStatus.REJECTED
+        stage = val_res.get("stage", "Unknown")
+        reason = val_res.get("reason", "Doğrulandı" if is_valid else "Kural ihlali")
+        conf = val_res.get("confidence_score", 0.0)
+
+        # Veritabanında claim durumunu güncelle
+        if claim_id and claim_id != "unknown_claim":
+            with db_session() as conn:
+                cursor = conn.cursor()
+                cursor.execute("""
+                UPDATE atomic_claims
+                SET verification_status = ?, confidence = ?
+                WHERE claim_id = ?
+                """, (status.value, conf, claim_id))
+
+        return VerificationResult(
+            is_valid=is_valid,
+            status=status,
+            stage=stage,
+            reason=reason,
+            confidence_score=conf,
+            refchecker_triplets=val_res.get("verified_triplets", []),
+            z3_sat=is_valid
+        )
+
     # ==========================================
     # GERİYE DÖNÜK UYUMLULUK: verify_content
     # ==========================================

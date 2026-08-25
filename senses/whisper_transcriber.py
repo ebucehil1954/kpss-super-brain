@@ -1,13 +1,16 @@
 """
-KPSS Super-Brain: GPU Hızlandırmalı Yerel Whisper Ses Transkripsiyon Motoru (Whisper Transcriber v3)
-YouTube altyazısı bulunmayan veya IP engeli nedeniyle altyazı çekilemeyen videoların sesini
-yt-dlp ile doğrudan indirip yerel GPU (NVIDIA CUDA) üzerinde çalışan Whisper modeli ile %100 doğrulukla metne dönüştürür.
+KPSS Super-Brain: GPU Hızlandırmalı Yerel Whisper Ses Transkripsiyon Motoru (Whisper Transcriber v4)
+YouTube altyazısı bulunmayan videoların sesini yt-dlp ile indirip yerel Whisper modeli ile
+zaman damgalı segmentlere (`start_seconds`, `end_seconds`, `text`) dönüştürür.
 """
+from __future__ import annotations
+
 import os
 import subprocess
 import shutil
 import asyncio
-from typing import Dict, Any, Optional
+import hashlib
+from typing import Dict, Any, List, Optional
 from config import super_brain_config
 
 class WhisperTranscriber:
@@ -33,7 +36,7 @@ class WhisperTranscriber:
         model_size = super_brain_config.WHISPER_MODEL_SIZE
         device = "cuda" if self.is_gpu_available else "cpu"
 
-        # 1. Öncelik: faster-whisper (Çok hızlı GPU çıkarımı)
+        # 1. Öncelik: faster-whisper
         try:
             from faster_whisper import WhisperModel
             compute_type = "float16" if self.is_gpu_available else "int8"
@@ -61,8 +64,6 @@ class WhisperTranscriber:
             return target_audio_path
 
         video_url = f"https://www.youtube.com/watch?v={video_id}"
-        
-        # yt-dlp komutu
         cmd = [
             "yt-dlp",
             "-f", "bestaudio[ext=m4a]/bestaudio",
@@ -75,16 +76,13 @@ class WhisperTranscriber:
         ]
 
         try:
-            # yt-dlp var mı kontrol et
             if not shutil.which("yt-dlp"):
-                # python -m yt_dlp dene
                 cmd = ["python", "-m", "yt_dlp"] + cmd[1:]
 
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=90)
             if os.path.exists(target_audio_path):
                 return target_audio_path
             
-            # Farklı uzantıyla inmiş olabilir
             for fname in os.listdir(self.audio_dir):
                 if fname.startswith(video_id):
                     return os.path.join(self.audio_dir, fname)
@@ -94,14 +92,15 @@ class WhisperTranscriber:
         return None
 
     async def transcribe_video(self, video_id: str) -> Dict[str, Any]:
-        """Videoyu indirir ve yerel GPU Whisper ile metne dönüştürür."""
+        """Videoyu indirir ve yerel GPU Whisper ile zaman damgalı segmentlerle metne dönüştürür."""
         # 1. Sesi İndir
         audio_file = await asyncio.to_thread(self.download_audio_yt_dlp, video_id)
         if not audio_file or not os.path.exists(audio_file):
             return {
                 "success": False,
                 "error": "yt-dlp ile ses akışı indirilemedi.",
-                "text": ""
+                "text": "",
+                "segments": []
             }
 
         # 2. Modeli Yükle & Transkribe Et
@@ -110,20 +109,55 @@ class WhisperTranscriber:
             return {
                 "success": False,
                 "error": "Yerel Whisper kütüphanesi (faster-whisper veya whisper) bulunamadı.",
-                "text": ""
+                "text": "",
+                "segments": []
             }
 
         engine_type, model = model_pack
         try:
-            full_text = ""
+            full_text_parts = []
+            segments_list = []
+
             if engine_type == "faster_whisper":
                 segments, info = model.transcribe(audio_file, language="tr", beam_size=5)
-                full_text = " ".join([seg.text for seg in segments])
+                for idx, seg in enumerate(segments):
+                    s_txt = seg.text.strip()
+                    if s_txt:
+                        start_s = round(float(seg.start), 2)
+                        end_s = round(float(seg.end), 2)
+                        seg_id = f"whisper_seg_{video_id}_{idx}"
+                        seg_hash = hashlib.sha256(f"{video_id}:{start_s}:{end_s}:{s_txt}".encode()).hexdigest()[:16]
+                        full_text_parts.append(s_txt)
+                        segments_list.append({
+                            "segment_id": seg_id,
+                            "video_id": video_id,
+                            "start_seconds": start_s,
+                            "end_seconds": end_s,
+                            "text": s_txt,
+                            "segment_hash": seg_hash
+                        })
             elif engine_type == "openai_whisper":
                 res = model.transcribe(audio_file, language="tr")
-                full_text = res.get("text", "")
+                for idx, seg in enumerate(res.get("segments", [])):
+                    s_txt = seg.get("text", "").strip()
+                    if s_txt:
+                        start_s = round(float(seg.get("start", 0.0)), 2)
+                        end_s = round(float(seg.get("end", 0.0)), 2)
+                        seg_id = f"whisper_seg_{video_id}_{idx}"
+                        seg_hash = hashlib.sha256(f"{video_id}:{start_s}:{end_s}:{s_txt}".encode()).hexdigest()[:16]
+                        full_text_parts.append(s_txt)
+                        segments_list.append({
+                            "segment_id": seg_id,
+                            "video_id": video_id,
+                            "start_seconds": start_s,
+                            "end_seconds": end_s,
+                            "text": s_txt,
+                            "segment_hash": seg_hash
+                        })
 
-            # Temizlik: İndirilen büyük ses dosyasını diskte yer kaplamaması için silebiliriz
+            full_text = " ".join(full_text_parts)
+
+            # Temizlik
             try:
                 os.remove(audio_file)
             except Exception:
@@ -134,6 +168,7 @@ class WhisperTranscriber:
                     "success": True,
                     "video_id": video_id,
                     "text": full_text.strip(),
+                    "segments": segments_list,
                     "device": "cuda" if self.is_gpu_available else "cpu",
                     "engine": engine_type
                 }
@@ -141,9 +176,10 @@ class WhisperTranscriber:
             return {
                 "success": False,
                 "error": f"Transkripsiyon hatası: {str(e)}",
-                "text": ""
+                "text": "",
+                "segments": []
             }
 
-        return {"success": False, "error": "Bilinmeyen transkripsiyon hatası.", "text": ""}
+        return {"success": False, "error": "Bilinmeyen transkripsiyon hatası.", "text": "", "segments": []}
 
 whisper_transcriber = WhisperTranscriber()
