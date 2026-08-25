@@ -567,7 +567,6 @@ class CurriculumMatrixEngine:
             LIMIT ?
             """, (max_topics,))
             rows = cursor.fetchall()
-            
             result = []
             for r in rows:
                 item = dict(r)
@@ -575,6 +574,35 @@ class CurriculumMatrixEngine:
                 item["needed_videos_count"] = item["target_videos_count"] - item["consumed_videos_count"]
                 result.append(item)
             return result
+
+    @classmethod
+    def get_scores(cls) -> Dict[str, float]:
+        """Tüm konuların doluluk / güven skorlarını döner (0.0 - 1.0)."""
+        scores = {}
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT topic_id, consumed_videos_count, target_videos_count, is_mastered FROM topic_mastery")
+            rows = cursor.fetchall()
+            for r in rows:
+                t_id = r["topic_id"]
+                if r["is_mastered"] == 1:
+                    scores[t_id] = 0.98
+                else:
+                    scores[t_id] = round(r["consumed_videos_count"] / max(1, r["target_videos_count"]), 2)
+        return scores
+
+    @classmethod
+    def update_score(cls, topic_id: str, score: float = 0.98):
+        """Belirli bir konunun güven ve tamlık skorunu günceller."""
+        is_mastered = 1 if score >= 0.85 else 0
+        stage = "MASTERED (Uzman Seviyesi)" if score >= 0.85 else "IN_PROGRESS"
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+            UPDATE topic_mastery
+            SET is_mastered = ?, mastery_stage = ?, updated_at = ?
+            WHERE topic_id = ? OR topic_name = ?
+            """, (is_mastered, stage, datetime.now().isoformat(), topic_id, topic_id))
 
 curriculum_matrix = CurriculumMatrixEngine()
 # Otomatik veritabanı eşitlemesi

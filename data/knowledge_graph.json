@@ -1717,6 +1717,38 @@
         "source_text_snippet": "Müfredat Kazanımı: 7)    MEB / AGS Coğrafya   Türkiye'de İklim Bilgisi   Sıcaklık   Bayram Meral - 7)    MEB / AGS Coğra",
         "times_observed": 1
       }
+    },
+    "ENT_#_[KPSS": {
+      "id": "ENT_#_[KPSS",
+      "label": "# [KPSS",
+      "type": "ENTITY",
+      "lesson": "GENEL",
+      "properties": {
+        "ilişki": "RESMİ MÜFREDAT ARAŞTIRMA"
+      }
+    },
+    "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA": {
+      "id": "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA",
+      "label": "RESMİ MÜFREDAT ARAŞTIRMA",
+      "type": "VALUE_ENTITY",
+      "lesson": "GENEL",
+      "properties": {}
+    },
+    "ENT_##_⚖️": {
+      "id": "ENT_##_⚖️",
+      "label": "## ⚖️",
+      "type": "ENTITY",
+      "lesson": "GENEL",
+      "properties": {
+        "ilişki": "Hukuki & Akademik"
+      }
+    },
+    "ENT_HUKUKI_&_AKADEMIK": {
+      "id": "ENT_HUKUKI_&_AKADEMIK",
+      "label": "Hukuki & Akademik",
+      "type": "VALUE_ENTITY",
+      "lesson": "GENEL",
+      "properties": {}
     }
   },
   "edges": [
@@ -2432,6 +2464,18 @@
       "source": "COGRAFYA_7_____MEB___AGS_CO_R",
       "target": "ENT_dea5186c",
       "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_#_[KPSS",
+      "target": "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA",
+      "relation": "ILIŞKI",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_##_⚖️",
+      "target": "ENT_HUKUKI_&_AKADEMIK",
+      "relation": "ILIŞKI",
       "weight": 1.0
     }
   ]

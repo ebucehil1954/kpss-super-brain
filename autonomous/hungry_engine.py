@@ -276,6 +276,41 @@ class HungryEngine:
             except Exception as e:
                 print(f"⚠️ [UZMAN SENTEZ DÖNGÜSÜ HATASI]: {e}")
 
+    def evaluate_and_trigger(self) -> Dict[str, Any]:
+        """
+        Müfredat skoru < 0.85 olan konular için otonom OpenManus araştırma ajanını ve anti-halüsinasyon hattını tetikler.
+        """
+        from ingestion.live_researcher import openmanus_agent
+        from anti_hallucination.fact_checker import fact_checker
+        from brain.knowledge_graph import kpss_knowledge_graph
+        from brain.curriculum_matrix import curriculum_matrix
+
+        scores = curriculum_matrix.get_scores()
+        triggered_count = 0
+        elevated_count = 0
+
+        for topic_id, score in scores.items():
+            if score < 0.85:
+                triggered_count += 1
+                # 1. OpenManus Ajanı Araştırır
+                research_result = openmanus_agent.run_research_cycle(topic_id, "")
+                
+                # 2. Anti-Hallucination Hattı Denetler
+                is_verified = fact_checker.validate(topic_id, research_result.get("text", ""))
+                
+                # 3. Başarılıysa Knowledge Graph'e İşlenir ve Skor Yükseltilir
+                if is_verified.get("passed"):
+                    kpss_knowledge_graph.add_triplets(is_verified.get("verified_triplets", []))
+                    curriculum_matrix.update_score(topic_id, 0.98)
+                    elevated_count += 1
+                    break # Bir döngüde en kritik konuyu güncelle
+
+        return {
+            "triggered_count": triggered_count,
+            "elevated_count": elevated_count,
+            "status": "success"
+        }
+
     async def _continuous_self_eval_and_repair(self):
         """Düzenli olarak zeka sağlığını ölçer ve eksikleri onarır."""
         while self.is_running:
@@ -283,6 +318,8 @@ class HungryEngine:
                 await asyncio.sleep(180)
                 health = self_tester.evaluate_knowledge_health()
                 repaired = await self_tester.auto_repair_gaps()
+                # Otonom OpenManus & Anti-Hallucination tetikle
+                self.evaluate_and_trigger()
                 # Bilinçli planı tazele
                 consciousness.deliberate_next_step()
                 print(f"📊 [MÜFREDAT DURUMU] Kapsam: %{health['curriculum_coverage_pct']} ({health['status']}) | Tamamlanan Konu: {health['fully_mastered_count']}/{health['total_official_topics']} | Kuyruğa Eklenen Video: +{repaired}")

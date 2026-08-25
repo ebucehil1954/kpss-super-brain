@@ -72,6 +72,62 @@ class KPSSKnowledgeGraph:
                 self.edges.append(e)
         self.save()
 
+    def add_triplets(self, triplets: List[Dict[str, Any]], lesson: str = "GENEL") -> int:
+        """
+        Doğrulanmış Bilgi Üçlülerini (Knowledge Triplets) düğüm ve kenar olarak bilgi grafiğine mühürler.
+        Format: [{'subject': '...', 'predicate': '...', 'object': '...'}]
+        """
+        added_count = 0
+        for t in triplets:
+            subj = str(t.get("subject", "")).strip()
+            pred = str(t.get("predicate", "RELATED_TO")).strip().replace(" ", "_").upper()
+            obj = str(t.get("object", "")).strip()
+
+            if not subj or not obj:
+                continue
+
+            subj_id = f"ENT_{subj.upper().replace(' ', '_')}"
+            obj_id = f"ENT_{obj.upper().replace(' ', '_')}"
+
+            # 1. Subject Node
+            if subj_id not in self.nodes:
+                self.nodes[subj_id] = {
+                    "id": subj_id,
+                    "label": subj,
+                    "type": "ENTITY",
+                    "lesson": lesson.upper(),
+                    "properties": {pred.lower(): obj}
+                }
+            else:
+                self.nodes[subj_id]["properties"][pred.lower()] = obj
+
+            # 2. Object Node
+            if obj_id not in self.nodes:
+                self.nodes[obj_id] = {
+                    "id": obj_id,
+                    "label": obj,
+                    "type": "VALUE_ENTITY",
+                    "lesson": lesson.upper(),
+                    "properties": {}
+                }
+
+            # 3. Relation Edge
+            edge = {
+                "source": subj_id,
+                "target": obj_id,
+                "relation": pred,
+                "weight": 1.0
+            }
+            if edge not in self.edges:
+                self.edges.append(edge)
+
+            added_count += 1
+
+        if added_count > 0:
+            self.save()
+
+        return added_count
+
     def get_related_nodes(self, node_id: str, relation_filter: Optional[str] = None) -> List[Dict[str, Any]]:
         related_ids = []
         for edge in self.edges:
