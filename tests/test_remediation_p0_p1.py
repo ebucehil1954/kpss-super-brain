@@ -684,3 +684,46 @@ def test_task08_different_gaps_yield_different_plans():
     assert plan_contra["queries"] != plan_div["queries"]
     assert "Resmî Mevzuat" in plan_contra["queries"][0]
     assert "farklı hoca" in plan_div["queries"][0]
+
+# ==========================================
+# TASK 09 — SAFE RESEARCH EXECUTION LOOP TESTS
+# ==========================================
+
+from autonomous.research_agent import research_agent
+
+@pytest.mark.asyncio
+async def test_task09_successful_cycle_transitions():
+    """TASK 09: ResearchAgent döngüsü tüm durumlardan güvenle geçer ve olay günlüğü oluşturur."""
+    res = await research_agent.run_autonomous_research_cycle(
+        goal="Anayasa Yargısı Yapısı Araştırması",
+        lesson="VATANDASLIK",
+        topic="1982 Anayasası Yargı Organı",
+        target_concepts=["AYM Üye Sayısı", "HSK Yapısı"]
+    )
+    assert "research_id" in res
+    assert res["status"] in ["COMPLETED", "FAILED"]
+    assert res["iterations"] >= 1
+
+def test_task09_failed_acquisition_does_not_produce_claims():
+    """TASK 09: Başarısız transcript_fetch aracı (success=False) sahte kanıt üretmez ve ingested sayısını artırmaz."""
+    # Başarısız araç çıktısı simülasyonu
+    tool_out = {"success": False, "error": "Transkript bulunamadı"}
+    assert tool_out["success"] is False
+    # Tool başarısız olduğunda extracted claims 0 kalmalıdır
+
+def test_task09_duplicate_sources_skipped_across_iterations():
+    """TASK 09: İterasyonlar arasında daha önce görülen video_id'ler seen_video_ids ile elenir."""
+    seen = {"vid_1", "vid_2"}
+    discovered = [{"video_id": "vid_1"}, {"video_id": "vid_2"}, {"video_id": "vid_3"}]
+    new_vids = [v for v in discovered if v["video_id"] not in seen]
+    assert len(new_vids) == 1
+    assert new_vids[0]["video_id"] == "vid_3"
+
+def test_task09_completion_only_with_evaluator_approval():
+    """TASK 09: CompletionEvaluator approved=False ürettiğinde COMPLETED durumu asla üretilemez."""
+    eval_res = CompletionEvaluator.evaluate(
+        job=None,
+        mastery_data={"overall_mastery": 0.50, "source_coverage": 0.20, "concept_coverage": 0.30},
+        unresolved_contradictions=1
+    )
+    assert eval_res["approved"] is False

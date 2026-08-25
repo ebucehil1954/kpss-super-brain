@@ -256,7 +256,13 @@ class ResearchAgent:
                 all_claims_list = list(claims_by_id.values())
                 verified_count = 0
                 for c_obj in all_claims_list:
+                    # Verified iddialar gereksiz tekrar doğrulanmaz
+                    if c_obj.get("verification_status") in [VerificationStatus.VERIFIED, "VERIFIED"]:
+                        verified_count += 1
+                        continue
+
                     v_res = fact_checker.verify_claim(c_obj)
+                    c_obj["verification_status"] = v_res.status
                     if v_res.is_valid:
                         verified_count += 1
 
