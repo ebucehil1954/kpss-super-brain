@@ -422,3 +422,103 @@ def test_task05_unresolved_contradiction_lowers_agreement():
     curriculum_matrix.record_video_consumption("VATANDASLIK", topic_name, "v_ag_2", "Hoca 2", "Ch2")
     m = curriculum_matrix.calculate_deterministic_mastery(topic_name)
     assert m["cross_teacher_agreement"] == 0.40
+
+# ==========================================
+# TASK 06 — REAL GAP ANALYSIS TESTS
+# ==========================================
+
+from autonomous.gap_analyzer import gap_analyzer
+
+def test_task06_concept_coverage_zero_yields_material_gaps():
+    """TASK 06: Doğrulanmış hiçbir kavram yoksa GapAnalyzer MATERIAL_GAPS ve eksik kavramları döner."""
+    res = gap_analyzer.analyze_gaps(
+        lesson="VATANDASLIK",
+        topic="Yasama",
+        target_concepts=["TBMM Seçimleri", "Milletvekili Dokunulmazlığı"],
+        claims=[],  # İddia yok
+        teachers=[]
+    )
+    assert res["gap_status"] == "MATERIAL_GAPS"
+    assert res["has_material_gaps"] is True
+    assert "TBMM Seçimleri" in res["missing_concepts"]
+    assert len(res["recommended_queries"]) >= 1
+
+def test_task06_unresolved_contradiction_yields_gap():
+    """TASK 06: Çözümlenmemiş çelişki varlığı GapAnalyzer tarafından MATERIAL_GAPS olarak işaretlenir."""
+    claims = [
+        {"claim_id": "c_cg1", "text": "AYM 15 üyedir.", "source": "Hoca 1", "speaker_or_author": "Hoca 1"},
+        {"claim_id": "c_cg2", "text": "AYM 11 üyedir.", "source": "Hoca 2", "speaker_or_author": "Hoca 2"}
+    ]
+    contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "GAP_TEST_TOPIC", claims)
+    
+    res = gap_analyzer.analyze_gaps(
+        lesson="VATANDASLIK",
+        topic="GAP_TEST_TOPIC",
+        target_concepts=[],
+        claims=claims,
+        teachers=["Hoca 1", "Hoca 2"]
+    )
+    assert res["gap_status"] == "MATERIAL_GAPS"
+    assert len(res["unresolved_contradictions"]) >= 1
+
+def test_task06_all_critical_concepts_verified_no_gaps():
+    """TASK 06: Tüm kavramlar doğrulanmış ve en az 2 bağımsız öğretmen varsa NO_MATERIAL_GAPS döner."""
+    claims = [
+        {
+            "claim_id": "c_ok1",
+            "text": "1982 Anayasası'na göre TBMM seçimleri 5 yılda bir yapılır.",
+            "verification_status": VerificationStatus.VERIFIED,
+            "speaker_or_author": "Öğretmen Ali",
+            "source": "Ali Hoca Notları",
+            "evidence_refs": [{"source_id": "src_1", "snippet": "TBMM seçimleri 5 yılda bir yapılır ve yenilenir."}]
+        },
+        {
+            "claim_id": "c_ok2",
+            "text": "Milletvekili dokunulmazlığı TBMM Genel Kurulu tarafından kaldırılabilir.",
+            "verification_status": VerificationStatus.VERIFIED,
+            "speaker_or_author": "Öğretmen Veli",
+            "source": "Veli Hoca Notları",
+            "evidence_refs": [{"source_id": "src_2", "snippet": "Milletvekili dokunulmazlığı TBMM kararı ile kaldırılabilir."}]
+        }
+    ]
+    res = gap_analyzer.analyze_gaps(
+        lesson="VATANDASLIK_GAP_CLEAR",
+        topic="Yasama_Clear",
+        target_concepts=["TBMM Seçimleri", "Milletvekili Dokunulmazlığı"],
+        claims=claims,
+        teachers=["Öğretmen Ali", "Öğretmen Veli"]
+    )
+    assert res["gap_status"] == "NO_MATERIAL_GAPS"
+    assert res["has_material_gaps"] is False
+    assert len(res["missing_concepts"]) == 0
+
+def test_task06_single_source_critical_claim_yields_gap():
+    """TASK 06: Kritik bir iddia yalnızca 1 gayriresmî hocaya dayanıyorsa single_source_claims içinde listelenir ve gap üretir."""
+    claims = [
+        {
+            "claim_id": "c_single_1",
+            "text": "Lale Devri'nde ilk geçici elçilik Paris'e açılmıştır.",
+            "verification_status": VerificationStatus.VERIFIED,
+            "speaker_or_author": "Tek Hoca",
+            "source": "Özel Ders Videosu",
+            "evidence_refs": [{"source_id": "src_single", "snippet": "Lale devrinde ilk geçici elçilik 28 Çelebi Mehmet ile Paris'e açılmıştır."}]
+        }
+    ]
+    res = gap_analyzer.analyze_gaps(
+        lesson="TARIH",
+        topic="Lale Devri",
+        target_concepts=["Lale Devri"],
+        claims=claims,
+        teachers=["Tek Hoca"]
+    )
+    assert res["gap_status"] == "MATERIAL_GAPS"
+    assert len(res["single_source_claims"]) >= 1
+
+def test_task06_gap_output_is_deterministic():
+    """TASK 06: GapAnalyzer aynı veri seti için her zaman birebir aynı deterministik çıktı ve öneri sorgularını üretir."""
+    concepts = ["İskitler", "Kavimler Göçü"]
+    res1 = gap_analyzer.analyze_gaps("TARIH", "İslamiyet Öncesi", concepts, [], [])
+    res2 = gap_analyzer.analyze_gaps("TARIH", "İslamiyet Öncesi", concepts, [], [])
+    assert res1["missing_concepts"] == res2["missing_concepts"]
+    assert res1["recommended_queries"] == res2["recommended_queries"]
+    assert res1["gap_status"] == res2["gap_status"]

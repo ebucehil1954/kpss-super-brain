@@ -87,30 +87,12 @@ class GapAnalyzer:
             if is_weak:
                 weak_claims.append(f"[{cid}] {text[:80]}")
 
-        # 4. Single-Source Claims (Yalnızca 1 gayriresmî hocaya dayanan kritik iddialar)
-        for c in claims:
-            cid = c.get("claim_id", "unknown")
-            src = c.get("source", "")
-            is_official = any(kw in src.lower() for kw in ["mevzuat", "resmi", "anayasa", "kanun"])
-            if not is_official:
-                # İddianın metnine benzer başka iddia var mı
-                c_text = str(c.get("text", "")).lower()
-                supporting_teachers = set()
-                for other in claims:
-                    o_text = str(other.get("text", "")).lower()
-                    if c_text[:30] in o_text or o_text[:30] in c_text:
-                        t_name = other.get("speaker_or_author") or other.get("source")
-                        if t_name:
-                            supporting_teachers.add(teacher_identity.normalize(t_name))
-                if len(supporting_teachers) <= 1:
-                    single_source_claims.append(f"[{cid}] {c.get('text', '')[:80]} (Tek Eğitmen: {list(supporting_teachers) or src})")
-
         # 5. Unresolved Contradictions (Gerçek DB kayıtları)
         unresolved_recs = contradiction_engine.get_unresolved_contradictions(lesson)
         unresolved_descriptions: List[str] = []
         for ur in unresolved_recs:
-            u_topic = ur.get("topic", "")
-            if u_topic == topic or u_topic == "GENEL" or not topic:
+            u_topic = str(ur.get("topic", ""))
+            if u_topic == topic or u_topic == "GENEL" or not topic or topic in u_topic or u_topic in topic:
                 desc = f"Çelişki [{ur.get('contradiction_id')}]: {ur.get('claim_a_text', '')[:50]} VS {ur.get('claim_b_text', '')[:50]}"
                 unresolved_descriptions.append(desc)
                 recommended_queries.append(f"{topic} Resmî Mevzuat {ur.get('claim_a_text', '')[:30]}")
@@ -126,6 +108,15 @@ class GapAnalyzer:
                 distinct_teachers.add(teacher_identity.normalize(spk))
 
         missing_teacher_diversity = len(distinct_teachers) < 2
+
+        # 4. Single-Source Claims (Yalnızca 1 gayriresmî hocaya dayanan ve hoca çeşitliliği yetersiz iddialar)
+        if missing_teacher_diversity:
+            for c in claims:
+                cid = c.get("claim_id", "unknown")
+                src = c.get("source", "")
+                is_official = any(kw in str(src).lower() for kw in ["mevzuat", "resmi", "anayasa", "kanun"])
+                if not is_official:
+                    single_source_claims.append(f"[{cid}] {c.get('text', '')[:80]} (Tek Eğitmen)")
 
         # 7. Deterministik Karar (MATERIAL_GAPS vs NO_MATERIAL_GAPS)
         has_material_gaps = (

@@ -23,7 +23,7 @@ from brain.database import db_session
 class ContradictionEngine:
     # Bilinen Kesin Zıtlık Kalıpları
     CONTRADICTION_PAIRS = [
-        (r"15\s*üyeden", r"11\s*üyeden", "Anayasa Mahkemesi Üye Sayısı Çelişkisi", ContradictionSeverity.HIGH),
+        (r"15\s*üye", r"11\s*üye", "Anayasa Mahkemesi Üye Sayısı Çelişkisi", ContradictionSeverity.HIGH),
         (r"600\s*milletvekili", r"550\s*milletvekili", "TBMM Milletvekili Sayısı Çelişkisi", ContradictionSeverity.HIGH),
         (r"12\s*yıl", r"6\s*yıl", "AYM Üyeleri Görev Süresi Çelişkisi", ContradictionSeverity.HIGH),
         (r"askeri\s*ıslahat\s*yapılmıştır", r"askeri\s*ıslahat\s*yapılmamıştır", "Lale Devri Askeri Islahat İhtilafı", ContradictionSeverity.MEDIUM),
