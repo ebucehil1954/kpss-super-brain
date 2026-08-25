@@ -238,3 +238,76 @@ def test_task02_verified_claim_evidence_cannot_be_empty():
     # Eğer is_valid True olursa veya VERIFIED dönerse kural ihlalidir!
     assert res.status != VerificationStatus.VERIFIED
     assert res.is_valid is False
+
+# ==========================================
+# TASK 03 — ATOMIC CLAIM LIFECYCLE TESTS
+# ==========================================
+
+def test_task03_lifecycle_pending_initial_state():
+    """TASK 03 Lifecycle: Yeni üretilen/çıkarılan iddia PENDING durumunda başlar (Extraction != Verification)."""
+    claim = AtomicClaim(
+        claim_id="c_lifecycle_pending",
+        text="Cumhurbaşkanı 5 yıllığına seçilir.",
+        lesson="VATANDASLIK",
+        topic="Yürütme",
+        evidence_refs=[
+            EvidenceRef(
+                source_id="src_yt_sample",
+                source_type=SourceType.YOUTUBE_TRANSCRIPT,
+                snippet="Cumhurbaşkanı 5 yıllığına seçilir."
+            )
+        ]
+    )
+    assert claim.verification_status == VerificationStatus.PENDING
+
+def test_task03_lifecycle_unverified_on_missing_evidence():
+    """TASK 03 Lifecycle: Kanıtı eksik/geçersiz iddia doğrulamada UNVERIFIED alır."""
+    claim = AtomicClaim(
+        claim_id="c_lifecycle_unver",
+        text="TBMM genel af kararını 360 oyla alır.",
+        lesson="VATANDASLIK",
+        topic="Yasama",
+        evidence_refs=[]  # Kanıt yok
+    )
+    res = fact_checker.verify_claim(claim)
+    assert res.status == VerificationStatus.UNVERIFIED
+    assert res.is_valid is False
+
+def test_task03_lifecycle_rejected_on_rule_or_blacklist_failure():
+    """TASK 03 Lifecycle: Mülga kanun/kural ihlali içeren iddia doğrulamada REJECTED alır."""
+    claim = AtomicClaim(
+        claim_id="c_lifecycle_rej",
+        text="Başbakan ve Bakanlar Kurulu kanun tasarısı hazırlar.",
+        lesson="VATANDASLIK",
+        topic="Yasama",
+        evidence_refs=[
+            EvidenceRef(
+                source_id="src_yt_old",
+                source_type=SourceType.YOUTUBE_TRANSCRIPT,
+                snippet="Başbakan kanun tasarısı hazırlar."
+            )
+        ]
+    )
+    res = fact_checker.verify_claim(claim)
+    assert res.status == VerificationStatus.REJECTED
+    assert res.is_valid is False
+
+def test_task03_lifecycle_verified_on_full_success():
+    """TASK 03 Lifecycle: Kanıtı tam ve tüm anti-halüsinasyon/Z3 katmanlarından geçen iddia VERIFIED olur."""
+    claim = AtomicClaim(
+        claim_id="c_lifecycle_ver",
+        text="1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur.",
+        lesson="VATANDASLIK",
+        topic="Yargı",
+        evidence_refs=[
+            EvidenceRef(
+                source_id="src_official_anayasa",
+                source_type=SourceType.OFFICIAL_LEGISLATION,
+                snippet="Anayasa Mahkemesi onbeş üyeden kurulur.",
+                url="https://www.mevzuat.gov.tr"
+            )
+        ]
+    )
+    res = fact_checker.verify_claim(claim)
+    assert res.status == VerificationStatus.VERIFIED
+    assert res.is_valid is True

@@ -12,7 +12,7 @@ import hashlib
 from typing import Dict, Any, List, Optional
 from config import super_brain_config
 from brain.models import (
-    AtomicClaim, EvidenceRef, ClaimType, SourceType, TemporalValidityStatus
+    AtomicClaim, EvidenceRef, ClaimType, SourceType, TemporalValidityStatus, VerificationStatus
 )
 from brain.knowledge_store import knowledge_store
 from brain.reasoning_store import reasoning_store
@@ -215,7 +215,7 @@ SADECE GEÇERLİ JSON DÖNDÜR:
                     object_val=obj,
                     evidence_refs=[evidence],
                     confidence=0.90,
-                    verification_status="PENDING",
+                    verification_status=VerificationStatus.PENDING,
                     tags=tags
                 )
                 cls._save_atomic_claim_to_db(atomic_claim)

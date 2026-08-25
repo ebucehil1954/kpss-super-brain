@@ -135,6 +135,13 @@ class EvidenceRef(BaseModel):
     speaker_or_author: Optional[str] = None
     timestamp_str: Optional[str] = None
 
+class VerificationStatus(str, Enum):
+    PENDING = "PENDING"
+    UNVERIFIED = "UNVERIFIED"
+    VERIFIED = "VERIFIED"
+    CONTRADICTORY = "CONTRADICTORY"
+    REJECTED = "REJECTED"
+
 class AtomicClaim(BaseModel):
     claim_id: str
     text: str
@@ -148,7 +155,7 @@ class AtomicClaim(BaseModel):
     evidence_refs: List[EvidenceRef] = Field(default_factory=list)
     confidence: float = Field(default=0.90, ge=0.0, le=1.0)
     temporal_status: TemporalValidityStatus = TemporalValidityStatus.ACTIVE
-    verification_status: str = "PENDING"
+    verification_status: VerificationStatus = VerificationStatus.PENDING
     tags: List[str] = Field(default_factory=list)
     created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
     provenance_hash: Optional[str] = None
@@ -163,12 +170,6 @@ class AtomicClaim(BaseModel):
 # ==========================================
 # 3. DOĞRULAMA & ÇELİŞKİ MODELLERİ (Verification & Contradiction)
 # ==========================================
-
-class VerificationStatus(str, Enum):
-    VERIFIED = "VERIFIED"
-    REJECTED = "REJECTED"
-    CONTRADICTORY = "CONTRADICTORY"
-    UNVERIFIED = "UNVERIFIED"
 
 class VerificationResult(BaseModel):
     is_valid: bool
