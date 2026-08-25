@@ -311,3 +311,57 @@ def test_task03_lifecycle_verified_on_full_success():
     res = fact_checker.verify_claim(claim)
     assert res.status == VerificationStatus.VERIFIED
     assert res.is_valid is True
+
+# ==========================================
+# TASK 04 — CONTRADICTION RESOLUTION INTEGRITY TESTS
+# ==========================================
+
+def test_task04_teacher_vs_teacher_remains_unresolved():
+    """TASK 04: İki bağımsız öğretmen çeliştiğinde konsensüs yoksa durum UNRESOLVED kalır."""
+    claims = [
+        {"claim_id": "c_t1", "text": "1982 Anayasası'na göre AYM 15 üyeden kurulur.", "source": "Öğretmen Ali", "speaker_or_author": "Öğretmen Ali"},
+        {"claim_id": "c_t2", "text": "1982 Anayasası'na göre AYM 11 üyeden kurulur.", "source": "Öğretmen Veli", "speaker_or_author": "Öğretmen Veli"}
+    ]
+    recs = contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "YARGI", claims)
+    assert len(recs) == 1
+    assert recs[0].resolution == ContradictionResolution.UNRESOLVED
+    assert recs[0].winning_claim_id is None
+
+def test_task04_official_vs_teacher_official_wins():
+    """TASK 04: Resmî mevzuat ile öğretmen çeliştiğinde OFFICIAL_SOURCE_WINS uygulanır."""
+    claims = [
+        {"claim_id": "c_off_1", "text": "1982 Anayasası Madde 146: AYM 15 üyeden oluşur.", "source": "Resmî Gazete 1982 Anayasası", "evidence_refs": [{"source_id": "src_mevzuat", "source_type": "OFFICIAL_LEGISLATION", "snippet": "15 üye"}]},
+        {"claim_id": "c_tea_1", "text": "AYM 11 üyeden oluşur.", "source": "Hoca Ders Notu"}
+    ]
+    recs = contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "YARGI", claims)
+    assert len(recs) == 1
+    assert recs[0].resolution == ContradictionResolution.OFFICIAL_SOURCE_WINS
+    assert recs[0].winning_claim_id == "c_off_1"
+
+def test_task04_multi_source_consensus_resolution():
+    """TASK 04: 3 bağımsız öğretmen aynı iddiayı savunup 1 öğretmen çelişiyorsa MULTI_SOURCE_CONSENSUS ile çoğunluk kazanır."""
+    claims = [
+        {"claim_id": "c_hoca_1", "text": "TBMM 600 milletvekilidir.", "source": "Hoca 1", "speaker_or_author": "Hoca 1"},
+        {"claim_id": "c_hoca_2", "text": "TBMM 600 milletvekilidir.", "source": "Hoca 2", "speaker_or_author": "Hoca 2"},
+        {"claim_id": "c_hoca_3", "text": "TBMM 600 milletvekilidir.", "source": "Hoca 3", "speaker_or_author": "Hoca 3"},
+        {"claim_id": "c_hoca_4", "text": "TBMM 550 milletvekilidir.", "source": "Hoca 4", "speaker_or_author": "Hoca 4"}
+    ]
+    recs = contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "YASAMA", claims)
+    assert len(recs) >= 1
+    # 600 mv savunan 3 hocanın iddiası konsensüs ile kazanmalıdır
+    consensus_recs = [r for r in recs if r.resolution == ContradictionResolution.MULTI_SOURCE_CONSENSUS]
+    assert len(consensus_recs) >= 1
+    assert consensus_recs[0].winning_claim_id in ["c_hoca_1", "c_hoca_2", "c_hoca_3"]
+
+def test_task04_duplicate_contradiction_is_idempotent():
+    """TASK 04: Aynı çelişki tekrar tespit edildiğinde veritabanında mükerrer kayıt üretilmez (idempotent)."""
+    claims = [
+        {"claim_id": "c_idemp_1", "text": "AYM 15 üyeden oluşur.", "source": "Öğretmen X", "speaker_or_author": "Öğretmen X"},
+        {"claim_id": "c_idemp_2", "text": "AYM 11 üyeden oluşur.", "source": "Öğretmen Y", "speaker_or_author": "Öğretmen Y"}
+    ]
+    recs1 = contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "YARGI_TEST", claims)
+    recs2 = contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", "YARGI_TEST", claims)
+    assert recs1[0].contradiction_id == recs2[0].contradiction_id
+    
+    unresolved_cnt = contradiction_engine.count_unresolved_high_severity("VATANDASLIK", "YARGI_TEST")
+    assert unresolved_cnt == 1  # 2 defa çağrılsa da tek 1 kayıt vardır

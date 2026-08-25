@@ -1,8 +1,12 @@
 """
-KPSS Super-Brain: Çelişki Tespit ve Çözüm Motoru (Contradiction Engine v5)
+KPSS Super-Brain: Çelişki Tespit ve Çözüm Motoru (Contradiction Engine v6)
 Farklı öğretmenlerin ders anlatımlarındaki uyuşmazlıkları ve resmî mevzuatla çelişen iddiaları yakalar.
-Öğretmenler arası çelişkileri 'UNRESOLVED' olarak bırakır; resmî mevzuat veya anayasa kanıtı geldiğinde
-'OFFICIAL_SOURCE_WINS' kuralı ile deterministik olarak çözümler.
+Kurallar:
+- Resmî vs Gayriresmî -> OFFICIAL_SOURCE_WINS
+- Öğretmen vs Öğretmen (konsensüs yok) -> UNRESOLVED
+- Bağımsız >= 3 kaynak mutabakatı -> MULTI_SOURCE_CONSENSUS
+- Belirsiz/İkisi de resmî -> MANUAL_REVIEW_REQUIRED
+- DB idempotency & gerçek SQLite sorgulu count_unresolved_high_severity
 """
 from __future__ import annotations
 
@@ -47,7 +51,7 @@ class ContradictionEngine:
 
     @classmethod
     def save_contradiction(cls, record: ContradictionRecord):
-        """Çelişkiyi SQLite contradictions tablosuna mühürler."""
+        """Çelişkiyi SQLite contradictions tablosuna idempotent olarak mühürler."""
         with db_session() as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -74,7 +78,6 @@ class ContradictionEngine:
     ) -> List[ContradictionRecord]:
         """
         Verilen iddia kümesi içindeki çelişkileri tespit eder ve kaynak tipine göre çözümler.
-        Öğretmen-Öğretmen çelişkileri 'UNRESOLVED' kalırken, Resmî kaynak içeren çelişkiler 'OFFICIAL_SOURCE_WINS' ile çözülür.
         """
         detected: List[ContradictionRecord] = []
         n = len(claims)
@@ -93,7 +96,10 @@ class ContradictionEngine:
                     match_2 = (re.search(p2, t1) and re.search(p1, t2))
 
                     if match_1 or match_2:
-                        contra_id = f"contra_{hashlib.sha256(f'{t1}:{t2}'.encode('utf-8')).hexdigest()[:12]}"
+                        # Deterministik ve simetrik ID üretimi (idempotent)
+                        t_min = min(t1, t2)
+                        t_max = max(t1, t2)
+                        contra_id = f"contra_{hashlib.sha256(f'{lesson}:{topic}:{title}:{t_min}:{t_max}'.encode('utf-8')).hexdigest()[:12]}"
                         
                         is_off1 = cls._is_official_source(c1)
                         is_off2 = cls._is_official_source(c2)
@@ -110,11 +116,26 @@ class ContradictionEngine:
                             rationale = f"Resmî kaynak '{s2}', '{title}' konusunda gayriresmî iddiaya üstün kılınmıştır."
                             resolved_at = datetime.now().isoformat()
                         elif not is_off1 and not is_off2:
-                            # İki öğretmen/gayriresmî kaynak çelişiyor: UNRESOLVED kalmalı
-                            resolution = ContradictionResolution.UNRESOLVED
-                            winning_id = None
-                            rationale = f"İki bağımsız eğitmen ('{s1}' ve '{s2}') '{title}' konusunda çelişmektedir. Resmî mevzuat teyidi bekleniyor."
-                            resolved_at = None
+                            # 2. Bağımsız Çoklu Kaynak Konsensüsü (MULTI_SOURCE_CONSENSUS)
+                            sources_1 = {c.get("source") or c.get("speaker_or_author") for c in claims if (re.search(p1, str(c.get("text", "")).lower()) and not re.search(p2, str(c.get("text", "")).lower())) and (c.get("source") or c.get("speaker_or_author"))}
+                            sources_2 = {c.get("source") or c.get("speaker_or_author") for c in claims if (re.search(p2, str(c.get("text", "")).lower()) and not re.search(p1, str(c.get("text", "")).lower())) and (c.get("source") or c.get("speaker_or_author"))}
+                            
+                            if len(sources_1) >= 3 and len(sources_2) <= 1:
+                                resolution = ContradictionResolution.MULTI_SOURCE_CONSENSUS
+                                winning_id = c1.get("claim_id", f"c_{i}")
+                                rationale = f"{len(sources_1)} bağımsız eğitmen mutabakatı ile '{title}' konusunda çoğunluk iddia kabul edilmiştir."
+                                resolved_at = datetime.now().isoformat()
+                            elif len(sources_2) >= 3 and len(sources_1) <= 1:
+                                resolution = ContradictionResolution.MULTI_SOURCE_CONSENSUS
+                                winning_id = c2.get("claim_id", f"c_{j}")
+                                rationale = f"{len(sources_2)} bağımsız eğitmen mutabakatı ile '{title}' konusunda çoğunluk iddia kabul edilmiştir."
+                                resolved_at = datetime.now().isoformat()
+                            else:
+                                # İki öğretmen/gayriresmî kaynak çelişiyor ve konsensüs yok: UNRESOLVED kalmalı
+                                resolution = ContradictionResolution.UNRESOLVED
+                                winning_id = None
+                                rationale = f"İki bağımsız eğitmen ('{s1}' ve '{s2}') '{title}' konusunda çelişmektedir. Resmî mevzuat teyidi bekleniyor."
+                                resolved_at = None
                         else:
                             resolution = ContradictionResolution.MANUAL_REVIEW_REQUIRED
                             winning_id = None
@@ -144,7 +165,7 @@ class ContradictionEngine:
 
     @classmethod
     def count_unresolved_high_severity(cls, lesson: Optional[str] = None, topic: Optional[str] = None) -> int:
-        """Çözümlenmemiş YÜKSEK (HIGH) seviyeli çelişki sayısını döner."""
+        """Çözümlenmemiş YÜKSEK (HIGH) seviyeli çelişki sayısını doğrudan veritabanından döner."""
         with db_session() as conn:
             cursor = conn.cursor()
             query = "SELECT COUNT(*) as cnt FROM contradictions WHERE resolution = 'UNRESOLVED' AND severity = 'HIGH'"
