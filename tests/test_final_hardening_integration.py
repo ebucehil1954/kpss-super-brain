@@ -279,3 +279,30 @@ async def test_phase3_youtube_fallback_and_pdf_parsing():
     # Boş / mock PDF parse kontrolü
     parsed_txt = youtube_watcher.parse_pdf_to_text(b"")
     assert isinstance(parsed_txt, str)
+
+# ==========================================
+# PHASE 4 — DYNAMIC WEIGHT OPTIMIZER & PGVECTOR TESTS
+# ==========================================
+
+from brain.mastery import dynamic_weight_optimizer
+from brain.pg_database import pg_vector_db
+
+def test_phase4_dynamic_weight_optimizer_scikit_learn():
+    """PHASE 4: DynamicWeightOptimizer 100 soru sonucunu scikit-learn LogisticRegression ile analiz eder ve katsayıları normalize eder."""
+    weights = dynamic_weight_optimizer.fit_from_question_results()
+    assert isinstance(weights, dict)
+    assert len(weights) == 6
+    # Ağırlıkların toplamı 1.0 (veya yakın) olmalıdır
+    total_w = sum(weights.values())
+    assert 0.98 <= total_w <= 1.02
+    assert weights["source_coverage"] > 0.0
+    assert weights["verification_score"] > 0.0
+
+def test_phase4_pgvector_database_interface():
+    """PHASE 4: PgVectorDatabase pgvector 384-boyutlu semantik arama arayüzü ve fallback yapısını sağlar."""
+    assert hasattr(pg_vector_db, "search_similar_knowledge")
+    assert hasattr(pg_vector_db, "insert_knowledge_embedding")
+    # Mock embedding araması
+    mock_emb = [0.0] * 384
+    res = pg_vector_db.search_similar_knowledge(mock_emb, top_k=3)
+    assert isinstance(res, list)

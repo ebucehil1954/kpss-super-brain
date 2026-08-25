@@ -751,13 +751,16 @@ class CurriculumMatrixEngine:
             else:
                 freshness = 0.0
 
+            from brain.mastery import dynamic_weight_optimizer
+            w = dynamic_weight_optimizer.get_optimal_weights()
+
             overall = round(
-                0.25 * source_cov +
-                0.20 * evidence_dens +
-                0.20 * verif_score +
-                0.15 * agreement +
-                0.10 * concept_cov +
-                0.10 * freshness,
+                w.get("source_coverage", 0.25) * source_cov +
+                w.get("evidence_density", 0.20) * evidence_dens +
+                w.get("verification_score", 0.20) * verif_score +
+                w.get("cross_teacher_agreement", 0.15) * agreement +
+                w.get("concept_coverage", 0.10) * concept_cov +
+                w.get("freshness", 0.10) * freshness,
                 2
             )
 
