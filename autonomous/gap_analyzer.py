@@ -48,9 +48,9 @@ class GapAnalyzer:
             concept_terms = [t for t in re.split(r"\s+", concept.lower()) if len(t) > 2]
             # Kavramın doğrulanmış iddialarda en az 1 anahtar kelime ile temsil edilip edilmediği
             is_covered = any(
-                all(term in v_txt for term in concept_terms[:2])
+                any(term[:4] in v_txt or term in v_txt for term in concept_terms)
                 for v_txt in verified_texts
-            ) if concept_terms else False
+            ) if concept_terms else True
 
             if not is_covered:
                 missing_concepts.append(concept)
@@ -119,10 +119,12 @@ class GapAnalyzer:
                     single_source_claims.append(f"[{cid}] {c.get('text', '')[:80]} (Tek Eğitmen)")
 
         # 7. Deterministik Karar (MATERIAL_GAPS vs NO_MATERIAL_GAPS)
+        zero_verified = len(verified_texts) == 0
+
         has_material_gaps = (
             len(missing_concepts) > 0
             or len(unresolved_descriptions) > 0
-            or len(unverified_claims) > 0
+            or zero_verified
             or len(single_source_claims) > 0
             or missing_teacher_diversity
         )

@@ -1,34 +1,112 @@
 """
-KPSS Super-Brain: Task 10 — Agent Hardening & Final Integration Test Suite
-Tüm 10 entegrasyon güvenlik kontrolünü (State, Evidence, Claims, Contradictions,
-Mastery, Research, Reliability, Completion Gate) uçtan uca doğrular.
+KPSS Super-Brain: Task 11 — Agent Hardening & Final Integration Test Suite
+VerificationStatus import bug doğrulaması, uçtan uca deterministik COMPLETED akışı
+ve tüm entegrasyon güvenlik kapılarını test eder.
 """
 import pytest
 import asyncio
+from unittest.mock import AsyncMock, patch
+
 from brain.models import (
     ResearchJob, ResearchJobState, AtomicClaim, EvidenceRef, ClaimType, SourceType,
     VerificationStatus, ContradictionResolution
 )
+import autonomous.research_agent as ra_module
 from autonomous.research_agent import CompletionEvaluator, ResearchAgent, research_agent
 from autonomous.gap_analyzer import gap_analyzer
 from autonomous.research_planner import research_planner
+from autonomous.tool_registry import tool_registry
 from anti_hallucination.fact_checker import fact_checker
 from cognition.contradiction_engine import contradiction_engine
 from cognition.teacher_identity import teacher_identity
 from brain.curriculum_matrix import curriculum_matrix
 
+def test_task11_verification_status_is_defined_in_research_agent():
+    """TASK 11: VerificationStatus autonomous/research_agent.py modülünde tanımlıdır ve NameError vermez."""
+    assert hasattr(ra_module, "VerificationStatus"), "VerificationStatus autonomous.research_agent içinde import edilmiş olmalıdır!"
+    assert ra_module.VerificationStatus.VERIFIED == VerificationStatus.VERIFIED
+
 @pytest.mark.asyncio
-async def test_int_01_end_to_end_research_cycle_execution():
-    """Entegrasyon 1: Uçtan uca araştırma döngüsü durumları ve olay günlüğü."""
-    res = await research_agent.run_autonomous_research_cycle(
-        goal="TBMM Seçimleri ve Dokunulmazlık Araştırması",
-        lesson="VATANDASLIK",
-        topic="1982 Anayasası Yasama Organı ve Sayıları",
-        target_concepts=["TBMM Seçimleri", "Milletvekili Dokunulmazlığı"]
-    )
-    assert "research_id" in res
-    assert res["status"] in ["COMPLETED", "FAILED"]
-    assert res["iterations"] >= 1
+async def test_task11_mocked_end_to_end_reaches_completed():
+    """
+    TASK 11: Gerçek araştırma döngüsü (mocked tools ile 3 hoca, doğrulanmış kanıtlar ve mevzuat)
+    tüm aşamaları geçerek ve evaluator onayını alarak KESİN OLARAK 'COMPLETED' durumuna ulaşmalıdır.
+    """
+    topic_name = "1982 Anayasası: Yasama Organı ve Fonksiyonları"
+    lesson_name = "VATANDASLIK"
+    target_concepts = ["TBMM üye sayısı", "seçimler"]
+
+    mock_videos = [
+        {"video_id": "v_succ_101", "teacher_name": "Ramazan Yetgin", "title": "Yasama 1", "channel": "Benim Hocam"},
+        {"video_id": "v_succ_102", "teacher_name": "Emrah Vahap Özkaraca", "title": "Yasama 2", "channel": "Hoca Webde"},
+        {"video_id": "v_succ_103", "teacher_name": "Esra Özkan Karaoğlu", "title": "Yasama 3", "channel": "İsem TV"}
+    ]
+
+    mock_transcript = """
+    1982 Anayasası'na göre TBMM kuruluşu ve üye sayısı 600 milletvekilidir.
+    TBMM seçimleri 5 yılda bir yapılır ve seçim yenilenmesi 360 çoğunlukla olur.
+    Milletvekili seçilme yeterliliği şartları en az 18 yaşını doldurmak ve ilkokul mezunu olmaktır.
+    Milletvekili dokunulmazlığı ve yasama bağışıklıkları TBMM Genel Kurulu kararıyla kaldırılabilir.
+    TBMM'nin görev ve yetkileri kanun koymak, bütçe kanununu kabul etmek ve savaş ilan etmektir.
+    TBMM toplantı yeter sayısı 200, en az karar yeter sayısı 151 milletvekilidir.
+    Parlamento kararları ve denetim yolları yazılı soru, genel görüşme ve meclis araştırmasıdır.
+    Anayasa Mahkemesi 15 üyeden oluşur.
+    """
+
+    async def mock_execute(tool_name: str, params: dict):
+        if tool_name == "youtube_search":
+            return {"success": True, "output": {"videos": mock_videos}}
+        elif tool_name == "transcript_fetch":
+            return {
+                "success": True,
+                "output": {
+                    "text": mock_transcript,
+                    "segments": [
+                        {"start": 10.0, "end": 25.0, "text": "TBMM üye sayısı 600 milletvekilidir."}
+                    ]
+                }
+            }
+        elif tool_name == "official_mevzuat_search":
+            return {
+                "success": True,
+                "output": {
+                    "text": "1982 Anayasası Madde 75: TBMM 600 milletvekilinden kurulur. Madde 77: TBMM seçimleri 5 yılda bir yapılır."
+                }
+            }
+        return {"success": True, "output": {}}
+
+    with patch.object(tool_registry, "execute", side_effect=mock_execute):
+        res = await research_agent.run_autonomous_research_cycle(
+            goal="1982 Anayasası Yasama Organı Uçtan Uca Araştırma",
+            lesson=lesson_name,
+            topic=topic_name,
+            target_concepts=target_concepts
+        )
+
+    # Kesin ve net kontrat doğrulaması
+    assert res["status"] == "COMPLETED", f"Araştırma COMPLETED olmalıydı, hata: {res.get('error')}"
+    assert res["error"] is None
+    assert res["sources_ingested"] >= 3
+    assert res["claims_verified"] >= 1
+    assert res["mastery_score"] >= 0.80
+
+@pytest.mark.asyncio
+async def test_task11_runtime_exception_is_specifically_logged():
+    """TASK 11: Çalışma zamanı hatası oluştuğunda bu sessizce gizlenmez, RESEARCH_EXCEPTION ile loglanır."""
+    async def broken_execute(tool_name: str, params: dict):
+        raise RuntimeError("Simulated connection dropped")
+
+    with patch.object(tool_registry, "execute", side_effect=broken_execute):
+        res = await research_agent.run_autonomous_research_cycle(
+            goal="Hata Testi",
+            lesson="VATANDASLIK",
+            topic="Genel Konu",
+            target_concepts=["Kavram 1"]
+        )
+
+    assert res["status"] == "FAILED"
+    assert res["error"] is not None
+    assert "RESEARCH_EXCEPTION" in res["error"]
 
 def test_int_02_evidence_failure_blocks_verification():
     """Entegrasyon 2: Kanıt referansı taşımayan iddia asla VERIFIED olamaz."""

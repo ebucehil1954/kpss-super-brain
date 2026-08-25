@@ -11,7 +11,7 @@ import hashlib
 from typing import Dict, Any, List, Optional
 from datetime import datetime
 from brain.models import (
-    ResearchJob, ResearchJobState, ResearchEvent, MasterySnapshot, SourceType, AtomicClaim
+    ResearchJob, ResearchJobState, ResearchEvent, MasterySnapshot, SourceType, AtomicClaim, VerificationStatus
 )
 from brain.database import db_session
 from autonomous.tool_registry import tool_registry
@@ -209,6 +209,15 @@ class ResearchAgent:
                         job.ingested_sources_count += 1
                         unique_teachers.add(teacher)
                         full_text = t_res["output"]["text"]
+
+                        # Müfredat matrisine video tüketimini işle
+                        curriculum_matrix.record_video_consumption(
+                            lesson=lesson,
+                            topic=topic,
+                            video_id=vid,
+                            teacher_name=teacher,
+                            channel_name=v.get("channel", "YouTube")
+                        )
                         
                         # Atomik Claim Çıkarımı
                         from senses.transcript_processor import transcript_processor

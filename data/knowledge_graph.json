@@ -1877,6 +1877,94 @@
       "type": "VALUE_ENTITY",
       "lesson": "GENEL",
       "properties": {}
+    },
+    "ENT_68cb7548": {
+      "id": "ENT_68cb7548",
+      "label": "600 milletvekilidir",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "1982 Anayasası'na göre TBMM üye sayısı 600 milletvekilidir",
+        "times_observed": 1
+      }
+    },
+    "ENT_8be8f28e": {
+      "id": "ENT_8be8f28e",
+      "label": "18 olarak",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "Milletvekili seçilme yaşı 18 olarak belirlenmiştir",
+        "times_observed": 1
+      }
+    },
+    "ENT_6830eebd": {
+      "id": "ENT_6830eebd",
+      "label": "200 milletvekilidir",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "TBMM toplantı yeter sayısı 200 milletvekilidir",
+        "times_observed": 1
+      }
+    },
+    "ENT_54de8af0": {
+      "id": "ENT_54de8af0",
+      "label": "360 milletvekili",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "Genel af ilanı için üye tamsayısının beşte üçü olan 360 milletvekili çoğunluğu aranır",
+        "times_observed": 1
+      }
+    },
+    "ENT_3df87adc": {
+      "id": "ENT_3df87adc",
+      "label": "360 çoğunlukla",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "TBMM seçimleri 5 yılda bir yapılır ve seçim yenilenmesi 360 çoğunlukla olur",
+        "times_observed": 1
+      }
+    },
+    "ENT_075dd146": {
+      "id": "ENT_075dd146",
+      "label": "18 yaşını",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "Milletvekili seçilme yeterliliği şartları en az 18 yaşını doldurmak ve ilkokul mezunu olmaktır",
+        "times_observed": 1
+      }
+    },
+    "ENT_7f19632e": {
+      "id": "ENT_7f19632e",
+      "label": "Genel Kurulu",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "Milletvekili dokunulmazlığı ve yasama bağışıklıkları TBMM Genel Kurulu kararıyla kaldırılabilir",
+        "times_observed": 1
+      }
+    },
+    "ENT_c935549a": {
+      "id": "ENT_c935549a",
+      "label": "151 milletvekilidir",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "TBMM toplantı yeter sayısı 200, en az karar yeter sayısı 151 milletvekilidir",
+        "times_observed": 1
+      }
     }
   },
   "edges": [
@@ -2676,6 +2764,72 @@
       "source": "ENT_AKADEMIK_KPSS",
       "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS",
       "relation": "ILIŞKI",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_68cb7548",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_9bf7b58a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_8be8f28e",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_6830eebd",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_54de8af0",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_a3d956ee",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_aa0099bd",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_3df87adc",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_075dd146",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_7f19632e",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_c935549a",
+      "relation": "CONTAINS_CONCEPT",
       "weight": 1.0
     }
   ]

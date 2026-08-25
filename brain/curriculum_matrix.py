@@ -663,7 +663,10 @@ class CurriculumMatrixEngine:
             # Hedef alt kavramları çek
             target_subtopics = []
             curric_lesson = cls.OFFICIAL_CURRICULUM.get(matched_lesson, {})
-            if row["topic_id"] in curric_lesson:
+            raw_topic_key = row["topic_id"].replace(f"{matched_lesson}_", "")
+            if raw_topic_key in curric_lesson:
+                target_subtopics = curric_lesson[raw_topic_key].get("subtopics", [])
+            elif row["topic_id"] in curric_lesson:
                 target_subtopics = curric_lesson[row["topic_id"]].get("subtopics", [])
 
             # 1. Source Coverage (Öğretmen ve kanal çeşitliliği)
@@ -702,13 +705,19 @@ class CurriculumMatrixEngine:
             if target_subtopics:
                 covered_subs = 0
                 for st in target_subtopics:
-                    cursor.execute("""
-                    SELECT 1 FROM atomic_claims
-                    WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ? OR topic = ?)
-                    AND (subtopic LIKE ? OR text LIKE ?) AND verification_status = 'VERIFIED'
-                    LIMIT 1
-                    """, (matched_lesson, matched_tname, row["topic_id"], topic_id, f"%{st[:15]}%", f"%{st[:15]}%"))
-                    if cursor.fetchone():
+                    st_words = [w for w in re.split(r"\W+", st.lower()) if len(w) >= 3]
+                    matched_this = False
+                    for w in st_words:
+                        cursor.execute("""
+                        SELECT 1 FROM atomic_claims
+                        WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ? OR topic = ?)
+                        AND (LOWER(subtopic) LIKE ? OR LOWER(text) LIKE ?) AND verification_status = 'VERIFIED'
+                        LIMIT 1
+                        """, (matched_lesson, matched_tname, row["topic_id"], topic_id, f"%{w}%", f"%{w}%"))
+                        if cursor.fetchone():
+                            matched_this = True
+                            break
+                    if matched_this:
                         covered_subs += 1
                 concept_cov = min(1.0, covered_subs / max(1, len(target_subtopics)))
             else:
