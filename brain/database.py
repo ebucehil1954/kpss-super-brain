@@ -237,6 +237,159 @@ def initialize_database():
         """)
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_dcp_lesson ON discovered_channels_playlists(lesson);")
 
+        # 10. KANONİK KAYNAKLAR (Canonical Sources)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS sources (
+            source_id TEXT PRIMARY KEY,
+            source_type TEXT NOT NULL, -- YOUTUBE_TRANSCRIPT, YOUTUBE_AUDIO_WHISPER, WEB_PAGE, OFFICIAL_LEGISLATION, TUIK_MTA_STATISTICS, PDF_DOCUMENT
+            title TEXT NOT NULL,
+            url TEXT,
+            author_or_teacher TEXT DEFAULT 'Bilinmiyor',
+            institution_or_channel TEXT,
+            published_at TEXT,
+            reliability_score REAL DEFAULT 0.85,
+            provenance_hash TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_src_type ON sources(source_type);")
+
+        # 11. TRANSKRİPT SEGMENTLERİ (Transcript Segments with Timestamps)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS transcript_segments (
+            segment_id TEXT PRIMARY KEY,
+            video_id TEXT NOT NULL,
+            start_seconds REAL NOT NULL,
+            end_seconds REAL NOT NULL,
+            text TEXT NOT NULL,
+            segment_hash TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_ts_video ON transcript_segments(video_id);")
+
+        # 12. ATOMİK İDDİALAR VE KANITLAR (Atomic Claims & Provenance)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS atomic_claims (
+            claim_id TEXT PRIMARY KEY,
+            text TEXT NOT NULL,
+            lesson TEXT NOT NULL,
+            topic TEXT NOT NULL,
+            subtopic TEXT DEFAULT '',
+            claim_type TEXT NOT NULL, -- FACT, DEFINITION, LEGAL_RULE, DATE, NUMBER, MNEMONIC, TRAP, etc.
+            subject TEXT,
+            predicate TEXT,
+            object_val TEXT,
+            evidence_refs_json TEXT NOT NULL DEFAULT '[]',
+            confidence REAL DEFAULT 0.90,
+            temporal_status TEXT NOT NULL DEFAULT 'ACTIVE',
+            verification_status TEXT NOT NULL DEFAULT 'PENDING',
+            tags_json TEXT NOT NULL DEFAULT '[]',
+            provenance_hash TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_ac_topic ON atomic_claims(lesson, topic);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_ac_type ON atomic_claims(claim_type);")
+
+        # 13. ÇELİŞKİ KAYITLARI (Contradiction Records)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS contradictions (
+            contradiction_id TEXT PRIMARY KEY,
+            lesson TEXT NOT NULL,
+            topic TEXT NOT NULL,
+            claim_a_id TEXT NOT NULL,
+            claim_a_text TEXT NOT NULL,
+            claim_a_source TEXT NOT NULL,
+            claim_b_id TEXT NOT NULL,
+            claim_b_text TEXT NOT NULL,
+            claim_b_source TEXT NOT NULL,
+            severity TEXT NOT NULL DEFAULT 'HIGH', -- HIGH, MEDIUM, LOW
+            resolution TEXT NOT NULL DEFAULT 'UNRESOLVED', -- OFFICIAL_SOURCE_WINS, RECENT_SOURCE_WINS, MULTI_SOURCE_CONSENSUS, UNRESOLVED
+            winning_claim_id TEXT,
+            resolution_rationale TEXT,
+            created_at TEXT NOT NULL,
+            resolved_at TEXT
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_contra_topic ON contradictions(lesson, topic);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_contra_status ON contradictions(resolution);")
+
+        # 14. ARAŞTIRMA GÖREVLERİ VE DURUM MAKİNESİ (Research Jobs & State Machine)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS research_jobs (
+            research_id TEXT PRIMARY KEY,
+            goal TEXT NOT NULL,
+            lesson TEXT NOT NULL,
+            topic TEXT NOT NULL,
+            state TEXT NOT NULL DEFAULT 'GOAL_CREATED',
+            target_concepts_json TEXT NOT NULL DEFAULT '[]',
+            discovered_sources_count INTEGER DEFAULT 0,
+            ingested_sources_count INTEGER DEFAULT 0,
+            extracted_claims_count INTEGER DEFAULT 0,
+            verified_claims_count INTEGER DEFAULT 0,
+            contradictions_count INTEGER DEFAULT 0,
+            mastery_score REAL DEFAULT 0.0,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL,
+            completed_at TEXT,
+            error TEXT
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_rj_state ON research_jobs(state);")
+
+        # 15. ARAŞTIRMA OLAY GÜNLÜĞÜ (Research Events Log)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS research_events (
+            event_id TEXT PRIMARY KEY,
+            research_id TEXT NOT NULL,
+            event_type TEXT NOT NULL,
+            from_state TEXT,
+            to_state TEXT,
+            details_json TEXT NOT NULL DEFAULT '{}',
+            timestamp TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_re_job ON research_events(research_id, timestamp DESC);")
+
+        # 16. KONSEPT DOLULUK MATRİSİ (Concept Coverage Matrix)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS concept_coverage (
+            concept_key TEXT PRIMARY KEY, -- topic_id:concept_name
+            topic_id TEXT NOT NULL,
+            concept_name TEXT NOT NULL,
+            lesson TEXT NOT NULL,
+            topic_name TEXT NOT NULL,
+            is_covered INTEGER DEFAULT 0,
+            evidence_claims_count INTEGER DEFAULT 0,
+            distinct_teachers_count INTEGER DEFAULT 0,
+            confidence_score REAL DEFAULT 0.0,
+            last_verified_at TEXT
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_cc_topic ON concept_coverage(topic_id);")
+
+        # 17. HAKİMİYET ANLIK GÖRÜNTÜLERİ (Mastery Snapshots)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS mastery_snapshots (
+            snapshot_id TEXT PRIMARY KEY,
+            topic_id TEXT NOT NULL,
+            lesson TEXT NOT NULL,
+            topic_name TEXT NOT NULL,
+            source_coverage REAL NOT NULL,
+            evidence_density REAL NOT NULL,
+            verification_score REAL NOT NULL,
+            cross_teacher_agreement REAL NOT NULL,
+            concept_coverage REAL NOT NULL,
+            freshness_score REAL NOT NULL,
+            overall_mastery REAL NOT NULL,
+            consumed_videos_count INTEGER DEFAULT 0,
+            distinct_teachers_json TEXT NOT NULL DEFAULT '[]',
+            distinct_channels_json TEXT NOT NULL DEFAULT '[]',
+            calculated_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_ms_topic ON mastery_snapshots(topic_id, calculated_at DESC);")
+
 # Veritabanını otomatik ilklendir
 initialize_database()
 

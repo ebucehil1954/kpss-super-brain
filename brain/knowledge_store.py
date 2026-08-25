@@ -232,4 +232,25 @@ class KnowledgeStore:
             "tags": json.loads(row["tags_json"])
         }
 
+    @classmethod
+    def add_record(cls, text: str, record_type: str, lesson: str, topic: str, subtopic: str = "", confidence: float = 0.95, source_chain: Optional[List[Dict[str, Any]]] = None, tags: Optional[List[str]] = None, related_records: Optional[List[str]] = None):
+        """add_or_reinforce_record için takma ad (alias)."""
+        source = source_chain[0] if source_chain else None
+        return cls.add_or_reinforce_record(
+            text=text,
+            record_type=record_type,
+            lesson=lesson,
+            topic=topic,
+            subtopic=subtopic,
+            confidence=confidence,
+            source=source,
+            tags=tags,
+            related_records=related_records
+        )
+
+    @classmethod
+    def search_knowledge(cls, query: str, lesson: Optional[str] = None, limit: int = 10) -> List[Dict[str, Any]]:
+        """search için takma ad (alias)."""
+        return cls.search(query=query, lesson=lesson, limit=limit)
+
 knowledge_store = KnowledgeStore()

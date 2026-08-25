@@ -215,9 +215,10 @@ class HungryEngine:
         full_text = t_res.get("text", "")
 
         if not t_res.get("success") or not full_text:
-            # Fallback: Web ve müfredat ontolojisinden besle
-            web_data = await web_researcher.deep_research_and_ingest(topic, lesson)
-            full_text = f"DERS: {lesson}\nKONU: {topic}\nEĞİTMEN: {teacher}\n" + "\n".join([s.get("summary","") for s in web_data.get("sources", [])])
+            # Kesin Hata Semantiği: Sahte veriyle doldurma, açıkça NO_TRANSCRIPT olarak işaretle
+            print(f"⚠️ [TRANSCRIPT BULUNAMADI] {video_id} ({teacher}) - TRANSCRIPT_UNAVAILABLE.")
+            video_queue.mark_no_transcript(video_id, error_msg=t_res.get("error", "Transkript bulunamadı."))
+            return
 
         proc_result = await transcript_processor.process_video_transcript(
             video_id=video_id,
@@ -225,7 +226,8 @@ class HungryEngine:
             teacher_name=teacher,
             lesson=lesson,
             topic=topic,
-            full_transcript=full_text
+            full_transcript=full_text,
+            segments=t_res.get("segments", [])
         )
 
         teacher_learner.update_profile_from_lecture(

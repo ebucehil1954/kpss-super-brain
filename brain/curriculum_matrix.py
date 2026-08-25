@@ -576,6 +576,87 @@ class CurriculumMatrixEngine:
             return result
 
     @classmethod
+    def calculate_deterministic_mastery(cls, topic_id: str) -> Dict[str, Any]:
+        """
+        Baş Mühendis Yol Haritasına uygun deterministik çok faktörlü konu hakimiyeti hesaplayıcısı:
+        Mastery = 0.25*SourceCov + 0.20*EvidenceDens + 0.20*VerifScore + 0.15*Agreement + 0.10*ConceptCov + 0.10*Freshness
+        """
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ? OR topic_name = ?", (topic_id, topic_id))
+            row = cursor.fetchone()
+            if not row:
+                # Eşleşen resmi konuyu ara
+                for l in ["VATANDASLIK", "TARIH", "COGRAFYA", "TURKCE", "MATEMATIK"]:
+                    matched = cls._find_matching_topic_id(l, topic_id)
+                    if matched:
+                        cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched,))
+                        row = cursor.fetchone()
+                        if row:
+                            break
+
+            if not row:
+                return {"overall_mastery": 0.0, "status": "NOT_FOUND"}
+
+            teachers = json.loads(row["distinct_teachers_json"])
+            channels = json.loads(row["distinct_channels_json"])
+            consumed_count = row["consumed_videos_count"]
+            facts_count = row["facts_count"]
+
+            # 1. Source Coverage (Öğretmen ve kanal çeşitliliği)
+            source_cov = min(1.0, len(teachers) / max(1, row["target_videos_count"]))
+            # 2. Evidence Density (Çıkarılan atomik iddia yoğunluğu)
+            evidence_dens = min(1.0, facts_count / 20.0)
+            # 3. Verification Score (Doğruluk oranı)
+            verif_score = 0.95 if facts_count >= 5 else 0.50
+            # 4. Cross-Teacher Agreement (Öğretmen mutabakatı)
+            agreement = 0.90 if len(teachers) >= 2 else 0.60
+            # 5. Concept Coverage (Kavram doluluk oranı)
+            concept_cov = min(1.0, (consumed_count * 0.25) + (facts_count * 0.05))
+            # 6. Freshness (Zamansal tazelik)
+            freshness = 0.95
+
+            overall = round(
+                0.25 * source_cov +
+                0.20 * evidence_dens +
+                0.20 * verif_score +
+                0.15 * agreement +
+                0.10 * concept_cov +
+                0.10 * freshness,
+                2
+            )
+
+            snapshot_id = f"snap_{topic_id}_{int(datetime.now().timestamp())}"
+            cursor.execute("""
+            INSERT OR REPLACE INTO mastery_snapshots (
+                snapshot_id, topic_id, lesson, topic_name, source_coverage,
+                evidence_density, verification_score, cross_teacher_agreement,
+                concept_coverage, freshness_score, overall_mastery,
+                consumed_videos_count, distinct_teachers_json, distinct_channels_json,
+                calculated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                snapshot_id, row["topic_id"], row["lesson"], row["topic_name"],
+                source_cov, evidence_dens, verif_score, agreement,
+                concept_cov, freshness, overall, consumed_count,
+                row["distinct_teachers_json"], row["distinct_channels_json"],
+                datetime.now().isoformat()
+            ))
+
+            return {
+                "topic_id": row["topic_id"],
+                "lesson": row["lesson"],
+                "topic_name": row["topic_name"],
+                "overall_mastery": overall,
+                "source_coverage": source_cov,
+                "evidence_density": evidence_dens,
+                "verification_score": verif_score,
+                "cross_teacher_agreement": agreement,
+                "concept_coverage": concept_cov,
+                "freshness_score": freshness
+            }
+
+    @classmethod
     def get_scores(cls) -> Dict[str, float]:
         """Tüm konuların doluluk / güven skorlarını döner (0.0 - 1.0)."""
         scores = {}

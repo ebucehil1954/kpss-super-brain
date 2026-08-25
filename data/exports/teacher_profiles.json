@@ -131,13 +131,17 @@
     "name": "Bayram Meral",
     "channel": "YouTube",
     "lesson": "COGRAFYA",
-    "videos_watched": 2,
-    "total_transcript_words": 72,
+    "videos_watched": 5,
+    "total_transcript_words": 224,
     "teaching_patterns": {
       "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
       "anahtar_kaliplar": []
     },
     "favorite_topics": [
+      {
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "mention_count": 3
+      },
       {
         "topic": "1)    MEB / AGS Coğrafya   Coğrafyaya Giriş   Bayram Meral",
         "mention_count": 1
@@ -152,6 +156,30 @@
     "reasoning_chains_count": 0,
     "unique_facts_count": 0,
     "trap_warnings_count": 0,
-    "updated_at": "2026-08-25T13:19:01.743783"
+    "updated_at": "2026-08-25T21:21:39.677040"
+  },
+  {
+    "teacher_id": "engin_eraydn",
+    "name": "Engin Eraydın",
+    "channel": "YouTube",
+    "lesson": "COGRAFYA",
+    "videos_watched": 2,
+    "total_transcript_words": 56,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [
+      {
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "mention_count": 2
+      }
+    ],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 0,
+    "unique_facts_count": 0,
+    "trap_warnings_count": 0,
+    "updated_at": "2026-08-25T21:22:09.210362"
   }
 ]

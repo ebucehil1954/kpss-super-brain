@@ -1749,6 +1749,94 @@
       "type": "VALUE_ENTITY",
       "lesson": "GENEL",
       "properties": {}
+    },
+    "COGRAFYA_T_RKIYE_NIN_CO_RAFI_": {
+      "id": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+      "label": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+      "type": "TOPIC",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "auto_created": true,
+        "subtopics": [
+          "Doğrulanmış Web Araştırması"
+        ]
+      }
+    },
+    "ENT_3d8d2043": {
+      "id": "ENT_3d8d2043",
+      "label": "Jeopolitik Önemi",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konus",
+        "times_observed": 1
+      }
+    },
+    "ENT_88601c86": {
+      "id": "ENT_88601c86",
+      "label": "Coğrafi Konumu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konus",
+        "times_observed": 1
+      }
+    },
+    "VATANDASLIK_ANAYASA_MAHKEMESI": {
+      "id": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "label": "Anayasa Mahkemesi",
+      "type": "TOPIC",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "auto_created": true,
+        "subtopics": []
+      }
+    },
+    "ENT_aa0099bd": {
+      "id": "ENT_aa0099bd",
+      "label": "Anayasa Mahkemesi",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
+        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
+        "times_observed": 1
+      }
+    },
+    "ENT_a3b2d9c4": {
+      "id": "ENT_a3b2d9c4",
+      "label": "Madde 146",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
+        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
+        "times_observed": 1
+      }
+    },
+    "ENT_a3d956ee": {
+      "id": "ENT_a3d956ee",
+      "label": "15 üyeden",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
+        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
+        "times_observed": 1
+      }
+    },
+    "ENT_5f250f5d": {
+      "id": "ENT_5f250f5d",
+      "label": "12 yıl",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
+        "source_text_snippet": "Üyeler 12 yıl için seçilir.",
+        "times_observed": 1
+      }
     }
   },
   "edges": [
@@ -2476,6 +2564,60 @@
       "source": "ENT_##_⚖️",
       "target": "ENT_HUKUKI_&_AKADEMIK",
       "relation": "ILIŞKI",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+      "target": "ENT_3d8d2043",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+      "target": "ENT_88601c86",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
+      "target": "ENT_dea5186c",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_aa0099bd",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_9bf7b58a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_a3b2d9c4",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_a3d956ee",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_e81b003a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
+      "target": "ENT_5f250f5d",
+      "relation": "CONTAINS_CONCEPT",
       "weight": 1.0
     }
   ]

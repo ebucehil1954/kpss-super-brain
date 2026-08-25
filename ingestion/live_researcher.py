@@ -13,6 +13,7 @@ from typing import Dict, Any, List, Optional
 from config import super_brain_config
 from senses.mevzuat_crawler import mevzuat_crawler, MevzuatCrawler
 from senses.tuik_fetcher import tuik_fetcher, TuikMtaFetcher
+TuikFetcher = TuikMtaFetcher
 from senses.web_researcher import web_researcher, WebResearcher
 
 logger = logging.getLogger("OpenManusKpssAgent")

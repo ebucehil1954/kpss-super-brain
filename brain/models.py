@@ -1,0 +1,292 @@
+"""
+KPSS Super-Brain: Kanonik Veri Modelleri ve Şemaları (Canonical Data Models)
+Tüm sistem genelinde tür güvenliği (Type Safety), Provenance ve Pydantic v2 doğrulaması sağlar.
+"""
+import hashlib
+from enum import Enum
+from typing import Dict, Any, List, Optional, Union
+from datetime import datetime
+from pydantic import BaseModel, Field, field_validator, model_validator
+
+# ==========================================
+# 1. KAYNAK & MEDYA MODELLERİ (Source & Media)
+# ==========================================
+
+class SourceType(str, Enum):
+    YOUTUBE_TRANSCRIPT = "YOUTUBE_TRANSCRIPT"
+    YOUTUBE_AUDIO_WHISPER = "YOUTUBE_AUDIO_WHISPER"
+    WEB_PAGE = "WEB_PAGE"
+    OFFICIAL_LEGISLATION = "OFFICIAL_LEGISLATION"
+    TUIK_MTA_STATISTICS = "TUIK_MTA_STATISTICS"
+    PDF_DOCUMENT = "PDF_DOCUMENT"
+    MANUAL_CURATED = "MANUAL_CURATED"
+
+class VideoState(str, Enum):
+    DISCOVERED = "DISCOVERED"
+    QUEUED = "QUEUED"
+    PROCESSING = "PROCESSING"
+    TRANSCRIPT_FOUND = "TRANSCRIPT_FOUND"
+    TRANSCRIBED = "TRANSCRIBED"
+    EXTRACTED = "EXTRACTED"
+    VERIFIED = "VERIFIED"
+    FAILED_TRANSCRIPT = "FAILED_TRANSCRIPT"
+    FAILED_EXTRACTION = "FAILED_EXTRACTION"
+    FAILED_VERIFICATION = "FAILED_VERIFICATION"
+    COMPLETED = "COMPLETED"
+    SKIPPED = "SKIPPED"
+
+class Source(BaseModel):
+    source_id: str
+    source_type: SourceType
+    title: str
+    url: Optional[str] = None
+    author_or_teacher: Optional[str] = "Bilinmiyor"
+    institution_or_channel: Optional[str] = None
+    published_at: Optional[str] = None
+    reliability_score: float = Field(default=0.85, ge=0.0, le=1.0)
+    provenance_hash: Optional[str] = None
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+    @model_validator(mode="after")
+    def compute_provenance_hash(self):
+        if not self.provenance_hash:
+            raw = f"{self.source_id}:{self.source_type.value}:{self.url or ''}:{self.author_or_teacher or ''}"
+            self.provenance_hash = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+        return self
+
+class VideoMetadata(BaseModel):
+    video_id: str
+    url: str
+    title: str
+    channel_id: Optional[str] = ""
+    channel_name: str = "Bilinmeyen Kanal"
+    teacher_name: str = "Genel"
+    lesson: str = "GENEL"
+    topic: str = "Genel"
+    subtopics: List[str] = Field(default_factory=list)
+    duration_seconds: int = 0
+    language: str = "tr"
+    state: VideoState = VideoState.DISCOVERED
+    relevance_score: float = 1.0
+    source_rank: float = 1.0
+    discovered_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    processed_at: Optional[str] = None
+    error_message: Optional[str] = None
+
+class TranscriptSegment(BaseModel):
+    segment_id: str
+    video_id: str
+    start_seconds: float
+    end_seconds: float
+    text: str
+    segment_hash: Optional[str] = None
+
+    @model_validator(mode="after")
+    def compute_hash(self):
+        if not self.segment_hash:
+            raw = f"{self.video_id}:{self.start_seconds}:{self.end_seconds}:{self.text}"
+            self.segment_hash = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+        return self
+
+class TranscriptDocument(BaseModel):
+    video_id: str
+    source_type: SourceType
+    full_text: str
+    segments: List[TranscriptSegment] = Field(default_factory=list)
+    word_count: int = 0
+    language: str = "tr"
+    is_whisper_transcribed: bool = False
+    fetched_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+# ==========================================
+# 2. ATOMİK İDDİA & KANIT MODELLERİ (Claims & Evidence)
+# ==========================================
+
+class ClaimType(str, Enum):
+    FACT = "FACT"
+    DEFINITION = "DEFINITION"
+    RELATION = "RELATION"
+    CAUSE_EFFECT = "CAUSE_EFFECT"
+    COMPARISON = "COMPARISON"
+    DATE = "DATE"
+    NUMBER = "NUMBER"
+    LEGAL_RULE = "LEGAL_RULE"
+    EXCEPTION = "EXCEPTION"
+    MNEMONIC = "MNEMONIC"
+    TRAP = "TRAP"
+    QUESTION_STRATEGY = "QUESTION_STRATEGY"
+    TEACHER_INSIGHT = "TEACHER_INSIGHT"
+    UNCERTAIN_CLAIM = "UNCERTAIN_CLAIM"
+
+class TemporalValidityStatus(str, Enum):
+    ACTIVE = "ACTIVE"
+    REPEALED = "REPEALED"
+    HISTORICAL = "HISTORICAL"
+    SUPERSEDED = "SUPERSEDED"
+    UNKNOWN = "UNKNOWN"
+
+class EvidenceRef(BaseModel):
+    source_id: str
+    source_type: SourceType
+    video_id: Optional[str] = None
+    segment_id: Optional[str] = None
+    url: Optional[str] = None
+    snippet: str
+    speaker_or_author: Optional[str] = None
+    timestamp_str: Optional[str] = None
+
+class AtomicClaim(BaseModel):
+    claim_id: str
+    text: str
+    lesson: str
+    topic: str
+    subtopic: str = ""
+    claim_type: ClaimType = ClaimType.FACT
+    subject: Optional[str] = None
+    predicate: Optional[str] = None
+    object_val: Optional[str] = None
+    evidence_refs: List[EvidenceRef] = Field(default_factory=list)
+    confidence: float = Field(default=0.90, ge=0.0, le=1.0)
+    temporal_status: TemporalValidityStatus = TemporalValidityStatus.ACTIVE
+    verification_status: str = "PENDING"
+    tags: List[str] = Field(default_factory=list)
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    provenance_hash: Optional[str] = None
+
+    @model_validator(mode="after")
+    def compute_claim_hash(self):
+        if not self.provenance_hash:
+            raw = f"{self.lesson}:{self.topic}:{self.text}"
+            self.provenance_hash = hashlib.sha256(raw.encode("utf-8")).hexdigest()[:16]
+        return self
+
+# ==========================================
+# 3. DOĞRULAMA & ÇELİŞKİ MODELLERİ (Verification & Contradiction)
+# ==========================================
+
+class VerificationStatus(str, Enum):
+    VERIFIED = "VERIFIED"
+    REJECTED = "REJECTED"
+    CONTRADICTORY = "CONTRADICTORY"
+    UNVERIFIED = "UNVERIFIED"
+
+class VerificationResult(BaseModel):
+    is_valid: bool
+    status: VerificationStatus
+    stage: str
+    reason: str
+    confidence_score: float = 0.90
+    refchecker_triplets: List[Dict[str, Any]] = Field(default_factory=list)
+    z3_sat: bool = True
+    temporal_valid: bool = True
+    numerical_valid: bool = True
+    semantic_consistency_score: float = 0.95
+    checked_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+class ContradictionSeverity(str, Enum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+class ContradictionResolution(str, Enum):
+    OFFICIAL_SOURCE_WINS = "OFFICIAL_SOURCE_WINS"
+    RECENT_SOURCE_WINS = "RECENT_SOURCE_WINS"
+    MULTI_SOURCE_CONSENSUS = "MULTI_SOURCE_CONSENSUS"
+    UNRESOLVED = "UNRESOLVED"
+    MANUAL_REVIEW_REQUIRED = "MANUAL_REVIEW_REQUIRED"
+
+class ContradictionRecord(BaseModel):
+    contradiction_id: str
+    lesson: str
+    topic: str
+    claim_a_id: str
+    claim_a_text: str
+    claim_a_source: str
+    claim_b_id: str
+    claim_b_text: str
+    claim_b_source: str
+    severity: ContradictionSeverity = ContradictionSeverity.HIGH
+    resolution: ContradictionResolution = ContradictionResolution.UNRESOLVED
+    winning_claim_id: Optional[str] = None
+    resolution_rationale: Optional[str] = None
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    resolved_at: Optional[str] = None
+
+# ==========================================
+# 4. ARAŞTIRMA AJANI & GÖREV MODELLERİ (Agentic State)
+# ==========================================
+
+class ResearchJobState(str, Enum):
+    GOAL_CREATED = "GOAL_CREATED"
+    PLANNING = "PLANNING"
+    DISCOVERING = "DISCOVERING"
+    ACQUIRING = "ACQUIRING"
+    EXTRACTING = "EXTRACTING"
+    MINING = "MINING"
+    VERIFYING = "VERIFYING"
+    COMPARING = "COMPARING"
+    GAP_ANALYSIS = "GAP_ANALYSIS"
+    RESEARCHING_GAPS = "RESEARCHING_GAPS"
+    SYNTHESIZING = "SYNTHESIZING"
+    FINAL_REVIEW = "FINAL_REVIEW"
+    COMPLETED = "COMPLETED"
+    FAILED = "FAILED"
+    PAUSED = "PAUSED"
+
+class ResearchEvent(BaseModel):
+    event_id: str
+    research_id: str
+    event_type: str
+    from_state: Optional[ResearchJobState] = None
+    to_state: Optional[ResearchJobState] = None
+    details: Dict[str, Any] = Field(default_factory=dict)
+    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+class ResearchJob(BaseModel):
+    research_id: str
+    goal: str
+    lesson: str
+    topic: str
+    state: ResearchJobState = ResearchJobState.GOAL_CREATED
+    target_concepts: List[str] = Field(default_factory=list)
+    discovered_sources_count: int = 0
+    ingested_sources_count: int = 0
+    extracted_claims_count: int = 0
+    verified_claims_count: int = 0
+    contradictions_count: int = 0
+    mastery_score: float = 0.0
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    completed_at: Optional[str] = None
+    error: Optional[str] = None
+
+# ==========================================
+# 5. KAVRAM KAPSAMI & HAKİMİYET MODELLERİ (Coverage & Mastery)
+# ==========================================
+
+class ConceptCoverageRecord(BaseModel):
+    topic_id: str
+    concept_name: str
+    lesson: str
+    topic_name: str
+    is_covered: bool = False
+    evidence_claims_count: int = 0
+    distinct_teachers_count: int = 0
+    confidence_score: float = 0.0
+    last_verified_at: Optional[str] = None
+
+class MasterySnapshot(BaseModel):
+    topic_id: str
+    lesson: str
+    topic_name: str
+    source_coverage: float = Field(ge=0.0, le=1.0)
+    evidence_density: float = Field(ge=0.0, le=1.0)
+    verification_score: float = Field(ge=0.0, le=1.0)
+    cross_teacher_agreement: float = Field(ge=0.0, le=1.0)
+    concept_coverage: float = Field(ge=0.0, le=1.0)
+    freshness_score: float = Field(ge=0.0, le=1.0)
+    overall_mastery: float = Field(ge=0.0, le=1.0)
+    consumed_videos_count: int = 0
+    distinct_teachers: List[str] = Field(default_factory=list)
+    distinct_channels: List[str] = Field(default_factory=list)
+    calculated_at: str = Field(default_factory=lambda: datetime.now().isoformat())

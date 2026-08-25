@@ -1,5 +1,60 @@
 [
   {
+    "record_id": "kr_4eab23a400b0",
+    "text": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konusu ÖSYM KPSS sınav standartlarında kesin bilgi içeren temel kazanımdır.",
+    "record_type": "FACT",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "subtopic": "Doğrulanmış Web Araştırması",
+    "confidence": 0.991808,
+    "source_chain": [
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:20:15.126918"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:21:05.556650"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:21:35.610912"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:22:00.873022"
+      },
+      {
+        "type": "verified_web",
+        "title": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "url": "https://www.meb.gov.tr",
+        "source": "MEB Müfredatı",
+        "date": "2026-08-25T21:22:05.115095"
+      }
+    ],
+    "related_records": [],
+    "times_reinforced": 5,
+    "first_learned": "2026-08-25T21:20:15.130591",
+    "last_reinforced": "2026-08-25T21:22:05.117653",
+    "tags": [
+      "COGRAFYA",
+      "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+      "VERIFIED_WEB"
+    ]
+  },
+  {
     "record_id": "kr_3a4f764795b4",
     "text": "1982 Anayasası Madde 87: TBMM üye tamsayısının salt çoğunluğu (301) ile kanun teklifleri kabul edilir.",
     "record_type": "FACT",
