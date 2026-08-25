@@ -1847,6 +1847,36 @@
         "auto_created": true,
         "subtopics": []
       }
+    },
+    "ENT_AKADEMIK_KPSS": {
+      "id": "ENT_AKADEMIK_KPSS",
+      "label": "Akademik KPSS",
+      "type": "ENTITY",
+      "lesson": "GENEL",
+      "properties": {
+        "ilişki": "Kaynakları: COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER KPSS"
+      }
+    },
+    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS": {
+      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS",
+      "label": "Kaynakları: COGRAFYA_TURKIYE_IKLIM_VE_BITKI KPSS",
+      "type": "VALUE_ENTITY",
+      "lesson": "GENEL",
+      "properties": {}
+    },
+    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS": {
+      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS",
+      "label": "Kaynakları: COGRAFYA_TURKIYE_MADENLER_VE_ENERJI KPSS",
+      "type": "VALUE_ENTITY",
+      "lesson": "GENEL",
+      "properties": {}
+    },
+    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS": {
+      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS",
+      "label": "Kaynakları: COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER KPSS",
+      "type": "VALUE_ENTITY",
+      "lesson": "GENEL",
+      "properties": {}
     }
   },
   "edges": [
@@ -2628,6 +2658,24 @@
       "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
       "target": "ENT_5f250f5d",
       "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_AKADEMIK_KPSS",
+      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS",
+      "relation": "ILIŞKI",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_AKADEMIK_KPSS",
+      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS",
+      "relation": "ILIŞKI",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_AKADEMIK_KPSS",
+      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS",
+      "relation": "ILIŞKI",
       "weight": 1.0
     }
   ]

@@ -3,6 +3,7 @@ KPSS Super-Brain: Resmi ÖSYM Müfredatı ve Konu Hakimiyet Matrisi (Curriculum 
 "Basit yüzeysel öğrenme yetersizdir: Her resmi konu başlığı için en az 3-4 farklı öğretmenin ders videosu
 tüketilip karşılaştırmalı sentezi yapılmadan konu uzmanlığı tamamlanmış sayılamaz."
 """
+import re
 import json
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Set
@@ -391,6 +392,8 @@ class CurriculumMatrixEngine:
         """
         now_str = datetime.now().isoformat()
         matched_topic_id = cls._find_matching_topic_id(lesson, topic)
+        if not matched_topic_id:
+            matched_topic_id = f"{lesson.upper()}_{re.sub(r'\\W+', '_', topic).strip('_')}"
         
         with db_session() as conn:
             cursor = conn.cursor()
@@ -401,6 +404,17 @@ class CurriculumMatrixEngine:
                 cls.initialize_mastery_matrix()
                 cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched_topic_id,))
                 row = cursor.fetchone()
+                if not row:
+                    cursor.execute("""
+                    INSERT OR REPLACE INTO topic_mastery (
+                        topic_id, lesson, topic_name, target_videos_count, consumed_videos_count,
+                        distinct_teachers_json, distinct_channels_json, consumed_video_ids_json,
+                        facts_count, traps_count, reasoning_count, mnemonics_count,
+                        mastery_stage, is_mastered, last_digested_at, updated_at
+                    ) VALUES (?, ?, ?, 4, 0, '[]', '[]', '[]', 0, 0, 0, 0, 'UNSTARTED', 0, ?, ?)
+                    """, (matched_topic_id, lesson.upper(), topic, now_str, now_str))
+                    cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched_topic_id,))
+                    row = cursor.fetchone()
 
             if row:
                 teachers: List[str] = json.loads(row["distinct_teachers_json"])
@@ -487,17 +501,31 @@ class CurriculumMatrixEngine:
         topic_str_lower = topic_str.lower()
         topics_dict = cls.OFFICIAL_CURRICULUM.get(clean_lesson, {})
         
+        topic_words = set(re.findall(r"\w+", topic_str_lower))
+        best_match = None
+        best_score = 0
+
         for code, data in topics_dict.items():
             name_lower = data["name"].lower()
-            if topic_str_lower in name_lower or name_lower in topic_str_lower:
+            name_words = set(re.findall(r"\w+", name_lower))
+
+            if topic_str_lower in name_lower or name_lower in topic_str_lower or code.lower() in topic_str_lower:
                 return f"{clean_lesson}_{code}"
+
+            overlap = len(topic_words & name_words)
+            if overlap > best_score and overlap >= 2:
+                best_score = overlap
+                best_match = f"{clean_lesson}_{code}"
+
             for sub in data.get("subtopics", []):
-                if sub.lower() in topic_str_lower or topic_str_lower in sub.lower():
+                sub_lower = sub.lower()
+                if sub_lower in topic_str_lower or topic_str_lower in sub_lower:
                     return f"{clean_lesson}_{code}"
 
-        # Varsayılan ilk konu
-        first_code = list(topics_dict.keys())[0] if topics_dict else "GENEL"
-        return f"{clean_lesson}_{first_code}"
+        if best_match:
+            return best_match
+
+        return None
 
     @classmethod
     def get_curriculum_mastery_report(cls) -> Dict[str, Any]:
@@ -598,7 +626,22 @@ class CurriculumMatrixEngine:
                             break
 
             if not row:
-                return {"overall_mastery": 0.0, "status": "NOT_FOUND"}
+                return {
+                    "topic_id": topic_id,
+                    "lesson": "GENEL",
+                    "topic_name": topic_id,
+                    "overall_mastery": 0.0,
+                    "source_coverage": 0.0,
+                    "evidence_density": 0.0,
+                    "verification_score": 0.0,
+                    "cross_teacher_agreement": 0.0,
+                    "concept_coverage": 0.0,
+                    "freshness_score": 0.0,
+                    "consumed_videos_count": 0,
+                    "distinct_teachers_count": 0,
+                    "distinct_teachers": [],
+                    "status": "NOT_FOUND"
+                }
 
             teachers = json.loads(row["distinct_teachers_json"])
             channels = json.loads(row["distinct_channels_json"])
@@ -647,31 +690,57 @@ class CurriculumMatrixEngine:
             # 4. Cross-Teacher Agreement (Çelişki durumu)
             cursor.execute("""
             SELECT COUNT(*) as c_cnt FROM contradictions
-            WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+            WHERE (lesson = ? OR lesson = 'GENEL') 
+            AND (topic = ? OR topic = ? OR topic = ?)
             AND resolution = 'UNRESOLVED'
-            """, (matched_lesson, matched_tname, row["topic_id"]))
+            """, (matched_lesson, matched_tname, row["topic_id"], topic_id))
             contra_row = cursor.fetchone()
             unresolved_contra = contra_row["c_cnt"] if contra_row else 0
             agreement = 0.95 if unresolved_contra == 0 and len(teachers) >= 2 else (0.40 if unresolved_contra > 0 else (0.80 if len(teachers) == 1 else 0.0))
 
-            # 5. Concept Coverage (Kavram doluluk oranı)
+            # 5. Concept Coverage (Kavram doluluk oranı - Yalnızca doğrulanmış iddialardan)
             if target_subtopics:
                 covered_subs = 0
                 for st in target_subtopics:
                     cursor.execute("""
                     SELECT 1 FROM atomic_claims
-                    WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ?)
+                    WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ? OR topic = ?)
                     AND (subtopic LIKE ? OR text LIKE ?) AND verification_status = 'VERIFIED'
                     LIMIT 1
-                    """, (matched_lesson, matched_tname, row["topic_id"], f"%{st[:15]}%", f"%{st[:15]}%"))
+                    """, (matched_lesson, matched_tname, row["topic_id"], topic_id, f"%{st[:15]}%", f"%{st[:15]}%"))
                     if cursor.fetchone():
                         covered_subs += 1
                 concept_cov = min(1.0, covered_subs / max(1, len(target_subtopics)))
             else:
-                concept_cov = min(1.0, (consumed_count * 0.25) + (facts_count * 0.05))
+                cursor.execute("""
+                SELECT COUNT(DISTINCT subtopic) as sub_cnt FROM atomic_claims
+                WHERE (lesson = ? OR lesson = 'GENEL') AND (topic = ? OR topic = ? OR topic = ?)
+                AND verification_status = 'VERIFIED' AND subtopic != ''
+                """, (matched_lesson, matched_tname, row["topic_id"], topic_id))
+                sub_r = cursor.fetchone()
+                distinct_subs = sub_r["sub_cnt"] if sub_r else 0
+                concept_cov = min(1.0, distinct_subs / 4.0) if distinct_subs > 0 else (0.25 if verified_claims_total >= 3 else 0.0)
 
-            # 6. Freshness (Zamansal tazelik) - Veri yoksa 0.0
-            freshness = 0.95 if (consumed_count > 0 or facts_count > 0) else 0.0
+            # 6. Freshness (Zamansal tazelik - Gerçek tarihlerden hesaplanır)
+            last_digested = row["last_digested_at"] if "last_digested_at" in row.keys() and row["last_digested_at"] else row["updated_at"]
+            if last_digested:
+                try:
+                    dt = datetime.fromisoformat(last_digested)
+                    days_ago = (datetime.now() - dt).total_seconds() / 86400.0
+                    if days_ago <= 30:
+                        freshness = 1.0
+                    elif days_ago <= 90:
+                        freshness = 0.80
+                    elif days_ago <= 180:
+                        freshness = 0.60
+                    elif days_ago <= 365:
+                        freshness = 0.40
+                    else:
+                        freshness = 0.20
+                except Exception:
+                    freshness = 0.50
+            else:
+                freshness = 0.0
 
             overall = round(
                 0.25 * source_cov +
@@ -710,7 +779,12 @@ class CurriculumMatrixEngine:
                 "verification_score": verif_score,
                 "cross_teacher_agreement": agreement,
                 "concept_coverage": concept_cov,
-                "freshness_score": freshness
+                "freshness_score": freshness,
+                "consumed_videos_count": consumed_count,
+                "distinct_teachers_count": len(teachers),
+                "distinct_teachers": teachers,
+                "is_mastered": bool(row["is_mastered"]),
+                "mastery_stage": row["mastery_stage"]
             }
 
     @classmethod

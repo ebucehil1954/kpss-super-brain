@@ -252,6 +252,15 @@ class ResearchAgent:
                 job.state = ResearchJobState.GAP_ANALYSIS
                 cls._save_job_state(job)
 
+                from autonomous.gap_analyzer import gap_analyzer
+                gap_analysis_data = gap_analyzer.analyze_gaps(
+                    lesson=lesson,
+                    topic=topic,
+                    target_concepts=concepts,
+                    claims=all_claims_list,
+                    teachers=list(unique_teachers)
+                )
+
                 mastery_data = curriculum_matrix.calculate_deterministic_mastery(topic)
                 calculated_mastery = mastery_data.get("overall_mastery", 0.0)
                 job.mastery_score = calculated_mastery
@@ -262,7 +271,7 @@ class ResearchAgent:
                 # Completion Evaluator Kararı (Hard Invariant)
                 eval_res = CompletionEvaluator.evaluate(job, mastery_data, unresolved_contradictions=unresolved)
                 
-                if eval_res["approved"]:
+                if eval_res["approved"] and not gap_analysis_data["has_material_gaps"]:
                     # YALNIZCA approved == True olduğunda COMPLETED state'ine geçilebilir!
                     job.state = ResearchJobState.COMPLETED
                     job.completed_at = datetime.now().isoformat()
@@ -272,9 +281,11 @@ class ResearchAgent:
                     # Eksikleri Gerçek Arama ile Tamamlama Adımı (P0-04: RESEARCHING_GAPS)
                     job.state = ResearchJobState.RESEARCHING_GAPS
                     cls._save_job_state(job)
+                    gap_query = gap_analysis_data["recommended_queries"][0] if gap_analysis_data.get("recommended_queries") else concepts[iteration % len(concepts)]
                     cls._log_event(research_id, "RESEARCHING_GAPS_TRIGGERED", ResearchJobState.GAP_ANALYSIS, ResearchJobState.RESEARCHING_GAPS, {
                         "iteration": iteration,
-                        "target_gap_concept": concepts[iteration % len(concepts)],
+                        "target_gap_concept": gap_query,
+                        "gap_status": gap_analysis_data["gap_status"],
                         "reasons": eval_res.get("reasons", [])
                     })
                 else:

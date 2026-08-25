@@ -114,16 +114,18 @@ def test_p1_06_teacher_identity_normalization():
 
 def test_p1_10_knowledge_store_filters_unverified_records():
     """P1-10: KnowledgeStore düşük güvenli/doğrulanmamış verileri döndürmez."""
+    import uuid
+    uniq_q = f"supheli_kpss_notu_{uuid.uuid4().hex[:8]}"
     # Güven skoru 0.50 olan geçici kayıt ekle
     knowledge_store.add_record(
-        text="Doğrulanmamış şüpheli KPSS notu.",
+        text=f"Doğrulanmamış şüpheli not {uniq_q}",
         record_type="FACT",
         lesson="VATANDASLIK",
         topic="GENEL",
         confidence=0.50
     )
     # Arama yapıldığında confidence >= 0.85 filtresi nedeniyle bu kayıt gelmemelidir
-    results = knowledge_store.search("şüpheli KPSS notu", lesson="VATANDASLIK")
+    results = knowledge_store.search(uniq_q, lesson="VATANDASLIK")
     assert len(results) == 0
 
 # ==========================================
@@ -365,3 +367,58 @@ def test_task04_duplicate_contradiction_is_idempotent():
     
     unresolved_cnt = contradiction_engine.count_unresolved_high_severity("VATANDASLIK", "YARGI_TEST")
     assert unresolved_cnt == 1  # 2 defa çağrılsa da tek 1 kayıt vardır
+
+# ==========================================
+# TASK 05 — DETERMINISTIC MASTERY TESTS
+# ==========================================
+
+def test_task05_zero_evidence_yields_low_mastery():
+    """TASK 05: Hiçbir doğrulanmış iddia veya tüketilmiş video yoksa mastery skoru 0.0 veya çok düşüktür (keyfi 0.90/0.50 fallback yok)."""
+    m = curriculum_matrix.calculate_deterministic_mastery("TOPIC_NON_EXISTENT_XYZ")
+    assert m["overall_mastery"] == 0.0
+
+def test_task05_one_teacher_four_videos_not_four_teacher_coverage():
+    """TASK 05: 1 öğretmenden 4 video tüketildiğinde source_coverage 1.0 değil, 1/4 = 0.25 olur."""
+    # Ramazan Yetgin'den 4 farklı video tüketildiğini kaydedelim
+    for vid in ["v_ry_1", "v_ry_2", "v_ry_3", "v_ry_4"]:
+        curriculum_matrix.record_video_consumption(
+            lesson="TARIH",
+            topic="İlk Türk Devletleri",
+            video_id=vid,
+            teacher_name="Ramazan Yetgin",
+            channel_name="Benim Hocam"
+        )
+    m = curriculum_matrix.calculate_deterministic_mastery("İlk Türk Devletleri")
+    assert m["distinct_teachers_count"] == 1
+    assert m["source_coverage"] == 0.25  # 1/4
+
+def test_task05_duplicate_videos_do_not_increase_coverage():
+    """TASK 05: Aynı video ID'si tekrar kaydedildiğinde consumed_videos_count ve coverage artmaz."""
+    m_before = curriculum_matrix.calculate_deterministic_mastery("İlk Türk Devletleri")
+    cnt_before = m_before["consumed_videos_count"]
+    
+    # Aynı v_ry_1 videosunu tekrar kaydet
+    curriculum_matrix.record_video_consumption(
+        lesson="TARIH",
+        topic="İlk Türk Devletleri",
+        video_id="v_ry_1",
+        teacher_name="Ramazan Yetgin",
+        channel_name="Benim Hocam"
+    )
+    m_after = curriculum_matrix.calculate_deterministic_mastery("İlk Türk Devletleri")
+    assert m_after["consumed_videos_count"] == cnt_before
+
+def test_task05_unresolved_contradiction_lowers_agreement():
+    """TASK 05: Çözümlenmemiş çelişki varsa cross_teacher_agreement 0.95'ten 0.40'a düşer."""
+    topic_name = "1982 Anayasası Yargı Organı"
+    claims = [
+        {"claim_id": "c_agr_1", "text": "1982 Anayasası'na göre AYM 15 üyeden oluşur.", "source": "Hoca 1", "speaker_or_author": "Hoca 1"},
+        {"claim_id": "c_agr_2", "text": "1982 Anayasası'na göre AYM 11 üyeden oluşur.", "source": "Hoca 2", "speaker_or_author": "Hoca 2"}
+    ]
+    contradiction_engine.detect_and_resolve_contradictions("VATANDASLIK", topic_name, claims)
+    
+    # Topic kaydı oluşturup mastery hesapla
+    curriculum_matrix.record_video_consumption("VATANDASLIK", topic_name, "v_ag_1", "Hoca 1", "Ch1")
+    curriculum_matrix.record_video_consumption("VATANDASLIK", topic_name, "v_ag_2", "Hoca 2", "Ch2")
+    m = curriculum_matrix.calculate_deterministic_mastery(topic_name)
+    assert m["cross_teacher_agreement"] == 0.40
