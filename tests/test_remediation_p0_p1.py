@@ -157,3 +157,84 @@ def test_task01_evaluator_approved_true_when_all_criteria_met():
     )
     assert res["approved"] is True
     assert res["has_material_gaps"] is False
+
+# ==========================================
+# TASK 02 — CLAIM EVIDENCE INTEGRITY TESTS
+# ==========================================
+
+def test_task02_empty_evidence_and_empty_source_is_unverified():
+    """TASK 02: evidence_refs=[] ve source='' olan iddia UNVERIFIED döner."""
+    claim = {
+        "claim_id": "c_empty_ev",
+        "text": "1982 Anayasası Madde 146 Anayasa Mahkemesi 15 üyeden oluşur.",
+        "lesson": "VATANDASLIK",
+        "evidence_refs": [],
+        "source": ""
+    }
+    res = fact_checker.verify_claim(claim)
+    assert res.is_valid is False
+    assert res.status == VerificationStatus.UNVERIFIED
+    assert "EvidenceRef" in res.reason
+
+def test_task02_only_plain_source_string_is_unverified():
+    """TASK 02: Yalnızca {'source': 'Resmî Mevzuat'} taşıyan ama geçerli evidence_refs taşımayan iddia UNVERIFIED döner."""
+    claim = {
+        "claim_id": "c_plain_str",
+        "text": "1982 Anayasası Madde 146 Anayasa Mahkemesi 15 üyeden oluşur.",
+        "lesson": "VATANDASLIK",
+        "source": "Resmî Mevzuat / Mevzuat.gov.tr",
+        "evidence_refs": []  # Düz kaynak dizesi tek başına kanıt değildir!
+    }
+    res = fact_checker.verify_claim(claim)
+    assert res.is_valid is False
+    assert res.status == VerificationStatus.UNVERIFIED
+    assert "Düz metin kaynakları tek başına kanıt sayılamaz" in res.reason
+
+def test_task02_valid_evidence_ref_triggers_validation():
+    """TASK 02: Gerçek EvidenceRef (source_id + snippet) taşıyan iddia doğrulama katmanlarına girer ve VERIFIED olur."""
+    claim = AtomicClaim(
+        claim_id="c_valid_ev",
+        text="1982 Anayasası'na göre TBMM 600 milletvekilinden oluşur.",
+        lesson="VATANDASLIK",
+        topic="Yasama",
+        evidence_refs=[
+            EvidenceRef(
+                source_id="src_mevzuat_1982",
+                source_type=SourceType.OFFICIAL_LEGISLATION,
+                snippet="Madde 75 – Türkiye Büyük Millet Meclisi genel oyla seçilen altıyüz milletvekilinden oluşur.",
+                url="https://www.mevzuat.gov.tr"
+            )
+        ]
+    )
+    res = fact_checker.verify_claim(claim)
+    assert res.is_valid is True
+    assert res.status == VerificationStatus.VERIFIED
+
+def test_task02_video_evidence_segment_and_timestamp_check():
+    """TASK 02: Video kaynaklı EvidenceRef video_id, segment_id, snippet ve timestamp taşır."""
+    ev = EvidenceRef(
+        source_id="src_yt_abc123",
+        source_type=SourceType.YOUTUBE_TRANSCRIPT,
+        video_id="abc12345678",
+        segment_id="seg_abc123_4",
+        snippet="AYM 15 üyeden oluşur ve üyelerin görev süresi 12 yıldır.",
+        speaker_or_author="Emrah Vahap",
+        timestamp_str="05:10 - 05:35"
+    )
+    assert ev.video_id == "abc12345678"
+    assert ev.segment_id == "seg_abc123_4"
+    assert ev.timestamp_str == "05:10 - 05:35"
+    assert len(ev.snippet) > 10
+
+def test_task02_verified_claim_evidence_cannot_be_empty():
+    """TASK 02: VERIFIED statüsüne sahip bir iddianın kanıt referans listesi asla boş olamaz."""
+    claim_no_ev = {
+        "claim_id": "c_no_ev_assert",
+        "text": "TBMM seçimleri 5 yılda bir yapılır.",
+        "lesson": "VATANDASLIK",
+        "evidence_refs": []
+    }
+    res = fact_checker.verify_claim(claim_no_ev)
+    # Eğer is_valid True olursa veya VERIFIED dönerse kural ihlalidir!
+    assert res.status != VerificationStatus.VERIFIED
+    assert res.is_valid is False

@@ -281,10 +281,22 @@ class FactChecker:
             "verified_triplets": triplets
         }
 
+    @staticmethod
+    def _is_valid_evidence(ref: Any) -> bool:
+        """EvidenceRef nesnesinin veya sözlüğünün geçerli kaynak kimliği ve alıntı taşıdığını doğrular."""
+        if isinstance(ref, dict):
+            source_id = ref.get("source_id") or ref.get("source_type") or ref.get("url") or ref.get("video_id")
+            snippet = ref.get("snippet", "")
+            return bool(source_id and snippet and len(str(snippet).strip()) >= 3)
+        elif hasattr(ref, "source_id") and hasattr(ref, "snippet"):
+            return bool(ref.source_id and ref.snippet and len(str(ref.snippet).strip()) >= 3)
+        return False
+
     def verify_claim(self, claim: Any) -> Any:
         """
         Tek bir atomik iddiayı (AtomicClaim) bağımsız olarak tüm katmanlarda denetler ve VerificationResult üretir.
-        Kanıt referansı olmayan iddiaları UNVERIFIED, kural ihlallerini REJECTED/CONTRADICTORY olarak işaretler.
+        Gerçek ve geçerli EvidenceRef referansı taşımayan iddialar UNVERIFIED olarak işaretlenir.
+        Düz kaynak dizesi (örn: source='Resmî Mevzuat') tek başına kanıt sayılamaz.
         """
         from brain.models import VerificationResult, VerificationStatus
         from brain.database import db_session
@@ -293,15 +305,15 @@ class FactChecker:
         text = getattr(claim, "text", "") or (claim.get("text", "") if isinstance(claim, dict) else str(claim))
         lesson = getattr(claim, "lesson", "GENEL") or (claim.get("lesson", "GENEL") if isinstance(claim, dict) else "GENEL")
         refs = getattr(claim, "evidence_refs", None) or (claim.get("evidence_refs") if isinstance(claim, dict) else [])
-        src = getattr(claim, "source", None) or (claim.get("source") if isinstance(claim, dict) else "")
 
-        # 1. Kanıt Bütünlüğü Denetimi (Evidence-Awareness)
-        if not refs and not src:
+        # 1. Kanıt Bütünlüğü Denetimi (Evidence Integrity Gate)
+        valid_refs = [r for r in (refs or []) if self._is_valid_evidence(r)]
+        if not valid_refs:
             return VerificationResult(
                 is_valid=False,
                 status=VerificationStatus.UNVERIFIED,
                 stage="Layer_0_Evidence_Integrity",
-                reason="İddiaya bağlı geçerli bir kanıt referansı (EvidenceRef) bulunamadı.",
+                reason="İddiaya bağlı geçerli bir kanıt referansı (EvidenceRef) bulunamadı. Düz metin kaynakları tek başına kanıt sayılamaz.",
                 confidence_score=0.0,
                 z3_sat=None
             )

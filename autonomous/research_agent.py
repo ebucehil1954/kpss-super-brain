@@ -222,7 +222,13 @@ class ResearchAgent:
                             "text": f"{topic}: {mevzuat_text[:300]}",
                             "lesson": lesson,
                             "topic": topic,
-                            "source": "Resmî Mevzuat / Mevzuat.gov.tr"
+                            "source": "Resmî Mevzuat / Mevzuat.gov.tr",
+                            "evidence_refs": [{
+                                "source_id": "src_official_mevzuat",
+                                "source_type": "OFFICIAL_LEGISLATION",
+                                "snippet": mevzuat_text[:300],
+                                "url": "https://www.mevzuat.gov.tr"
+                            }]
                         }
                         job.extracted_claims_count += 1
 
