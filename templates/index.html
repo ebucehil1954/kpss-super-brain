@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title | escape }} | Otonom Yapay Zeka Öğretmen Zihni</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #070a13; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        .glass-panel { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .tab-nav-btn { cursor: pointer; transition: all 0.2s ease; }
+        .tab-nav-btn.active { background: rgba(99, 102, 241, 0.25); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.5); font-weight: 700; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #0b0f19; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-slate-100 min-h-screen flex flex-col">
+    <!-- Top Header -->
+    <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50 px-6 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3.5">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">
+                🧠
+            </div>
+            <div>
+                <h1 class="text-sm font-black tracking-tight text-white flex items-center gap-2">
+                    {{ app_name | escape }}
+                    <span class="text-[9px] uppercase font-black tracking-widest px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 animate-pulse" id="header-status-badge">
+                        7/24 Otonom Zihin Aktif
+                    </span>
+                </h1>
+                <p class="text-[11px] text-slate-400 font-medium">Her çıktının yanında % <strong>Güven Aralığı</strong> (Confidence Score) ve <strong>Kaynak Bağlantısı</strong> (Provenance) gösterilir.</p>
+            </div>
+        </div>
+
+        <!-- Status & Stats Badges -->
+        <div class="flex items-center gap-3">
+            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="text-slate-400 font-medium">Güven Aralığı:</span>
+                <span class="font-bold text-emerald-400">%{{ default_confidence | escape }}</span>
+            </div>
+            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs">
+                <span class="text-slate-400 font-medium">Taranan Kaynaklar:</span>
+                <span class="font-bold text-indigo-400">Min. 8-10 Kaynak / Konu</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 p-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Sol Kolon: Müfredat ve Durum -->
+        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
+            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
+                <span>📚 ÖSYM Müfredat Matrisi</span>
+                <span class="text-[10px] text-indigo-400 font-bold">CANLI</span>
+            </h2>
+            <div class="space-y-2 text-xs">
+                <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                    <div class="flex justify-between font-bold mb-1">
+                        <span>Vatandaşlık (1982 Anayasası)</span>
+                        <span class="text-emerald-400">%85 Hakimiyet</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                        <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+                    <div class="flex justify-between font-bold mb-1">
+                        <span>Tarih (Osmanlı & İnkılap)</span>
+                        <span class="text-indigo-400">%80 Hakimiyet</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                        <div class="bg-indigo-500 h-1.5 rounded-full" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orta Kolon: Semantik Çelişki ve Güvenlik Monitörü -->
+        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
+            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
+                <span>⚖️ Semantik Çelişki Radarı</span>
+                <span class="text-[10px] text-emerald-400 font-bold">AI ALL-MINILM + QWEN2.5</span>
+            </h2>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
+                <div class="flex items-center justify-between text-slate-400">
+                    <span>Çelişki Durumu:</span>
+                    <span class="text-emerald-400 font-bold">0 Yüksek Çelişki</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-400">
+                    <span>Çözüm Politikası:</span>
+                    <span class="text-indigo-400 font-bold">Resmî Kaynak Üstünlüğü</span>
+                </div>
+                <div class="text-[11px] text-slate-400 border-t border-slate-800/80 pt-2">
+                    Eğitmenler arasındaki sayısal ve olgusal uyuşmazlıklar 1982 Anayasası ve Resmî Gazete normları ile çözümlenmektedir.
+                </div>
+            </div>
+        </div>
+
+        <!-- Sağ Kolon: Tahmin & Soru Çözüm Testi -->
+        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
+            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
+                <span>📝 2025 KPSS Soru & Çözüm Denetimi</span>
+                <span class="text-[10px] text-amber-400 font-bold">SMOKE TEST</span>
+            </h2>
+            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
+                <p class="font-bold text-white">2025 KPSS Gerçek Sınav Tahmini & Çözümü</p>
+                <p class="text-slate-400">Sistem, çıkmış ve muhtemel soruları kanıt zinciri ve güven aralığı ile doğrulamaktadır.</p>
+                <div class="flex gap-2 pt-2">
+                    <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-[10px] font-bold">Z3 Logic</span>
+                    <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">RefChecker</span>
+                    <span class="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">Provenance</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950 px-6 py-3 text-center text-xs text-slate-500">
+        Promius KPSS Super-Brain &bull; Jinja2 Auto-Escaped Secure Mission Control &bull; 2026
+    </footer>
+</body>
+</html>
