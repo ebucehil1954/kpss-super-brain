@@ -284,6 +284,7 @@ class FactChecker:
     def verify_claim(self, claim: Any) -> Any:
         """
         Tek bir atomik iddiayı (AtomicClaim) bağımsız olarak tüm katmanlarda denetler ve VerificationResult üretir.
+        Kanıt referansı olmayan iddiaları UNVERIFIED, kural ihlallerini REJECTED/CONTRADICTORY olarak işaretler.
         """
         from brain.models import VerificationResult, VerificationStatus
         from brain.database import db_session
@@ -291,13 +292,37 @@ class FactChecker:
         claim_id = getattr(claim, "claim_id", None) or (claim.get("claim_id") if isinstance(claim, dict) else "unknown_claim")
         text = getattr(claim, "text", "") or (claim.get("text", "") if isinstance(claim, dict) else str(claim))
         lesson = getattr(claim, "lesson", "GENEL") or (claim.get("lesson", "GENEL") if isinstance(claim, dict) else "GENEL")
+        refs = getattr(claim, "evidence_refs", None) or (claim.get("evidence_refs") if isinstance(claim, dict) else [])
+        src = getattr(claim, "source", None) or (claim.get("source") if isinstance(claim, dict) else "")
+
+        # 1. Kanıt Bütünlüğü Denetimi (Evidence-Awareness)
+        if not refs and not src:
+            return VerificationResult(
+                is_valid=False,
+                status=VerificationStatus.UNVERIFIED,
+                stage="Layer_0_Evidence_Integrity",
+                reason="İddiaya bağlı geçerli bir kanıt referansı (EvidenceRef) bulunamadı.",
+                confidence_score=0.0,
+                z3_sat=None
+            )
 
         val_res = self.validate(topic_id=lesson, text=text)
         is_valid = val_res.get("passed", False)
-        status = VerificationStatus.VERIFIED if is_valid else VerificationStatus.REJECTED
         stage = val_res.get("stage", "Unknown")
         reason = val_res.get("reason", "Doğrulandı" if is_valid else "Kural ihlali")
         conf = val_res.get("confidence_score", 0.0)
+
+        # Z3 Formal denetiminin fiilen uygulanıp uygulanmadığını kontrol et
+        has_numbers = bool(re.search(r"\b(15|600|200|151|360|400|13|18|40|12|17|11|550)\b", text))
+        z3_run_result = self.z3_validator.validate_text(text) if has_numbers else None
+
+        if is_valid:
+            status = VerificationStatus.VERIFIED
+        else:
+            if "çelişki" in reason.lower() or "contradiction" in reason.lower() or "tutarlılık" in reason.lower():
+                status = VerificationStatus.CONTRADICTORY
+            else:
+                status = VerificationStatus.REJECTED
 
         # Veritabanında claim durumunu güncelle
         if claim_id and claim_id != "unknown_claim":
@@ -316,7 +341,7 @@ class FactChecker:
             reason=reason,
             confidence_score=conf,
             refchecker_triplets=val_res.get("verified_triplets", []),
-            z3_sat=is_valid
+            z3_sat=z3_run_result
         )
 
     # ==========================================

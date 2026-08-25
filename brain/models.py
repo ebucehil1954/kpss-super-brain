@@ -177,7 +177,7 @@ class VerificationResult(BaseModel):
     reason: str
     confidence_score: float = 0.90
     refchecker_triplets: List[Dict[str, Any]] = Field(default_factory=list)
-    z3_sat: bool = True
+    z3_sat: Optional[bool] = None
     temporal_valid: bool = True
     numerical_valid: bool = True
     semantic_consistency_score: float = 0.95

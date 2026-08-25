@@ -22,8 +22,8 @@ from autonomous.research_agent import research_agent, CompletionEvaluator
 def test_invariant_1_verified_claims_le_extracted_claims():
     """Invariant 1: Doğrulanan iddia sayısı, toplam çıkarılan iddia sayısını asla aşamaz."""
     claims = [
-        {"claim_id": "c1", "text": "1982 Anayasası TBMM 600 milletvekilidir.", "lesson": "VATANDASLIK"},
-        {"claim_id": "c2", "text": "Başbakan ve Bakanlar Kurulu tüzük çıkarır.", "lesson": "VATANDASLIK"} # Mülga kural
+        {"claim_id": "c1", "text": "1982 Anayasası TBMM 600 milletvekilidir.", "lesson": "VATANDASLIK", "source": "Resmî Gazete 1982 Anayasası", "evidence_refs": [{"source_id": "src_1", "snippet": "600 mv"}]},
+        {"claim_id": "c2", "text": "Başbakan ve Bakanlar Kurulu tüzük çıkarır.", "lesson": "VATANDASLIK", "source": "Eski Ders Notu", "evidence_refs": [{"source_id": "src_2", "snippet": "tüzük"}]} # Mülga kural
     ]
     verified_count = 0
     for c in claims:

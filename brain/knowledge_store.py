@@ -165,6 +165,9 @@ class KnowledgeStore:
                 sql += " AND kr.record_type = ?"
                 params.append(record_type.upper())
 
+            # Truth Gate (P1-10): Doğrulanmamış düşük güvenli kayıtları filtrele
+            sql += " AND kr.confidence >= 0.85"
+
             sql += " ORDER BY kr.confidence DESC, kr.times_reinforced DESC LIMIT ?"
             params.append(limit)
 

@@ -407,8 +407,10 @@ class CurriculumMatrixEngine:
                 channels: List[str] = json.loads(row["distinct_channels_json"])
                 video_ids: List[str] = json.loads(row["consumed_video_ids_json"])
 
-                if teacher_name and teacher_name not in teachers:
-                    teachers.append(teacher_name)
+                from cognition.teacher_identity import teacher_identity
+                canonical_tname = teacher_identity.normalize(teacher_name) if teacher_name else None
+                if canonical_tname and canonical_tname not in teachers:
+                    teachers.append(canonical_tname)
                 if channel_name and channel_name not in channels:
                     channels.append(channel_name)
                 if video_id and video_id not in video_ids:
@@ -628,7 +630,7 @@ class CurriculumMatrixEngine:
             expected_min_claims = max(8, len(target_subtopics) * 2)
             evidence_dens = min(1.0, verified_claims_total / expected_min_claims)
             
-            # 3. Verification Score (Doğruluk oranı)
+            # 3. Verification Score (Doğruluk oranı) - Fallbackler kaldırıldı (P1-04)
             cursor.execute("""
             SELECT 
                 SUM(CASE WHEN verification_status = 'VERIFIED' THEN 1 ELSE 0 END) as v_cnt,
@@ -640,7 +642,7 @@ class CurriculumMatrixEngine:
             if v_stats and v_stats["t_cnt"] > 0:
                 verif_score = round(v_stats["v_cnt"] / v_stats["t_cnt"], 2)
             else:
-                verif_score = 0.90 if facts_count >= 5 else 0.50
+                verif_score = 0.0 if facts_count == 0 else min(1.0, round(facts_count / 10.0, 2))
 
             # 4. Cross-Teacher Agreement (Çelişki durumu)
             cursor.execute("""
@@ -650,7 +652,7 @@ class CurriculumMatrixEngine:
             """, (matched_lesson, matched_tname, row["topic_id"]))
             contra_row = cursor.fetchone()
             unresolved_contra = contra_row["c_cnt"] if contra_row else 0
-            agreement = 0.95 if unresolved_contra == 0 and len(teachers) >= 2 else (0.60 if unresolved_contra > 0 else 0.80)
+            agreement = 0.95 if unresolved_contra == 0 and len(teachers) >= 2 else (0.40 if unresolved_contra > 0 else (0.80 if len(teachers) == 1 else 0.0))
 
             # 5. Concept Coverage (Kavram doluluk oranı)
             if target_subtopics:
@@ -664,12 +666,12 @@ class CurriculumMatrixEngine:
                     """, (matched_lesson, matched_tname, row["topic_id"], f"%{st[:15]}%", f"%{st[:15]}%"))
                     if cursor.fetchone():
                         covered_subs += 1
-                concept_cov = min(1.0, max(0.20, covered_subs / max(1, len(target_subtopics))))
+                concept_cov = min(1.0, covered_subs / max(1, len(target_subtopics)))
             else:
                 concept_cov = min(1.0, (consumed_count * 0.25) + (facts_count * 0.05))
 
-            # 6. Freshness (Zamansal tazelik)
-            freshness = 0.95
+            # 6. Freshness (Zamansal tazelik) - Veri yoksa 0.0
+            freshness = 0.95 if (consumed_count > 0 or facts_count > 0) else 0.0
 
             overall = round(
                 0.25 * source_cov +

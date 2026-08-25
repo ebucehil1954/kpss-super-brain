@@ -1837,6 +1837,16 @@
         "source_text_snippet": "Üyeler 12 yıl için seçilir.",
         "times_observed": 1
       }
+    },
+    "VATANDASLIK_GENEL": {
+      "id": "VATANDASLIK_GENEL",
+      "label": "GENEL",
+      "type": "TOPIC",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "auto_created": true,
+        "subtopics": []
+      }
     }
   },
   "edges": [

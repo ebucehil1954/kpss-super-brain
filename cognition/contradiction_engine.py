@@ -1,8 +1,11 @@
 """
-KPSS Super-Brain: Çelişki Tespit ve Çözüm Motoru (Contradiction Engine)
-Farklı öğretmenlerin ders anlatımlarındaki uyuşmazlıkları ve resmî mevzuatla çelişen iddiaları yakalar,
-açıkça kayıt altına alır ve 'OFFICIAL_SOURCE_WINS' gibi kurallarla deterministik olarak çözer.
+KPSS Super-Brain: Çelişki Tespit ve Çözüm Motoru (Contradiction Engine v5)
+Farklı öğretmenlerin ders anlatımlarındaki uyuşmazlıkları ve resmî mevzuatla çelişen iddiaları yakalar.
+Öğretmenler arası çelişkileri 'UNRESOLVED' olarak bırakır; resmî mevzuat veya anayasa kanıtı geldiğinde
+'OFFICIAL_SOURCE_WINS' kuralı ile deterministik olarak çözümler.
 """
+from __future__ import annotations
+
 import re
 import json
 import hashlib
@@ -22,6 +25,25 @@ class ContradictionEngine:
         (r"askeri\s*ıslahat\s*yapılmıştır", r"askeri\s*ıslahat\s*yapılmamıştır", "Lale Devri Askeri Islahat İhtilafı", ContradictionSeverity.MEDIUM),
         (r"başkanlık\s*kararnamesi", r"tüzük", "Mülga Tüzük / Kararname Çelişkisi", ContradictionSeverity.HIGH)
     ]
+
+    OFFICIAL_KEYWORDS = ["mevzuat", "resmi", "resmî", "anayasa", "kanun", "tuik", "tüik", "mta", "osym", "ösym", "meb"]
+
+    @classmethod
+    def _is_official_source(cls, claim: Dict[str, Any]) -> bool:
+        """İddianın resmî bir mevzuat/kurum kaynağından gelip gelmediğini doğrular."""
+        src = str(claim.get("source", "")).lower()
+        speaker = str(claim.get("speaker_or_author", "")).lower()
+        refs = claim.get("evidence_refs", [])
+        
+        if any(kw in src for kw in cls.OFFICIAL_KEYWORDS) or any(kw in speaker for kw in cls.OFFICIAL_KEYWORDS):
+            return True
+            
+        for ref in refs:
+            r_src = str(ref.get("source_id", "") if isinstance(ref, dict) else getattr(ref, "source_id", "")).lower()
+            r_type = str(ref.get("source_type", "") if isinstance(ref, dict) else getattr(ref, "source_type", "")).lower()
+            if any(kw in r_src for kw in cls.OFFICIAL_KEYWORDS) or "legislation" in r_type or "official" in r_type:
+                return True
+        return False
 
     @classmethod
     def save_contradiction(cls, record: ContradictionRecord):
@@ -51,7 +73,8 @@ class ContradictionEngine:
         claims: List[Dict[str, Any]]
     ) -> List[ContradictionRecord]:
         """
-        Verilen iddia kümesi içindeki çelişkileri tespit eder ve resmî kural üstünlüğüyle çözümler.
+        Verilen iddia kümesi içindeki çelişkileri tespit eder ve kaynak tipine göre çözümler.
+        Öğretmen-Öğretmen çelişkileri 'UNRESOLVED' kalırken, Resmî kaynak içeren çelişkiler 'OFFICIAL_SOURCE_WINS' ile çözülür.
         """
         detected: List[ContradictionRecord] = []
         n = len(claims)
@@ -72,9 +95,31 @@ class ContradictionEngine:
                     if match_1 or match_2:
                         contra_id = f"contra_{hashlib.sha256(f'{t1}:{t2}'.encode('utf-8')).hexdigest()[:12]}"
                         
-                        # Çözüm Politikası: Resmî Mevzuat veya 1982 Anayasası Güncel Maddesi Kazanır
-                        winning_id = c1.get("claim_id", f"c_{i}") if (re.search(p1, t1) and "15" in p1) or "resmi" in s1.lower() else c2.get("claim_id", f"c_{j}")
-                        rationale = f"1982 Anayasası ve resmî KPSS müfredatı uyarınca '{title}' konusunda resmî kaynak önceliklendirilmiştir."
+                        is_off1 = cls._is_official_source(c1)
+                        is_off2 = cls._is_official_source(c2)
+
+                        # Çözüm Politikası Ayrımı:
+                        if is_off1 and not is_off2:
+                            resolution = ContradictionResolution.OFFICIAL_SOURCE_WINS
+                            winning_id = c1.get("claim_id", f"c_{i}")
+                            rationale = f"Resmî kaynak '{s1}', '{title}' konusunda gayriresmî iddiaya üstün kılınmıştır."
+                            resolved_at = datetime.now().isoformat()
+                        elif is_off2 and not is_off1:
+                            resolution = ContradictionResolution.OFFICIAL_SOURCE_WINS
+                            winning_id = c2.get("claim_id", f"c_{j}")
+                            rationale = f"Resmî kaynak '{s2}', '{title}' konusunda gayriresmî iddiaya üstün kılınmıştır."
+                            resolved_at = datetime.now().isoformat()
+                        elif not is_off1 and not is_off2:
+                            # İki öğretmen/gayriresmî kaynak çelişiyor: UNRESOLVED kalmalı
+                            resolution = ContradictionResolution.UNRESOLVED
+                            winning_id = None
+                            rationale = f"İki bağımsız eğitmen ('{s1}' ve '{s2}') '{title}' konusunda çelişmektedir. Resmî mevzuat teyidi bekleniyor."
+                            resolved_at = None
+                        else:
+                            resolution = ContradictionResolution.MANUAL_REVIEW_REQUIRED
+                            winning_id = None
+                            rationale = f"Her iki iddia da resmî kaynak olarak işaretlenmiş, inceleme gereklidir."
+                            resolved_at = None
 
                         record = ContradictionRecord(
                             contradiction_id=contra_id,
@@ -87,15 +132,33 @@ class ContradictionEngine:
                             claim_b_text=c2.get("text", ""),
                             claim_b_source=s2,
                             severity=severity,
-                            resolution=ContradictionResolution.OFFICIAL_SOURCE_WINS,
+                            resolution=resolution,
                             winning_claim_id=winning_id,
                             resolution_rationale=rationale,
-                            resolved_at=datetime.now().isoformat()
+                            resolved_at=resolved_at
                         )
                         cls.save_contradiction(record)
                         detected.append(record)
 
         return detected
+
+    @classmethod
+    def count_unresolved_high_severity(cls, lesson: Optional[str] = None, topic: Optional[str] = None) -> int:
+        """Çözümlenmemiş YÜKSEK (HIGH) seviyeli çelişki sayısını döner."""
+        with db_session() as conn:
+            cursor = conn.cursor()
+            query = "SELECT COUNT(*) as cnt FROM contradictions WHERE resolution = 'UNRESOLVED' AND severity = 'HIGH'"
+            params = []
+            if lesson:
+                query += " AND (lesson = ? OR lesson = 'GENEL')"
+                params.append(lesson)
+            if topic:
+                query += " AND (topic = ? OR topic = 'GENEL')"
+                params.append(topic)
+            
+            cursor.execute(query, tuple(params))
+            row = cursor.fetchone()
+            return row["cnt"] if row else 0
 
     @classmethod
     def get_unresolved_contradictions(cls, lesson: Optional[str] = None) -> List[Dict[str, Any]]:
