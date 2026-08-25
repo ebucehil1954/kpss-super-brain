@@ -142,22 +142,42 @@ class ResearchAgent:
             while iteration < cls.MAX_ITERATIONS and not is_completed:
                 iteration += 1
 
-                # 1. PLANLAMA (Planning)
+                # 1. PLANLAMA (Planning via TargetedResearchPlanner)
                 prev_state = job.state
                 job.state = ResearchJobState.PLANNING
                 job.updated_at = datetime.now().isoformat()
                 cls._save_job_state(job)
+
+                from autonomous.gap_analyzer import gap_analyzer
+                from autonomous.research_planner import research_planner
+                
+                cur_gap_report = gap_analyzer.analyze_gaps(
+                    lesson=lesson,
+                    topic=topic,
+                    target_concepts=concepts,
+                    claims=list(claims_by_id.values()),
+                    teachers=list(unique_teachers)
+                )
+                plan = research_planner.create_research_plan(
+                    lesson=lesson,
+                    topic=topic,
+                    gap_report=cur_gap_report,
+                    iteration=iteration
+                )
+
                 cls._log_event(research_id, f"PLAN_GENERATED_ITER_{iteration}", prev_state, ResearchJobState.PLANNING, {
                     "iteration": iteration,
-                    "strategy": f"Iterasyon {iteration}: Hedefli video taraması ve resmî mevzuat çapraz doğrulaması"
+                    "priority": plan.get("priority", "MEDIUM"),
+                    "queries": plan.get("queries", []),
+                    "strategy": plan.get("strategy", "")
                 })
 
-                # 2. KEŞİF (Discovering Sources)
+                # 2. KEŞİF (Discovering Sources based on Targeted Plan)
                 job.state = ResearchJobState.DISCOVERING
                 cls._save_job_state(job)
                 
-                # Arama sorgusu: İterasyon 1'de ana konu; sonraki iterasyonlarda eksik kavramlar (Gap Queries)
-                search_query = topic if iteration == 1 else f"{topic} {concepts[(iteration - 1) % len(concepts)]}"
+                # Arama sorgusu: Hedefli araştırma planından alınan öncelikli sorgu
+                search_query = plan["queries"][0] if plan.get("queries") else topic
                 yt_search_res = await tool_registry.execute("youtube_search", {"topic": search_query, "lesson": lesson, "limit": 4})
                 discovered_raw = yt_search_res.get("output", {}).get("videos", []) if yt_search_res.get("success") else []
                 
@@ -169,6 +189,7 @@ class ResearchAgent:
                 job.discovered_sources_count += len(new_videos)
                 cls._log_event(research_id, "SOURCES_DISCOVERED", ResearchJobState.PLANNING, ResearchJobState.DISCOVERING, {
                     "search_query": search_query,
+                    "plan_priority": plan.get("priority", "MEDIUM"),
                     "videos_found": len(new_videos),
                     "iteration": iteration
                 })

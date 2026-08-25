@@ -590,3 +590,97 @@ def test_task07_duplicate_video_coverage_unchanged():
     m_now = curriculum_matrix.calculate_deterministic_mastery(topic_name)
     assert m_now["consumed_videos_count"] == prev_videos
     assert m_now["source_coverage"] == m_prev["source_coverage"]
+
+# ==========================================
+# TASK 08 — TARGETED RESEARCH PLANNER TESTS
+# ==========================================
+
+from autonomous.research_planner import research_planner
+
+def test_task08_gap_generates_targeted_query():
+    """TASK 08: GapReport içindeki eksik kavramlar için hedefe yönelik özel arama sorguları ve eylemler üretilir."""
+    gap_report = {
+        "has_material_gaps": True,
+        "gap_status": "MATERIAL_GAPS",
+        "missing_concepts": ["AYM Üye Seçimi", "HSK Görev Süresi"],
+        "unresolved_contradictions": [],
+        "weak_claims": [],
+        "single_source_claims": [],
+        "missing_teacher_diversity": False
+    }
+    plan = research_planner.create_research_plan(
+        lesson="VATANDASLIK",
+        topic="Yargı",
+        gap_report=gap_report,
+        iteration=1
+    )
+    assert plan["requires_additional_research"] is True
+    assert plan["priority"] in ["HIGH", "CRITICAL"]
+    assert any("AYM Üye Seçimi" in q for q in plan["queries"])
+    assert any("HSK Görev Süresi" in q for q in plan["queries"])
+    assert len(plan["target_actions"]) >= 2
+
+def test_task08_no_gap_no_additional_research():
+    """TASK 08: Hiçbir eksik kalmadığında (NO_MATERIAL_GAPS) ek araştırma gerekmez ve queries boştur."""
+    gap_report = {
+        "has_material_gaps": False,
+        "gap_status": "NO_MATERIAL_GAPS",
+        "missing_concepts": [],
+        "unresolved_contradictions": [],
+        "weak_claims": [],
+        "single_source_claims": [],
+        "missing_teacher_diversity": False
+    }
+    plan = research_planner.create_research_plan(
+        lesson="VATANDASLIK",
+        topic="Yasama",
+        gap_report=gap_report,
+        iteration=2
+    )
+    assert plan["requires_additional_research"] is False
+    assert plan["priority"] == "NONE"
+    assert len(plan["queries"]) == 0
+
+def test_task08_high_severity_gap_high_priority():
+    """TASK 08: Çözümlenmemiş çelişki içeren gap raporu daima HIGH öncelikli resmî mevzuat planı üretir."""
+    gap_report = {
+        "has_material_gaps": True,
+        "gap_status": "MATERIAL_GAPS",
+        "missing_concepts": [],
+        "unresolved_contradictions": ["AYM 15 üye VS 11 üye"],
+        "weak_claims": [],
+        "single_source_claims": [],
+        "missing_teacher_diversity": False
+    }
+    plan = research_planner.create_research_plan(
+        lesson="VATANDASLIK",
+        topic="1982 Anayasası Yargı",
+        gap_report=gap_report,
+        iteration=1
+    )
+    assert plan["priority"] == "HIGH"
+    assert any("Resmî Mevzuat" in q or "Anayasa" in q for q in plan["queries"])
+
+def test_task08_different_gaps_yield_different_plans():
+    """TASK 08: Farklı eksik türleri (çelişki vs hoca çeşitliliği) tamamen farklı arama stratejileri üretir."""
+    gap_contradiction = {
+        "has_material_gaps": True,
+        "gap_status": "MATERIAL_GAPS",
+        "missing_concepts": [],
+        "unresolved_contradictions": ["TBMM 600 VS 550"],
+        "missing_teacher_diversity": False
+    }
+    gap_diversity = {
+        "has_material_gaps": True,
+        "gap_status": "MATERIAL_GAPS",
+        "missing_concepts": [],
+        "unresolved_contradictions": [],
+        "missing_teacher_diversity": True,
+        "single_source_claims": ["claim_1"]
+    }
+    plan_contra = research_planner.create_research_plan("VATANDASLIK", "Yasama", gap_contradiction)
+    plan_div = research_planner.create_research_plan("VATANDASLIK", "Yasama", gap_diversity)
+    
+    assert plan_contra["queries"] != plan_div["queries"]
+    assert "Resmî Mevzuat" in plan_contra["queries"][0]
+    assert "farklı hoca" in plan_div["queries"][0]
