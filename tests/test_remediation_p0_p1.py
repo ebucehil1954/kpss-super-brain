@@ -522,3 +522,71 @@ def test_task06_gap_output_is_deterministic():
     assert res1["missing_concepts"] == res2["missing_concepts"]
     assert res1["recommended_queries"] == res2["recommended_queries"]
     assert res1["gap_status"] == res2["gap_status"]
+
+# ==========================================
+# TASK 07 — SOURCE & TEACHER DIVERSITY TESTS
+# ==========================================
+
+def test_task07_teacher_normalization():
+    """TASK 07: Ramazan Yetgin, ramazan yetgin ve RAMAZAN YETGİN aynı kişiye normalize edilir."""
+    t1 = teacher_identity.normalize("Ramazan Yetgin")
+    t2 = teacher_identity.normalize("ramazan yetgin")
+    t3 = teacher_identity.normalize("RAMAZAN YETGİN")
+    assert t1 == "Ramazan Yetgin"
+    assert t1 == t2 == t3
+
+def test_task07_aliases_resolve_to_one_teacher():
+    """TASK 07: 'Ramazan Yetgin Hoca', 'ramazan yetgin', 'Ramazan Yetgin Ders Notları' tek bir eğitmene indirgenir."""
+    t_alias1 = teacher_identity.normalize("Ramazan Yetgin Hoca")
+    t_alias2 = teacher_identity.normalize("ramazan yetgin")
+    t_alias3 = teacher_identity.normalize("Ramazan Yetgin Hocamız")
+    assert t_alias1 == t_alias2 == t_alias3 == "Ramazan Yetgin"
+
+def test_task07_same_teacher_four_videos_count_one():
+    """TASK 07: Aynı öğretmenden 4 video tüketildiğinde tekil eğitmen sayısı 1'dir (4 değildir!)."""
+    topic_name = "Osmanlı Devleti Kuruluş Dönemi"
+    for v_idx in range(1, 5):
+        curriculum_matrix.record_video_consumption(
+            lesson="TARIH",
+            topic=topic_name,
+            video_id=f"vid_same_teacher_{v_idx}",
+            teacher_name="Ramazan Yetgin",
+            channel_name="Benim Hocam"
+        )
+    m = curriculum_matrix.calculate_deterministic_mastery(topic_name)
+    assert m["distinct_teachers_count"] == 1
+    assert m["source_coverage"] == 0.25  # 1/4
+
+def test_task07_four_teachers_count_four():
+    """TASK 07: 4 farklı öğretmenden video tüketildiğinde tekil eğitmen sayısı 4 olur ve source_coverage 1.0'dır."""
+    topic_name = "Kurtuluş Savaşı Hazırlık Dönemi"
+    teachers_list = ["Ramazan Yetgin", "Engin Eraydın", "Hakan Dede", "Mehmet Eğit"]
+    for idx, t_name in enumerate(teachers_list):
+        curriculum_matrix.record_video_consumption(
+            lesson="TARIH",
+            topic=topic_name,
+            video_id=f"vid_diff_teacher_{idx}",
+            teacher_name=t_name,
+            channel_name=f"Channel_{idx}"
+        )
+    m = curriculum_matrix.calculate_deterministic_mastery(topic_name)
+    assert m["distinct_teachers_count"] == 4
+    assert m["source_coverage"] == 1.0  # 4/4
+
+def test_task07_duplicate_video_coverage_unchanged():
+    """TASK 07: Duplicate upload veya tekrar eden video ID'si kaydedildiğinde coverage ve sayaçlar değişmez."""
+    topic_name = "Kurtuluş Savaşı Hazırlık Dönemi"
+    m_prev = curriculum_matrix.calculate_deterministic_mastery(topic_name)
+    prev_videos = m_prev["consumed_videos_count"]
+    
+    # vid_diff_teacher_0 videosunu tekrar kaydet
+    curriculum_matrix.record_video_consumption(
+        lesson="TARIH",
+        topic=topic_name,
+        video_id="vid_diff_teacher_0",
+        teacher_name="Ramazan Yetgin",
+        channel_name="Channel_0"
+    )
+    m_now = curriculum_matrix.calculate_deterministic_mastery(topic_name)
+    assert m_now["consumed_videos_count"] == prev_videos
+    assert m_now["source_coverage"] == m_prev["source_coverage"]
