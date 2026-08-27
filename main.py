@@ -74,11 +74,46 @@ def main():
     parser.add_argument("--sync", action="store_true", help="Resmi Mevzuat ve TÜİK verilerini senkronize et")
     parser.add_argument("--conscious", action="store_true", help="Bilinç ve Düşünce Günlüğü (CoT) durumunu göster")
     parser.add_argument("--checkpoint", action="store_true", help="Kayıtlı son durum ve checkpoint özetini göster")
+    parser.add_argument("--curriculum", action="store_true", help="3 KPSS Sınavı Müfredat ve Hakimiyet Raporunu Göster")
+    parser.add_argument("--next-task", action="store_true", help="OpenManus için sıradaki yüksek öncelikli araştırma görevlerini göster")
     parser.add_argument("--port", type=int, default=8500, help="Web UI Portu (Varsayılan: 8500)")
 
     args = parser.parse_args()
 
-    if args.hungry:
+    if args.curriculum:
+        from curriculum import curriculum_engine, curriculum_queue
+        report = curriculum_engine.get_gap_analysis()
+        q_stats = curriculum_queue.get_queue_stats()
+        print("=" * 70)
+        print("📚 [KPSS SUPER-BRAIN] 3 SINAV MÜFREDAT HAKİMİYET VE EKSİK RADARI")
+        print("=" * 70)
+        print(f"Genel Müfredat Doluluk Oranı: %{report['coverage_percentage']}")
+        print(f"Tüketilen Ders Videosu: {report['total_videos_consumed']} / {report['total_target_videos']}")
+        print(f"Toplam Konu Sayısı: {report['total_topics']}")
+        print("\nKonu Hakimiyet Aşamaları:")
+        for stage, cnt in report['stages'].items():
+            print(f"  - {stage}: {cnt} konu")
+        print("\nDers Bazlı İlerleme:")
+        for l_name, l_stat in report['by_lesson'].items():
+            pct = round((l_stat['consumed_videos'] / l_stat['target_videos'] * 100), 1) if l_stat['target_videos'] > 0 else 0
+            print(f"  - {l_name}: %{pct} ({l_stat['consumed_videos']}/{l_stat['target_videos']} Video)")
+        print("\nCanlı Video Kuyruk Durumu:")
+        print(f"  - Bekleyen: {q_stats['pending_videos']} | İzlenen: {q_stats['watched_videos']} | Altyazısız: {q_stats['no_transcript_videos']}")
+        print("=" * 70)
+    elif args.next_task:
+        from curriculum import curriculum_engine
+        tasks = curriculum_engine.generate_next_research_tasks(count=5)
+        print("=" * 70)
+        print("🎯 [OPENMANUS GÖREV LİSTESİ] SIRADAKİ EN YÜKSEK ÖNCELİKLİ HEDEFLER")
+        print("=" * 70)
+        for t in tasks:
+            print(f"📌 Görev ID: {t.task_id} | Öncelik: {t.priority}")
+            print(f"   Ders: {t.lesson.value} | Konu: {t.topic_name}")
+            print(f"   Hedef Hocalar: {', '.join(t.target_teachers)}")
+            print(f"   Örnek Arama: '{t.search_queries[0]}'")
+            print(f"   Gerekçe: {t.reason}")
+            print("-" * 70)
+    elif args.hungry:
         asyncio.run(hungry_engine.start())
     elif args.conscious:
         from autonomous.consciousness import consciousness

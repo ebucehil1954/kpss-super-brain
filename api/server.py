@@ -257,3 +257,34 @@ async def get_uploaded_documents_history():
     from senses.turbo_pdf_reader import turbo_pdf_reader
     history = turbo_pdf_reader.get_ingested_history()
     return {"total": len(history), "history": history}
+
+# ==============================================================
+# FAZ 1: MÜFREDAT & AKILLI ARAŞTIRMA KUYRUĞU ENDPOINT'LERİ
+# ==============================================================
+
+@app.get("/api/curriculum/coverage")
+async def get_curriculum_coverage_report(
+    exam_level: str = Query("ALL", description="LISANS, ONLISANS, ORTAOGRETIM veya ALL")
+):
+    """3 KPSS sınavı ve ders bazlı canlı müfredat hakimiyet raporunu döner."""
+    from curriculum import curriculum_engine, ExamLevel
+    lvl = ExamLevel.from_str(exam_level)
+    return curriculum_engine.get_gap_analysis(exam_level=lvl)
+
+@app.get("/api/curriculum/next-tasks")
+async def get_curriculum_next_tasks(
+    count: int = Query(5, ge=1, le=20),
+    exam_level: str = Query("ALL")
+):
+    """OpenManus veya otonom crawler için sıradaki yüksek öncelikli görev paketlerini döner."""
+    from curriculum import curriculum_engine, ExamLevel
+    lvl = ExamLevel.from_str(exam_level)
+    tasks = curriculum_engine.generate_next_research_tasks(count=count, exam_level=lvl)
+    return {"total": len(tasks), "tasks": [t.model_dump() for t in tasks]}
+
+@app.get("/api/curriculum/queue-stats")
+async def get_curriculum_queue_statistics():
+    """Canlı video kuyruğu metriklerini döner."""
+    from curriculum import curriculum_queue
+    return curriculum_queue.get_queue_stats()
+
