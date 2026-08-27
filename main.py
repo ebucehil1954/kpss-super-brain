@@ -84,6 +84,7 @@ def main():
     parser.add_argument("--correlations", action="store_true", help="Kavramlar arası korelasyon grafı ve karıştırılan kavram çiftlerini listele")
     parser.add_argument("--synthesize", action="store_true", help="Seçilen konuda çoklu hoca karşılaştırmalı uzman sentezi üret")
     parser.add_argument("--audit", action="store_true", help="Z3 SMT ve Kanonik Gerçeklik ile tüm veritabanını denetle")
+    parser.add_argument("--prosecutor", type=str, help="DeepSeek-R1 ile herhangi bir hoca iddiasını derinlemesine denetle")
     parser.add_argument("--lesson", type=str, default="COGRAFYA", help="Ders filtresi (Örn: COGRAFYA, VATANDASLIK)")
     parser.add_argument("--topic", type=str, default="", help="Konu başlığı")
     parser.add_argument("--port", type=int, default=8500, help="Web UI Portu (Varsayılan: 8500)")
@@ -173,6 +174,28 @@ def main():
         print(f"Z3 & Kanonik Teyitli Doğrular: {report['verified_by_z3_and_canon']}")
         print(f"Tespit Edilip Tuzağa Dönüştürülen Çelişkiler: {report['contradictions_caught']}")
         print(f"Müfredat Destekli Bilgiler: {report['supported_records']}")
+        print("=" * 70)
+    elif args.prosecutor:
+        from cognition.prosecutor_auditor import prosecutor_auditor
+        print("=" * 70)
+        print("⚖️ [DEEPSEEK-R1 SAVCILIK MOTORU] DERİN VE ELEŞTİREL İDDİA DENETİMİ")
+        print("=" * 70)
+        print(f"🔍 İncelenen İddia: \"{args.prosecutor}\"\n")
+        res = asyncio.run(prosecutor_auditor.audit_claim_deepseek(
+            claim_text=args.prosecutor,
+            lesson=args.lesson or "GENEL",
+            topic=args.topic or "Genel"
+        ))
+        v_icon = "❌ REDDEDİLDİ (REJECTED)" if res["verdict"] == "REJECTED" else "✅ ONAYLANDI (CONFIRMED)"
+        print(f"HÜKÜM: {v_icon}")
+        print(f"Savcı Güven Skoru: %{int(res.get('confidence', 0.95) * 100)}")
+        print("\n🧠 Savcılık Akıl Yürütme Adımları (Chain-of-Thought):")
+        for step in res.get("reasoning_steps", []):
+            print(f"  - {step}")
+        if res.get("canonical_truth"):
+            print(f"\n📜 Kanonik Resmi Doğru: {res['canonical_truth']}")
+        if res.get("trap_distractor"):
+            print(f"\n⚠️ Türetilen ÖSYM Çeldirici Tuzağı: {res['trap_distractor']}")
         print("=" * 70)
     elif args.harvester:
         from autonomous.harvester import youtube_harvester

@@ -379,6 +379,56 @@ async def get_z3_audit_report():
     from cognition.auditor import auditor_engine
     return auditor_engine.run_full_knowledge_audit()
 
+# ==============================================================
+# DEEPSEEK-R1 SAVCILIK VE DERİN ADVERSARIAL DENETİM ENDPOINT'LERİ
+# ==============================================================
+
+@app.post("/api/prosecutor/audit-claim")
+async def deepseek_audit_single_claim(
+    claim_text: str = Query(..., description="Denetlenecek hoca iddiası"),
+    lesson: str = Query("GENEL", description="Ders adı"),
+    topic: str = Query("Genel", description="Konu adı"),
+    teacher: str = Query("Bilinmeyen", description="Eğitmen adı")
+):
+    """
+    DeepSeek-R1'in Chain-of-Thought (<think>) muhakemesi ve Kanonik Gerçeklik
+    ile iddiayı acımasızca denetler. Yanlışsa anında ÖSYM tuzağına dönüştürür.
+    """
+    from cognition.prosecutor_auditor import prosecutor_auditor
+    return await prosecutor_auditor.audit_claim_deepseek(
+        claim_text=claim_text,
+        lesson=lesson,
+        topic=topic,
+        teacher=teacher
+    )
+
+@app.post("/api/prosecutor/adjudicate")
+async def deepseek_adjudicate_teachers(
+    lesson: str = Query("COGRAFYA"),
+    topic: str = Query("Genel"),
+    teacher_a: str = Query(..., description="1. Hoca Adı"),
+    claim_a: str = Query(..., description="1. Hocanın İddiası"),
+    teacher_b: str = Query(..., description="2. Hoca Adı"),
+    claim_b: str = Query(..., description="2. Hocanın İddiası")
+):
+    """İki öğretmenin zıt düştüğü konularda DeepSeek-R1'i hakem yapar."""
+    from cognition.prosecutor_auditor import prosecutor_auditor
+    return await prosecutor_auditor.adjudicate_teacher_dispute(
+        lesson=lesson,
+        topic=topic,
+        teacher_a=teacher_a,
+        claim_a=claim_a,
+        teacher_b=teacher_b,
+        claim_b=claim_b
+    )
+
+@app.get("/api/prosecutor/recent-verdicts")
+async def get_recent_prosecutor_verdicts(limit: int = Query(15, ge=1, le=50)):
+    """DeepSeek-R1 savcılık motorunun verdiği son gerekçeli hükümleri döner."""
+    from cognition.prosecutor_auditor import prosecutor_auditor
+    return prosecutor_auditor.get_recent_audits(limit=limit)
+
+
 
 
 

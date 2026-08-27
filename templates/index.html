@@ -337,42 +337,85 @@
                     </div>
                 </div>
 
-                <!-- 3. SÜTUN: DENETLEYİCİ LLM & Z3 MANTIK KALKANI (AUDITOR) -->
-                <div class="glass-panel p-5 rounded-3xl flex flex-col gap-4 border border-purple-500/20">
+                <!-- 3. SÜTUN: DEEPSEEK-R1 SAVCILIK KONSOLU & Z3 MANTIK KALKANI -->
+                <div class="glass-panel p-5 rounded-3xl flex flex-col gap-4 border border-purple-500/25">
                     <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
                         <div class="flex items-center gap-2.5">
-                            <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">🛡️</span>
+                            <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">⚖️</span>
                             <div>
-                                <h2 class="text-sm font-display font-black text-white">DENETLEYİCİ LLM & Z3 SMT</h2>
-                                <p class="text-[10px] text-slate-400 font-mono">Biçimsel Mantık & Kanonik Gerçeklik</p>
+                                <h2 class="text-sm font-display font-black text-white">DEEPSEEK-R1 SAVCILIK ZİHNİ</h2>
+                                <p class="text-[10px] text-slate-400 font-mono">DeepSeek-R1 (CoT) &bull; Z3 SMT Kalkanı</p>
                             </div>
                         </div>
-                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold">100% UNSAT DEFENSE</span>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold">ADVERSARIAL PROSECUTOR</span>
                     </div>
 
-                    <!-- Denetim İstatistikleri -->
+                    <!-- Canlı İddia Denetleme / Mahkeme Masası -->
+                    <div class="p-3 rounded-2xl bg-dark-900/90 border border-slate-800 space-y-2.5">
+                        <div class="flex items-center justify-between text-[11px]">
+                            <span class="text-purple-300 font-bold flex items-center gap-1.5">
+                                <span>🔍</span>
+                                <span>Hoca İddiasını DeepSeek-R1'e Denetlet:</span>
+                            </span>
+                            <span class="text-[10px] font-mono text-purple-400">Canlı Hakem</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <input type="text" id="input-prosecutor-claim" placeholder="Örn: Osmanlı ilk kağıt para Fatih zamanında basıldı..." class="flex-1 px-3 py-1.5 rounded-xl bg-dark-950 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-purple-500 font-mono text-[11px]">
+                            <button onclick="runDeepSeekProsecutor()" id="btn-prosecutor-submit" class="px-3 py-1.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs font-bold font-display shadow-md shadow-purple-600/30 flex items-center gap-1 whitespace-nowrap transition-all active:scale-95">
+                                <span>⚖️</span>
+                                <span>Denetle</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Canlı Savcılık Karar Kartı (Dinamik Sonuç) -->
+                    <div id="prosecutor-result-card" class="p-3 rounded-2xl bg-dark-950/90 border border-slate-800 text-xs space-y-2 hidden">
+                        <div class="flex items-center justify-between">
+                            <span id="prosecutor-verdict-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase">HÜKÜM</span>
+                            <span id="prosecutor-confidence-badge" class="text-[10px] font-mono text-slate-400">Güven: %99</span>
+                        </div>
+                        <div class="text-[11px] text-slate-200 font-mono leading-relaxed" id="prosecutor-reasoning-summary">
+                            Gerekçe yükleniyor...
+                        </div>
+                        <div class="p-2 rounded-xl bg-dark-900 border border-slate-800 space-y-1 text-[10px]">
+                            <div class="text-emerald-400 font-bold flex items-center gap-1">
+                                <span>📜</span>
+                                <span>Kanonik Doğru:</span>
+                            </div>
+                            <div class="text-slate-300 font-mono" id="prosecutor-canonical-truth">-</div>
+                        </div>
+                        <div class="p-2 rounded-xl bg-rose-950/20 border border-rose-500/30 space-y-1 text-[10px]">
+                            <div class="text-rose-400 font-bold flex items-center gap-1">
+                                <span>⚠️</span>
+                                <span>Türetilen ÖSYM Çeldirici Tuzağı:</span>
+                            </div>
+                            <div class="text-rose-200 font-mono" id="prosecutor-trap-formula">-</div>
+                        </div>
+                    </div>
+
+                    <!-- Z3 & Savcı Denetim İstatistikleri -->
                     <div class="grid grid-cols-3 gap-2 text-center text-xs">
-                        <div class="p-2.5 rounded-xl bg-dark-900/80 border border-slate-800">
+                        <div class="p-2 rounded-xl bg-dark-900/80 border border-slate-800">
                             <div class="text-[10px] text-slate-400">Denetlenen</div>
-                            <div class="text-base font-bold text-white font-mono" id="audit-total">300</div>
+                            <div class="text-sm font-bold text-white font-mono" id="audit-total">300</div>
                         </div>
-                        <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                        <div class="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
                             <div class="text-[10px] text-emerald-400">Z3 Teyitli</div>
-                            <div class="text-base font-bold text-emerald-300 font-mono" id="audit-verified">3</div>
+                            <div class="text-sm font-bold text-emerald-300 font-mono" id="audit-verified">3</div>
                         </div>
-                        <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30">
+                        <div class="p-2 rounded-xl bg-rose-500/10 border border-rose-500/30">
                             <div class="text-[10px] text-rose-400">Çelişki/Tuzak</div>
-                            <div class="text-base font-bold text-rose-300 font-mono" id="audit-traps">2</div>
+                            <div class="text-sm font-bold text-rose-300 font-mono" id="audit-traps">2</div>
                         </div>
                     </div>
 
-                    <!-- Yakalanan Çelişkiler ve Kanonik Düzeltmeler -->
+                    <!-- Son Savcılık Hükümleri Akışı -->
                     <div class="flex-1 flex flex-col">
                         <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
-                            <span>⚠️ Tespit Edilen Sınav Çeldiricileri</span>
-                            <span class="text-[10px] text-rose-400 font-mono">Z3 UNSAT</span>
+                            <span>📜 Son Savcılık Hükümleri</span>
+                            <button onclick="loadRecentProsecutorVerdicts()" class="text-[10px] text-purple-400 hover:text-purple-300 font-mono">Tazele</button>
                         </div>
-                        <div id="audit-feed-container" class="space-y-2 max-h-[300px] overflow-y-auto pr-1 text-xs">
+                        <div id="audit-feed-container" class="space-y-2 max-h-[220px] overflow-y-auto pr-1 text-xs">
                             <div class="p-3 rounded-xl bg-rose-950/20 border border-rose-500/30 text-[11px] space-y-1">
                                 <div class="font-bold text-rose-300 flex items-center gap-1.5">
                                     <span>❌</span>
@@ -931,6 +974,97 @@
             }
         }
 
+        // EYLEM: DeepSeek-R1 Savcılık Denetimi Çalıştır
+        async function runDeepSeekProsecutor() {
+            const input = document.getElementById('input-prosecutor-claim');
+            const claimText = (input.value || '').trim();
+            if (!claimText) {
+                showToast("Lütfen denetlenecek bir iddia yazın.", "warning");
+                return;
+            }
+
+            const submitBtn = document.getElementById('btn-prosecutor-submit');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⏳</span><span>İnceleniyor...</span>';
+            showToast("DeepSeek-R1 (CoT) iddiayı acımasızca denetliyor...", "info");
+
+            const card = document.getElementById('prosecutor-result-card');
+            card.classList.remove('hidden');
+            document.getElementById('prosecutor-verdict-badge').innerText = 'HÜKÜM OLUŞTURULUYOR...';
+            document.getElementById('prosecutor-verdict-badge').className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-amber-500/20 text-amber-300 animate-pulse';
+            document.getElementById('prosecutor-reasoning-summary').innerText = 'DeepSeek-R1 kanonik gerçekleri ve mevzuatı karşılaştırıyor...';
+            document.getElementById('prosecutor-canonical-truth').innerText = 'İnceleniyor...';
+            document.getElementById('prosecutor-trap-formula').innerText = 'İnceleniyor...';
+
+            try {
+                const res = await fetch(`/api/prosecutor/audit-claim?claim_text=${encodeURIComponent(claimText)}`, { method: 'POST' });
+                const data = await res.json();
+
+                const isRejected = data.verdict === 'REJECTED';
+                const badge = document.getElementById('prosecutor-verdict-badge');
+                if (isRejected) {
+                    badge.innerText = '❌ REDDEDİLDİ (REJECTED)';
+                    badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30';
+                    showToast("İddia ÇÜRÜTÜLDÜ ve ÖSYM Sınav Tuzağı olarak mühürlendi!", "warning");
+                } else {
+                    badge.innerText = '✅ ONAYLANDI (CONFIRMED)';
+                    badge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+                    showToast("İddia Kanonik Mevzuat ile ONAYLANDI!", "success");
+                }
+
+                document.getElementById('prosecutor-confidence-badge').innerText = `Güven: %${Math.round((data.confidence || 0.99) * 100)}`;
+                const stepsText = (data.reasoning_steps || []).join('\n');
+                document.getElementById('prosecutor-reasoning-summary').innerText = stepsText || data.thought_process || 'Gerekçeli karar oluşturuldu.';
+                document.getElementById('prosecutor-canonical-truth').innerText = data.canonical_truth || '1982 T.C. Anayasası ve Resmi Mevzuat';
+                document.getElementById('prosecutor-trap-formula').innerText = data.trap_distractor || 'Bu iddiadan türetilmiş çeldirici soru formülü.';
+
+                loadRecentProsecutorVerdicts();
+            } catch (err) {
+                showToast("Denetim sırasında hata oluştu: " + err.message, "error");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>⚖️</span><span>Denetle</span>';
+            }
+        }
+
+        // Son Savcılık Hükümlerini Yükle
+        async function loadRecentProsecutorVerdicts() {
+            try {
+                const res = await fetch('/api/prosecutor/recent-verdicts?limit=10');
+                if (!res.ok) return;
+                const audits = await res.json();
+                const container = document.getElementById('audit-feed-container');
+
+                if (!audits || audits.length === 0) return;
+
+                container.innerHTML = audits.map(a => {
+                    const isRej = a.verdict === 'REJECTED';
+                    return `
+                        <div class="p-3 rounded-2xl ${isRej ? 'bg-rose-950/20 border-rose-500/30' : 'bg-emerald-950/20 border-emerald-500/30'} border text-[11px] space-y-1.5">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold ${isRej ? 'text-rose-300' : 'text-emerald-300'} flex items-center gap-1">
+                                    <span>${isRej ? '❌' : '✅'}</span>
+                                    <span>${isRej ? 'REDDEDİLDİ' : 'ONAYLANDI'}</span>
+                                </span>
+                                <span class="text-[9px] font-mono text-slate-500">${a.created_at ? a.created_at.split('T')[0] : ''}</span>
+                            </div>
+                            <div class="text-white font-bold text-[11px]">"${a.claim_text}"</div>
+                            ${a.canonical_truth ? `
+                                <div class="text-emerald-400 font-mono text-[10px] bg-dark-950/80 p-1.5 rounded border border-slate-800">
+                                    📜 Doğrusu: ${a.canonical_truth}
+                                </div>
+                            ` : ''}
+                            ${a.trap_distractor ? `
+                                <div class="text-rose-300 text-[10px] bg-rose-950/30 p-1.5 rounded border border-rose-900/50">
+                                    ⚠️ Çeldirici: ${a.trap_distractor}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {}
+        }
+
         // EYLEM: Çapraz Sentez Tetikle
         async function triggerSynthesis(lesson, topic) {
             showToast(`[${lesson}] ${topic} için çapraz hoca sentezi hesaplanıyor...`, "info");
@@ -960,6 +1094,7 @@
         // İlk Yükleme ve Periyodik Yenileme Döngüsü
         document.addEventListener("DOMContentLoaded", () => {
             refreshDashboardData();
+            loadRecentProsecutorVerdicts();
             // Her 6 saniyede bir hafif arka plan yenilemesi
             setInterval(() => {
                 if (currentTab === 'tab-control-room') {

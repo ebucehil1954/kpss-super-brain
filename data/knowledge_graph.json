@@ -2442,6 +2442,49 @@
         "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
         "confused_with": "Hiyerarşi"
       }
+    },
+    "ENT_17b6f2cf": {
+      "id": "ENT_17b6f2cf",
+      "label": "Osmanlı Devleti",
+      "type": "ENTITY",
+      "lesson": "TARIH",
+      "properties": {
+        "parent_topic": "ENT_1e9e9858",
+        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'Osmanlı Devleti'nde ilk kağıt para Fatih Sultan Mehmet döneminde basılmıştır' id",
+        "times_observed": 1
+      }
+    },
+    "ENT_a953ed71": {
+      "id": "ENT_a953ed71",
+      "label": "Fatih Sultan Mehmet",
+      "type": "ENTITY",
+      "lesson": "TARIH",
+      "properties": {
+        "parent_topic": "ENT_1e9e9858",
+        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'Osmanlı Devleti'nde ilk kağıt para Fatih Sultan Mehmet döneminde basılmıştır' id",
+        "times_observed": 1
+      }
+    },
+    "GENEL_GENEL": {
+      "id": "GENEL_GENEL",
+      "label": "Genel",
+      "type": "TOPIC",
+      "lesson": "GENEL",
+      "properties": {
+        "auto_created": true,
+        "subtopics": []
+      }
+    },
+    "ENT_8e322367": {
+      "id": "ENT_8e322367",
+      "label": "73 ile",
+      "type": "ENTITY",
+      "lesson": "GENEL",
+      "properties": {
+        "parent_topic": "GENEL_GENEL",
+        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'TTurkiye maden ihracatinda bor ile birincidir' iddiası yanlıştır. Doğrusu: Türki",
+        "times_observed": 1
+      }
     }
   },
   "edges": [
@@ -3589,6 +3632,24 @@
       "source": "CONC_DARI_VESAYET",
       "target": "CONC_HIYERARI",
       "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_1e9e9858",
+      "target": "ENT_17b6f2cf",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_1e9e9858",
+      "target": "ENT_a953ed71",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "GENEL_GENEL",
+      "target": "ENT_8e322367",
+      "relation": "CONTAINS_CONCEPT",
       "weight": 1.0
     }
   ]

@@ -10,6 +10,7 @@ from .self_tester import self_tester, SelfTester
 from .analyst import cognitive_analyst, CognitiveAnalyst
 from .correlation_engine import correlation_engine, CorrelationEngine
 from .auditor import auditor_engine, AuditorEngine
+from .prosecutor_auditor import prosecutor_auditor, ProsecutorAuditor
 
 __all__ = [
     "teacher_learner",
@@ -29,5 +30,7 @@ __all__ = [
     "correlation_engine",
     "CorrelationEngine",
     "auditor_engine",
-    "AuditorEngine"
+    "AuditorEngine",
+    "prosecutor_auditor",
+    "ProsecutorAuditor"
 ]
