@@ -4,6 +4,7 @@ OpenManus otonom saha işçisi ile tam senkronize çalışan, SQLite kalıcı ve
 akıllı araştırma ve video tüketim kuyruğu.
 """
 from typing import List, Dict, Any, Optional
+import json
 from datetime import datetime
 from brain.database import db_session
 from curriculum.models import (

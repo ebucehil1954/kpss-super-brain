@@ -3,10 +3,13 @@ KPSS Super-Brain: 7/24 Otonom Çalışma ve Sürekli Öğrenme Paketi (Autonomou
 """
 from .cycle_manager import cycle_manager, CycleManager
 from .stats_tracker import stats_tracker, StatsTracker
+from .harvester import youtube_harvester, YouTubeHarvester
 
 __all__ = [
     "cycle_manager",
     "CycleManager",
     "stats_tracker",
-    "StatsTracker"
+    "StatsTracker",
+    "youtube_harvester",
+    "YouTubeHarvester"
 ]

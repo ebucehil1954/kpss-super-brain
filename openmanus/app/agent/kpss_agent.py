@@ -15,6 +15,7 @@ from app.tool.web_search import WebSearch
 from app.tool.python_execute import PythonExecute
 from app.tool.file_saver import FileSaver
 from app.tool.youtube_transcript_tool import YouTubeTranscriptTool
+from app.tool.youtube_crawler_tool import YouTubeCrawlerTool
 from app.tool.contradiction_checker_tool import ContradictionCheckerTool
 from app.tool.ground_truth_tool import GroundTruthTool
 
@@ -26,7 +27,7 @@ class KPSSAgent(Manus):
     name: str = "KPSSAgent"
     description: str = (
         "KPSS, vatandaşlık ve anayasa konularında uzman otonom ajan. "
-        "YouTube transkriptlerini inceler, resmi mevzuatı araştırır, "
+        "YouTube videolarını arar, transkriptlerini inceler, resmi mevzuatı araştırır, "
         "ifadeler arasındaki çelişkileri tespit eder ve kanıta dayalı yanıtlar verir."
     )
 
@@ -37,12 +38,13 @@ class KPSSAgent(Manus):
         "Her cevabının sonunda kaynağını (provenance) belirt."
     )
 
-    # Varsayılan araçları (WebSearch, FileSaver, PythonExecute) koru ve 3 özel aracı ekle
+    # Varsayılan araçları koru ve KPSS özel araçlarını ekle
     available_tools: ToolCollection = Field(
         default_factory=lambda: ToolCollection(
             WebSearch(),
             FileSaver(),
             PythonExecute(),
+            YouTubeCrawlerTool(),
             YouTubeTranscriptTool(),
             ContradictionCheckerTool(),
             GroundTruthTool(),

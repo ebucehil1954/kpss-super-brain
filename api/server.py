@@ -288,3 +288,24 @@ async def get_curriculum_queue_statistics():
     from curriculum import curriculum_queue
     return curriculum_queue.get_queue_stats()
 
+# ==============================================================
+# FAZ 2: OTONOM YOUTUBE KARADELİĞİ (HARVESTER) ENDPOINT'LERİ
+# ==============================================================
+
+@app.get("/api/harvester/status")
+async def get_harvester_status():
+    """Otonom YouTube karadeliğinin canlı çalışma durumunu döner."""
+    from autonomous.harvester import youtube_harvester
+    return youtube_harvester.get_status()
+
+@app.post("/api/harvester/harvest-once")
+async def trigger_harvest_single_task(
+    exam_level: str = Query("ALL", description="LISANS, ONLISANS, ORTAOGRETIM veya ALL")
+):
+    """Müfredattan sıradaki bir görevi otonom olarak araştırıp YouTube'dan çeker."""
+    from autonomous.harvester import youtube_harvester
+    from curriculum import ExamLevel
+    lvl = ExamLevel.from_str(exam_level)
+    return await youtube_harvester.harvest_single_task(exam_level=lvl)
+
+

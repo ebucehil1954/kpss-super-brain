@@ -76,11 +76,21 @@ def main():
     parser.add_argument("--checkpoint", action="store_true", help="Kayıtlı son durum ve checkpoint özetini göster")
     parser.add_argument("--curriculum", action="store_true", help="3 KPSS Sınavı Müfredat ve Hakimiyet Raporunu Göster")
     parser.add_argument("--next-task", action="store_true", help="OpenManus için sıradaki yüksek öncelikli araştırma görevlerini göster")
+    parser.add_argument("--harvester", action="store_true", help="7/24 Kesintisiz Otonom YouTube Karadeliğini Başlat (Saha İşçisi)")
+    parser.add_argument("--harvest-once", action="store_true", help="Tek bir görevi YouTube'dan araştır, transkriptini indir ve dur")
     parser.add_argument("--port", type=int, default=8500, help="Web UI Portu (Varsayılan: 8500)")
 
     args = parser.parse_args()
 
-    if args.curriculum:
+    if args.harvester:
+        from autonomous.harvester import youtube_harvester
+        asyncio.run(youtube_harvester.start_continuous_harvest())
+    elif args.harvest_once:
+        from autonomous.harvester import youtube_harvester
+        res = asyncio.run(youtube_harvester.harvest_single_task())
+        print("\n🏁 [HASAT SONUCU]:")
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+    elif args.curriculum:
         from curriculum import curriculum_engine, curriculum_queue
         report = curriculum_engine.get_gap_analysis()
         q_stats = curriculum_queue.get_queue_stats()

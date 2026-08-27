@@ -10,6 +10,7 @@ from app.tool.terminate import Terminate
 from app.tool.tool_collection import ToolCollection
 from app.tool.web_search import WebSearch
 from app.tool.youtube_transcript_tool import YouTubeTranscriptTool
+from app.tool.youtube_crawler_tool import YouTubeCrawlerTool
 from app.tool.contradiction_checker_tool import ContradictionCheckerTool
 from app.tool.ground_truth_tool import GroundTruthTool
 
@@ -26,6 +27,7 @@ __all__ = [
     "PlanningTool",
     "Crawl4aiTool",
     "YouTubeTranscriptTool",
+    "YouTubeCrawlerTool",
     "ContradictionCheckerTool",
     "GroundTruthTool",
 ]
