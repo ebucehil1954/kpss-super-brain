@@ -38,7 +38,10 @@ async def serve_control_panel(request: Request):
         "default_confidence": "95.0",
         "min_sources": "8-10"
     }
-    return templates.TemplateResponse("index.html", context)
+    try:
+        return templates.TemplateResponse(request=request, name="index.html", context=context)
+    except TypeError:
+        return templates.TemplateResponse("index.html", context)
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8000))
