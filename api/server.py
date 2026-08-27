@@ -308,4 +308,45 @@ async def trigger_harvest_single_task(
     lvl = ExamLevel.from_str(exam_level)
     return await youtube_harvester.harvest_single_task(exam_level=lvl)
 
+# ==============================================================
+# FAZ 3: BİLİŞSEL ANALİST & HOCA ZİHNİYETİ ENDPOINT'LERİ
+# ==============================================================
+
+@app.get("/api/cognition/teachers")
+async def list_all_teacher_profiles():
+    """Modellenen tüm öğretmen profillerini döner."""
+    from brain.database import db_session
+    with db_session() as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM teacher_profiles ORDER BY videos_watched DESC")
+        rows = cursor.fetchall()
+        return [dict(r) for r in rows]
+
+@app.get("/api/cognition/teacher/{name}")
+async def get_teacher_profile(name: str):
+    """Belirli bir öğretmenin zihin modelini ve kullandığı şifreleri döner."""
+    from cognition.teacher_learner import teacher_learner
+    return teacher_learner.get_or_create_profile(name)
+
+@app.get("/api/cognition/mnemonics")
+async def list_all_mnemonics():
+    """Hafıza ambarında tespit edilmiş tüm KPSS kodlama ve şifrelerini döner."""
+    from brain.database import db_session
+    with db_session() as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM knowledge_records WHERE record_type = 'MNEMONIC' ORDER BY first_learned DESC")
+        rows = cursor.fetchall()
+        return [dict(r) for r in rows]
+
+@app.get("/api/cognition/traps")
+async def list_all_exam_traps():
+    """Hafıza ambarında tespit edilmiş tüm ÖSYM çeldirici sınav tuzaklarını döner."""
+    from brain.database import db_session
+    with db_session() as conn:
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM knowledge_records WHERE record_type = 'TRAP' ORDER BY first_learned DESC")
+        rows = cursor.fetchall()
+        return [dict(r) for r in rows]
+
+
 

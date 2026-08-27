@@ -78,11 +78,56 @@ def main():
     parser.add_argument("--next-task", action="store_true", help="OpenManus için sıradaki yüksek öncelikli araştırma görevlerini göster")
     parser.add_argument("--harvester", action="store_true", help="7/24 Kesintisiz Otonom YouTube Karadeliğini Başlat (Saha İşçisi)")
     parser.add_argument("--harvest-once", action="store_true", help="Tek bir görevi YouTube'dan araştır, transkriptini indir ve dur")
+    parser.add_argument("--teacher", type=str, help="Belirli bir hocanın çıkarılan zihin profilini ve şifrelerini göster")
+    parser.add_argument("--mnemonics", action="store_true", help="Hafızadaki tüm KPSS ezber şifrelerini (akrostiş, kodlama) listele")
+    parser.add_argument("--traps", action="store_true", help="Hafızadaki tüm ÖSYM sınav tuzaklarını ve çeldiricileri listele")
     parser.add_argument("--port", type=int, default=8500, help="Web UI Portu (Varsayılan: 8500)")
 
     args = parser.parse_args()
 
-    if args.harvester:
+    if args.teacher:
+        from cognition.teacher_learner import teacher_learner
+        prof = teacher_learner.get_or_create_profile(args.teacher)
+        print("=" * 70)
+        print(f"🎓 [EĞİTMEN ZİHİN PROFİLİ]: {prof['name']} ({prof['channel']})")
+        print("=" * 70)
+        print(f"Ders: {prof['lesson']} | İzlenen Video: {prof['videos_watched']} | Toplam Kelime: {prof['total_transcript_words']}")
+        print(f"Bilgi Katkısı: {prof['unique_facts_count']} Bilgi | {len(prof['mnemonics_used'])} Şifre | {prof['trap_warnings_count']} Tuzak Uyarısı")
+        print("\n🔑 Kullanılan Özel Şifre ve Kodlamalar:")
+        if prof['mnemonics_used']:
+            for m in prof['mnemonics_used']:
+                print(f"  - [{m.get('code', 'ŞİFRE')}]: {m.get('title', '')} -> {m.get('explanation', '')}")
+        else:
+            print("  (Henüz özel şifre tespit edilmedi)")
+        print("\n🎯 Odak Konular:")
+        for t in prof['favorite_topics'][:5]:
+            print(f"  - {t}")
+        print("=" * 70)
+    elif args.mnemonics:
+        from brain.database import db_session
+        print("=" * 70)
+        print("🔑 [KPSS HAFIZA AMBARI] TÜM EZBER ŞİFRELERİ VE AKROSTİŞLER")
+        print("=" * 70)
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM knowledge_records WHERE record_type = 'MNEMONIC' ORDER BY first_learned DESC LIMIT 30")
+            rows = cursor.fetchall()
+            for r in rows:
+                print(f"📌 [{r['lesson']}] {r['text']}")
+        print("=" * 70)
+    elif args.traps:
+        from brain.database import db_session
+        print("=" * 70)
+        print("⚠️ [ÖSYM TUZAK RADARI] ÇELDİRİCİLER VE HOCA UYARILARI")
+        print("=" * 70)
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM knowledge_records WHERE record_type = 'TRAP' ORDER BY first_learned DESC LIMIT 30")
+            rows = cursor.fetchall()
+            for r in rows:
+                print(f"⚡ [{r['lesson']} - {r['topic']}] {r['text']}")
+        print("=" * 70)
+    elif args.harvester:
         from autonomous.harvester import youtube_harvester
         asyncio.run(youtube_harvester.start_continuous_harvest())
     elif args.harvest_once:

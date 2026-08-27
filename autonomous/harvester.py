@@ -157,13 +157,27 @@ class YouTubeHarvester:
 
         if t_res.get("success") and full_text:
             words_count = len(full_text.split())
-            # Kabaca her 150 kelimeyi bir bilgi chunk'ı varsay
-            chunks_count = max(1, words_count // 150)
+            # 4. Bilişsel Analiz (Hoca Zihni, Şifreler, Tuzaklar ve Atomik İddialar)
+            from cognition.analyst import cognitive_analyst
+            analysis_res = await cognitive_analyst.analyze_transcript(
+                transcript=full_text,
+                teacher_name=teacher,
+                lesson=lesson,
+                topic=topic,
+                video_id=vid,
+                video_title=title,
+                channel=video_to_process.get("channel", "YouTube"),
+                segments=t_res.get("segments")
+            )
+            extracted_facts = analysis_res.get("facts_count", 0)
+            extracted_mnemonics = analysis_res.get("mnemonics_count", 0)
+            extracted_traps = analysis_res.get("traps_count", 0)
+            total_items = max(1, extracted_facts + extracted_mnemonics + extracted_traps)
 
             curriculum_queue.mark_video_watched(
                 video_id=vid,
                 transcript_length=words_count,
-                chunks_extracted=chunks_count,
+                chunks_extracted=total_items,
                 lesson=lesson,
                 topic_name=topic,
                 teacher_name=teacher
@@ -178,11 +192,17 @@ class YouTubeHarvester:
                 lesson=lesson,
                 topic=topic,
                 teacher=teacher,
-                summary=f"'{title}' videosundan {words_count} kelimelik transkript başarıyla tüketildi.",
-                details={"video_id": vid, "words_count": words_count, "chunks_count": chunks_count}
+                summary=f"'{title}' videosundan {words_count} kelime ve {total_items} bilgi (Şifre: {extracted_mnemonics}, Tuzak: {extracted_traps}) hafızaya aktarıldı.",
+                details={
+                    "video_id": vid,
+                    "words_count": words_count,
+                    "facts_count": extracted_facts,
+                    "mnemonics_count": extracted_mnemonics,
+                    "traps_count": extracted_traps
+                }
             )
 
-            print(f"  └─ ✅ BAŞARI: {words_count} kelime transkript hafızaya aktarıldı ({chunks_count} parça).")
+            print(f"  └─ ✅ BAŞARI: {words_count} kelime transkript ve {total_items} epistemik kayıt hafızaya mühürlendi.")
             self.current_video_id = None
             return {
                 "status": "success",
@@ -191,7 +211,10 @@ class YouTubeHarvester:
                 "title": title,
                 "teacher": teacher,
                 "transcript_words": words_count,
-                "chunks_count": chunks_count
+                "facts_count": extracted_facts,
+                "mnemonics_count": extracted_mnemonics,
+                "traps_count": extracted_traps,
+                "chunks_count": total_items
             }
         else:
             err = t_res.get("error", "Altyazı bulunamadı.")

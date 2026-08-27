@@ -7,6 +7,7 @@ from .reasoning_engine import reasoning_engine, ReasoningEngine
 from .topic_linker import topic_linker, TopicLinker
 from .pattern_learner import pattern_learner, PatternLearner
 from .self_tester import self_tester, SelfTester
+from .analyst import cognitive_analyst, CognitiveAnalyst
 
 __all__ = [
     "teacher_learner",
@@ -20,5 +21,7 @@ __all__ = [
     "pattern_learner",
     "PatternLearner",
     "self_tester",
-    "SelfTester"
+    "SelfTester",
+    "cognitive_analyst",
+    "CognitiveAnalyst"
 ]

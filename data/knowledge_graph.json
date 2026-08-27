@@ -1965,6 +1965,216 @@
         "source_text_snippet": "TBMM toplantı yeter sayısı 200, en az karar yeter sayısı 151 milletvekilidir",
         "times_observed": 1
       }
+    },
+    "COGRAFYA_T_RKIYE_NIN_FIZIKI__": {
+      "id": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "label": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+      "type": "TOPIC",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "auto_created": true,
+        "subtopics": [
+          "Kısa Mesafede İklim Değişimleri"
+        ]
+      }
+    },
+    "ENT_18975008": {
+      "id": "ENT_18975008",
+      "label": "Doğu Karadeniz",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "Türkiye'de kısa mesafede iklim değiştiği iki önemli yer: Doğu Karadeniz (Rize-Ordu) ve Akdeniz (Antalya-Mersin) hattı.",
+        "times_observed": 1
+      }
+    },
+    "ENT_3131f11a": {
+      "id": "ENT_3131f11a",
+      "label": "Kuzey Anadolu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "Katner ve tersiyer dönemler genellikle Kuzey Anadolu dağlarının oluşumunu ve petrol yataklarının ortaya çıkmasını içerir",
+        "times_observed": 1
+      }
+    },
+    "ENT_a689be25": {
+      "id": "ENT_a689be25",
+      "label": "Jeolojik Zamanlar",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[PAMAK] Jeolojik Zamanlar: Jeolojik zamanların sırasını hatırlamak için: Paleozoik, Mezozoik, Katerner (Senozoik) ve Pre",
+        "times_observed": 1
+      }
+    },
+    "ENT_7c9ebf97": {
+      "id": "ENT_7c9ebf97",
+      "label": "Jeolojik Dönemler",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[KATNER] Jeolojik Dönemler: Jeolojik dönemlerin sırasını hatırlamak için: Katner ve Tersiyer dönemler",
+        "times_observed": 1
+      }
+    },
+    "ENT_895c4286": {
+      "id": "ENT_895c4286",
+      "label": "İç Anadolu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "Türkiye'de volkanik araziler genellikle Doğu Anadolu hattı ve İç Anadolu hattında bulunur. Bursa ve Hatay-Hassa hattında",
+        "times_observed": 1
+      }
+    },
+    "ENT_2b605781": {
+      "id": "ENT_2b605781",
+      "label": "Doğu Anadolu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "Türkiye'de volkanik araziler genellikle Doğu Anadolu hattı ve İç Anadolu hattında bulunur. Bursa ve Hatay-Hassa hattında",
+        "times_observed": 1
+      }
+    },
+    "ENT_a0558c08": {
+      "id": "ENT_a0558c08",
+      "label": "Lav Platosu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
+        "times_observed": 1
+      }
+    },
+    "ENT_d57c549e": {
+      "id": "ENT_d57c549e",
+      "label": "Volkanik Araziler",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
+        "times_observed": 1
+      }
+    },
+    "ENT_801af3da": {
+      "id": "ENT_801af3da",
+      "label": "İç Anadolu Volkanik Arazileri",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
+        "times_observed": 1
+      }
+    },
+    "ENT_fa1471d7": {
+      "id": "ENT_fa1471d7",
+      "label": "Öncelikle Doğu Anadolu",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
+        "times_observed": 1
+      }
+    },
+    "ENT_8abcc965": {
+      "id": "ENT_8abcc965",
+      "label": "Karstik Araziler",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[KARST] Karstik Araziler: K: Konya, A: Antalya, R: Rize, S: Sakarya, T: Tekirdağ",
+        "times_observed": 1
+      }
+    },
+    "ENT_ab05affa": {
+      "id": "ENT_ab05affa",
+      "label": "Tabaka Düz",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[PLATO] Türkiye'deki Platoslar: P: Platos, L: Lav, A: Teketaş Eli, T: Tabaka Düz, O: Obruk",
+        "times_observed": 1
+      }
+    },
+    "ENT_46c04358": {
+      "id": "ENT_46c04358",
+      "label": "Teketaş Eli",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[PLATO] Türkiye'deki Platoslar: P: Platos, L: Lav, A: Teketaş Eli, T: Tabaka Düz, O: Obruk",
+        "times_observed": 1
+      }
+    },
+    "ENT_c4806415": {
+      "id": "ENT_c4806415",
+      "label": "Güney Marmara",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "Güney Marmara'da karsik şekillerin oluşumu ve bu şekillerin oluşumuna katkıda bulunan faktörler anlatılıyor.",
+        "times_observed": 1
+      }
+    },
+    "ENT_e75639a9": {
+      "id": "ENT_e75639a9",
+      "label": "Karsik Ovalar",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[POLYE] Karsik Ovalar: Polye, karsik ovaların bir örneği, genellikle Türkiye'nin bazı yüksek dağlarında ve ovaların oluş",
+        "times_observed": 1
+      }
+    },
+    "ENT_1da5ed1d": {
+      "id": "ENT_1da5ed1d",
+      "label": "Kalıcı Karlar",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[KAR] Kalıcı Karlar: Kalıcı karlar, 12 ay boyunca orada kalan karlar, özellikle Eskişehir ve Bursa gibi yüksek dağlık bö",
+        "times_observed": 1
+      }
+    },
+    "ENT_647b569a": {
+      "id": "ENT_647b569a",
+      "label": "12 ay",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "[KAR] Kalıcı Karlar: Kalıcı karlar, 12 ay boyunca orada kalan karlar, özellikle Eskişehir ve Bursa gibi yüksek dağlık bö",
+        "times_observed": 1
+      }
+    },
+    "ENT_96efd2fa": {
+      "id": "ENT_96efd2fa",
+      "label": "da ve Ege",
+      "type": "ENTITY",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+        "source_text_snippet": "⚠️ [ÖSYM TUZAĞI] Kalıcı karların tüm Türkiye'de oluştuğu iddiası -> Doğrusu: Kalıcı karlar genellikle Eskişehir ve Bursa",
+        "times_observed": 1
+      }
     }
   },
   "edges": [
@@ -2829,6 +3039,114 @@
     {
       "source": "ENT_9bf7b58a",
       "target": "ENT_c935549a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_18975008",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_3131f11a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_a689be25",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_7c9ebf97",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_895c4286",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_2b605781",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_a0558c08",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_d57c549e",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_801af3da",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_fa1471d7",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_8abcc965",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_ab05affa",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_46c04358",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_c4806415",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_e75639a9",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_1da5ed1d",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_647b569a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
+      "target": "ENT_96efd2fa",
       "relation": "CONTAINS_CONCEPT",
       "weight": 1.0
     }
