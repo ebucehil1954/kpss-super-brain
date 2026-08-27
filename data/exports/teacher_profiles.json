@@ -205,5 +205,29 @@
     "unique_facts_count": 0,
     "trap_warnings_count": 0,
     "updated_at": "2026-08-25T23:29:14.844583"
+  },
+  {
+    "teacher_id": "hakan_bileyen",
+    "name": "Hakan Bileyen",
+    "channel": "İsem TV",
+    "lesson": "COGRAFYA",
+    "videos_watched": 1,
+    "total_transcript_words": 87,
+    "teaching_patterns": {
+      "anlatim_tarzi": "Ders anlatımı ve soru kalıbı vurgusu",
+      "anahtar_kaliplar": []
+    },
+    "favorite_topics": [
+      {
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "mention_count": 1
+      }
+    ],
+    "mnemonics_used": [],
+    "prediction_history": [],
+    "reasoning_chains_count": 0,
+    "unique_facts_count": 0,
+    "trap_warnings_count": 0,
+    "updated_at": "2026-08-25T23:42:22.805326"
   }
 ]

@@ -1,0 +1,16 @@
+# OpenManus Global LLM Configuration
+[llm]
+api_type = 'ollama'
+model = "qwen2.5:14b"
+base_url = "http://localhost:11434/v1"
+api_key = "ollama"
+max_tokens = 4096
+temperature = 0.1
+
+[llm.vision]
+api_type = 'ollama'
+model = "llava"
+base_url = "http://localhost:11434/v1"
+api_key = "ollama"
+max_tokens = 4096
+temperature = 0.1
