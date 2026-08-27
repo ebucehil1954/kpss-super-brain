@@ -2183,7 +2183,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "1982 Anayasası Yasama Organı",
-        "confused_with": "Karar Yeter Sayısı"
+        "confused_with": "Karar Yeter Sayısı",
+        "difference": "Toplantı için üye tamsayısının 1/3'ü (200) gerekir; karar için katılanların salt çoğunluğu (en az 151) gerekir."
       }
     },
     "CONC_KARAR_YETER_SAYISI": {
@@ -2193,7 +2194,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "1982 Anayasası Yasama Organı",
-        "confused_with": "Toplantı Yeter Sayısı"
+        "confused_with": "Toplantı Yeter Sayısı",
+        "difference": "Toplantı için üye tamsayısının 1/3'ü (200) gerekir; karar için katılanların salt çoğunluğu (en az 151) gerekir."
       }
     },
     "CONC_VALI": {
@@ -2203,7 +2205,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
-        "confused_with": "Kaymakam"
+        "confused_with": "Kaymakam",
+        "difference": "Vali istisnai memurdur ve yetki genişliğine sahiptir; Kaymakam güvenceli meslek memurudur, yetki genişliği yoktur."
       }
     },
     "CONC_KAYMAKAM": {
@@ -2213,7 +2216,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
-        "confused_with": "Vali"
+        "confused_with": "Vali",
+        "difference": "Vali istisnai memurdur ve yetki genişliğine sahiptir; Kaymakam güvenceli meslek memurudur, yetki genişliği yoktur."
       }
     },
     "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI": {
@@ -2223,7 +2227,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
-        "confused_with": "İtiraz Yolu (Somut Norm Denetimi / Def'i)"
+        "confused_with": "İtiraz Yolu (Somut Norm Denetimi / Def'i)",
+        "difference": "İptal davası doğrudan 60 gün içinde açılır; İtiraz yolu ise görülmekte olan bir dava sırasında mahkemece AYM'ye taşınır."
       }
     },
     "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI": {
@@ -2233,7 +2238,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
-        "confused_with": "İptal Davası (Soyut Norm Denetimi)"
+        "confused_with": "İptal Davası (Soyut Norm Denetimi)",
+        "difference": "İptal davası doğrudan 60 gün içinde açılır; İtiraz yolu ise görülmekte olan bir dava sırasında mahkemece AYM'ye taşınır."
       }
     },
     "CONC_GAIPLIK": {
@@ -2243,7 +2249,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
-        "confused_with": "Ölüm Karinesi"
+        "confused_with": "Ölüm Karinesi",
+        "difference": "Ölüm karinesinde ceset bulunamaz ama ölümüne kesin gözle bakılır (mahallin en büyük mülki amiri kütüğe ölü yazar); gaiplikte ise mahkeme kararı ve bekleme süreleri (1 yıl / 5 yıl) şarttır."
       }
     },
     "CONC_LM_KARINESI": {
@@ -2253,7 +2260,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
-        "confused_with": "Gaiplik"
+        "confused_with": "Gaiplik",
+        "difference": "Ölüm karinesinde ceset bulunamaz ama ölümüne kesin gözle bakılır (mahallin en büyük mülki amiri kütüğe ölü yazar); gaiplikte ise mahkeme kararı ve bekleme süreleri (1 yıl / 5 yıl) şarttır."
       }
     },
     "CONC_ATALCAKOCAELI_PLATOSU": {
@@ -2263,7 +2271,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Taşeli Platosu"
+        "confused_with": "Taşeli Platosu",
+        "difference": "Çatalca-Kocaeli aşınım (peneplen) platosudur ve sanayi yoğunlukludur; Taşeli karstik platodur ve yerleşme seyrektir."
       }
     },
     "CONC_TAELI_PLATOSU": {
@@ -2273,7 +2282,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Çatalca-Kocaeli Platosu"
+        "confused_with": "Çatalca-Kocaeli Platosu",
+        "difference": "Çatalca-Kocaeli aşınım (peneplen) platosudur ve sanayi yoğunlukludur; Taşeli karstik platodur ve yerleşme seyrektir."
       }
     },
     "CONC_UKUROVA_DELTA_OVASI": {
@@ -2283,7 +2293,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Konya Ovası (Tektonik/Tabaka Ovası)"
+        "confused_with": "Konya Ovası (Tektonik/Tabaka Ovası)",
+        "difference": "Çukurova Seyhan ve Ceyhan akarsularının alüvyon biriktirmesiyle oluşan deltadır; Konya ovası tektonik kökenlidir."
       }
     },
     "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI": {
@@ -2293,7 +2304,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Çukurova (Delta Ovası)"
+        "confused_with": "Çukurova (Delta Ovası)",
+        "difference": "Çukurova Seyhan ve Ceyhan akarsularının alüvyon biriktirmesiyle oluşan deltadır; Konya ovası tektonik kökenlidir."
       }
     },
     "CONC_TANZIMAT_FERMANI_1839": {
@@ -2303,7 +2315,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
-        "confused_with": "Islahat Fermanı (1856)"
+        "confused_with": "Islahat Fermanı (1856)",
+        "difference": "Tanzimat tüm Osmanlı tebaasına eşit haklar getirirken; Islahat Fermanı özellikle gayrimüslimlere ayrıcalıklar tanımıştır."
       }
     },
     "CONC_ISLAHAT_FERMANI_1856": {
@@ -2313,7 +2326,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
-        "confused_with": "Tanzimat Fermanı (1839)"
+        "confused_with": "Tanzimat Fermanı (1839)",
+        "difference": "Tanzimat tüm Osmanlı tebaasına eşit haklar getirirken; Islahat Fermanı özellikle gayrimüslimlere ayrıcalıklar tanımıştır."
       }
     },
     "CONC_I_TBMM": {
@@ -2323,7 +2337,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "I. TBMM Dönemi ve Ayaklanmalar",
-        "confused_with": "II. TBMM"
+        "confused_with": "II. TBMM",
+        "difference": "I. TBMM kurucu, ihtilalci ve savaş meclisidir (güçler birliği); II. TBMM ise inkılap meclisidir ve Lozan'ı onaylamıştır."
       }
     },
     "CONC_II_TBMM": {
@@ -2333,7 +2348,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "I. TBMM Dönemi ve Ayaklanmalar",
-        "confused_with": "I. TBMM"
+        "confused_with": "I. TBMM",
+        "difference": "I. TBMM kurucu, ihtilalci ve savaş meclisidir (güçler birliği); II. TBMM ise inkılap meclisidir ve Lozan'ı onaylamıştır."
       }
     },
     "CONC_EITIM": {

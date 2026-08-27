@@ -119,14 +119,14 @@ class CorrelationEngine:
             label=concept_a,
             node_type="CONCEPT",
             lesson=lesson,
-            properties={"topic": topic, "confused_with": concept_b}
+            properties={"topic": topic, "confused_with": concept_b, "difference": difference}
         )
         self.graph.add_node(
             node_id=id_b,
             label=concept_b,
             node_type="CONCEPT",
             lesson=lesson,
-            properties={"topic": topic, "confused_with": concept_a}
+            properties={"topic": topic, "confused_with": concept_a, "difference": difference}
         )
 
         # Karşılıklı kenarları ekle

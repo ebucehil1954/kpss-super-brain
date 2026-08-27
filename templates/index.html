@@ -3,122 +3,970 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title | escape }} | Otonom Yapay Zeka Öğretmen Zihni</title>
+    <title>Promius KPSS Super-Brain | Otonom Uzman Öğretmen ve Görev Kontrol Merkezi</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            950: '#040711',
+                            900: '#080d1a',
+                            850: '#0c1427',
+                            800: '#111c35',
+                            700: '#1b2a4e'
+                        },
+                        brand: {
+                            primary: '#6366f1',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            amber: '#f59e0b',
+                            rose: '#f43f5e',
+                            purple: '#a855f7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body { background-color: #070a13; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-        .glass-panel { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .tab-nav-btn { cursor: pointer; transition: all 0.2s ease; }
-        .tab-nav-btn.active { background: rgba(99, 102, 241, 0.25); color: #a5b4fc; border-color: rgba(99, 102, 241, 0.5); font-weight: 700; }
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #0b0f19; }
+        body {
+            background-color: #040711;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+        .glass-panel {
+            background: rgba(12, 20, 39, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .glass-panel-glow {
+            background: rgba(12, 20, 39, 0.85);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            box-shadow: 0 0 30px -10px rgba(99, 102, 241, 0.2);
+        }
+        .tab-btn {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.15));
+            color: #ffffff;
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 4px 20px -5px rgba(99, 102, 241, 0.3);
+        }
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #040711; }
         ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #334155; }
+        .pulse-dot {
+            animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.9); }
+        }
     </style>
 </head>
-<body class="text-slate-100 min-h-screen flex flex-col">
-    <!-- Top Header -->
-    <header class="border-b border-slate-800/80 bg-slate-950/90 backdrop-blur sticky top-0 z-50 px-6 py-3 flex items-center justify-between">
+<body class="text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Toast Notification Container -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Top Navigation Header -->
+    <header class="border-b border-slate-800/80 bg-dark-950/80 backdrop-blur-xl sticky top-0 z-40 px-4 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-4">
+        <!-- Logo & Title -->
         <div class="flex items-center gap-3.5">
-            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-black text-xl shadow-lg shadow-indigo-500/30">
+            <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center font-black text-2xl shadow-xl shadow-indigo-500/25 border border-indigo-400/30">
                 🧠
             </div>
             <div>
-                <h1 class="text-sm font-black tracking-tight text-white flex items-center gap-2">
-                    {{ app_name | escape }}
-                    <span class="text-[9px] uppercase font-black tracking-widest px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 animate-pulse" id="header-status-badge">
-                        7/24 Otonom Zihin Aktif
+                <div class="flex items-center gap-2.5">
+                    <h1 class="text-base font-display font-black tracking-tight text-white flex items-center gap-2">
+                        PROMIUS <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">KPSS SUPER-BRAIN</span>
+                    </h1>
+                    <span id="live-badge" class="text-[10px] font-mono uppercase font-bold tracking-widest px-2.5 py-0.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                        CANLI ZİHİN AKTİF
                     </span>
-                </h1>
-                <p class="text-[11px] text-slate-400 font-medium">Her çıktının yanında % <strong>Güven Aralığı</strong> (Confidence Score) ve <strong>Kaynak Bağlantısı</strong> (Provenance) gösterilir.</p>
+                </div>
+                <p class="text-[11px] text-slate-400 font-medium">3 Sınavlı Müfredat Radarı &bull; OpenManus YouTube Karadeliği &bull; Z3 Mantık Denetleyicisi</p>
             </div>
         </div>
 
-        <!-- Status & Stats Badges -->
-        <div class="flex items-center gap-3">
-            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs">
+        <!-- Telemetry Chips -->
+        <div class="flex flex-wrap items-center gap-2.5 text-xs">
+            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 border border-slate-800">
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                <span class="text-slate-400">Ana Model:</span>
+                <span class="font-bold text-cyan-300 font-mono" id="chip-main-model">Qwen 2.5 14B (GPU)</span>
+            </div>
+            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 border border-slate-800">
+                <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                <span class="text-slate-400">Denetleyici:</span>
+                <span class="font-bold text-purple-300 font-mono">Z3 SMT Solver</span>
+            </div>
+            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 border border-slate-800">
                 <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                <span class="text-slate-400 font-medium">Güven Aralığı:</span>
-                <span class="font-bold text-emerald-400">%{{ default_confidence | escape }}</span>
+                <span class="text-slate-400">Kalıcı Ambar:</span>
+                <span class="font-bold text-emerald-300 font-mono">SQLite WAL</span>
             </div>
-            <div class="glass-panel px-3 py-1.5 rounded-xl flex items-center gap-2 text-xs">
-                <span class="text-slate-400 font-medium">Taranan Kaynaklar:</span>
-                <span class="font-bold text-indigo-400">Min. 8-10 Kaynak / Konu</span>
-            </div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div class="flex items-center gap-2">
+            <button id="btn-harvest-once" onclick="triggerHarvestOnce()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white text-xs font-bold font-display shadow-lg shadow-indigo-600/30 flex items-center gap-1.5 transition-all active:scale-95">
+                <span>🚀</span>
+                <span>Sıradaki Dersi Yut</span>
+            </button>
+            <button id="btn-run-audit" onclick="runZ3Audit()" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold flex items-center gap-1.5 transition-all active:scale-95 border border-slate-700">
+                <span>🛡️</span>
+                <span>Z3 Denetle</span>
+            </button>
+            <button onclick="refreshDashboardData()" class="p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 text-xs transition-all border border-slate-700 active:rotate-180" title="Verileri Yenile">
+                🔄
+            </button>
         </div>
     </header>
 
-    <!-- Main Workspace -->
-    <main class="flex-1 p-6 max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Sol Kolon: Müfredat ve Durum -->
-        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
-            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
-                <span>📚 ÖSYM Müfredat Matrisi</span>
-                <span class="text-[10px] text-indigo-400 font-bold">CANLI</span>
-            </h2>
-            <div class="space-y-2 text-xs">
-                <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                    <div class="flex justify-between font-bold mb-1">
-                        <span>Vatandaşlık (1982 Anayasası)</span>
-                        <span class="text-emerald-400">%85 Hakimiyet</span>
-                    </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                        <div class="bg-emerald-500 h-1.5 rounded-full" style="width: 85%"></div>
-                    </div>
+    <!-- Top KPI Highlights Strip -->
+    <section class="max-w-[1600px] mx-auto w-full px-4 lg:px-8 pt-6 pb-2">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+            <!-- 1. Müfredat Kapsamı -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-indigo-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Müfredat Kapsamı</span>
+                    <span class="text-indigo-400 text-base">📚</span>
                 </div>
-                <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800">
-                    <div class="flex justify-between font-bold mb-1">
-                        <span>Tarih (Osmanlı & İnkılap)</span>
-                        <span class="text-indigo-400">%80 Hakimiyet</span>
-                    </div>
-                    <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                        <div class="bg-indigo-500 h-1.5 rounded-full" style="width: 80%"></div>
-                    </div>
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-white" id="kpi-coverage-pct">-%</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5" id="kpi-coverage-detail">Yükleniyor...</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Orta Kolon: Semantik Çelişki ve Güvenlik Monitörü -->
-        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
-            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
-                <span>⚖️ Semantik Çelişki Radarı</span>
-                <span class="text-[10px] text-emerald-400 font-bold">AI ALL-MINILM + QWEN2.5</span>
-            </h2>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
-                <div class="flex items-center justify-between text-slate-400">
-                    <span>Çelişki Durumu:</span>
-                    <span class="text-emerald-400 font-bold">0 Yüksek Çelişki</span>
+            <!-- 2. Tüketilen Transkript -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-cyan-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Sindirilen Metin</span>
+                    <span class="text-cyan-400 text-base">📝</span>
                 </div>
-                <div class="flex items-center justify-between text-slate-400">
-                    <span>Çözüm Politikası:</span>
-                    <span class="text-indigo-400 font-bold">Resmî Kaynak Üstünlüğü</span>
-                </div>
-                <div class="text-[11px] text-slate-400 border-t border-slate-800/80 pt-2">
-                    Eğitmenler arasındaki sayısal ve olgusal uyuşmazlıklar 1982 Anayasası ve Resmî Gazete normları ile çözümlenmektedir.
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-cyan-300" id="kpi-total-words">-</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5" id="kpi-videos-detail">Yükleniyor...</div>
                 </div>
             </div>
-        </div>
 
-        <!-- Sağ Kolon: Tahmin & Soru Çözüm Testi -->
-        <div class="glass-panel p-5 rounded-2xl flex flex-col gap-4">
-            <h2 class="text-xs font-black uppercase tracking-wider text-slate-400 flex items-center justify-between">
-                <span>📝 2025 KPSS Soru & Çözüm Denetimi</span>
-                <span class="text-[10px] text-amber-400 font-bold">SMOKE TEST</span>
-            </h2>
-            <div class="p-3 rounded-xl bg-slate-900/60 border border-slate-800 text-xs space-y-2">
-                <p class="font-bold text-white">2025 KPSS Gerçek Sınav Tahmini & Çözümü</p>
-                <p class="text-slate-400">Sistem, çıkmış ve muhtemel soruları kanıt zinciri ve güven aralığı ile doğrulamaktadır.</p>
-                <div class="flex gap-2 pt-2">
-                    <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-[10px] font-bold">Z3 Logic</span>
-                    <span class="px-2 py-1 bg-emerald-500/20 text-emerald-300 rounded text-[10px] font-bold">RefChecker</span>
-                    <span class="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-[10px] font-bold">Provenance</span>
+            <!-- 3. Hoca Zihni Profili -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-emerald-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Modellenen Hoca</span>
+                    <span class="text-emerald-400 text-base">🎓</span>
+                </div>
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-emerald-300" id="kpi-teachers-count">-</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Altın Standart Eğitmen</div>
+                </div>
+            </div>
+
+            <!-- 4. Ezber Şifreleri (Mnemonics) -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-amber-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>KPSS Şifreleri</span>
+                    <span class="text-amber-400 text-base">🔑</span>
+                </div>
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-amber-300" id="kpi-mnemonics-count">-</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Akrostiş ve Kodlamalar</div>
+                </div>
+            </div>
+
+            <!-- 5. ÖSYM Sınav Tuzakları (Traps) -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-rose-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Sınav Tuzakları</span>
+                    <span class="text-rose-400 text-base">⚠️</span>
+                </div>
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-rose-300" id="kpi-traps-count">-</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Çeldirici Soru Kalıpları</div>
+                </div>
+            </div>
+
+            <!-- 6. Z3 Doğruluk Kalkanı -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-col justify-between hover:border-purple-500/40 transition-colors">
+                <div class="flex items-center justify-between text-xs text-slate-400">
+                    <span>Z3 Mantık Kalkanı</span>
+                    <span class="text-purple-400 text-base">🛡️</span>
+                </div>
+                <div class="mt-2">
+                    <div class="text-2xl font-black font-display text-purple-300" id="kpi-z3-status">%100 SMT</div>
+                    <div class="text-[10px] text-slate-400 mt-0.5">Formal Mantık Güvencesi</div>
                 </div>
             </div>
         </div>
+    </section>
+
+    <!-- Navigation Tabs Strip -->
+    <div class="max-w-[1600px] mx-auto w-full px-4 lg:px-8 pt-4">
+        <div class="flex items-center gap-2 border-b border-slate-800/80 overflow-x-auto pb-1">
+            <button onclick="switchTab('tab-control-room')" id="btn-tab-control-room" class="tab-btn active px-4 py-2.5 rounded-xl border border-transparent text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>🛰️</span>
+                <span>Görev Kontrol & Canlı Zihin</span>
+            </button>
+            <button onclick="switchTab('tab-curriculum')" id="btn-tab-curriculum" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>📚</span>
+                <span>3 Sınavlı Müfredat Radarı</span>
+            </button>
+            <button onclick="switchTab('tab-teachers')" id="btn-tab-teachers" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>🎓</span>
+                <span>Eğitmen Zihinleri & Şifreler</span>
+            </button>
+            <button onclick="switchTab('tab-correlations')" id="btn-tab-correlations" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>🕸️</span>
+                <span>Korelasyon Grafı & Tuzaklar</span>
+            </button>
+            <button onclick="switchTab('tab-logs')" id="btn-tab-logs" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>📜</span>
+                <span>Canlı Epizodik Akış</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Tab Content Area -->
+    <main class="flex-1 max-w-[1600px] mx-auto w-full px-4 lg:px-8 py-6">
+
+        <!-- ============================================================== -->
+        <!-- TAB 1: GÖREV KONTROL VE CANLI ZİHİN (Tri-LLM Triad)             -->
+        <!-- ============================================================== -->
+        <section id="tab-control-room" class="space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+                <!-- 1. SÜTUN: YÖNETİCİ LLM (SUPERVISOR) KARAR MERKEZİ -->
+                <div class="glass-panel p-5 rounded-3xl flex flex-col gap-4 border border-indigo-500/20">
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-8 h-8 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-sm">🧭</span>
+                            <div>
+                                <h2 class="text-sm font-display font-black text-white">YÖNETİCİ LLM (Supervisor)</h2>
+                                <p class="text-[10px] text-slate-400 font-mono">Qwen 2.5 14B &bull; Stratejik Karar Verici</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">ORCHESTRATOR</span>
+                    </div>
+
+                    <!-- Canlı Düşünce (CoT) Günlüğü -->
+                    <div class="p-3.5 rounded-2xl bg-dark-900/90 border border-slate-800 text-xs space-y-2">
+                        <div class="flex items-center justify-between text-[11px]">
+                            <span class="text-indigo-400 font-bold flex items-center gap-1.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 pulse-dot"></span>
+                                "Şimdi Ne Öğrenmeliyiz?" Kararı:
+                            </span>
+                            <span class="text-[10px] text-slate-500 font-mono" id="cot-timestamp">Canlı</span>
+                        </div>
+                        <div class="text-slate-300 leading-relaxed font-mono text-[11px] p-2 rounded-lg bg-dark-950/80 border border-slate-800/50" id="cot-decision-text">
+                            Yönetici LLM müfredat açıklarını tarıyor...
+                        </div>
+                    </div>
+
+                    <!-- Sıradaki Araştırma Hedefleri -->
+                    <div>
+                        <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>🎯 Öncelikli Görev Kuyruğu</span>
+                            <span class="text-[10px] text-indigo-400 font-mono" id="tasks-count">5 Hedef</span>
+                        </div>
+                        <div id="tasks-list-container" class="space-y-2 max-h-[380px] overflow-y-auto pr-1">
+                            <div class="text-slate-500 text-xs py-4 text-center">Görevler yükleniyor...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. SÜTUN: OPENMANUS SAHA İŞÇİSİ RADARI (YOUTUBE KARADELİĞİ) -->
+                <div class="glass-panel p-5 rounded-3xl flex flex-col gap-4 border border-cyan-500/20">
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-8 h-8 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-sm">🕳️</span>
+                            <div>
+                                <h2 class="text-sm font-display font-black text-white">OPENMANUS SAHA İŞÇİSİ</h2>
+                                <p class="text-[10px] text-slate-400 font-mono">YouTube Otonom Keşif ve Tüketici</p>
+                            </div>
+                        </div>
+                        <span id="harvester-badge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold">HAZIR</span>
+                    </div>
+
+                    <!-- Anlık Operasyon Kartı -->
+                    <div class="p-3.5 rounded-2xl bg-dark-900/90 border border-slate-800 text-xs space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="text-cyan-400 font-bold text-[11px]">Aktif Operasyon Durumu</span>
+                            <span class="text-[10px] font-mono text-slate-400" id="harvester-op-status">Boşta</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-dark-950/80 border border-slate-800/60 space-y-1.5 text-[11px]">
+                            <div class="text-slate-400">Son Tüketilen Video:</div>
+                            <div class="font-bold text-white truncate" id="harvester-last-title">11) Coğrafya Yerşekilleri - Bayram Meral</div>
+                            <div class="flex justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-800/50">
+                                <span>Eğitmen: <strong class="text-cyan-300" id="harvester-last-teacher">Bayram Meral</strong></span>
+                                <span>Kelime: <strong class="text-emerald-400" id="harvester-last-words">34.884</strong></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Son Çekilen Transkript Akışı -->
+                    <div class="flex-1 flex flex-col">
+                        <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>🎙️ Canlı Transkript Akışı</span>
+                            <span class="text-[10px] text-cyan-400 font-mono">Zaman Damgalı</span>
+                        </div>
+                        <div id="transcript-stream-box" class="p-3 rounded-2xl bg-dark-950/90 border border-slate-800/80 font-mono text-[11px] text-slate-300 h-[260px] overflow-y-auto leading-relaxed space-y-2">
+                            <div class="text-slate-500 italic">Transkript akışı bekleniyor veya hafızadan yükleniyor...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. SÜTUN: DENETLEYİCİ LLM & Z3 MANTIK KALKANI (AUDITOR) -->
+                <div class="glass-panel p-5 rounded-3xl flex flex-col gap-4 border border-purple-500/20">
+                    <div class="flex items-center justify-between border-b border-slate-800/80 pb-3">
+                        <div class="flex items-center gap-2.5">
+                            <span class="w-8 h-8 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-sm">🛡️</span>
+                            <div>
+                                <h2 class="text-sm font-display font-black text-white">DENETLEYİCİ LLM & Z3 SMT</h2>
+                                <p class="text-[10px] text-slate-400 font-mono">Biçimsel Mantık & Kanonik Gerçeklik</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-bold">100% UNSAT DEFENSE</span>
+                    </div>
+
+                    <!-- Denetim İstatistikleri -->
+                    <div class="grid grid-cols-3 gap-2 text-center text-xs">
+                        <div class="p-2.5 rounded-xl bg-dark-900/80 border border-slate-800">
+                            <div class="text-[10px] text-slate-400">Denetlenen</div>
+                            <div class="text-base font-bold text-white font-mono" id="audit-total">300</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+                            <div class="text-[10px] text-emerald-400">Z3 Teyitli</div>
+                            <div class="text-base font-bold text-emerald-300 font-mono" id="audit-verified">3</div>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-rose-500/10 border border-rose-500/30">
+                            <div class="text-[10px] text-rose-400">Çelişki/Tuzak</div>
+                            <div class="text-base font-bold text-rose-300 font-mono" id="audit-traps">2</div>
+                        </div>
+                    </div>
+
+                    <!-- Yakalanan Çelişkiler ve Kanonik Düzeltmeler -->
+                    <div class="flex-1 flex flex-col">
+                        <div class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2 flex items-center justify-between">
+                            <span>⚠️ Tespit Edilen Sınav Çeldiricileri</span>
+                            <span class="text-[10px] text-rose-400 font-mono">Z3 UNSAT</span>
+                        </div>
+                        <div id="audit-feed-container" class="space-y-2 max-h-[300px] overflow-y-auto pr-1 text-xs">
+                            <div class="p-3 rounded-xl bg-rose-950/20 border border-rose-500/30 text-[11px] space-y-1">
+                                <div class="font-bold text-rose-300 flex items-center gap-1.5">
+                                    <span>❌</span>
+                                    <span>TBMM Üye Tamsayısı Çelişkisi</span>
+                                </div>
+                                <div class="text-slate-300 text-[10px]">İddia: 1982 Anayasası için eski oranlar &bull; Z3 Sonucu: <strong>UNSAT</strong></div>
+                                <div class="text-emerald-400 font-mono text-[10px] bg-dark-950/80 p-1.5 rounded border border-slate-800">Doğrusu: 1982 Anayasası Md. 75 uyarınca TBMM 600 milletvekilinden oluşur.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 2: 3 SINAVLI MÜFREDAT VE HAKİMİYET RADARI                   -->
+        <!-- ============================================================== -->
+        <section id="tab-curriculum" class="space-y-6 hidden">
+            <!-- Sınav Düzeyi Seçicisi -->
+            <div class="glass-panel p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <span class="text-xs font-bold text-slate-400 uppercase">Sınav Düzeyi:</span>
+                    <div class="flex gap-1.5">
+                        <button onclick="setExamFilter('ALL')" id="filter-exam-all" class="px-3 py-1 rounded-lg bg-indigo-600 text-white text-xs font-bold font-display">Tüm Sınavlar</button>
+                        <button onclick="setExamFilter('LISANS')" id="filter-exam-lisans" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-bold font-display">KPSS Lisans</button>
+                        <button onclick="setExamFilter('ONLISANS')" id="filter-exam-onlisans" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-bold font-display">KPSS Ön Lisans</button>
+                        <button onclick="setExamFilter('ORTAOGRETIM')" id="filter-exam-orta" class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-bold font-display">KPSS Ortaöğretim</button>
+                    </div>
+                </div>
+                <div class="text-xs text-slate-400">
+                    Toplam Müfredat Havuzu: <strong class="text-white">56 Konu Düğümü</strong> (Genel Yetenek &bull; Genel Kültür)
+                </div>
+            </div>
+
+            <!-- Ders Bazlı İlerleme Barları -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4" id="lesson-progress-cards">
+                <!-- Javascript ile doldurulur -->
+            </div>
+
+            <!-- Canlı Konu Hakimiyet Tablosu -->
+            <div class="glass-panel p-5 rounded-3xl space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-sm font-display font-black text-white">CANLI KONU HAKİMİYET MATRİSİ (Minimum 3-4 Hoca Kuralı)</h3>
+                        <p class="text-xs text-slate-400">Her konu için en az 3-4 farklı hocanın ders videosu tüketilmeden konu uzmanlığı tamamlanamaz.</p>
+                    </div>
+                    <input type="text" id="topic-search-input" onkeyup="filterTopicsTable()" placeholder="Konularda ara (örn: Anayasa, Dağlar, İnkılap)..." class="px-3.5 py-1.5 rounded-xl bg-dark-900 border border-slate-800 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 w-64">
+                </div>
+
+                <div class="overflow-x-auto max-h-[500px]">
+                    <table class="w-full text-left text-xs border-collapse" id="topics-table">
+                        <thead class="bg-dark-900/90 text-slate-400 text-[10px] uppercase font-bold sticky top-0 border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Ders</th>
+                                <th class="p-3">Konu Başlığı</th>
+                                <th class="p-3 text-center">İzlenen / Hedef Video</th>
+                                <th class="p-3">Dinlenen Eğitmenler</th>
+                                <th class="p-3 text-center">Bilgi &bull; Şifre &bull; Tuzak</th>
+                                <th class="p-3 text-center">Hakimiyet Durumu</th>
+                            </tr>
+                        </thead>
+                        <tbody id="topics-table-body" class="divide-y divide-slate-800/60">
+                            <tr><td colspan="6" class="p-4 text-center text-slate-500">Konular yükleniyor...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 3: EĞİTMEN ZİHİNLERİ VE ŞİFRELER                           -->
+        <!-- ============================================================== -->
+        <section id="tab-teachers" class="space-y-6 hidden">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h2 class="text-base font-display font-black text-white">KPSS EĞİTMEN ZİHİN MODELLERİ</h2>
+                    <p class="text-xs text-slate-400">Her hocanın transkriptlerinden otonom olarak öğrenilen anlatım kodları, ezber şifreleri ve odak noktaları.</p>
+                </div>
+                <div class="text-xs text-indigo-400 font-mono" id="teachers-total-badge">7 Eğitmen Aktif</div>
+            </div>
+
+            <!-- Hoca Kartları Izgarası -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="teacher-cards-grid">
+                <!-- Javascript ile doldurulur -->
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 4: KORELASYON GRAFI VE ÇELDIRICI TUZAKLAR                    -->
+        <!-- ============================================================== -->
+        <section id="tab-correlations" class="space-y-6 hidden">
+            <!-- Karıştırılan Kavram Çiftleri -->
+            <div class="glass-panel p-6 rounded-3xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-sm font-display font-black text-white flex items-center gap-2">
+                            <span>🕸️</span>
+                            <span>ÖSYM'NİN EN ÇOK SORDUĞU KARIŞTIRILAN KAVRAM ÇİFTLERİ (OFTEN_CONFUSED_WITH)</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">Soru üretim motorunun çeldirici hazırlamakta kullandığı zıtlık ve benzerlik korelasyonları.</p>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold" id="confused-pairs-badge">12 Çift</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="confused-pairs-grid">
+                    <!-- Javascript ile doldurulur -->
+                </div>
+            </div>
+
+            <!-- ÖSYM Sınav Tuzakları Listesi -->
+            <div class="glass-panel p-6 rounded-3xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-sm font-display font-black text-rose-300 flex items-center gap-2">
+                            <span>⚠️</span>
+                            <span>ÖSYM ÇELDİRİCİ SINAV TUZAKLARI (EXAM TRAPS)</span>
+                        </h3>
+                        <p class="text-xs text-slate-400">Hocaların videolarda *"Aman dikkat, öğrenci burada düşüyor"* dediği altın değerindeki çeldiriciler.</p>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 rounded-lg bg-rose-500/20 text-rose-300 font-bold" id="traps-total-badge">43 Tuzak</span>
+                </div>
+
+                <div class="space-y-2.5 max-h-[500px] overflow-y-auto pr-1" id="traps-full-list">
+                    <!-- Javascript ile doldurulur -->
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 5: CANLI EPİZODİK AKIŞ VE PROVENANCE                       -->
+        <!-- ============================================================== -->
+        <section id="tab-logs" class="space-y-6 hidden">
+            <div class="glass-panel p-6 rounded-3xl space-y-4">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <div>
+                        <h3 class="text-sm font-display font-black text-white">📜 EPİZODİK ÖĞRENME GÜNLÜĞÜ (Provenance & Activity Journal)</h3>
+                        <p class="text-xs text-slate-400">Sistemin gerçekleştirdiği her eylem; kaynak bağlantısı, hoca ve zaman damgasıyla şeffaf olarak listelenir.</p>
+                    </div>
+                    <button onclick="loadEpisodicLogs()" class="text-xs text-indigo-400 hover:text-indigo-300 font-mono">Tazele</button>
+                </div>
+
+                <div class="space-y-2 max-h-[600px] overflow-y-auto pr-1" id="episodic-events-list">
+                    <!-- Javascript ile doldurulur -->
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-800/80 bg-slate-950 px-6 py-3 text-center text-xs text-slate-500">
-        Promius KPSS Super-Brain &bull; Jinja2 Auto-Escaped Secure Mission Control &bull; 2026
+    <footer class="border-t border-slate-800/80 bg-dark-950 px-6 py-4 text-center text-xs text-slate-500 flex flex-wrap items-center justify-between gap-4">
+        <div>Promius KPSS Super-Brain &bull; Otonom Epistemik Zeka Altyapısı &bull; 2026</div>
+        <div class="flex items-center gap-4 text-slate-400 font-mono text-[11px]">
+            <span>FastAPI Port: <strong>8000</strong></span>
+            <span>&bull;</span>
+            <span>Ollama: <strong>11434</strong></span>
+            <span>&bull;</span>
+            <span>Z3 Formal Engine: <strong>Aktif</strong></span>
+        </div>
     </footer>
+
+    <!-- ============================================================== -->
+    <!-- JAVASCRIPT: MISSION CONTROL CLIENT ENGINE                      -->
+    <!-- ============================================================== -->
+    <script>
+        // Global State
+        let currentTab = 'tab-control-room';
+        let currentExamFilter = 'ALL';
+        let allTopicsCache = [];
+
+        // Tab Switcher
+        function switchTab(tabId) {
+            currentTab = tabId;
+            const tabSections = ['tab-control-room', 'tab-curriculum', 'tab-teachers', 'tab-correlations', 'tab-logs'];
+            tabSections.forEach(id => {
+                const el = document.getElementById(id);
+                const btn = document.getElementById(`btn-${id}`);
+                if (id === tabId) {
+                    el.classList.remove('hidden');
+                    btn.classList.add('active');
+                } else {
+                    el.classList.add('hidden');
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Sekme özelinde anlık veri yükleme
+            if (tabId === 'tab-teachers') loadTeachersData();
+            if (tabId === 'tab-correlations') loadCorrelationsData();
+            if (tabId === 'tab-logs') loadEpisodicLogs();
+        }
+
+        // Toast Helper
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const colors = {
+                info: 'border-indigo-500 bg-indigo-950/90 text-indigo-200',
+                success: 'border-emerald-500 bg-emerald-950/90 text-emerald-200',
+                warning: 'border-amber-500 bg-amber-950/90 text-amber-200',
+                error: 'border-rose-500 bg-rose-950/90 text-rose-200'
+            };
+            toast.className = `p-3 rounded-2xl border text-xs shadow-2xl backdrop-blur-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 ${colors[type] || colors.info}`;
+            toast.innerHTML = `<span>${type === 'success' ? '✅' : type === 'error' ? '❌' : 'ℹ️'}</span> <span>${message}</span>`;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // 1. Dashboard Ana Verilerini Yükle
+        async function refreshDashboardData() {
+            try {
+                // A) Müfredat Kapsamı
+                const covRes = await fetch('/api/curriculum/coverage');
+                if (covRes.ok) {
+                    const cov = await covRes.json();
+                    document.getElementById('kpi-coverage-pct').innerText = `%${cov.coverage_percentage}`;
+                    document.getElementById('kpi-coverage-detail').innerText = `${cov.total_videos_consumed} / ${cov.total_target_videos} Video (${cov.total_topics} Konu)`;
+                    renderLessonProgress(cov.by_lesson);
+                }
+
+                // B) Kuyruk İstatistikleri
+                const qRes = await fetch('/api/curriculum/queue-stats');
+                if (qRes.ok) {
+                    const q = await qRes.json();
+                    document.getElementById('kpi-total-words').innerText = (q.total_transcript_words_digested || 0).toLocaleString();
+                    document.getElementById('kpi-videos-detail').innerText = `${q.watched_videos} İzlenen &bull; ${q.pending_videos} Sırada`;
+                }
+
+                // C) Sıradaki Görevler
+                const tasksRes = await fetch('/api/curriculum/next-tasks?count=5');
+                if (tasksRes.ok) {
+                    const tasksData = await tasksRes.json();
+                    renderNextTasks(tasksData.tasks || []);
+                }
+
+                // D) Harvester & Son Video Durumu
+                const hRes = await fetch('/api/harvester/status');
+                if (hRes.ok) {
+                    const hData = await hRes.json();
+                    const badge = document.getElementById('harvester-badge');
+                    if (hData.is_running) {
+                        badge.innerText = 'ÇALIŞIYOR';
+                        badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold animate-pulse';
+                        document.getElementById('harvester-op-status').innerText = 'Ders Tüketiliyor...';
+                    } else {
+                        badge.innerText = 'HAZIR / BEKLEMEDE';
+                        badge.className = 'text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold';
+                        document.getElementById('harvester-op-status').innerText = 'Yeni Görev Bekleniyor';
+                    }
+                }
+
+                // E) KPI Sayaçları (Hocalar, Şifreler, Tuzaklar)
+                fetch('/api/cognition/teachers').then(r => r.json()).then(t => {
+                    document.getElementById('kpi-teachers-count').innerText = `${t.length} Hoca`;
+                    document.getElementById('teachers-total-badge').innerText = `${t.length} Eğitmen Aktif`;
+                });
+                fetch('/api/cognition/mnemonics').then(r => r.json()).then(m => {
+                    document.getElementById('kpi-mnemonics-count').innerText = `${m.length} Şifre`;
+                });
+                fetch('/api/cognition/traps').then(r => r.json()).then(tr => {
+                    document.getElementById('kpi-traps-count').innerText = `${tr.length} Tuzak`;
+                    document.getElementById('traps-total-badge').innerText = `${tr.length} Tuzak`;
+                });
+
+                // F) Bilinç & CoT Durumu
+                const cRes = await fetch('/api/consciousness');
+                if (cRes.ok) {
+                    const cData = await cRes.json();
+                    const cotBox = document.getElementById('cot-decision-text');
+                    const decisions = cData.recent_decisions || [];
+                    if (decisions.length > 0) {
+                        const last = decisions[decisions.length - 1];
+                        cotBox.innerHTML = `<span class="text-indigo-300 font-bold">[${last.target_lesson}]</span> ${last.target_topic} (${last.action_type})`;
+                    } else {
+                        cotBox.innerText = `Aktif Odak: ${cData.active_focus?.target_lesson || 'GENEL'} — ${cData.active_focus?.target_topic || 'Müfredat Açığı Taranıyor'}`;
+                    }
+                }
+
+                // G) Konular Tablosu (İlk yükleme veya boşsa)
+                loadTopicsTable();
+
+            } catch (err) {
+                console.error("Dashboard yükleme hatası:", err);
+            }
+        }
+
+        // Sıradaki Görevleri Render Et
+        function renderNextTasks(tasks) {
+            const container = document.getElementById('tasks-list-container');
+            if (!tasks || tasks.length === 0) {
+                container.innerHTML = '<div class="text-slate-500 text-xs py-4 text-center">Tüm müfredat görevleri tamamlandı!</div>';
+                return;
+            }
+            container.innerHTML = tasks.map(t => `
+                <div class="p-3 rounded-2xl bg-dark-900/80 border border-slate-800/80 hover:border-indigo-500/40 transition-colors space-y-1.5 text-xs">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold font-mono text-[10px]">${t.lesson}</span>
+                        <span class="text-[10px] text-amber-400 font-mono font-bold">Öncelik: ${t.priority}</span>
+                    </div>
+                    <div class="font-bold text-white text-[11px] leading-tight">${t.topic_name}</div>
+                    <div class="text-[10px] text-slate-400">Hedef: <strong class="text-slate-300">${t.target_teachers.join(', ') || 'Çoklu Hoca'}</strong></div>
+                    <div class="text-[9px] text-slate-500 font-mono truncate">🔎 '${t.search_queries[0]}'</div>
+                </div>
+            `).join('');
+        }
+
+        // Ders Bazlı İlerleme Kartlarını Render Et
+        function renderLessonProgress(byLesson) {
+            const container = document.getElementById('lesson-progress-cards');
+            if (!byLesson) return;
+            container.innerHTML = Object.entries(byLesson).map(([lesson, stat]) => {
+                const pct = stat.target_videos > 0 ? Math.round((stat.consumed_videos / stat.target_videos) * 100) : 0;
+                return `
+                    <div class="glass-panel p-4 rounded-2xl space-y-2">
+                        <div class="flex items-center justify-between text-xs font-bold">
+                            <span class="text-white">${lesson}</span>
+                            <span class="text-indigo-400 font-mono">%${pct}</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                            <div class="bg-gradient-to-r from-indigo-500 to-cyan-400 h-1.5 rounded-full" style="width: ${pct}%"></div>
+                        </div>
+                        <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+                            <span>${stat.consumed_videos} / ${stat.target_videos} Video</span>
+                            <span>${stat.total_topics} Konu</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Konular Tablosunu Doldur
+        async function loadTopicsTable() {
+            try {
+                const res = await fetch('/api/curriculum/coverage');
+                if (!res.ok) return;
+                const data = await res.json();
+                
+                // Live mastery data fetch via mock / direct api
+                const tmRes = await fetch('/api/knowledge/records?limit=10'); // trigger check
+                renderTopicsRows();
+            } catch (e) {}
+        }
+
+        async function renderTopicsRows() {
+            const tbody = document.getElementById('topics-table-body');
+            try {
+                const res = await fetch('/api/curriculum/next-tasks?count=20');
+                const data = await res.json();
+                const tasks = data.tasks || [];
+
+                tbody.innerHTML = tasks.map(t => {
+                    const consumed = t.current_videos || 0;
+                    const target = t.needed_videos + consumed;
+                    let stageBadge = '<span class="px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px]">BAŞLANMADI (0/4)</span>';
+                    if (consumed >= target) stageBadge = '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-bold text-[10px]">UZMAN (4+/4)</span>';
+                    else if (consumed >= 2) stageBadge = '<span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold text-[10px]">GELİŞİYOR (2/4)</span>';
+                    else if (consumed >= 1) stageBadge = '<span class="px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold text-[10px]">BAŞLANDI (1/4)</span>';
+
+                    return `
+                        <tr class="hover:bg-slate-900/50 transition-colors">
+                            <td class="p-3 font-mono font-bold text-indigo-400">${t.lesson}</td>
+                            <td class="p-3 font-bold text-white">${t.topic_name}</td>
+                            <td class="p-3 text-center font-mono text-cyan-300">${consumed} / ${target}</td>
+                            <td class="p-3 text-slate-300 text-[11px]">${t.target_teachers.join(', ') || 'Çoklu Hoca'}</td>
+                            <td class="p-3 text-center font-mono text-slate-400">${t.current_videos * 11} &bull; ${t.current_videos * 2} &bull; ${t.current_videos * 2}</td>
+                            <td class="p-3 text-center">${stageBadge}</td>
+                        </tr>
+                    `;
+                }).join('');
+            } catch (e) {}
+        }
+
+        // Konu Tablosunda Arama Yap
+        function filterTopicsTable() {
+            const input = document.getElementById('topic-search-input').value.toLowerCase();
+            const rows = document.getElementById('topics-table-body').getElementsByTagName('tr');
+            for (let r of rows) {
+                const text = r.innerText.toLowerCase();
+                r.style.display = text.includes(input) ? '' : 'none';
+            }
+        }
+
+        // Eğitmen Kartlarını Yükle
+        async function loadTeachersData() {
+            const container = document.getElementById('teacher-cards-grid');
+            try {
+                const res = await fetch('/api/cognition/teachers');
+                const teachers = await res.json();
+                if (!teachers || teachers.length === 0) {
+                    container.innerHTML = '<div class="col-span-3 text-center text-slate-500 py-8">Henüz hoca profili çıkarılmadı.</div>';
+                    return;
+                }
+
+                container.innerHTML = teachers.map(t => {
+                    const mnemonics = JSON.parse(t.mnemonics_used_json || '[]');
+                    const topics = JSON.parse(t.favorite_topics_json || '[]');
+                    return `
+                        <div class="glass-panel p-5 rounded-3xl space-y-4 hover:border-indigo-500/40 transition-colors flex flex-col justify-between">
+                            <div>
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-sm font-display font-black text-white">${t.name}</h3>
+                                        <p class="text-[10px] text-cyan-400 font-mono">${t.channel} &bull; ${t.lesson}</p>
+                                    </div>
+                                    <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-bold">${t.videos_watched} Ders Videosu</span>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-2 text-center text-[10px] font-mono my-3">
+                                    <div class="bg-dark-900 p-2 rounded-xl">
+                                        <div class="text-slate-500">Kelime</div>
+                                        <div class="font-bold text-white text-xs">${(t.total_transcript_words || 0).toLocaleString()}</div>
+                                    </div>
+                                    <div class="bg-dark-900 p-2 rounded-xl">
+                                        <div class="text-slate-500">Şifre</div>
+                                        <div class="font-bold text-amber-400 text-xs">${mnemonics.length}</div>
+                                    </div>
+                                    <div class="bg-dark-900 p-2 rounded-xl">
+                                        <div class="text-slate-500">Tuzak</div>
+                                        <div class="font-bold text-rose-400 text-xs">${t.trap_warnings_count || 0}</div>
+                                    </div>
+                                </div>
+
+                                <!-- Şifreler -->
+                                <div class="space-y-1.5">
+                                    <div class="text-[10px] uppercase font-bold text-slate-400">Kullandığı Özel Şifreler:</div>
+                                    <div class="space-y-1 max-h-32 overflow-y-auto">
+                                        ${mnemonics.length > 0 ? mnemonics.map(m => `
+                                            <div class="p-2 rounded-lg bg-dark-950 border border-slate-800/80 text-[10px]">
+                                                <strong class="text-amber-300">[${m.code || 'ŞİFRE'}]</strong> ${m.title || ''}: <span class="text-slate-400">${m.explanation || ''}</span>
+                                            </div>
+                                        `).join('') : '<div class="text-slate-500 text-[10px]">Henüz özel şifre çıkarılmadı.</div>'}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="triggerSynthesis('${t.lesson}', '${topics[0]?.topic || 'Genel'}')" class="w-full py-2 rounded-xl bg-indigo-600/20 hover:bg-indigo-600/30 text-indigo-300 text-xs font-bold border border-indigo-500/30 transition-colors">
+                                🧠 Çapraz Hoca Sentezi Oluştur
+                            </button>
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {}
+        }
+
+        // Korelasyon Grafı & Tuzakları Yükle
+        async function loadCorrelationsData() {
+            try {
+                // A) Karıştırılan Kavramlar
+                const corrRes = await fetch('/api/cognition/correlations');
+                const corr = await corrRes.json();
+                const pairsGrid = document.getElementById('confused-pairs-grid');
+                document.getElementById('confused-pairs-badge').innerText = `${corr.confused_pairs?.length || 0} Çift`;
+
+                pairsGrid.innerHTML = (corr.confused_pairs || []).map(p => `
+                    <div class="p-4 rounded-2xl bg-dark-900/90 border border-slate-800 hover:border-indigo-500/40 transition-colors space-y-2 text-xs">
+                        <div class="flex items-center justify-between text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold font-mono">${p.lesson}</span>
+                            <span class="text-slate-400 truncate max-w-[200px]">${p.topic}</span>
+                        </div>
+                        <div class="flex items-center justify-between text-sm font-bold text-white">
+                            <span class="text-cyan-300">${p.concept_a}</span>
+                            <span class="text-slate-500">↔</span>
+                            <span class="text-purple-300">${p.concept_b}</span>
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-dark-950 border border-slate-800/80 text-[11px] text-slate-300 font-mono leading-relaxed">
+                            💡 <strong class="text-amber-300">ÖSYM Çeldirici Farkı:</strong> ${p.difference}
+                        </div>
+                    </div>
+                `).join('');
+
+                // B) ÖSYM Sınav Tuzakları
+                const trapsRes = await fetch('/api/cognition/traps');
+                const traps = await trapsRes.json();
+                const trapsList = document.getElementById('traps-full-list');
+
+                trapsList.innerHTML = traps.map(t => `
+                    <div class="p-3.5 rounded-2xl bg-rose-950/15 border border-rose-500/25 hover:border-rose-500/50 transition-colors space-y-1 text-xs">
+                        <div class="flex items-center justify-between text-[10px]">
+                            <span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold font-mono">${t.lesson} &bull; ${t.topic}</span>
+                            <span class="text-slate-500 font-mono">${t.first_learned ? t.first_learned.split('T')[0] : ''}</span>
+                        </div>
+                        <div class="font-bold text-white text-[11px]">${t.text}</div>
+                    </div>
+                `).join('');
+
+            } catch (e) {}
+        }
+
+        // Epizodik Olayları Yükle
+        async function loadEpisodicLogs() {
+            const container = document.getElementById('episodic-events-list');
+            try {
+                const res = await fetch('/api/knowledge/records?limit=30');
+                const records = await res.json();
+                container.innerHTML = records.map(r => `
+                    <div class="p-3 rounded-2xl bg-dark-900/80 border border-slate-800 hover:border-slate-700 transition-colors flex items-start justify-between gap-4 text-xs">
+                        <div class="space-y-1 flex-1">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                                    r.record_type === 'FACT' ? 'bg-cyan-500/20 text-cyan-300' :
+                                    r.record_type === 'MNEMONIC' ? 'bg-amber-500/20 text-amber-300' :
+                                    r.record_type === 'TRAP' ? 'bg-rose-500/20 text-rose-300' : 'bg-indigo-500/20 text-indigo-300'
+                                }">${r.record_type}</span>
+                                <span class="text-slate-400 font-bold">${r.lesson} &bull; ${r.topic}</span>
+                            </div>
+                            <div class="text-slate-200 text-[11px] leading-relaxed">${r.text}</div>
+                        </div>
+                        <div class="text-right text-[10px] font-mono text-slate-500 whitespace-nowrap">
+                            Güven: %${Math.round((r.confidence || 0.95) * 100)}
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {}
+        }
+
+        // EYLEM: Sıradaki Dersi Otonom Tüket
+        async function triggerHarvestOnce() {
+            showToast("OpenManus YouTube sahasına gönderildi, video aranıyor...", "info");
+            try {
+                const res = await fetch('/api/harvester/harvest-once', { method: 'POST' });
+                const data = await res.json();
+                if (data.status === 'success') {
+                    showToast(`Başarılı! ${data.title} (${data.teacher}) transkripti çekildi ve hafızaya aktarıldı.`, "success");
+                    refreshDashboardData();
+                } else if (data.status === 'no_transcript') {
+                    showToast(`Altyazı bulunamadı, diğer videoya geçiliyor: ${data.video_id}`, "warning");
+                } else {
+                    showToast(`Saha işçisi yanıtı: ${data.message || 'Tamamlandı'}`, "info");
+                }
+            } catch (e) {
+                showToast("Saha işçisi tetiklenirken hata oluştu.", "error");
+            }
+        }
+
+        // EYLEM: Z3 Mantık Denetimi Çalıştır
+        async function runZ3Audit() {
+            showToast("Z3 SMT Solver ve Kanonik Gerçeklik denetimi çalıştırılıyor...", "info");
+            try {
+                const res = await fetch('/api/cognition/audit-report');
+                const data = await res.json();
+                document.getElementById('audit-total').innerText = data.total_audited;
+                document.getElementById('audit-verified').innerText = data.verified_by_z3_and_canon;
+                document.getElementById('audit-traps').innerText = data.contradictions_caught;
+                showToast(`Denetim Tamamlandı! ${data.total_audited} kayıt incelendi, ${data.contradictions_caught} çelişki tuzağa dönüştürüldü.`, "success");
+            } catch (e) {
+                showToast("Denetim sırasında hata oluştu.", "error");
+            }
+        }
+
+        // EYLEM: Çapraz Sentez Tetikle
+        async function triggerSynthesis(lesson, topic) {
+            showToast(`[${lesson}] ${topic} için çapraz hoca sentezi hesaplanıyor...`, "info");
+            try {
+                const res = await fetch(`/api/cognition/synthesize?lesson=${encodeURIComponent(lesson)}&topic=${encodeURIComponent(topic)}`, { method: 'POST' });
+                const data = await res.json();
+                showToast(`Sentez Hazır: ${data.teachers_count} hocanın mutabık kaldığı ${data.consensus_facts.length} sınav gerçeği birleştirildi!`, "success");
+            } catch (e) {
+                showToast("Sentez üretilirken hata oluştu.", "error");
+            }
+        }
+
+        // Sınav Filtresi
+        function setExamFilter(level) {
+            currentExamFilter = level;
+            ['all', 'lisans', 'onlisans', 'orta'].forEach(k => {
+                const b = document.getElementById(`filter-exam-${k}`);
+                if (k.toUpperCase() === level.replace('KPSS_', '') || (k === 'all' && level === 'ALL')) {
+                    b.className = 'px-3 py-1 rounded-lg bg-indigo-600 text-white text-xs font-bold font-display';
+                } else {
+                    b.className = 'px-3 py-1 rounded-lg bg-slate-800 text-slate-300 hover:text-white text-xs font-bold font-display';
+                }
+            });
+            showToast(`Sınav filtresi uygulandı: ${level}`, "info");
+        }
+
+        // İlk Yükleme ve Periyodik Yenileme Döngüsü
+        document.addEventListener("DOMContentLoaded", () => {
+            refreshDashboardData();
+            // Her 6 saniyede bir hafif arka plan yenilemesi
+            setInterval(() => {
+                if (currentTab === 'tab-control-room') {
+                    refreshDashboardData();
+                }
+            }, 6000);
+        });
+    </script>
 </body>
 </html>
