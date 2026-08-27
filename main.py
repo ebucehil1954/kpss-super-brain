@@ -81,6 +81,11 @@ def main():
     parser.add_argument("--teacher", type=str, help="Belirli bir hocanın çıkarılan zihin profilini ve şifrelerini göster")
     parser.add_argument("--mnemonics", action="store_true", help="Hafızadaki tüm KPSS ezber şifrelerini (akrostiş, kodlama) listele")
     parser.add_argument("--traps", action="store_true", help="Hafızadaki tüm ÖSYM sınav tuzaklarını ve çeldiricileri listele")
+    parser.add_argument("--correlations", action="store_true", help="Kavramlar arası korelasyon grafı ve karıştırılan kavram çiftlerini listele")
+    parser.add_argument("--synthesize", action="store_true", help="Seçilen konuda çoklu hoca karşılaştırmalı uzman sentezi üret")
+    parser.add_argument("--audit", action="store_true", help="Z3 SMT ve Kanonik Gerçeklik ile tüm veritabanını denetle")
+    parser.add_argument("--lesson", type=str, default="COGRAFYA", help="Ders filtresi (Örn: COGRAFYA, VATANDASLIK)")
+    parser.add_argument("--topic", type=str, default="", help="Konu başlığı")
     parser.add_argument("--port", type=int, default=8500, help="Web UI Portu (Varsayılan: 8500)")
 
     args = parser.parse_args()
@@ -126,6 +131,48 @@ def main():
             rows = cursor.fetchall()
             for r in rows:
                 print(f"⚡ [{r['lesson']} - {r['topic']}] {r['text']}")
+        print("=" * 70)
+    elif args.correlations:
+        from cognition.correlation_engine import correlation_engine
+        correlation_engine.discover_correlations_from_db()
+        stats = correlation_engine.get_graph_stats()
+        pairs = correlation_engine.get_confused_pairs()
+        print("=" * 70)
+        print("🕸️ [KORELASYON GRAFI] KAVRAMLAR ARASI İLİŞKİ VE ÇELDİRİCİ AĞI")
+        print("=" * 70)
+        print(f"Toplam Düğüm: {stats['total_nodes']} | Toplam Kenar/İlişki: {stats['total_edges']}")
+        print("\n🔀 En Sık Karıştırılan Kavram Çiftleri (ÖSYM Soru Çeldiricileri):")
+        for p in pairs:
+            print(f"  ⚡ [{p['lesson']}] '{p['concept_a']}'  ↔  '{p['concept_b']}'")
+            if p.get('difference'):
+                print(f"     └─ Fark: {p['difference']}")
+        print("=" * 70)
+    elif args.synthesize:
+        from cognition.cross_teacher_analyzer import cross_teacher_analyzer
+        topic_name = args.topic or "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri"
+        lesson_name = args.lesson or "COGRAFYA"
+        print("=" * 70)
+        print(f"🧠 [ÇAPRAZ HOCA SENTEZİ] {lesson_name} — '{topic_name}'")
+        print("=" * 70)
+        res = cross_teacher_analyzer.synthesize_master_topic_profile(lesson_name, topic_name)
+        print(res.get("master_summary"))
+        print("\n🏆 Mutabık Kalınan Kesin Sınav Bilgileri (Consensus Facts):")
+        for f in res.get("consensus_facts", [])[:6]:
+            print(f"  - {f}")
+        print("\n🔑 Birleştirilmiş Hafıza Şifreleri (Mnemonics):")
+        for m in res.get("consolidated_mnemonics", [])[:6]:
+            print(f"  - {m.get('mnemonic_text')}")
+        print("=" * 70)
+    elif args.audit:
+        from cognition.auditor import auditor_engine
+        print("=" * 70)
+        print("🛡️ [AUDITOR & Z3 SMT] BİÇİMSEL MANTIK VE KANONİK GERÇEKLİK DENETİMİ")
+        print("=" * 70)
+        report = auditor_engine.run_full_knowledge_audit()
+        print(f"Denetlenen Toplam Kayıt: {report['total_audited']}")
+        print(f"Z3 & Kanonik Teyitli Doğrular: {report['verified_by_z3_and_canon']}")
+        print(f"Tespit Edilip Tuzağa Dönüştürülen Çelişkiler: {report['contradictions_caught']}")
+        print(f"Müfredat Destekli Bilgiler: {report['supported_records']}")
         print("=" * 70)
     elif args.harvester:
         from autonomous.harvester import youtube_harvester

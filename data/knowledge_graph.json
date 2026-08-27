@@ -2175,6 +2175,257 @@
         "source_text_snippet": "⚠️ [ÖSYM TUZAĞI] Kalıcı karların tüm Türkiye'de oluştuğu iddiası -> Doğrusu: Kalıcı karlar genellikle Eskişehir ve Bursa",
         "times_observed": 1
       }
+    },
+    "CONC_TOPLANTI_YETER_SAYISI": {
+      "id": "CONC_TOPLANTI_YETER_SAYISI",
+      "label": "Toplantı Yeter Sayısı",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "1982 Anayasası Yasama Organı",
+        "confused_with": "Karar Yeter Sayısı"
+      }
+    },
+    "CONC_KARAR_YETER_SAYISI": {
+      "id": "CONC_KARAR_YETER_SAYISI",
+      "label": "Karar Yeter Sayısı",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "1982 Anayasası Yasama Organı",
+        "confused_with": "Toplantı Yeter Sayısı"
+      }
+    },
+    "CONC_VALI": {
+      "id": "CONC_VALI",
+      "label": "Vali",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
+        "confused_with": "Kaymakam"
+      }
+    },
+    "CONC_KAYMAKAM": {
+      "id": "CONC_KAYMAKAM",
+      "label": "Kaymakam",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
+        "confused_with": "Vali"
+      }
+    },
+    "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI": {
+      "id": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
+      "label": "İptal Davası (Soyut Norm Denetimi)",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
+        "confused_with": "İtiraz Yolu (Somut Norm Denetimi / Def'i)"
+      }
+    },
+    "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI": {
+      "id": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
+      "label": "İtiraz Yolu (Somut Norm Denetimi / Def'i)",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
+        "confused_with": "İptal Davası (Soyut Norm Denetimi)"
+      }
+    },
+    "CONC_GAIPLIK": {
+      "id": "CONC_GAIPLIK",
+      "label": "Gaiplik",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
+        "confused_with": "Ölüm Karinesi"
+      }
+    },
+    "CONC_LM_KARINESI": {
+      "id": "CONC_LM_KARINESI",
+      "label": "Ölüm Karinesi",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
+        "confused_with": "Gaiplik"
+      }
+    },
+    "CONC_ATALCAKOCAELI_PLATOSU": {
+      "id": "CONC_ATALCAKOCAELI_PLATOSU",
+      "label": "Çatalca-Kocaeli Platosu",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "Taşeli Platosu"
+      }
+    },
+    "CONC_TAELI_PLATOSU": {
+      "id": "CONC_TAELI_PLATOSU",
+      "label": "Taşeli Platosu",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "Çatalca-Kocaeli Platosu"
+      }
+    },
+    "CONC_UKUROVA_DELTA_OVASI": {
+      "id": "CONC_UKUROVA_DELTA_OVASI",
+      "label": "Çukurova (Delta Ovası)",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "Konya Ovası (Tektonik/Tabaka Ovası)"
+      }
+    },
+    "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI": {
+      "id": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
+      "label": "Konya Ovası (Tektonik/Tabaka Ovası)",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "Çukurova (Delta Ovası)"
+      }
+    },
+    "CONC_TANZIMAT_FERMANI_1839": {
+      "id": "CONC_TANZIMAT_FERMANI_1839",
+      "label": "Tanzimat Fermanı (1839)",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
+        "confused_with": "Islahat Fermanı (1856)"
+      }
+    },
+    "CONC_ISLAHAT_FERMANI_1856": {
+      "id": "CONC_ISLAHAT_FERMANI_1856",
+      "label": "Islahat Fermanı (1856)",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
+        "confused_with": "Tanzimat Fermanı (1839)"
+      }
+    },
+    "CONC_I_TBMM": {
+      "id": "CONC_I_TBMM",
+      "label": "I. TBMM",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "I. TBMM Dönemi ve Ayaklanmalar",
+        "confused_with": "II. TBMM"
+      }
+    },
+    "CONC_II_TBMM": {
+      "id": "CONC_II_TBMM",
+      "label": "II. TBMM",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "I. TBMM Dönemi ve Ayaklanmalar",
+        "confused_with": "I. TBMM"
+      }
+    },
+    "CONC_EITIM": {
+      "id": "CONC_EITIM",
+      "label": "eğitim",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "Osmanlı Kültür ve Medeniyeti",
+        "confused_with": "yeteneklere göre"
+      }
+    },
+    "CONC_YETENEKLERE_GRE": {
+      "id": "CONC_YETENEKLERE_GRE",
+      "label": "yeteneklere göre",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "Osmanlı Kültür ve Medeniyeti",
+        "confused_with": "eğitim"
+      }
+    },
+    "CONC_VERGILERIN_TARIHSEL_KKENLERI": {
+      "id": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
+      "label": "vergilerin tarihsel kökenleri",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "Osmanlı Kültür ve Medeniyeti",
+        "confused_with": "uygulanma süreleri"
+      }
+    },
+    "CONC_UYGULANMA_SRELERI": {
+      "id": "CONC_UYGULANMA_SRELERI",
+      "label": "uygulanma süreleri",
+      "type": "CONCEPT",
+      "lesson": "TARIH",
+      "properties": {
+        "topic": "Osmanlı Kültür ve Medeniyeti",
+        "confused_with": "vergilerin tarihsel kökenleri"
+      }
+    },
+    "CONC_KATNER": {
+      "id": "CONC_KATNER",
+      "label": "Katner",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "tersiyer dönemlerin"
+      }
+    },
+    "CONC_TERSIYER_DNEMLERIN": {
+      "id": "CONC_TERSIYER_DNEMLERIN",
+      "label": "tersiyer dönemlerin",
+      "type": "CONCEPT",
+      "lesson": "COGRAFYA",
+      "properties": {
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "confused_with": "Katner"
+      }
+    },
+    "ENT_58e614ce": {
+      "id": "ENT_58e614ce",
+      "label": "Madde 75",
+      "type": "ENTITY",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "parent_topic": "ENT_9bf7b58a",
+        "source_text_snippet": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası Madde 87: TBMM üye tamsayısının salt çoğunluğu (301) ile kanun teklifleri kab",
+        "times_observed": 1
+      }
+    },
+    "CONC_HIYERARI": {
+      "id": "CONC_HIYERARI",
+      "label": "Hiyerarşi",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+        "confused_with": "İdari Vesayet"
+      }
+    },
+    "CONC_DARI_VESAYET": {
+      "id": "CONC_DARI_VESAYET",
+      "label": "İdari Vesayet",
+      "type": "CONCEPT",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
+        "confused_with": "Hiyerarşi"
+      }
     }
   },
   "edges": [
@@ -3148,6 +3399,180 @@
       "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
       "target": "ENT_96efd2fa",
       "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_TOPLANTI_YETER_SAYISI",
+      "target": "CONC_KARAR_YETER_SAYISI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_KARAR_YETER_SAYISI",
+      "target": "CONC_TOPLANTI_YETER_SAYISI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_VALI",
+      "target": "CONC_KAYMAKAM",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_KAYMAKAM",
+      "target": "CONC_VALI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
+      "target": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
+      "target": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_GAIPLIK",
+      "target": "CONC_LM_KARINESI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_LM_KARINESI",
+      "target": "CONC_GAIPLIK",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_ATALCAKOCAELI_PLATOSU",
+      "target": "CONC_TAELI_PLATOSU",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_TAELI_PLATOSU",
+      "target": "CONC_ATALCAKOCAELI_PLATOSU",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_UKUROVA_DELTA_OVASI",
+      "target": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
+      "target": "CONC_UKUROVA_DELTA_OVASI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_TANZIMAT_FERMANI_1839",
+      "target": "CONC_ISLAHAT_FERMANI_1856",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_ISLAHAT_FERMANI_1856",
+      "target": "CONC_TANZIMAT_FERMANI_1839",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_I_TBMM",
+      "target": "CONC_II_TBMM",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_II_TBMM",
+      "target": "CONC_I_TBMM",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_EITIM",
+      "target": "CONC_YETENEKLERE_GRE",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_YETENEKLERE_GRE",
+      "target": "CONC_EITIM",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
+      "target": "CONC_UYGULANMA_SRELERI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_UYGULANMA_SRELERI",
+      "target": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_KATNER",
+      "target": "CONC_TERSIYER_DNEMLERIN",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_TERSIYER_DNEMLERIN",
+      "target": "CONC_KATNER",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_e81b003a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_58e614ce",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "ENT_9bf7b58a",
+      "target": "ENT_537d05b3",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
+      "target": "ENT_e81b003a",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
+      "target": "ENT_58e614ce",
+      "relation": "CONTAINS_CONCEPT",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_HIYERARI",
+      "target": "CONC_DARI_VESAYET",
+      "relation": "OFTEN_CONFUSED_WITH",
+      "weight": 1.0
+    },
+    {
+      "source": "CONC_DARI_VESAYET",
+      "target": "CONC_HIYERARI",
+      "relation": "OFTEN_CONFUSED_WITH",
       "weight": 1.0
     }
   ]

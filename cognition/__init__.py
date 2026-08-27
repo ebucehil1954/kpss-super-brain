@@ -8,6 +8,8 @@ from .topic_linker import topic_linker, TopicLinker
 from .pattern_learner import pattern_learner, PatternLearner
 from .self_tester import self_tester, SelfTester
 from .analyst import cognitive_analyst, CognitiveAnalyst
+from .correlation_engine import correlation_engine, CorrelationEngine
+from .auditor import auditor_engine, AuditorEngine
 
 __all__ = [
     "teacher_learner",
@@ -23,5 +25,9 @@ __all__ = [
     "self_tester",
     "SelfTester",
     "cognitive_analyst",
-    "CognitiveAnalyst"
+    "CognitiveAnalyst",
+    "correlation_engine",
+    "CorrelationEngine",
+    "auditor_engine",
+    "AuditorEngine"
 ]

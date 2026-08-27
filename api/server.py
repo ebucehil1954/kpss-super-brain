@@ -348,5 +348,37 @@ async def list_all_exam_traps():
         rows = cursor.fetchall()
         return [dict(r) for r in rows]
 
+# ==============================================================
+# FAZ 4: KORELASYON GRAFI, ÇAPRAZ SENTEZ & AUDITOR ENDPOINT'LERİ
+# ==============================================================
+
+@app.get("/api/cognition/correlations")
+async def get_correlations_graph(lesson: Optional[str] = Query(None)):
+    """Kavramlar arası korelasyon grafiğini ve karıştırılan kavram çiftlerini döner."""
+    from cognition.correlation_engine import correlation_engine
+    correlation_engine.discover_correlations_from_db()
+    stats = correlation_engine.get_graph_stats()
+    pairs = correlation_engine.get_confused_pairs(lesson_filter=lesson)
+    return {
+        "stats": stats,
+        "confused_pairs": pairs
+    }
+
+@app.post("/api/cognition/synthesize")
+async def trigger_cross_teacher_synthesis(
+    lesson: str = Query("COGRAFYA"),
+    topic: str = Query("Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri")
+):
+    """Belirli bir konuda çoklu hoca sentezi üretir."""
+    from cognition.cross_teacher_analyzer import cross_teacher_analyzer
+    return cross_teacher_analyzer.synthesize_master_topic_profile(lesson=lesson, topic=topic)
+
+@app.get("/api/cognition/audit-report")
+async def get_z3_audit_report():
+    """Z3 SMT ve kanonik gerçeklik denetim raporunu döner."""
+    from cognition.auditor import auditor_engine
+    return auditor_engine.run_full_knowledge_audit()
+
+
 
 
