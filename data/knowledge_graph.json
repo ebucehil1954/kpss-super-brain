@@ -2359,7 +2359,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "yeteneklere göre"
+        "confused_with": "yeteneklere göre",
+        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Devşirme sisteminde seçilen çocuklar sadece asker veya memur değil, aynı zamanda yüksek düzeyli yöneticiler olabilir. (Doğrusu: Enderun'da yetiştirilenler, eğitim ve yeteneklere göre farklı kariyerleri olabilir.)"
       }
     },
     "CONC_YETENEKLERE_GRE": {
@@ -2369,7 +2370,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "eğitim"
+        "confused_with": "eğitim",
+        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Devşirme sisteminde seçilen çocuklar sadece asker veya memur değil, aynı zamanda yüksek düzeyli yöneticiler olabilir. (Doğrusu: Enderun'da yetiştirilenler, eğitim ve yeteneklere göre farklı kariyerleri olabilir.)"
       }
     },
     "CONC_VERGILERIN_TARIHSEL_KKENLERI": {
@@ -2379,7 +2381,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "uygulanma süreleri"
+        "confused_with": "uygulanma süreleri",
+        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Şeri ve örfi vergilerin tarihsel kökenleri ve uygulanma süreleri karıştırılabilir. (Doğrusu: Şeri vergiler peygamber döneminden itibaren uygulandı, örfi vergiler daha sonraki dönemlerde uygulandı.)"
       }
     },
     "CONC_UYGULANMA_SRELERI": {
@@ -2389,7 +2392,8 @@
       "lesson": "TARIH",
       "properties": {
         "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "vergilerin tarihsel kökenleri"
+        "confused_with": "vergilerin tarihsel kökenleri",
+        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Şeri ve örfi vergilerin tarihsel kökenleri ve uygulanma süreleri karıştırılabilir. (Doğrusu: Şeri vergiler peygamber döneminden itibaren uygulandı, örfi vergiler daha sonraki dönemlerde uygulandı.)"
       }
     },
     "CONC_KATNER": {
@@ -2399,7 +2403,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "tersiyer dönemlerin"
+        "confused_with": "tersiyer dönemlerin",
+        "difference": "⚠️ [ÖSYM TUZAĞI] Katner ve tersiyer dönemlerin farklı jeolojik zamanlara ait olduğu düşünülmesi. -> Doğrusu: Katner ve tersiyer dönemler, jeolojik zamanların senozoik dönemine ait dönemlerdir."
       }
     },
     "CONC_TERSIYER_DNEMLERIN": {
@@ -2409,7 +2414,8 @@
       "lesson": "COGRAFYA",
       "properties": {
         "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Katner"
+        "confused_with": "Katner",
+        "difference": "⚠️ [ÖSYM TUZAĞI] Katner ve tersiyer dönemlerin farklı jeolojik zamanlara ait olduğu düşünülmesi. -> Doğrusu: Katner ve tersiyer dönemler, jeolojik zamanların senozoik dönemine ait dönemlerdir."
       }
     },
     "ENT_58e614ce": {
@@ -2430,7 +2436,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
-        "confused_with": "İdari Vesayet"
+        "confused_with": "İdari Vesayet",
+        "difference": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının en az üçte biriyle (200 milletvekili) toplanır ve katılanların salt çoğunluğuyla (en az 151) karar alır.' iddiası yanlıştır! Doğrusu: 1982 Anayasası Madde 75: TBMM altıyüz milletvekilinden oluşur."
       }
     },
     "CONC_DARI_VESAYET": {
@@ -2440,7 +2447,8 @@
       "lesson": "VATANDASLIK",
       "properties": {
         "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
-        "confused_with": "Hiyerarşi"
+        "confused_with": "Hiyerarşi",
+        "difference": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının en az üçte biriyle (200 milletvekili) toplanır ve katılanların salt çoğunluğuyla (en az 151) karar alır.' iddiası yanlıştır! Doğrusu: 1982 Anayasası Madde 75: TBMM altıyüz milletvekilinden oluşur."
       }
     },
     "ENT_17b6f2cf": {
@@ -2462,27 +2470,6 @@
       "properties": {
         "parent_topic": "ENT_1e9e9858",
         "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'Osmanlı Devleti'nde ilk kağıt para Fatih Sultan Mehmet döneminde basılmıştır' id",
-        "times_observed": 1
-      }
-    },
-    "GENEL_GENEL": {
-      "id": "GENEL_GENEL",
-      "label": "Genel",
-      "type": "TOPIC",
-      "lesson": "GENEL",
-      "properties": {
-        "auto_created": true,
-        "subtopics": []
-      }
-    },
-    "ENT_8e322367": {
-      "id": "ENT_8e322367",
-      "label": "73 ile",
-      "type": "ENTITY",
-      "lesson": "GENEL",
-      "properties": {
-        "parent_topic": "GENEL_GENEL",
-        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'TTurkiye maden ihracatinda bor ile birincidir' iddiası yanlıştır. Doğrusu: Türki",
         "times_observed": 1
       }
     }
@@ -3643,12 +3630,6 @@
     {
       "source": "ENT_1e9e9858",
       "target": "ENT_a953ed71",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "GENEL_GENEL",
-      "target": "ENT_8e322367",
       "relation": "CONTAINS_CONCEPT",
       "weight": 1.0
     }
