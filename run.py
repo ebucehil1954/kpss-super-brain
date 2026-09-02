@@ -6,7 +6,10 @@ import sys
 import asyncio
 
 if sys.platform == "win32":
-    sys.stdout.reconfigure(encoding="utf-8")
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 from config import super_brain_config
 from brain.blacklist_rules import BlacklistAuditor

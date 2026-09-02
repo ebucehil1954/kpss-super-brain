@@ -89,9 +89,14 @@ class SuperBrainConfig(BaseModel):
     MAX_TRANSCRIPT_RPM: int = 5
     BACKOFF_BASE_SECONDS: float = 3.0
     
+    # CORS ve Web Güvenliği
+    CORS_ORIGINS: List[str] = [
+        orig.strip() for orig in os.getenv("CORS_ORIGINS", "http://localhost:8500,http://127.0.0.1:8500,http://localhost:3000,http://127.0.0.1:3000").split(",") if orig.strip()
+    ]
+
     # GPU / Whisper STT Settings
     WHISPER_ENABLED: bool = True
-    WHISPER_DEVICE: str = os.getenv("WHISPER_DEVICE", "cuda" if os.getenv("CUDA_VISIBLE_DEVICES") != "" else "auto")
+    WHISPER_DEVICE: str = os.getenv("WHISPER_DEVICE") or ("cuda" if os.getenv("CUDA_VISIBLE_DEVICES") and os.getenv("CUDA_VISIBLE_DEVICES").strip() else "auto")
     WHISPER_MODEL_SIZE: str = os.getenv("WHISPER_MODEL_SIZE", "tiny")
     
     # State Persistence & Checkpointing

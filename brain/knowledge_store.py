@@ -20,7 +20,7 @@ class KnowledgeStore:
     def _generate_record_id(text: str, lesson: str, topic: str) -> str:
         """Metin ve konudan deterministik veya benzersiz ID üretir."""
         norm = f"{lesson}_{topic}_{text.strip().lower()}"
-        h = hashlib.md5(norm.encode('utf-8')).hexdigest()[:12]
+        h = hashlib.sha256(norm.encode('utf-8')).hexdigest()[:12]
         return f"kr_{h}"
 
     @classmethod

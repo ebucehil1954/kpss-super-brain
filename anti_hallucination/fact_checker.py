@@ -251,7 +251,7 @@ class FactChecker:
         return {
             "passed": True,
             "stage": "All_Layers_Passed",
-            "confidence_score": max(0.98, consistency_score),
+            "confidence_score": min(0.99, max(0.85, round(float(consistency_score), 2))),
             "verified_triplets": triplets
         }
 

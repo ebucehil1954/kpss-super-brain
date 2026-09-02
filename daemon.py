@@ -37,8 +37,10 @@ def _track_task(task: asyncio.Task) -> None:
 
 async def _graceful_shutdown():
     """Tüm arka plan görevlerini ve HungryEngine'i güvenle sonlandırır."""
-    logger.info("🛑 [DAEMON] Kapatma sinyali alındı. Veritabanı ve durumlar güvenle kaydediliyor...")
+    if _SHUTDOWN_EVENT.is_set():
+        return
     _SHUTDOWN_EVENT.set()
+    logger.info("🛑 [DAEMON] Kapatma sinyali alındı. Veritabanı ve durumlar güvenle kaydediliyor...")
     
     # 1. HungryEngine'i durdur (timeout: 5 sn)
     try:

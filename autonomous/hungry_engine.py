@@ -133,6 +133,15 @@ class HungryEngine:
             )
         print(f"  └─ 🚀 Toplam {priority_queue.size()} adet yüksek öncelikli müfredat hedefi kuyrukta.")
 
+    async def _sleep_interruptible(self, seconds: int):
+        """Durdurma sinyalini hızlıca algılayarak verimli bekler."""
+        step = 5
+        elapsed = 0
+        while self.is_running and elapsed < seconds:
+            to_sleep = min(step, seconds - elapsed)
+            await asyncio.sleep(to_sleep)
+            elapsed += to_sleep
+
     async def _manus_youtube_discovery_loop(self):
         """Arka planda sürekli Manus tarzı YouTube keşfi yaparak tüm popüler kaynakları ve hocaları tarar."""
         while self.is_running:
@@ -142,13 +151,10 @@ class HungryEngine:
                 print(f"  └─ 🌐 Keşif Sonucu: +{res.get('videos_queued', 0)} yeni video kuyruğa eklendi.")
 
                 # 30 dakikada bir derin keşfi tekrarla
-                for _ in range(1800):
-                    if not self.is_running:
-                        break
-                    await asyncio.sleep(1)
+                await self._sleep_interruptible(1800)
             except Exception as e:
                 print(f"⚠️ [MANUS KEŞİF DÖNGÜSÜ HATASI]: {e}")
-                await asyncio.sleep(15)
+                await self._sleep_interruptible(15)
 
     async def _digestion_worker(self, worker_id: int):
         """Açgözlü sindirici: Kuyruktan video çeker, transkriptini çıkarır ve zihne işler."""

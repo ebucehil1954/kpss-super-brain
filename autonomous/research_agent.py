@@ -18,6 +18,8 @@ from autonomous.tool_registry import tool_registry
 from anti_hallucination.fact_checker import fact_checker
 from cognition.contradiction_engine import contradiction_engine
 from brain.curriculum_matrix import curriculum_matrix
+from autonomous.gap_analyzer import gap_analyzer
+from autonomous.research_planner import research_planner
 
 class CompletionEvaluator:
     """
@@ -148,9 +150,6 @@ class ResearchAgent:
                 job.updated_at = datetime.now().isoformat()
                 cls._save_job_state(job)
 
-                from autonomous.gap_analyzer import gap_analyzer
-                from autonomous.research_planner import research_planner
-                
                 cur_gap_report = gap_analyzer.analyze_gaps(
                     lesson=lesson,
                     topic=topic,
@@ -288,7 +287,6 @@ class ResearchAgent:
                 job.state = ResearchJobState.GAP_ANALYSIS
                 cls._save_job_state(job)
 
-                from autonomous.gap_analyzer import gap_analyzer
                 gap_analysis_data = gap_analyzer.analyze_gaps(
                     lesson=lesson,
                     topic=topic,

@@ -35,6 +35,7 @@ Thumbs.db
 # Environment Variables & Secrets
 .env
 .env*
+!.env.example
 .env.local
 .env.development
 .env.production

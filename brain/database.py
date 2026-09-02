@@ -13,50 +13,63 @@ from config import super_brain_config
 
 DB_PATH = str(super_brain_config.BRAIN_DB_FILE)
 
-def get_db_connection():
-    """SQLite bağlantısını oluşturur ve WAL modunu aktif eder."""
+def get_db_connection(max_retries: int = 3, retry_delay: float = 0.5):
+    """SQLite bağlantısını oluşturur, kilitlenmelerde retry uygular ve WAL modunu aktif eder."""
+    import time as _time
     os.makedirs(os.path.dirname(DB_PATH), exist_ok=True)
-    conn = sqlite3.connect(DB_PATH, timeout=30.0)
-    conn.row_factory = sqlite3.Row
-    conn.execute("PRAGMA journal_mode=WAL;")
-    conn.execute("PRAGMA synchronous=NORMAL;")
-    conn.execute("PRAGMA foreign_keys=ON;")
-    return conn
+    last_error = None
+    for attempt in range(max_retries):
+        try:
+            conn = sqlite3.connect(DB_PATH, timeout=30.0)
+            conn.row_factory = sqlite3.Row
+            conn.execute("PRAGMA journal_mode=WAL;")
+            conn.execute("PRAGMA synchronous=NORMAL;")
+            conn.execute("PRAGMA foreign_keys=ON;")
+            return conn
+        except sqlite3.OperationalError as e:
+            last_error = e
+            if "database is locked" in str(e).lower() and attempt < max_retries - 1:
+                _time.sleep(retry_delay * (attempt + 1))
+                continue
+            raise
+    if last_error:
+        raise last_error
 
 @contextmanager
 def db_session():
     """
     SQLite bağlantı context manager'ı.
-    [P1-4 DÜZELTME] SQLITE_BUSY hatalarında otomatik retry mekanizması.
+    WAL modunda kilitlenmelere karşı bağlantı ve commit seviyesinde retry uygular.
     """
     import time as _time
-    max_retries = 3
-    retry_delay = 0.5
-
-    last_error = None
-    for attempt in range(max_retries):
-        conn = get_db_connection()
-        try:
-            yield conn
-            conn.commit()
-            return  # Başarılı, çık
-        except sqlite3.OperationalError as e:
-            conn.rollback()
-            conn.close()
-            if "database is locked" in str(e) and attempt < max_retries - 1:
-                _time.sleep(retry_delay * (attempt + 1))
-                last_error = e
-                continue
-            raise
-        except Exception:
-            conn.rollback()
-            conn.close()
-            raise
-        finally:
+    conn = get_db_connection()
+    try:
+        yield conn
+        # Commit aşamasında database is locked retry'ı
+        committed = False
+        for attempt in range(3):
             try:
-                conn.close()
-            except Exception:
-                pass  # Zaten kapatılmış olabilir
+                conn.commit()
+                committed = True
+                break
+            except sqlite3.OperationalError as e:
+                if "database is locked" in str(e).lower() and attempt < 2:
+                    _time.sleep(0.3 * (attempt + 1))
+                    continue
+                raise
+        if not committed:
+            conn.commit()
+    except Exception:
+        try:
+            conn.rollback()
+        except Exception:
+            pass
+        raise
+    finally:
+        try:
+            conn.close()
+        except Exception:
+            pass
 
 def initialize_database():
     """Tüm tabloları ve FTS indekslerini oluşturur."""

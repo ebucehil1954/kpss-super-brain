@@ -2,13 +2,18 @@
 KPSS Super-Brain: FastAPI API Sunucusu (Genişletilmiş REST & WebSocket Arayüzü)
 """
 import os
+import re
 import json
-import httpx
-from fastapi import FastAPI, HTTPException, Query, Body
-from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, Field
+import shutil
+from pathlib import Path
 from typing import Dict, Any, List, Optional
 from datetime import datetime
+import httpx
+from fastapi import FastAPI, HTTPException, Query, Body, Request, UploadFile, File, Form
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel, Field
 
 from config import super_brain_config
 from brain.knowledge_store import knowledge_store
@@ -30,9 +35,10 @@ app = FastAPI(
     version="2.0.0"
 )
 
+cors_origins = getattr(super_brain_config, "CORS_ORIGINS", ["*"])
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=cors_origins if cors_origins else ["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -43,11 +49,6 @@ app.include_router(v15_router)
 
 from api.logs_routes import logs_router
 app.include_router(logs_router)
-
-from fastapi import FastAPI, HTTPException, Query, Body, Request
-from fastapi.responses import HTMLResponse, RedirectResponse
-from fastapi.templating import Jinja2Templates
-from pathlib import Path
 
 TEMPLATES_DIR = Path(__file__).parent.parent / "templates"
 try:
@@ -283,9 +284,6 @@ async def get_ontology_statistics():
     from brain.deep_ontology import deep_ontology
     return deep_ontology.get_curriculum_statistics()
 
-from fastapi import UploadFile, File, Form
-import shutil
-
 @app.post("/api/documents/upload")
 async def upload_and_ingest_document(
     file: UploadFile = File(...),
@@ -295,11 +293,17 @@ async def upload_and_ingest_document(
 ):
     """
     Kullanıcının yüklediği MEB kitabı veya PDF fasikülünü doğrudan okur ve hafıza ambarına sindirir.
+    Path traversal saldırılarına karşı dosya adı sanitize edilir.
     """
     from senses.turbo_pdf_reader import turbo_pdf_reader
     
+    raw_name = Path(file.filename or "uploaded_document.pdf").name
+    safe_name = re.sub(r"[^a-zA-Z0-9_.-]", "_", raw_name)
+    if not safe_name.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Güvenlik Kuralı: Yalnızca .pdf uzantılı belgeler kabul edilir.")
+
     os.makedirs(super_brain_config.PDF_UPLOADS_DIR, exist_ok=True)
-    file_path = os.path.join(super_brain_config.PDF_UPLOADS_DIR, file.filename)
+    file_path = os.path.join(super_brain_config.PDF_UPLOADS_DIR, safe_name)
     
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
@@ -308,7 +312,7 @@ async def upload_and_ingest_document(
         pdf_path=file_path,
         lesson=lesson,
         topic=topic,
-        source_title=source_title or file.filename
+        source_title=source_title or safe_name
     )
     
     return result
