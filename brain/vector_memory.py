@@ -99,6 +99,33 @@ class VectorMemoryStore:
         self._save_fallback()
         return True
 
+    def delete_memory(self, doc_id: str) -> bool:
+        """
+        [PHASE 12 CANONICAL TRUTH SOT]
+        Kanonik veritabanından silinen bir kaydı vektör belleğinden de tamamen siler.
+        Vektör deposu silinmiş kanonik bilginin arkasından bağımsız olarak yaşayamaz.
+        """
+        if self.collection:
+            try:
+                self.collection.delete(ids=[doc_id])
+            except Exception:
+                pass
+
+        self.documents = [d for d in self.documents if d["id"] != doc_id]
+        self._save_fallback()
+        return True
+
+    def clear_all(self) -> None:
+        """Vektör deposunu yeniden inşa için tamamen sıfırlar."""
+        if self.collection:
+            try:
+                self.chroma_client.delete_collection(name="kpss_autonomous_brain")
+                self.collection = self.chroma_client.get_or_create_collection(name="kpss_autonomous_brain")
+            except Exception:
+                pass
+        self.documents = []
+        self._save_fallback()
+
     def _tokenize(self, text: str) -> List[str]:
         return [w.lower() for w in re.findall(r'\b\w+\b', text) if len(w) > 1]
 

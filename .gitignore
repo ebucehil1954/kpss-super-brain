@@ -32,5 +32,25 @@ data/transcripts/
 .DS_Store
 Thumbs.db
 
-# Environment Variables
+# Environment Variables & Secrets
 .env
+.env*
+.env.local
+.env.development
+.env.production
+*.key
+*.pem
+
+# Sensitive User Cookies & Auth
+cookies.txt
+data/cookies.txt
+*.cookies
+*.txt.cookies
+
+# Scratch & Temporary Runtime Data
+scratch/
+outputs/
+*.rar
+*.zip
+*.7z
+*.tar.gz

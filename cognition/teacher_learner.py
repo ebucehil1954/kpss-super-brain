@@ -136,12 +136,36 @@ class TeacherLearner:
         return cls.get_or_create_profile(teacher_name)
 
     @classmethod
-    def get_all_profiles(cls) -> List[Dict[str, Any]]:
-        """Tüm hoca profillerini listeler."""
-        with db_session() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT * FROM teacher_profiles ORDER BY videos_watched DESC")
-            rows = cursor.fetchall()
-            return [cls.get_or_create_profile(r["name"]) for r in rows]
+    def strip_teacher_rhetoric(cls, text: str) -> str:
+        """
+        [PHASE 17 RHETORICAL TONE DECOUPLING]
+        Öğretmenin mizahi, duygusal veya pedagojik dolgu cümlelerini metinden ayırarak
+        salt olgusal çekirdeği (factual core) çıkarır. Hoca tarzı olguyu kirletemez.
+        """
+        if not text:
+            return ""
+
+        cleaned = text
+        # Yaygın dolgu ve pedagojik hitap kalıplarını temizle
+        rhetoric_patterns = [
+            r"^(arkadaşlar|canlarım|kıymetli dostlar|sevgili arkadaşlar|hocam dikkat)\s*(buraya\s+dikkat)?\s*[,:]?\s*",
+            r"^(ösym\s+bunu\s+(çok\s+)?sever|ö\s*s\s*y\s*m\s+bunu\s+(çok\s+)?sever|ösym\s+sorar|ö\s*s\s*y\s*m\s+sorar|buraya\s+dikkat)\s*[:!,-]?\s*",
+            r"^(hocanızdan\s+altın\s+taktik|taktik\s+şu|şifremiz\s+şu)\s*[:!,-]?\s*",
+            r"^(sınavda\s+gelirse\s+şaşırmayın|yıldız\s+koyun|not\s+alın)\s*[:!,-]?\s*"
+        ]
+        for pat in rhetoric_patterns:
+            cleaned = re.sub(pat, "", cleaned, flags=re.IGNORECASE).strip()
+
+        return cleaned
+
+    @classmethod
+    def classify_signal(cls, text: str) -> str:
+        """[PHASE 17] Bir metnin olgu mu, mnemonik şifre mi yoksa soru tuzağı mı olduğunu sınıflandırır."""
+        t_low = text.lower()
+        if any(k in t_low for k in ["şifre", "kodlama", "akrostiş", "tekerleme", "hafıza tekniği"]):
+            return "MNEMONIC"
+        if any(k in t_low for k in ["tuzak", "çeldirici", "aman dikkat", "karıştırmayın", "düşmeyin"]):
+            return "TRAP"
+        return "FACT"
 
 teacher_learner = TeacherLearner()

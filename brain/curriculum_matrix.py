@@ -8,6 +8,7 @@ import json
 from datetime import datetime
 from typing import Dict, Any, List, Optional, Set
 from brain.database import db_session
+from cognition.teacher_identity import teacher_identity
 
 class CurriculumMatrixEngine:
     """
@@ -378,50 +379,47 @@ class CurriculumMatrixEngine:
     def record_video_consumption(
         cls,
         lesson: str,
-        topic: str,
-        video_id: str,
-        teacher_name: str,
-        channel_name: str,
+        topic: Optional[str] = None,
+        video_id: str = "",
+        teacher_name: str = "Genel",
+        channel_name: str = "YouTube",
         facts_extracted: int = 0,
         traps_extracted: int = 0,
         reasoning_extracted: int = 0,
-        mnemonics_extracted: int = 0
+        mnemonics_extracted: int = 0,
+        topic_str: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Bir video tüketildiğinde ilgili resmi konunun hakimiyet sayımlarını ve öğretmen çeşitliliğini günceller.
         """
+        resolved_topic = topic or topic_str or "Genel"
         now_str = datetime.now().isoformat()
-        matched_topic_id = cls._find_matching_topic_id(lesson, topic)
+        matched_topic_id = cls._find_matching_topic_id(lesson, resolved_topic)
         if not matched_topic_id:
-            matched_topic_id = f"{lesson.upper()}_{re.sub(r'\\W+', '_', topic).strip('_')}"
+            matched_topic_id = f"{lesson.upper()}_{re.sub(r'\\W+', '_', resolved_topic).strip('_')}"
         
         with db_session() as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched_topic_id,))
             row = cursor.fetchone()
-            
+
             if not row:
-                cls.initialize_mastery_matrix()
+                cursor.execute("""
+                INSERT OR REPLACE INTO topic_mastery (
+                    topic_id, lesson, topic_name, target_videos_count, consumed_videos_count,
+                    distinct_teachers_json, distinct_channels_json, consumed_video_ids_json,
+                    facts_count, traps_count, reasoning_count, mnemonics_count,
+                    mastery_stage, is_mastered, last_digested_at, updated_at
+                ) VALUES (?, ?, ?, 4, 0, '[]', '[]', '[]', 0, 0, 0, 0, 'UNSTARTED', 0, ?, ?)
+                """, (matched_topic_id, lesson.upper(), resolved_topic, now_str, now_str))
                 cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched_topic_id,))
                 row = cursor.fetchone()
-                if not row:
-                    cursor.execute("""
-                    INSERT OR REPLACE INTO topic_mastery (
-                        topic_id, lesson, topic_name, target_videos_count, consumed_videos_count,
-                        distinct_teachers_json, distinct_channels_json, consumed_video_ids_json,
-                        facts_count, traps_count, reasoning_count, mnemonics_count,
-                        mastery_stage, is_mastered, last_digested_at, updated_at
-                    ) VALUES (?, ?, ?, 4, 0, '[]', '[]', '[]', 0, 0, 0, 0, 'UNSTARTED', 0, ?, ?)
-                    """, (matched_topic_id, lesson.upper(), topic, now_str, now_str))
-                    cursor.execute("SELECT * FROM topic_mastery WHERE topic_id = ?", (matched_topic_id,))
-                    row = cursor.fetchone()
 
             if row:
                 teachers: List[str] = json.loads(row["distinct_teachers_json"])
                 channels: List[str] = json.loads(row["distinct_channels_json"])
                 video_ids: List[str] = json.loads(row["consumed_video_ids_json"])
 
-                from cognition.teacher_identity import teacher_identity
                 canonical_tname = teacher_identity.normalize(teacher_name) if teacher_name else None
                 if canonical_tname and canonical_tname not in teachers:
                     teachers.append(canonical_tname)
@@ -433,19 +431,29 @@ class CurriculumMatrixEngine:
                 consumed_count = len(video_ids)
                 target_count = row["target_videos_count"]
 
-                # Aşama hesaplama (En az 3-4 video kuralı)
-                if consumed_count == 0:
-                    stage = "UNSTARTED"
-                elif consumed_count == 1:
-                    stage = "STARTED (1/4 Video)"
-                elif consumed_count == 2:
-                    stage = "DEVELOPING (2/4 Video)"
-                elif consumed_count == 3:
-                    stage = "SYNTHESIZING (3/4 Video)"
-                else:
-                    stage = "MASTERED (4+/4 Video - Uzman Öğretmen Seviyesi)"
+                # Çözümlenmemiş kritik çelişki ve boş video kontrolü (Phase 4)
+                cursor.execute("SELECT COUNT(*) as c_cnt FROM contradictions WHERE (topic LIKE ? OR topic LIKE ?) AND resolution = 'UNRESOLVED'", (f"%{matched_topic_id}%", f"%{resolved_topic}%"))
+                c_row = cursor.fetchone()
+                unresolved_contras = c_row["c_cnt"] if c_row else 0
 
-                is_mastered = 1 if consumed_count >= target_count and len(teachers) >= 2 else 0
+                total_facts = (row["facts_count"] or 0) + facts_extracted
+
+                # Phase 4: Video Sayısı != Hakimiyet
+                if consumed_count >= target_count and len(teachers) >= 2 and total_facts >= 5 and unresolved_contras == 0:
+                    stage = "MASTERED (4+/4 Video - Uzman Öğretmen Seviyesi)"
+                    is_mastered = 1
+                elif consumed_count >= 3 and len(teachers) >= 2 and total_facts >= 3 and unresolved_contras == 0:
+                    stage = "SYNTHESIZING (3/4 Video)"
+                    is_mastered = 0
+                elif consumed_count >= 2 and total_facts >= 1:
+                    stage = "DEVELOPING (2/4 Video)"
+                    is_mastered = 0
+                elif consumed_count >= 1:
+                    stage = "STARTED (1/4 Video)"
+                    is_mastered = 0
+                else:
+                    stage = "UNSTARTED"
+                    is_mastered = 0
 
                 cursor.execute("""
                 UPDATE topic_mastery
@@ -492,40 +500,65 @@ class CurriculumMatrixEngine:
         return {}
 
     @classmethod
-    def _find_matching_topic_id(cls, lesson: str, topic_str: str) -> str:
-        """Metin içindeki anahtar kelimelerden en uygun resmi müfredat topic_id'sini tespit eder."""
+    def _find_matching_topic_id(cls, lesson: str, topic_str: str) -> Optional[str]:
+        """
+        [PHASE 9 SAFE TOPIC RESOLVER & PHASE 8 REMOVE TARIH FALLBACK]
+        Resmi müfredat topic_id çözümlemesi:
+        1. Tam topic_id eşleşmesi
+        2. Tam konu adı veya kanonik takma ad
+        3. Yüksek güvenli alt konu eşleşmesi
+        4. Belirsiz/düşük güvenli durumlarda KESİNLİKLE None (UNKNOWN) döner.
+        KURAL: Asla TARIH fallback'i yapılamaz.
+        """
+        if not lesson or not topic_str:
+            return None
+
         clean_lesson = lesson.upper().replace("İ", "I").replace("Ğ", "G").replace("Ü", "U").replace("Ş", "S").replace("Ö", "O").replace("Ç", "C")
         if clean_lesson not in cls.OFFICIAL_CURRICULUM:
-            clean_lesson = "TARIH"
+            # [KURAL]: Bilinmeyen ders asla TARIH'e düşürülemez!
+            return None
 
-        topic_str_lower = topic_str.lower()
+        topic_str_clean = topic_str.strip()
+        topic_str_lower = topic_str_clean.lower()
         topics_dict = cls.OFFICIAL_CURRICULUM.get(clean_lesson, {})
-        
-        topic_words = set(re.findall(r"\w+", topic_str_lower))
+
+        # 1. Exact topic_id match
+        for code in topics_dict:
+            full_code = f"{clean_lesson}_{code}"
+            if topic_str_clean == code or topic_str_clean == full_code:
+                return full_code
+
+        # 2. Exact topic name match
+        for code, data in topics_dict.items():
+            if topic_str_lower == data["name"].lower():
+                return f"{clean_lesson}_{code}"
+
+        # 3. Canonical Subtopic Match (En az 5 karakterlik anlamlı alt konu)
+        for code, data in topics_dict.items():
+            for sub in data.get("subtopics", []):
+                sub_lower = sub.lower()
+                if len(sub_lower) >= 5 and (sub_lower in topic_str_lower or topic_str_lower in sub_lower):
+                    return f"{clean_lesson}_{code}"
+
+        # 4. Yüksek Güvenli Kelime Kesişimi (En az 2 anlamlı anahtar kelime, her biri >= 4 karakter)
+        topic_words = {w for w in re.findall(r"\w+", topic_str_lower) if len(w) >= 4}
         best_match = None
         best_score = 0
 
         for code, data in topics_dict.items():
-            name_lower = data["name"].lower()
-            name_words = set(re.findall(r"\w+", name_lower))
-
-            if topic_str_lower in name_lower or name_lower in topic_str_lower or code.lower() in topic_str_lower:
-                return f"{clean_lesson}_{code}"
-
+            name_words = {w for w in re.findall(r"\w+", data["name"].lower()) if len(w) >= 4}
             overlap = len(topic_words & name_words)
-            if overlap > best_score and overlap >= 2:
+            if overlap >= 2 and overlap > best_score:
                 best_score = overlap
                 best_match = f"{clean_lesson}_{code}"
-
-            for sub in data.get("subtopics", []):
-                sub_lower = sub.lower()
-                if sub_lower in topic_str_lower or topic_str_lower in sub_lower:
-                    return f"{clean_lesson}_{code}"
 
         if best_match:
             return best_match
 
+        # Belirsiz, yabancı veya düşük güvenli içerikler UNKNOWN kalır
         return None
+
+    resolve_topic_safely = _find_matching_topic_id
 
     @classmethod
     def get_curriculum_mastery_report(cls) -> Dict[str, Any]:
@@ -764,6 +797,12 @@ class CurriculumMatrixEngine:
                 2
             )
 
+            # Phase 4 Kuralı: Çözümlenmemiş kritik çelişkiler tam hakimiyeti KESİNLİKLE bloke eder!
+            cursor.execute("SELECT COUNT(*) as c_cnt FROM contradictions WHERE (topic LIKE ? OR topic LIKE ?) AND resolution = 'UNRESOLVED'", (f"%{matched_tname}%", f"%{topic_id}%"))
+            c_row = cursor.fetchone()
+            if c_row and c_row["c_cnt"] > 0:
+                overall = min(overall, 0.45)
+
             snapshot_id = f"snap_{topic_id}_{int(datetime.now().timestamp())}"
             cursor.execute("""
             INSERT OR REPLACE INTO mastery_snapshots (
@@ -801,18 +840,28 @@ class CurriculumMatrixEngine:
 
     @classmethod
     def get_scores(cls) -> Dict[str, float]:
-        """Tüm konuların doluluk / güven skorlarını döner (0.0 - 1.0)."""
+        """Tüm konuların çok boyutlu doluluk / güven skorlarını döner (0.0 - 1.0)."""
         scores = {}
         with db_session() as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT topic_id, consumed_videos_count, target_videos_count, is_mastered FROM topic_mastery")
+            cursor.execute("""
+            SELECT tm.topic_id, ms.overall_mastery, tm.is_mastered
+            FROM topic_mastery tm
+            LEFT JOIN (
+                SELECT topic_id, overall_mastery, MAX(calculated_at)
+                FROM mastery_snapshots
+                GROUP BY topic_id
+            ) ms ON tm.topic_id = ms.topic_id
+            """)
             rows = cursor.fetchall()
             for r in rows:
                 t_id = r["topic_id"]
-                if r["is_mastered"] == 1:
+                if r["overall_mastery"] is not None:
+                    scores[t_id] = round(float(r["overall_mastery"]), 2)
+                elif r["is_mastered"] == 1:
                     scores[t_id] = 0.98
                 else:
-                    scores[t_id] = round(r["consumed_videos_count"] / max(1, r["target_videos_count"]), 2)
+                    scores[t_id] = 0.0
         return scores
 
     @classmethod
@@ -827,6 +876,8 @@ class CurriculumMatrixEngine:
             SET is_mastered = ?, mastery_stage = ?, updated_at = ?
             WHERE topic_id = ? OR topic_name = ?
             """, (is_mastered, stage, datetime.now().isoformat(), topic_id, topic_id))
+
+    digest_video_into_curriculum = record_video_consumption
 
 curriculum_matrix = CurriculumMatrixEngine()
 # Otomatik veritabanı eşitlemesi

@@ -21,71 +21,135 @@ class WhisperTranscriber:
         self._check_hardware()
 
     def _check_hardware(self):
-        """CUDA GPU desteğini ve donanımı kontrol eder."""
+        """[PHASE 14] CUDA GPU desteğini ve donanımı gerçek bellek testi ile kontrol eder."""
         try:
             import torch
-            self.is_gpu_available = torch.cuda.is_available()
+            if torch.cuda.is_available():
+                try:
+                    # Sanity check: CUDA sürücü veya bellek uyumsuzluğunu doğrula
+                    test_t = torch.zeros((1,), device="cuda")
+                    del test_t
+                    self.is_gpu_available = True
+                except Exception:
+                    self.is_gpu_available = False
+            else:
+                self.is_gpu_available = False
         except ImportError:
             self.is_gpu_available = False
 
     def _load_model(self):
-        """Whisper modelini GPU/CPU üzerine yükler."""
+        """[PHASE 14] Whisper modelini GPU/CPU üzerine güvenle yükler (CUDA hata verirse CPU fallback)."""
         if self.whisper_model is not None:
             return self.whisper_model
 
         model_size = super_brain_config.WHISPER_MODEL_SIZE
-        device = "cuda" if self.is_gpu_available else "cpu"
 
-        # 1. Öncelik: faster-whisper
+        # 1. Faster-Whisper denemesi (GPU -> CPU Fallback)
         try:
             from faster_whisper import WhisperModel
-            compute_type = "float16" if self.is_gpu_available else "int8"
-            self.whisper_model = ("faster_whisper", WhisperModel(model_size, device=device, compute_type=compute_type))
-            return self.whisper_model
+            if self.is_gpu_available:
+                try:
+                    self.whisper_model = ("faster_whisper", WhisperModel(model_size, device="cuda", compute_type="float16"))
+                    return self.whisper_model
+                except Exception:
+                    # CUDA başarısız olursa derhal CPU'ya düş
+                    self.is_gpu_available = False
+            try:
+                self.whisper_model = ("faster_whisper", WhisperModel(model_size, device="cpu", compute_type="int8"))
+                return self.whisper_model
+            except Exception:
+                self.whisper_model = ("faster_whisper", WhisperModel(model_size, device="cpu", compute_type="float32"))
+                return self.whisper_model
         except Exception:
             pass
 
-        # 2. Öncelik: openai-whisper
+        # 2. OpenAI Whisper denemesi (GPU -> CPU Fallback)
         try:
             import whisper
-            self.whisper_model = ("openai_whisper", whisper.load_model(model_size, device=device))
-            return self.whisper_model
+            device = "cuda" if self.is_gpu_available else "cpu"
+            try:
+                self.whisper_model = ("openai_whisper", whisper.load_model(model_size, device=device))
+                return self.whisper_model
+            except Exception:
+                self.is_gpu_available = False
+                self.whisper_model = ("openai_whisper", whisper.load_model(model_size, device="cpu"))
+                return self.whisper_model
         except Exception:
             pass
 
         return None
 
+    @staticmethod
+    def chunk_audio_duration(total_duration_seconds: float, max_chunk_seconds: float = 600.0) -> List[Tuple[float, float]]:
+        """[PHASE 14] Uzun ses dosyalarını VRAM ve bellek taşmasını önlemek için güvenli dilimlere böler."""
+        if total_duration_seconds <= 0:
+            return []
+        chunks = []
+        start = 0.0
+        while start < total_duration_seconds:
+            end = min(total_duration_seconds, start + max_chunk_seconds)
+            chunks.append((round(start, 2), round(end, 2)))
+            start = end
+        return chunks
+
+    @staticmethod
+    def classify_whisper_error(error_str: str) -> str:
+        """[PHASE 14] Whisper ve ses işleme hatalarını sınıflandırır."""
+        err = (error_str or "").lower()
+        if "out of memory" in err or "cuda oom" in err or "cuda error" in err:
+            return "CUDA_OOM_FALLBACK_REQUIRED"
+        if "download" in err or "404" in err or "yt-dlp" in err:
+            return "AUDIO_DOWNLOAD_FAILED"
+        if "corrupt" in err or "invalid data" in err or "ffmpeg" in err:
+            return "CORRUPTED_AUDIO"
+        return "GENERIC_AUDIO_FAILURE"
+
     def download_audio_yt_dlp(self, video_id: str) -> Optional[str]:
         """yt-dlp kullanarak YouTube videosunun ses akışını indirir."""
+        os.makedirs(self.audio_dir, exist_ok=True)
         output_template = os.path.join(self.audio_dir, f"{video_id}.%(ext)s")
         target_audio_path = os.path.join(self.audio_dir, f"{video_id}.m4a")
 
+        # Mevcut tamamlanmış dosyayı kontrol et
         if os.path.exists(target_audio_path):
             return target_audio_path
 
+        if os.path.exists(self.audio_dir):
+            for fname in os.listdir(self.audio_dir):
+                if fname.startswith(video_id) and not fname.endswith(".part"):
+                    return os.path.join(self.audio_dir, fname)
+
         video_url = f"https://www.youtube.com/watch?v={video_id}"
+        import sys
         cmd = [
-            "yt-dlp",
-            "-f", "bestaudio[ext=m4a]/bestaudio",
-            "--extract-audio",
-            "--audio-format", "m4a",
+            sys.executable, "-m", "yt_dlp",
+            "--js-runtimes", "node",
+            "--extractor-args", "youtube:player_client=android",
+            "-f", "ba[ext=m4a]/18/best",
             "--no-playlist",
-            "--max-filesize", "80M",
+            "--socket-timeout", "20",
+            "--no-warnings",
+            "--max-filesize", "650M",
             "-o", output_template,
-            video_url
         ]
 
-        try:
-            if not shutil.which("yt-dlp"):
-                cmd = ["python", "-m", "yt_dlp"] + cmd[1:]
+        # Çerez Desteği (Bot ve IP Engeli Savunması)
+        if super_brain_config.youtube_cookies_available:
+            cmd.extend(["--cookies", str(super_brain_config.YOUTUBE_COOKIES_FILE)])
+        elif super_brain_config.YOUTUBE_COOKIES_BROWSER:
+            cmd.extend(["--cookies-from-browser", super_brain_config.YOUTUBE_COOKIES_BROWSER])
 
-            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=90)
+        cmd.append(video_url)
+
+        try:
+            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=240)
             if os.path.exists(target_audio_path):
                 return target_audio_path
-            
-            for fname in os.listdir(self.audio_dir):
-                if fname.startswith(video_id):
-                    return os.path.join(self.audio_dir, fname)
+
+            if os.path.exists(self.audio_dir):
+                for fname in os.listdir(self.audio_dir):
+                    if fname.startswith(video_id) and not fname.endswith(".part"):
+                        return os.path.join(self.audio_dir, fname)
         except Exception as e:
             print(f"⚠️ [WHISPER AUDIO DOWNLOAD] Ses indirme hatası: {e}")
 
@@ -173,9 +237,15 @@ class WhisperTranscriber:
                     "engine": engine_type
                 }
         except Exception as e:
+            err_class = self.classify_whisper_error(str(e))
+            if err_class == "CUDA_OOM_FALLBACK_REQUIRED" and self.is_gpu_available:
+                self.is_gpu_available = False
+                self.whisper_model = None
+                return await self.transcribe_video(video_id)
             return {
                 "success": False,
-                "error": f"Transkripsiyon hatası: {str(e)}",
+                "error": f"Transkripsiyon hatası [{err_class}]: {str(e)}",
+                "error_class": err_class,
                 "text": "",
                 "segments": []
             }

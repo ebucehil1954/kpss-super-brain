@@ -132,7 +132,7 @@ Yalnızca aşağıdaki JSON formatında geçerli bir JSON objesi üret:
 """
 
         thought_process = ""
-        verdict = "CONFIRMED"
+        verdict = "AUDIT_FAILED"  # Fail-safe: hiçbir şey kanıtlanmamış
         reasoning_steps = []
         canonical_truth = ""
         trap_distractor = ""
@@ -164,7 +164,7 @@ Yalnızca aşağıdaki JSON formatında geçerli bir JSON objesi üret:
 
                     try:
                         parsed = json.loads(clean_json)
-                        verdict = parsed.get("verdict", "CONFIRMED").upper()
+                        verdict = parsed.get("verdict", "AUDIT_FAILED").upper()
                         confidence = float(parsed.get("confidence", 0.95))
                         reasoning_steps = parsed.get("reasoning_steps", [])
                         canonical_truth = parsed.get("canonical_truth", "")
@@ -178,7 +178,7 @@ Yalnızca aşağıdaki JSON formatında geçerli bir JSON objesi üret:
         except Exception as e:
             logger.error(f"DeepSeek-R1 denetim hatası: {e}")
             thought_process = f"Denetim sırasında yerel model zaman aşımına uğradı veya hata verdi: {str(e)}"
-            verdict = "CONFIRMED"
+            verdict = "AUDIT_FAILED"
 
         # Eğer REDDEDİLDİYSE (REJECTED) -> Otomatik olarak TRAP kaydına dönüştür
         if verdict == "REJECTED":
@@ -186,7 +186,8 @@ Yalnızca aşağıdaki JSON formatında geçerli bir JSON objesi üret:
                 f"⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] '{claim_text}' iddiası yanlıştır. "
                 f"Doğrusu: {canonical_truth}"
             )
-            knowledge_store.add_or_reinforce_record(
+            # [KNOWLEDGE FIREWALL ENFORCED]: Staging tablosuna PENDING olarak mühürlenir
+            knowledge_store.stage_pending_record(
                 text=trap_record_text,
                 record_type="TRAP",
                 lesson=lesson,
@@ -198,7 +199,7 @@ Yalnızca aşağıdaki JSON formatında geçerli bir JSON objesi üret:
 
         # Kararı SQLite'a kaydet
         import hashlib
-        audit_id = f"aud_{hashlib.md5((claim_text + datetime.now().isoformat()).encode('utf-8')).hexdigest()[:12]}"
+        audit_id = f"aud_{hashlib.sha256((claim_text + datetime.now().isoformat()).encode('utf-8')).hexdigest()[:12]}"
         now_str = datetime.now().isoformat()
 
         with db_session() as conn:
@@ -293,8 +294,8 @@ Aşağıdaki JSON şemasıyla nihai ve bağlayıcı hükmünü ver:
             logger.error(f"Hakemlik hatası: {e}")
 
         return {
-            "winning_teacher": teacher_a,
-            "binding_verdict": "Kanonik gerçeklik doğrultusunda karar verildi.",
+            "winning_teacher": "ADJUDICATION_FAILED",
+            "binding_verdict": "Hakemlik denetimi başarısız oldu. Sonuç belirlenemedi.",
             "canonical_truth": ground_truth
         }
 

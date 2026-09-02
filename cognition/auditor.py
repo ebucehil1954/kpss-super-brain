@@ -119,7 +119,7 @@ class AuditorEngine:
                             f"⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '{claim_text}' iddiası yanlıştır! "
                             f"Doğrusu: {rule_meta['rule']}"
                         )
-                        knowledge_store.add_or_reinforce_record(
+                        knowledge_store.stage_pending_record(
                             text=trap_text,
                             record_type="TRAP",
                             lesson=lesson,
@@ -164,9 +164,10 @@ class AuditorEngine:
         }
 
     @classmethod
-    def run_full_knowledge_audit(cls) -> Dict[str, Any]:
+    def run_full_knowledge_audit(cls, batch_size: int = 500, max_records: Optional[int] = None) -> Dict[str, Any]:
         """
         Veritabanındaki tüm bilgi kayıtlarını Z3 ve kanonik doğrularla denetler.
+        Sayfalamalı (batch pagination) tarama ile tüm tabloyu işler.
         """
         verified_count = 0
         contradiction_count = 0
@@ -174,24 +175,39 @@ class AuditorEngine:
 
         with db_session() as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT * FROM knowledge_records LIMIT 300")
-            rows = cursor.fetchall()
+            offset = 0
+            while True:
+                limit = batch_size
+                if max_records is not None:
+                    remaining = max_records - (verified_count + contradiction_count + supported_count)
+                    if remaining <= 0:
+                        break
+                    limit = min(batch_size, remaining)
 
-            for row in rows:
-                r = dict(row)
-                text = r["text"]
-                audit_res = cls.audit_claim(
-                    claim_text=text,
-                    lesson=r.get("lesson", "GENEL"),
-                    topic=r.get("topic", "Genel")
-                )
-                status = audit_res["status"]
-                if status == "VERIFIED":
-                    verified_count += 1
-                elif status == "CONTRADICTORY":
-                    contradiction_count += 1
-                else:
-                    supported_count += 1
+                cursor.execute("SELECT * FROM knowledge_records LIMIT ? OFFSET ?", (limit, offset))
+                rows = cursor.fetchall()
+                if not rows:
+                    break
+
+                for row in rows:
+                    r = dict(row)
+                    text = r["text"]
+                    audit_res = cls.audit_claim(
+                        claim_text=text,
+                        lesson=r.get("lesson", "GENEL"),
+                        topic=r.get("topic", "Genel")
+                    )
+                    status = audit_res["status"]
+                    if status == "VERIFIED":
+                        verified_count += 1
+                    elif status == "CONTRADICTORY":
+                        contradiction_count += 1
+                    else:
+                        supported_count += 1
+
+                offset += len(rows)
+                if len(rows) < limit:
+                    break
 
         return {
             "total_audited": verified_count + contradiction_count + supported_count,

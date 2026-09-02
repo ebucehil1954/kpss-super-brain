@@ -255,13 +255,14 @@ class HungryEngine:
         news_items = research_data.get("sources", [])
         if news_items:
             for s in news_items:
-                knowledge_store.add_or_reinforce_record(
+                knowledge_store.stage_pending_record(
                     text=s.get("summary", ""),
                     record_type="FACT",
                     lesson=lesson,
                     topic=topic,
                     confidence=0.95,
-                    source={"type": "web_academic", "title": s.get("title", ""), "url": s.get("url", "")}
+                    source={"type": "web_academic", "title": s.get("title", ""), "url": s.get("url", "")},
+                    tags=["web_academic", "staged"]
                 )
                 self.stats["facts_stored"] += 1
 
@@ -278,7 +279,7 @@ class HungryEngine:
             except Exception as e:
                 print(f"⚠️ [UZMAN SENTEZ DÖNGÜSÜ HATASI]: {e}")
 
-    def evaluate_and_trigger(self) -> Dict[str, Any]:
+    async def evaluate_and_trigger(self) -> Dict[str, Any]:
         """
         Müfredat skoru < 0.85 olan konular için otonom OpenManus araştırma ajanını ve anti-halüsinasyon hattını tetikler.
         """
@@ -294,11 +295,11 @@ class HungryEngine:
         for topic_id, score in scores.items():
             if score < 0.85:
                 triggered_count += 1
-                # 1. OpenManus Ajanı Araştırır
-                research_result = openmanus_agent.run_research_cycle(topic_id, "")
+                # 1. OpenManus Ajanı Araştırır (senkron çağrıyı async thread'e taşı)
+                research_result = await asyncio.to_thread(openmanus_agent.run_research_cycle, topic_id, "")
                 
-                # 2. Anti-Hallucination Hattı Denetler
-                is_verified = fact_checker.validate(topic_id, research_result.get("text", ""))
+                # 2. Anti-Hallucination Hattı Denetler (senkron çağrıyı async thread'e taşı)
+                is_verified = await asyncio.to_thread(fact_checker.validate, topic_id, research_result.get("text", ""))
                 
                 # 3. Başarılıysa Knowledge Graph'e İşlenir ve Skor Yükseltilir
                 if is_verified.get("passed"):
@@ -321,7 +322,7 @@ class HungryEngine:
                 health = self_tester.evaluate_knowledge_health()
                 repaired = await self_tester.auto_repair_gaps()
                 # Otonom OpenManus & Anti-Hallucination tetikle
-                self.evaluate_and_trigger()
+                await self.evaluate_and_trigger()
                 # Bilinçli planı tazele
                 consciousness.deliberate_next_step()
                 print(f"📊 [MÜFREDAT DURUMU] Kapsam: %{health['curriculum_coverage_pct']} ({health['status']}) | Tamamlanan Konu: {health['fully_mastered_count']}/{health['total_official_topics']} | Kuyruğa Eklenen Video: +{repaired}")

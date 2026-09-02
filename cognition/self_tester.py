@@ -4,7 +4,6 @@ KPSS Super-Brain: Otonom Zeka Müfredat Sağlığı ve Konu Hakimiyet Analizi (C
 """
 from typing import Dict, Any, List
 from brain.knowledge_store import knowledge_store
-from brain.curriculum_matrix import curriculum_matrix
 from brain.database import db_session
 
 class SelfTester:
@@ -13,6 +12,7 @@ class SelfTester:
         """
         Resmi ÖSYM müfredatına göre gerçek konu hakimiyet durumunu hesaplar.
         """
+        from brain.curriculum_matrix import curriculum_matrix
         matrix_report = curriculum_matrix.get_curriculum_mastery_report()
         stats = knowledge_store.get_stats()
         

@@ -5,9 +5,15 @@ FTS5 tam metin aramalı, otomatik pekiştirmeli (reinforcement) ve kaynak zincir
 import json
 import uuid
 import hashlib
+import logging
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 from brain.database import db_session
+
+logger = logging.getLogger("knowledge_store")
+
+# Güçlendirme üst limiti: Aynı kayıt en fazla bu kadar kez pekiştirilebilir
+MAX_REINFORCEMENTS = 10
 
 class KnowledgeStore:
     @staticmethod
@@ -48,12 +54,52 @@ class KnowledgeStore:
             if row:
                 # Bilgi daha önce öğrenilmiş → Pekiştir (Reinforce)
                 existing_sources = json.loads(row["source_chain_json"])
+
+                # Kaynak ve Bağımsızlık Analizi
+                new_author = (new_source.get("speaker_or_author") or new_source.get("author") or new_source.get("speaker") or "").strip().lower()
+                new_source_id = (new_source.get("source_id") or new_source.get("video_id") or "").strip()
+
+                known_authors = {
+                    (s.get("speaker_or_author") or s.get("author") or s.get("speaker") or "").strip().lower()
+                    for s in existing_sources if isinstance(s, dict)
+                }
+                known_sources = {
+                    (s.get("source_id") or s.get("video_id") or "").strip()
+                    for s in existing_sources if isinstance(s, dict)
+                }
+
+                # [PHASE 19: VIDEO_ID DEDUP] Aynı video_id'den gelen tekrar güçlendirme engeli
+                known_video_ids = {
+                    (s.get("video_id") or "").strip()
+                    for s in existing_sources if isinstance(s, dict) and (s.get("video_id") or "").strip()
+                }
+                new_video_id = (new_source.get("video_id") or "").strip()
+
+                # Çelişki kontrolü
+                is_conflicting = any(tag.lower() in ("conflict", "disputed", "contradictory", "contradiction") for tag in tags) or bool(new_source.get("is_conflicting", False))
+
                 existing_sources.append(new_source)
                 existing_related = list(set(json.loads(row["related_records_json"]) + related_records))
                 existing_tags = list(set(json.loads(row["tags_json"]) + tags))
                 new_reinforced_count = row["times_reinforced"] + 1
-                # Güven skoru her pekiştirmede artar (asemptotik olarak 0.999'a yaklaşır)
-                new_confidence = min(0.999, row["confidence"] + (1.0 - row["confidence"]) * 0.2)
+
+                # [PHASE 3 + PHASE 19: REPETITION != TRUTH]
+                current_conf = row["confidence"]
+                if new_reinforced_count > MAX_REINFORCEMENTS:
+                    # Üst limite ulaşıldı — güven skoru artık artamaz
+                    new_confidence = current_conf
+                elif new_video_id and new_video_id in known_video_ids:
+                    # Aynı videodan gelen tekrar güçlendirme — güven skoru ASLA artmaz
+                    new_confidence = current_conf
+                elif is_conflicting:
+                    # Çelişen kanıt güven skorunu derhal düşürür veya bloke eder
+                    new_confidence = max(0.10, min(current_conf, 0.40))
+                elif new_author and new_author not in known_authors and new_author not in ("genel", "sistem", ""):
+                    # Gerçekten BAĞIMSIZ yeni bir öğretmen/resmi kaynak teyit etti -> Güven skoru artabilir
+                    new_confidence = min(0.999, current_conf + (1.0 - current_conf) * 0.15)
+                else:
+                    # Aynı kaynaktan gelen tekrar veya anonim tekrar güven skorunu ASLA artıramaz
+                    new_confidence = current_conf
 
                 cursor.execute("""
                 UPDATE knowledge_records
@@ -133,11 +179,70 @@ class KnowledgeStore:
                 }
 
     @classmethod
+    def stage_pending_record(
+        cls,
+        text: str,
+        record_type: str,
+        lesson: str,
+        topic: str,
+        subtopic: str = "",
+        confidence: float = 0.90,
+        source: Optional[Dict[str, Any]] = None,
+        tags: Optional[List[str]] = None
+    ) -> Dict[str, Any]:
+        """
+        [KNOWLEDGE FIREWALL ENFORCED]
+        Doğrulanmamış kayıtları staging alanına (atomic_claims tablosu) PENDING
+        statüsüyle yazar. Kanonik knowledge_records ambarına ASLA doğrudan yazmaz.
+        Savcı Denetçi (ProsecutorAuditor) doğruladıktan sonra commit_verified_claim()
+        ile kanonik ambara terfi ettirilir.
+        """
+        text = text.strip()
+        if not text:
+            return {"status": "skipped", "reason": "empty_text"}
+
+        now_str = datetime.now().isoformat()
+        tags = tags or []
+        source_meta = source or {"type": "direct_ingest", "date": now_str}
+
+        claim_id = f"staged_{hashlib.sha256(f'{lesson}:{topic}:{text}'.encode('utf-8')).hexdigest()[:12]}"
+        provenance_hash = hashlib.sha256(f"{text}:{json.dumps(source_meta, sort_keys=True)}".encode('utf-8')).hexdigest()[:16]
+        evidence_json = json.dumps([source_meta], ensure_ascii=False)
+        tags_json = json.dumps(tags, ensure_ascii=False)
+
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("""
+            INSERT OR REPLACE INTO atomic_claims (
+                claim_id, text, lesson, topic, subtopic, claim_type,
+                subject, predicate, object_val, evidence_refs_json,
+                confidence, temporal_status, verification_status,
+                tags_json, provenance_hash, created_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """, (
+                claim_id, text, lesson.upper(), topic,
+                subtopic, record_type.upper(), None,
+                None, None, evidence_json,
+                confidence, "ACTIVE",
+                "PENDING", tags_json,
+                provenance_hash, now_str
+            ))
+
+        logger.info(f"📋 [STAGING] {record_type} kaydı PENDING olarak staging'e yazıldı: {claim_id}")
+        return {
+            "claim_id": claim_id,
+            "status": "staged_pending",
+            "record_type": record_type,
+            "verification_status": "PENDING"
+        }
+
+    @classmethod
     def search(
         cls,
         query: str,
         lesson: Optional[str] = None,
         record_type: Optional[str] = None,
+        min_confidence: float = 0.85,
         limit: int = 20
     ) -> List[Dict[str, Any]]:
         """FTS5 ve filtrelere göre bilgi arar."""
@@ -165,8 +270,9 @@ class KnowledgeStore:
                 sql += " AND kr.record_type = ?"
                 params.append(record_type.upper())
 
-            # Truth Gate (P1-10): Doğrulanmamış düşük güvenli kayıtları filtrele
-            sql += " AND kr.confidence >= 0.85"
+            if min_confidence > 0.0:
+                sql += " AND kr.confidence >= ?"
+                params.append(min_confidence)
 
             sql += " ORDER BY kr.confidence DESC, kr.times_reinforced DESC LIMIT ?"
             params.append(limit)
@@ -175,6 +281,8 @@ class KnowledgeStore:
             rows = cursor.fetchall()
             
             return [cls._row_to_dict(r) for r in rows]
+
+    search_knowledge = search
 
     @classmethod
     def get_records_by_topic(cls, lesson: str, topic: str, limit: int = 50) -> List[Dict[str, Any]]:
@@ -236,6 +344,96 @@ class KnowledgeStore:
         }
 
     @classmethod
+    def commit_verified_claim(
+        cls,
+        claim: Any,
+        verification_status: Optional[str] = None,
+        audit_source: str = "OFFICIAL_MEVZUAT",
+        confidence: float = 0.95
+    ) -> Optional[Dict[str, Any]]:
+        """
+        [PHASE 2 KNOWLEDGE FIREWALL]
+        Yalnızca doğrulama politikasından geçmiş (VERIFIED veya SUPPORTED)
+        iddiaları kanonik bilgi ambarına (Golden Knowledge) kaydeder.
+        PENDING, UNVERIFIED, CANDIDATE, DISPUTED, REJECTED veya UNKNOWN iddialar
+        KESİNLİKLE kanonik depoya kabul edilmez ve None döner.
+        Ayrıca her kabul edilen iddia kesin bir provenance (kaynak/kanıt) zinciri taşımalıdır.
+        """
+        # 1. Verification Status Kontrolü
+        v_status = None
+        if hasattr(claim, "verification_status"):
+            st = getattr(claim, "verification_status")
+            v_status = st.value if hasattr(st, "value") else str(st)
+        elif isinstance(claim, dict) and "verification_status" in claim:
+            st = claim["verification_status"]
+            v_status = st.value if hasattr(st, "value") else str(st)
+        elif verification_status:
+            v_status = str(verification_status)
+
+        if not v_status:
+            return None
+
+        v_status_norm = v_status.upper().strip()
+        ALLOWED_COMMIT_STATUSES = {"VERIFIED", "SUPPORTED"}
+        if v_status_norm not in ALLOWED_COMMIT_STATUSES:
+            # FIREWALL BLOKLADI: PENDING, REJECTED, DISPUTED, UNVERIFIED vb. doğrudan yazılamaz!
+            return None
+
+        # 2. Provenance ve Kanıt Kontrolü
+        text = getattr(claim, "text", None) or (claim.get("text") if isinstance(claim, dict) else str(claim))
+        if not text or not text.strip():
+            return None
+
+        from brain.provenance import provenance_validator
+        is_prov_valid, prov_reason = provenance_validator.validate_provenance_chain(claim)
+        if not is_prov_valid:
+            # Kopuk kanıt zincirine sahip iddialar asla kanonik ambar kaydına terfi edemez!
+            return None
+
+        provenance_hash = getattr(claim, "provenance_hash", None)
+        evidence_refs = getattr(claim, "evidence_refs", [])
+
+        lesson = getattr(claim, "lesson", None) or (claim.get("lesson", "GENEL") if isinstance(claim, dict) else "GENEL")
+        topic = getattr(claim, "topic", None) or (claim.get("topic", "Genel") if isinstance(claim, dict) else "Genel")
+        subtopic = getattr(claim, "subtopic", "") or (claim.get("subtopic", "") if isinstance(claim, dict) else "")
+        tags = getattr(claim, "tags", []) or (claim.get("tags", []) if isinstance(claim, dict) else [])
+
+        source_meta = {
+            "type": "verified_claim",
+            "audit_source": audit_source,
+            "verification_status": v_status_norm,
+            "provenance_hash": provenance_hash,
+            "evidence_count": len(evidence_refs),
+            "committed_at": datetime.now().isoformat()
+        }
+
+        claim_type_val = getattr(claim, "claim_type", "FACT")
+        if hasattr(claim_type_val, "value"):
+            claim_type_val = claim_type_val.value
+
+        # [PHASE 17 SEPARATE TEACHER MODEL SIGNALS]
+        # Mnemonik, pedagojik şifre ve soru tuzakları asla objektif FACT olarak saklanamaz!
+        if claim_type_val in ("MNEMONIC", "PEDAGOGY", "ACRONYM") or "mnemonic" in tags:
+            stored_record_type = "MNEMONIC"
+        elif claim_type_val in ("TRAP", "QUESTION_STRATEGY") or "trap" in tags:
+            stored_record_type = "TRAP"
+        elif claim_type_val in ("TEACHER_INSIGHT", "RHETORICAL_TONE"):
+            stored_record_type = "TEACHER_INSIGHT"
+        else:
+            stored_record_type = "FACT"
+
+        return cls.add_record(
+            text=text.strip(),
+            record_type=stored_record_type,
+            lesson=lesson,
+            topic=topic,
+            subtopic=subtopic,
+            confidence=confidence,
+            source_chain=[source_meta],
+            tags=list(set(tags + ["verified_claim", v_status_norm.lower(), stored_record_type.lower()]))
+        )
+
+    @classmethod
     def add_record(cls, text: str, record_type: str, lesson: str, topic: str, subtopic: str = "", confidence: float = 0.95, source_chain: Optional[List[Dict[str, Any]]] = None, tags: Optional[List[str]] = None, related_records: Optional[List[str]] = None):
         """add_or_reinforce_record için takma ad (alias)."""
         source = source_chain[0] if source_chain else None
@@ -252,8 +450,107 @@ class KnowledgeStore:
         )
 
     @classmethod
-    def search_knowledge(cls, query: str, lesson: Optional[str] = None, limit: int = 10) -> List[Dict[str, Any]]:
-        """search için takma ad (alias)."""
-        return cls.search(query=query, lesson=lesson, limit=limit)
+    def delete_record(cls, record_id: str) -> bool:
+        """
+        [PHASE 12 CANONICAL TRUTH SOT]
+        Kanonik veritabanından bir kaydı siler ve tüm türetilmiş depolardan (FTS, Vektör, Graf)
+        aynı anda temizlenmesini garanti eder.
+        Türetilmiş depolar silinmiş kanonik bilginin arkasından asla yaşayamaz!
+        """
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM knowledge_records WHERE record_id = ?", (record_id,))
+            cursor.execute("DELETE FROM knowledge_fts WHERE record_id = ?", (record_id,))
+            affected = cursor.rowcount
+
+        # 1. Vektör belleğinden temizle
+        try:
+            from brain.vector_memory import VectorMemoryStore
+            vm = VectorMemoryStore()
+            vm.delete_memory(record_id)
+        except Exception:
+            pass
+
+        # 2. Bilgi grafiğinden temizle
+        try:
+            from brain.knowledge_graph import KPSSKnowledgeGraph
+            kg = KPSSKnowledgeGraph()
+            if record_id in kg.nodes:
+                del kg.nodes[record_id]
+                kg.edges = [e for e in kg.edges if e["source"] != record_id and e["target"] != record_id]
+                kg.save()
+        except Exception:
+            pass
+
+        return affected > 0
+
+    @classmethod
+    def rebuild_derived_stores(cls) -> Dict[str, int]:
+        """
+        [PHASE 12 CANONICAL TRUTH SOT]
+        Tüm türetilmiş depoları (FTS, Vektör, Graf) sıfırdan kanonik veritabanını (Single Source of Truth)
+        okuyarak deterministik olarak yeniden inşa eder.
+        """
+        with db_session() as conn:
+            cursor = conn.cursor()
+            cursor.execute("SELECT * FROM knowledge_records")
+            canonical_rows = cursor.fetchall()
+
+            # 1. FTS sıfırla ve yeniden doldur
+            cursor.execute("DELETE FROM knowledge_fts")
+            fts_count = 0
+            for row in canonical_rows:
+                cursor.execute("""
+                INSERT INTO knowledge_fts (record_id, text, lesson, topic, subtopic)
+                VALUES (?, ?, ?, ?, ?)
+                """, (row["record_id"], row["text"], row["lesson"], row["topic"], row["subtopic"]))
+                fts_count += 1
+
+        # 2. Vektör deposunu yeniden inşa et
+        vector_count = 0
+        try:
+            from brain.vector_memory import VectorMemoryStore
+            vm = VectorMemoryStore()
+            vm.clear_all()
+            for r in canonical_rows:
+                vm.add_memory(
+                    doc_id=r["record_id"],
+                    text=r["text"],
+                    lesson=r["lesson"],
+                    topic=r["topic"],
+                    source="canonical_truth",
+                    confidence=r["confidence"]
+                )
+                vector_count += 1
+        except Exception:
+            pass
+
+        # 3. Bilgi grafiğini yeniden inşa et
+        graph_count = 0
+        try:
+            from brain.knowledge_graph import KPSSKnowledgeGraph
+            from cognition.ontology import deep_ontology
+            kg = KPSSKnowledgeGraph()
+            kg.nodes = {}
+            kg.edges = []
+            for r in canonical_rows:
+                deep_ontology.auto_expand_from_knowledge(
+                    text=r["text"],
+                    lesson=r["lesson"],
+                    topic=r["topic"],
+                    record_id=r["record_id"],
+                    record_type=r["record_type"]
+                )
+                graph_count += 1
+            kg.save()
+        except Exception:
+            pass
+
+        return {
+            "canonical_records": len(canonical_rows),
+            "fts_indexed": fts_count,
+            "vector_indexed": vector_count,
+            "graph_nodes": graph_count
+        }
 
 knowledge_store = KnowledgeStore()

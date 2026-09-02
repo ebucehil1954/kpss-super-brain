@@ -1,822 +1,3463 @@
 [
   {
-    "chain_id": "rc_3dab985e",
+    "chain_id": "rc_a2131686",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "VATANDASLIK",
-    "topic": "1982 Anayasası Yasama",
-    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Sanayi, Ulaşım, Ticaret, Turizm ve Bölgesel Kalkınma Projeleri",
+    "description": "Sınır uzunluklarının belirlenmesi",
     "steps": [
       {
         "step": 1,
-        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
-      },
-      {
-        "step": 2,
-        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+        "action": "Türkiye'nin sınır uzunluklarını belirleme"
       }
     ],
-    "learned_from": [],
-    "teacher_source": "Emrah Vahap Özkaraca",
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "I7s3iYnYYoE",
+        "video_title": "Milli Parklar - Serbest bölgeler - Turizm koridorları - Sınırlar | KPSS - AGS COĞRAFYA KAMPI 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Sanayi, Ulaşım, Ticaret, Turizm ve Bölgesel Kalkınma Projeleri",
+        "date": "2026-08-27T23:11:42.995085"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-25T13:40:05.197372",
-    "updated_at": "2026-08-25T13:40:05.197372"
+    "created_at": "2026-08-27T23:13:17.137696",
+    "updated_at": "2026-08-27T23:13:17.137696"
   },
   {
-    "chain_id": "rc_6127ff4b",
+    "chain_id": "rc_0fbbc1df",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "VATANDASLIK",
-    "topic": "1982 Anayasası Yasama",
-    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yağış mevsimlerini belirleme mantığı",
     "steps": [
       {
         "step": 1,
-        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+        "action": "Türkiye haritasını çizerek yağış mevsimlerini belirle."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ADiN-fW9amA",
+        "video_title": "KPSS - AGS COĞRAFYA 2026 | Nem ve Yağış konu anlatımı ve soru çözümü | Kodlamalarla ve Haritalarla",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:48:09.542306"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:49:08.008471",
+    "updated_at": "2026-08-27T22:49:08.008471"
+  },
+  {
+    "chain_id": "rc_3e85c82f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yağış oranlarını kıyaslama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Karadeniz bölgesinin yıllık yağış oranını Erzurum'un kış yağış oranıyla karşılaştır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ADiN-fW9amA",
+        "video_title": "KPSS - AGS COĞRAFYA 2026 | Nem ve Yağış konu anlatımı ve soru çözümü | Kodlamalarla ve Haritalarla",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:48:09.542306"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:49:00.930257",
+    "updated_at": "2026-08-27T22:49:00.930257"
+  },
+  {
+    "chain_id": "rc_9874fc50",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin iklimi ve yağış dağılımı arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin mutlak konumu ve ekvatora yakınlık sebebiyle, kıyı kesiminde en fazla yağış görülür."
       },
       {
         "step": 2,
-        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+        "action": "İç bölgelerde yağış miktarı azalır ve bu durum Türkiye'nin ortalama yıllık yağış miktarını belirler."
       }
     ],
-    "learned_from": [],
-    "teacher_source": "Emrah Vahap Özkaraca",
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ADiN-fW9amA",
+        "video_title": "KPSS - AGS COĞRAFYA 2026 | Nem ve Yağış konu anlatımı ve soru çözümü | Kodlamalarla ve Haritalarla",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:48:09.542306"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:57:08.093110",
-    "updated_at": "2026-08-24T23:57:08.093110"
+    "created_at": "2026-08-27T22:48:54.055144",
+    "updated_at": "2026-08-27T22:48:54.055144"
   },
   {
-    "chain_id": "rc_e7c6decb",
+    "chain_id": "rc_8a70d932",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yağış şekillerini anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Kon veksiyonel yağışlar, hava sıcaklığının yükselişiyle oluşur."
+      },
+      {
+        "step": 2,
+        "action": "Yükselim yağışlar, ısınan hava yükseldikçe oluşur."
+      },
+      {
+        "step": 3,
+        "action": "Cephe yağışları, sıcak ve soğuk hava kümelerinin karşılaşmasıyla oluşur."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ADiN-fW9amA",
+        "video_title": "KPSS - AGS COĞRAFYA 2026 | Nem ve Yağış konu anlatımı ve soru çözümü | Kodlamalarla ve Haritalarla",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:48:09.542306"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:48:43.713353",
+    "updated_at": "2026-08-27T22:48:43.713353"
+  },
+  {
+    "chain_id": "rc_624bdee4",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Nem ve sıcaklık arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Nemli yerler genellikle daha sıcak olabilir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ADiN-fW9amA",
+        "video_title": "KPSS - AGS COĞRAFYA 2026 | Nem ve Yağış konu anlatımı ve soru çözümü | Kodlamalarla ve Haritalarla",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:48:09.542306"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:48:33.906118",
+    "updated_at": "2026-08-27T22:48:33.906118"
+  },
+  {
+    "chain_id": "rc_cc097ef9",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin iklimi ve bitki örtüsü arasındaki ilişkiyi anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklimi ve bitki örtüsü arasındaki ilişkiyi anlamak için, her iklimde yetişen bitkiler ve hayvanlar hakkında bilgi edinmek."
+      },
+      {
+        "step": 2,
+        "action": "Örneğin, Karadeniz ikliminde zeytin ve maymum gibi örnekleri belirlemek."
+      },
+      {
+        "step": 3,
+        "action": "Bu örnekleri kullanarak, belirli iklim koşullarında hangi bitkiler ve hayvanların yetişebileceği konusunda genel bir anlayış geliştirmek."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:48:27.821401",
+    "updated_at": "2026-08-27T22:48:27.821401"
+  },
+  {
+    "chain_id": "rc_3480ea38",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
     "description": "Soru çözme ve eleme mantığı",
     "steps": [
       {
         "step": 1,
-        "action": "Belirli bir olay veya yıl dönemi ile ilgili soruları ilk olarak dikkate al"
-      },
-      {
-        "step": 2,
-        "action": "Çok sık kullanılan kelimeleri ve unvanları doğru şekilde anlama"
+        "action": "Türkiye'nin en çok yıllık yağış alan bölgelerini belirleme"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:48:08.191810",
-    "updated_at": "2026-08-24T23:48:08.191810"
-  },
-  {
-    "chain_id": "rc_363a6c21",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Savaş taktiklerinin analizi",
-    "steps": [
       {
-        "step": 1,
-        "action": "Savaşın neden olduğu doğal koşullar ve taktiklerin etkilerini belirleme"
-      },
-      {
-        "step": 2,
-        "action": "Çin'in ve Hunların stratejiler arasındaki farkları inceleme"
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "pKWnGQsTEx0",
+        "video_title": "🏆 KAMPPLUS 9. GÜN | Türkiye İklimi | Mehmet Eğit  #tyt2024  #tytcografya",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:42:08.184554"
       }
     ],
-    "learned_from": [
-      "yt_l51qG1kx9cY"
-    ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Mehmet Eğit",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:48:00.259772",
-    "updated_at": "2026-08-24T23:48:00.259772"
+    "created_at": "2026-08-27T22:42:59.832928",
+    "updated_at": "2026-08-27T22:42:59.832928"
   },
   {
-    "chain_id": "rc_9c0f89ab",
+    "chain_id": "rc_83256328",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgar yönlerine göre sıcaklık ve nem durumunu belirleme",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun hangi sanat dalına ait olduğunu belirle"
+        "action": "Rüzgarın geldiği yöne bakın"
       },
       {
         "step": 2,
-        "action": "Belirlenen dalda önemli isimleri düşün"
-      }
-    ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:47:48.128632",
-    "updated_at": "2026-08-24T23:47:48.128632"
-  },
-  {
-    "chain_id": "rc_7e501904",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Sorunun anahtar bilgilerini belirle"
-      },
-      {
-        "step": 2,
-        "action": "Kesin bilgiye dayalı cevapları seç"
-      }
-    ],
-    "learned_from": [
-      "yt_l51qG1kx9cY"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:47:36.108770",
-    "updated_at": "2026-08-24T23:47:36.108770"
-  },
-  {
-    "chain_id": "rc_805e0f10",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
-      },
-      {
-        "step": 2,
-        "action": "Belirlenen kelimelere göre verilen bilgileri analiz et"
-      }
-    ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:47:22.399614",
-    "updated_at": "2026-08-24T23:47:22.399614"
-  },
-  {
-    "chain_id": "rc_5d360173",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
-      },
-      {
-        "step": 2,
-        "action": "Verilen bilgileri kullanarak seçenekleri inceleyin"
-      }
-    ],
-    "learned_from": [
-      "yt_l51qG1kx9cY"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:47:12.069124",
-    "updated_at": "2026-08-24T23:47:12.069124"
-  },
-  {
-    "chain_id": "rc_41a43433",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
-      },
-      {
-        "step": 2,
-        "action": "Belirlenen kelimelere göre verilen bilgileri kontrol et"
-      }
-    ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:47:02.095281",
-    "updated_at": "2026-08-24T23:47:02.095281"
-  },
-  {
-    "chain_id": "rc_42420009",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Türk Kelimesi'nin Anlamının Çeşitli Kaynaklarda Karşılaştırılması",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Çin kaynaklarında Türk kelimesinin anlamlarını belirle."
-      },
-      {
-        "step": 2,
-        "action": "Kaşkarlı Mahmut ve İran kaynaklarındaki anlamları karşılaştır."
+        "action": "Kuzeyden gelen rüzgarlar soğuk ve nemli, güneyden gelen rüzgarlar sıcak ve kuraktır"
       },
       {
         "step": 3,
-        "action": "Kültürel bağlamda farklı kaynaklardan gelen bilgileri birleştirerek genel anlam oluştur."
+        "action": "Rüzgarın sıcaklık ve nem durumunu belirleyin"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "vmTA48M5UUA",
+        "video_title": "24-  2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT - TÜRKİYE&#39; DE BASINÇ VE RÜZGÂRLAR",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:30.120256"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:50.590513",
+    "updated_at": "2026-08-27T22:42:50.590513"
+  },
+  {
+    "chain_id": "rc_c43a335f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık ve Dağların Rolü",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Dağların güneği yamacı ve kuzey yamacı arasındaki sıcaklık farkını anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Eimle bakır (dağların etkisi) ve sıcaklık üzerindeki etkiyi anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:41.192502",
+    "updated_at": "2026-08-27T22:42:41.192502"
+  },
+  {
+    "chain_id": "rc_bbf3d105",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin iklim çeşitliliği nedeniyle bitki örtüsü çeşitliliği",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklim çeşitliliği, bitki örtüsü çeşitliliğine neden olur."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "pKWnGQsTEx0",
+        "video_title": "🏆 KAMPPLUS 9. GÜN | Türkiye İklimi | Mehmet Eğit  #tyt2024  #tytcografya",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:42:08.184554"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:33.776815",
+    "updated_at": "2026-08-27T22:42:33.776815"
+  },
+  {
+    "chain_id": "rc_c9b0bb58",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgar yönü ve coğrafi özellikler arasındaki ilişkiyi anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Rüzgar haritasını inceleyerek en uzun çizginin yönünü belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen yönde en çok esen rüzgarı belirleme"
+      },
+      {
+        "step": 3,
+        "action": "Belirlenen rüzgarın etkileşimiyle coğrafi özellikler arasındaki ilişkiyi analiz etme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "vmTA48M5UUA",
+        "video_title": "24-  2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT - TÜRKİYE&#39; DE BASINÇ VE RÜZGÂRLAR",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:30.120256"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:25.700926",
+    "updated_at": "2026-08-27T22:42:25.700926"
+  },
+  {
+    "chain_id": "rc_339569dc",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık farkı nedeniyle hava durumu analizi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Güneydoğu'da kuzeyden gelen soğukluklara engel olan dağlar nedeniyle yaz aylarında daha sıcak hava var."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:17.339580",
+    "updated_at": "2026-08-27T22:42:17.339580"
+  },
+  {
+    "chain_id": "rc_ba0c427f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yağışlı bölgelerin belirlenmesi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Kış aylarındaki sıcaklığı 10 derece veya daha düşük olan bölgelerde yağmur yağar, kar yağmaz."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:42:08.361082",
+    "updated_at": "2026-08-27T22:42:08.361082"
+  },
+  {
+    "chain_id": "rc_87998cc5",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yağış Oluşumunun Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Hava yükselir"
+      },
+      {
+        "step": 2,
+        "action": "Hava soğur"
+      },
+      {
+        "step": 3,
+        "action": "Nem taşıyamaz olur"
       },
       {
         "step": 4,
-        "action": "Türk kelimesinin zamanla değişen anlamlarını ve bu değişimlerin nedenleri analiz et."
+        "action": "Yağış oluşur"
       }
     ],
     "learned_from": [
-      "yt_l51qG1kx9cY"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:46:50.979647",
-    "updated_at": "2026-08-24T23:46:50.979647"
+    "created_at": "2026-08-27T22:42:00.933483",
+    "updated_at": "2026-08-27T22:42:00.933483"
   },
   {
-    "chain_id": "rc_7c638a21",
+    "chain_id": "rc_2db7d1b7",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgarların Boğazlarda Etkileri",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun temelini merkantilizm ve altın alımına dayalı ekonomi olarak belirle"
-      },
-      {
-        "step": 2,
-        "action": "ÖSYM'nin sıklıkla soru aldığı etki faktörlerine dikkat ederek yanıt oluştur"
+        "action": "Rüzgarların boğazlarda sıkışması ve sıkışmanın etkilerini belirleme"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:46:36.245465",
-    "updated_at": "2026-08-24T23:46:36.245465"
-  },
-  {
-    "chain_id": "rc_f2054d94",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Ramazan Yetgin hocasının soru çözme ve eleme mantığı",
-    "steps": [
       {
-        "step": 1,
-        "action": "ÖSYM'nin genel sınav türlerini ve konularını anlamak"
-      },
-      {
-        "step": 2,
-        "action": "Kesin bilgiye dayalı olarak yanıltıcı seçenekleri eleme"
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
       }
     ],
-    "learned_from": [
-      "yt_l51qG1kx9cY"
-    ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:46:17.127542",
-    "updated_at": "2026-08-24T23:46:17.127542"
+    "created_at": "2026-08-27T22:41:53.790566",
+    "updated_at": "2026-08-27T22:41:53.790566"
   },
   {
-    "chain_id": "rc_9d41bb26",
+    "chain_id": "rc_b4c66617",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Soru çözme ve eleme mantığı",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
+        "action": "İklim etkilerini belirleme"
       },
       {
         "step": 2,
-        "action": "Belirlenen kelimelere göre verilen bilgileri kontrol et"
-      }
-    ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:45:56.855267",
-    "updated_at": "2026-08-24T23:45:56.855267"
-  },
-  {
-    "chain_id": "rc_4648256c",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "1)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Sorunun anahtar detaylarını belirle"
-      },
-      {
-        "step": 2,
-        "action": "Belirlenen detaylarla ilgili bilgiyi hatırlama"
+        "action": "Etkili olmayan faktörleri belirleme"
       },
       {
         "step": 3,
-        "action": "Kronolojik ve neden sonuç ilişkilerini kullanarak çözümü bul"
+        "action": "Doğru seçenekleri belirleme"
       }
     ],
     "learned_from": [
-      "yt_l51qG1kx9cY"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "sxZMIOPIRtw",
+        "video_title": "19 - İklim ve Bitki Örtüsü 1 - Hakan BİLEYEN",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:41:26.590441"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Hakan Bileyen",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:45:39.907740",
-    "updated_at": "2026-08-24T23:45:39.907740"
+    "created_at": "2026-08-27T22:41:46.683771",
+    "updated_at": "2026-08-27T22:41:46.683771"
   },
   {
-    "chain_id": "rc_a33f52c1",
+    "chain_id": "rc_566dea24",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık farkı ve basıncın etkileşimi",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun ana hatlarını belirle"
-      },
-      {
-        "step": 2,
-        "action": "Bilinen bilgileri kullanarak yanıt oluştur"
+        "action": "Sıcaklık farkı oluşturur."
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "xh_tzcgJfzg",
+        "video_title": "3) 2026 KPSS - AGS ENGİN ERAYDIN COĞRAFYA HIZLI TEKRAR &amp; SORU ÇÖZÜMÜ TÜRKİYE İKLİMİ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:39:31.769599"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:45:26.154093",
-    "updated_at": "2026-08-24T23:45:26.154093"
+    "created_at": "2026-08-27T22:39:38.661437",
+    "updated_at": "2026-08-27T22:39:38.661437"
   },
   {
-    "chain_id": "rc_e94bcb30",
+    "chain_id": "rc_37bf8f6f",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Fön rüzgarının etkilerini analiz etme",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun ana hatlarını belirle"
+        "action": "Fön rüzgarının geçişini ve iklim değişikliklerini belirleme"
       },
       {
         "step": 2,
-        "action": "Verilen bilgileri kullanarak seçenekleri sınıflandır"
+        "action": "Bu değişikliklerin doğal çevreye ve insan yaşamına olan etkilerini değerlendirme"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "urvMGyYnYOo",
+        "video_title": "18) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 2  (BASINÇ ve RÜZGAR)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:30:09.628398"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:45:11.622349",
-    "updated_at": "2026-08-24T23:45:11.622349"
+    "created_at": "2026-08-27T22:34:40.438365",
+    "updated_at": "2026-08-27T22:34:40.438365"
   },
   {
-    "chain_id": "rc_e49de282",
+    "chain_id": "rc_8d9ff4ad",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık ısın bir ikim kavramını anlamak",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun anahtar kelimelerine odaklan"
-      },
-      {
-        "step": 2,
-        "action": "Verilen bilgileri kullanarak seçenekleri ele"
+        "action": "Güneşin en büyük açıyla geldiğinde sıcaklık en yüksek olmayabilir."
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:44:59.374027",
-    "updated_at": "2026-08-24T23:44:59.374027"
-  },
-  {
-    "chain_id": "rc_1f0091f7",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Osmanlı'nın İlk Deniz Gücü",
-    "steps": [
       {
-        "step": 1,
-        "action": "Karesoğulları'nın Osmanlı Devleti tarafından son verilmesini belirleme"
-      },
-      {
-        "step": 2,
-        "action": "Bu olayın Osmanlı'nın ilk deniz gücüne erişimi anlamına geldiğini anlama"
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "7awppRXBBZ4",
+        "video_title": "17) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 1  (SICAKLIK)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:33:49.088848"
       }
     ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:44:51.023240",
-    "updated_at": "2026-08-24T23:44:51.023240"
+    "created_at": "2026-08-27T22:34:32.609233",
+    "updated_at": "2026-08-27T22:34:32.609233"
   },
   {
-    "chain_id": "rc_352bdf1b",
+    "chain_id": "rc_0f2c857e",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgarların isimleri ve etkileri arasındaki ilişkiyi anlamak",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun temel bilgilerini belirle"
+        "action": "Rüzgarın ismini ve yönünü belirle"
       },
       {
         "step": 2,
-        "action": "Egitim sisteminin farklı yönlerini incele"
+        "action": "Rüzgarın getirdiği hava türünü belirle"
       },
       {
         "step": 3,
-        "action": "ÖSYM'nin sorması muhtemel konuları belirle"
+        "action": "Rüzgarın etkilerini belirle"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "urvMGyYnYOo",
+        "video_title": "18) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 2  (BASINÇ ve RÜZGAR)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:30:09.628398"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:44:38.964697",
-    "updated_at": "2026-08-24T23:44:38.964697"
+    "created_at": "2026-08-27T22:34:25.699055",
+    "updated_at": "2026-08-27T22:34:25.699055"
   },
   {
-    "chain_id": "rc_2fff5bc7",
+    "chain_id": "rc_b351333e",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Seyfiye ve Ilmiye Gruplarının Tanımlanması",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık ve Nemlilik etkisi arasındaki ilişki",
     "steps": [
       {
         "step": 1,
-        "action": "Osmanlı yöneticilik sınıflarının üç kısma ayrılmasıyla başlayın."
+        "action": "Kıyı bölgelerinde nemlilik etkisi yüksek sıcaklıkları azaltabilir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "7awppRXBBZ4",
+        "video_title": "17) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 1  (SICAKLIK)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:33:49.088848"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:34:16.565167",
+    "updated_at": "2026-08-27T22:34:16.565167"
+  },
+  {
+    "chain_id": "rc_01d6bec3",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Eleme mantığı ile doğru cevabı bulma",
+    "steps": [
+      {
+        "step": 1,
+        "action": "İki seçenekten biri doğru olabilir"
       },
       {
         "step": 2,
-        "action": "Seyfiye grubunun kılıç tutan ve yönetici olacak kişilere verilen isim olduğunu belirleyin."
+        "action": "Doğru seçenek, az oruntu ve sıcaklık artıran bir basınç sistemi ile ilgilidir"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "urvMGyYnYOo",
+        "video_title": "18) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 2  (BASINÇ ve RÜZGAR)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:30:09.628398"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:34:10.012860",
+    "updated_at": "2026-08-27T22:34:10.012860"
+  },
+  {
+    "chain_id": "rc_8b9341fc",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık farkı ve rüzgârın oluşumu arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sıcaklık farkı basınç farkına, basınç farkı rüzgâra yol açar"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "7awppRXBBZ4",
+        "video_title": "17) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE İKLİMİ - 1  (SICAKLIK)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:33:49.088848"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:34:03.574109",
+    "updated_at": "2026-08-27T22:34:03.574109"
+  },
+  {
+    "chain_id": "rc_b440d02a",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Mikro iklimin meyve yetiştiriciliğine etkisi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklim koşullarını analiz etmek"
+      },
+      {
+        "step": 2,
+        "action": "Mikro iklimin meyve yetiştiriciliğine etkisini belirlemek"
       },
       {
         "step": 3,
-        "action": "İlmiye grubunun din sınıfı, hukuk ve eğitim sayıyla uğraşan kişilere verildiğini anlayın."
+        "action": "Örnek meyveleri ve yetiştirme koşullarını belirlemek"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "f_mTt7V38nQ",
+        "video_title": "8) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (Basınç ve Rüzgarlar) - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:27:01.778473"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:55.237148",
+    "updated_at": "2026-08-27T22:27:55.237148"
+  },
+  {
+    "chain_id": "rc_f6916583",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgarın şehirlerdeki etkilerini analiz etme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Rüzgarın yönünü belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Rüzgarın şehirdeki etkilerini belirleme"
+      },
+      {
+        "step": 3,
+        "action": "Rüzgarın etkilerini analiz etme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "f_mTt7V38nQ",
+        "video_title": "8) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (Basınç ve Rüzgarlar) - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:27:01.778473"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:46.594660",
+    "updated_at": "2026-08-27T22:27:46.594660"
+  },
+  {
+    "chain_id": "rc_4fcf6894",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin bitki örtüsü ve iklim arasındaki ilişkiyi anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklim koşullarını analiz etmek"
+      },
+      {
+        "step": 2,
+        "action": "Bitki örtüsünün iklim koşullarına uygun olduğunu belirlemek"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "rDSFBk_RJNQ",
+        "video_title": "10) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (İklim Çeşitleri ve Bitki Örtüsü) - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:22:47.257940"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:38.325458",
+    "updated_at": "2026-08-27T22:27:38.325458"
+  },
+  {
+    "chain_id": "rc_ad0b0c8d",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Rüzgar yönü ve basınç türünü belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Rüzgarın yönünü belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Rüzgarın yönüne göre basınç türünü belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "f_mTt7V38nQ",
+        "video_title": "8) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (Basınç ve Rüzgarlar) - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:27:01.778473"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:32.005604",
+    "updated_at": "2026-08-27T22:27:32.005604"
+  },
+  {
+    "chain_id": "rc_51d8f6ac",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin iklimi ve bitki örtüsü arasındaki ilişkiyi anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklimi ve bitki örtüsü arasındaki ilişkiyi anlamak için, kuzeybatı kar denizinin etkisi ve yağış dağılımı üzerinde durulmalıdır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "rDSFBk_RJNQ",
+        "video_title": "10) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (İklim Çeşitleri ve Bitki Örtüsü) - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:22:47.257940"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:24.981583",
+    "updated_at": "2026-08-27T22:27:24.981583"
+  },
+  {
+    "chain_id": "rc_d420b9a2",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sibiri'nin etkilerini anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sibiri'nin kuzeyden gelen soğuk havanın Türkiye'ye etkisini anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Balkanlar ve denizlerin nemli havanın etkisini anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "f_mTt7V38nQ",
+        "video_title": "8) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (Basınç ve Rüzgarlar) - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:27:01.778473"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:17.371537",
+    "updated_at": "2026-08-27T22:27:17.371537"
+  },
+  {
+    "chain_id": "rc_a0632fa5",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Ormanın üst sınırını belirleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sıcaklık ve deniz seviyesini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Ormanın üst sınırını tahmin et"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "rDSFBk_RJNQ",
+        "video_title": "10) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi (İklim Çeşitleri ve Bitki Örtüsü) - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:22:47.257940"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:27:09.783633",
+    "updated_at": "2026-08-27T22:27:09.783633"
+  },
+  {
+    "chain_id": "rc_ff8e7360",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sericilik yerlerini belirleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin iklimi ve bitki örtüsü özelliklerini analiz etmek."
+      },
+      {
+        "step": 2,
+        "action": "Sericilik için uygun olan bölgeleri belirlemek."
+      },
+      {
+        "step": 3,
+        "action": "Antalya'nın sericilik için en uygun koşulları sağladığını belirlemek."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "OyBAq17ufEs",
+        "video_title": "7) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi - Sıcaklık - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:23:35.339822"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:57.955779",
+    "updated_at": "2026-08-27T22:24:57.955779"
+  },
+  {
+    "chain_id": "rc_174ccf17",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Yıllık Sıcaklık Farkı Sorularını Çözme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sıcaklık farkı en az olan yerler genellikle deniz kıyısında ve nemli bölgelerde bulunur."
+      },
+      {
+        "step": 2,
+        "action": "Deniz kıyısı ve nemli bölgelerdeki yıllık sıcaklık farkı genellikle en azdır."
+      },
+      {
+        "step": 3,
+        "action": "Sıcaklık farkı en fazla olan yerler genellikle iç bölgelerde bulunur."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "OyBAq17ufEs",
+        "video_title": "7) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi - Sıcaklık - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:23:35.339822"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:49.925461",
+    "updated_at": "2026-08-27T22:24:49.925461"
+  },
+  {
+    "chain_id": "rc_908f6850",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Sıcaklık ve Yükseklik arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Yükseklik arttıkça sıcaklık azalır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "OyBAq17ufEs",
+        "video_title": "7) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi - Sıcaklık - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:23:35.339822"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:39.863393",
+    "updated_at": "2026-08-27T22:24:39.863393"
+  },
+  {
+    "chain_id": "rc_54733759",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin Akarsularının Havza Durumu",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin akarsularının Atlas ve Hint Okyanusu havzalarına girme durumunu anlamak."
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'nin akarsularının Atlas ve Hint Okyanusu havzalarına girme durumunu hatırlamak için ATLAS-HINT mnemonaik kodunu kullanmak."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "dtdB19R-Kyg",
+        "video_title": "20-  2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 14( Soru Çözümü)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:17:18.113836"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:32.934585",
+    "updated_at": "2026-08-27T22:24:32.934585"
+  },
+  {
+    "chain_id": "rc_9d3b7772",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin yaz aylarındaki sıcaklık dağılımı ve etkenleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin yaz aylarındaki sıcaklık dağılımını belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Kuzeydoğu sahil şeridine ve iç çölüklere neden sıcaklık dağılımı olduğu"
+      },
+      {
+        "step": 3,
+        "action": "Kuzeybatı sahil şeridine ve dağlık bölgelere neden soğuklık dağılımı olduğu"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "OyBAq17ufEs",
+        "video_title": "7) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi - Sıcaklık - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:23:35.339822"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:23.598046",
+    "updated_at": "2026-08-27T22:24:23.598046"
+  },
+  {
+    "chain_id": "rc_aa0d321a",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'de Batıdan Doğa Doğuk Bölgelerdeki Değişiklikler",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin doğuk bölgelerinde ortalama yükselti artar."
+      },
+      {
+        "step": 2,
+        "action": "Doğuk bölgelerde ortalama sıcaklık azalır."
+      },
+      {
+        "step": 3,
+        "action": "Doğuk bölgelerde doğumlu gün sayısı artar."
+      },
+      {
+        "step": 1,
+        "action": "Doğuk bölgelerde tohum olgunlaşma süresi uzar."
+      },
+      {
+        "step": 2,
+        "action": "Doğuk bölgelerde ulaşım maliyetleri artar."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "dtdB19R-Kyg",
+        "video_title": "20-  2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 14( Soru Çözümü)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:17:18.113836"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:24:13.544217",
+    "updated_at": "2026-08-27T22:24:13.544217"
+  },
+  {
+    "chain_id": "rc_7392fc3b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+    "description": "Türkiye'nin iklimi ve güneş ışınlarının etkisi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin kuzey yarımkürede olduğunu ve bu nedenle ekvatordan kutuplara doğru güneş ışınlarının etkisinin azaldığını anlama."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "OyBAq17ufEs",
+        "video_title": "7) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de İklim Bilgisi - Sıcaklık - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin İklimi, Sıcaklık, Basınç, Yağış ve Bitki Örtüsü",
+        "date": "2026-08-27T22:23:35.339822"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:23:52.864044",
+    "updated_at": "2026-08-27T22:23:52.864044"
+  },
+  {
+    "chain_id": "rc_e89d108f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Fırat Nehri'nin kaynakları ve akış yönü",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Fırat Nehri, doğu Türkiye'den başlayarak batıya doğru akar."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "i4Adr0hmnJo",
+        "video_title": "12- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 6",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:13:11.871446"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:15:35.468819",
+    "updated_at": "2026-08-27T22:15:35.468819"
+  },
+  {
+    "chain_id": "rc_36081b47",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Akarsuların Havza Tipi ve Türkiye'nin Su Varlığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin üç tarafı denizlerle çevrilmiş olması nedeniyle akarsuların çoğu açık havzada (denize ulaşıyor) olup, kapalı havzada olanlar ise azdır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "i4Adr0hmnJo",
+        "video_title": "12- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 6",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:13:11.871446"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:15:28.488188",
+    "updated_at": "2026-08-27T22:15:28.488188"
+  },
+  {
+    "chain_id": "rc_e47c9162",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Nehirlerin havzalarını ve akış yönlerini belirleyerek soruları çözme mantığı"
+      },
+      {
+        "step": 2,
+        "action": "Kıyaslama yaparak benzerlikleri ve farklılıkları belirleme mantığı"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "gWC8NyVl-dg",
+        "video_title": "Türkiye&#39;nin Akarsuları soru çözümü genel tekrarlı  |  KPSS - AGS COĞRAFYA SORU ÇÖZÜM 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:14:54.730479"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:15:20.160029",
+    "updated_at": "2026-08-27T22:15:20.160029"
+  },
+  {
+    "chain_id": "rc_ff19f630",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Pilatol'ların oluşum süreci ve özellikleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Pilatol'ların oluşum süreci, akarsuların etkisiyle yüksek ve düz alanlara dönüştürülmesidir."
+      },
+      {
+        "step": 2,
+        "action": "Pilatol'ların özellikleri, çevresine göre yüksek ve düz alanlar olmalarıdır."
+      },
+      {
+        "step": 3,
+        "action": "Pilatol'ların ekonomik ve sosyal etkileri, yayla ve hayvançılık gibi farklı faaliyetlerin oluşmasına neden olur."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "i4Adr0hmnJo",
+        "video_title": "12- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 6",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:13:11.871446"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:15:11.770590",
+    "updated_at": "2026-08-27T22:15:11.770590"
+  },
+  {
+    "chain_id": "rc_6c829591",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "AKAR SOR'un hızını ve coğrafi etkilerini anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "AKAR SOR'un hızının engebeli ve alık coğrafi durumunun etkisini anlamak"
+      },
+      {
+        "step": 2,
+        "action": "AKAR SOR'un hızının, Türkiye'nin kurak yarı kurak durumuna bağlı olduğunu anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "gWC8NyVl-dg",
+        "video_title": "Türkiye&#39;nin Akarsuları soru çözümü genel tekrarlı  |  KPSS - AGS COĞRAFYA SORU ÇÖZÜM 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:14:54.730479"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:15:03.450203",
+    "updated_at": "2026-08-27T22:15:03.450203"
+  },
+  {
+    "chain_id": "rc_c821c349",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Boyuna kıyıların tanımı ve örnekleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsu tarafından doldurulmuş kıyıların tanımı ve örnekleri belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "s5Y3eSYPFkI",
+        "video_title": "Kıyı Tipleri Soru Çözümü 📌 KPSS, TYT Soru Çözümü",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:13:00.680176"
+      }
+    ],
+    "teacher_source": "Hakan Bileyen",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:13:07.879906",
+    "updated_at": "2026-08-27T22:13:07.879906"
+  },
+  {
+    "chain_id": "rc_128cc557",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Baraj gölleri ve doğal göller arasındaki farkı anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Baraj gölleri, insanların nehirlerin önünü kapatmasıyla oluşur."
+      },
+      {
+        "step": 2,
+        "action": "Doğal göller ise doğal oluşumlar sonucu ortaya çıkar."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "3B4zKegbGGg",
+        "video_title": "14- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 8 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:54.143174"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:12:20.817381",
+    "updated_at": "2026-08-27T22:12:20.817381"
+  },
+  {
+    "chain_id": "rc_f3c7919f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Göllerin Kapalı Havza veya Açık Havza Olarak Kategorilendirilmesi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Göllerin gideyeni varsa açık havza, yoksa kapalı havza olarak sınıflandırılması"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "3B4zKegbGGg",
+        "video_title": "14- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 8 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:54.143174"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:12:13.134547",
+    "updated_at": "2026-08-27T22:12:13.134547"
+  },
+  {
+    "chain_id": "rc_fbbc589c",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin termal turizm potansiyeli ve dünyada yer alışı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin termal turizm potansiyeli hakkında bilgi toplama"
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'nin termal turizm potansiyeli ile dünya standartları karşılaştırılması"
+      },
+      {
+        "step": 3,
+        "action": "Türkiye'nin termal turizm potansiyeli ile ilgili önemli bölgelerin ve faydaların belirlenmesi"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "8uwebz_8Wx0",
+        "video_title": "16- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 10 ( Yeraltı suları)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:11:41.385931"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:12:05.788850",
+    "updated_at": "2026-08-27T22:12:05.788850"
+  },
+  {
+    "chain_id": "rc_7a4bb1e3",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Göllerin yerel dağılımını anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Göllerin yoğunlaştığı bölgeleri belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Göllerin önem derecesini belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "3B4zKegbGGg",
+        "video_title": "14- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 8 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:54.143174"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:11:56.026326",
+    "updated_at": "2026-08-27T22:11:56.026326"
+  },
+  {
+    "chain_id": "rc_2e141487",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Yer altı suyunun oluşumunu ve kaynak olma sürecini anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Yer üstünden gelen suyun yer altına sızmasını ve birikmesini anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Yer altı suların yer yüzüne çıkması ve kaynak oluşturma sürecini anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "8uwebz_8Wx0",
+        "video_title": "16- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 10 ( Yeraltı suları)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:11:41.385931"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:11:49.281401",
+    "updated_at": "2026-08-27T22:11:49.281401"
+  },
+  {
+    "chain_id": "rc_38a49a94",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun anahtar kelimelerini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Verilen bilgiyi kullanarak seçenekleri eleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "sk7WQ3pl018",
+        "video_title": "23) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -3 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:48.303510"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:10:31.846645",
+    "updated_at": "2026-08-27T22:10:31.846645"
+  },
+  {
+    "chain_id": "rc_aadda4b8",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Göllerin oluşum ve türleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Göllerin oluşum türlerini anlama"
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'deki göllerin türlerini belirleme"
+      },
+      {
+        "step": 3,
+        "action": "Örnek göllerin özellikleri ve konumlarını hatırlama"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "sk7WQ3pl018",
+        "video_title": "23) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -3 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:48.303510"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:10:24.662570",
+    "updated_at": "2026-08-27T22:10:24.662570"
+  },
+  {
+    "chain_id": "rc_6907ccc7",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'deki göllerin türlerini belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Göllerin türünü belirlerken, gölün oluşum nedenini ve bölgeyi dikkate almak."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "sk7WQ3pl018",
+        "video_title": "23) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -3 (GÖLLER)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:09:48.303510"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:09:56.036856",
+    "updated_at": "2026-08-27T22:09:56.036856"
+  },
+  {
+    "chain_id": "rc_7c07d6d9",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Termal enerji üretiminde yer altı suların kullanımı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Yer altı suların sürekli sıcak olması durumunda termal enerji üretiminde kullanılabilir"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "iSvbHIDJOVQ",
+        "video_title": "25) 2026 KPSS- AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI-5 (YERALTI SULARI)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:40.947518"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:09:48.647781",
+    "updated_at": "2026-08-27T22:09:48.647781"
+  },
+  {
+    "chain_id": "rc_e1cb5b65",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin Akarsuların Havzası Tipi Belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsu denize ulaşabiliyorsa açık havza, ulaşamıyorsa kapalı havza türünden bahsedilebilir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "wO6JOsBKpUI",
+        "video_title": "13) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Akarsuları -  Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:18.510250"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:05:27.689169",
+    "updated_at": "2026-08-27T22:05:27.689169"
+  },
+  {
+    "chain_id": "rc_8927a12b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Heylanset göllerin oluşumunu anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Dalga biriktirme ve kapatma mekanizmasını anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'deki heylanset göllerin konumlarını belirlemek"
+      },
+      {
+        "step": 3,
+        "action": "Göllerin oluşum mekanizmasını görsel olarak anlama"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "ZhFJC2mm7Ho",
+        "video_title": "16) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Gölleri - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T21:59:34.987108"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:05:12.621457",
+    "updated_at": "2026-08-27T22:05:12.621457"
+  },
+  {
+    "chain_id": "rc_7e9623de",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Akarsuların Su Kaynakları ve Kullanım Alanları",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsuların enerji üretimi ve su sporları açısından önemini belirle"
+      },
+      {
+        "step": 2,
+        "action": "Akarsuların genel taşımacılık ve su temini açısından kullanımını tartış"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "wO6JOsBKpUI",
+        "video_title": "13) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Akarsuları -  Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:18.510250"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:05:04.750825",
+    "updated_at": "2026-08-27T22:05:04.750825"
+  },
+  {
+    "chain_id": "rc_fb2c5a83",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sifonlu kaynak türünün yağış artışı ve azalışı ile su verme durumunu anlamak."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "iSvbHIDJOVQ",
+        "video_title": "25) 2026 KPSS- AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI-5 (YERALTI SULARI)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:40.947518"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:04:57.211223",
+    "updated_at": "2026-08-27T22:04:57.211223"
+  },
+  {
+    "chain_id": "rc_1bed7ee1",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Buzul yollarının neden Ulu Dağ'da olduğunu anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Buzul yollarının oluşmasında gerekli koşulları belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Ulu Dağ'da bu koşulların sağlandığını gösterme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "ZhFJC2mm7Ho",
+        "video_title": "16) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Gölleri - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T21:59:34.987108"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:04:49.012397",
+    "updated_at": "2026-08-27T22:04:49.012397"
+  },
+  {
+    "chain_id": "rc_a89e6068",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Akarsuların kirlenme oranını belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsuların kirlenme oranını belirlerken, atık miktari ve barajların etkisini dikkate alınız."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "wO6JOsBKpUI",
+        "video_title": "13) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Akarsuları -  Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:18.510250"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:04:42.024970",
+    "updated_at": "2026-08-27T22:04:42.024970"
+  },
+  {
+    "chain_id": "rc_c82cd8fc",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin Akarsuların ve Göllerin Rolü",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin akarsuların ve göllerin komşu ülkelerle doğal sınırlar oluşturduğu bilgisiyle ilgili soruları ele almak."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "ZhFJC2mm7Ho",
+        "video_title": "16) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Gölleri - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T21:59:34.987108"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:04:34.923214",
+    "updated_at": "2026-08-27T22:04:34.923214"
+  },
+  {
+    "chain_id": "rc_06489efb",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin akarsıları neden kısa boylu?",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin yüksek dağların etrafında yer alması"
+      },
+      {
+        "step": 2,
+        "action": "Akarsıların kaynakları yüksek dağlardan alması"
+      },
+      {
+        "step": 3,
+        "action": "Akarsıların hemen denize ulaşması"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "wO6JOsBKpUI",
+        "video_title": "13) KPSS - MEB / AGS Coğrafya - Türkiye&#39;nin Akarsuları -  Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:04:18.510250"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:04:27.616893",
+    "updated_at": "2026-08-27T22:04:27.616893"
+  },
+  {
+    "chain_id": "rc_4e7c0f42",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Kızılırmak'ın kaynakları ve kolları hakkında soru çözme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Kızılırmak'ın kaynak noktasını belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Kızılırmak'ın üç kolu olan delice, gökırmak ve yazdattan gelen akarsuyu belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "6MWM2vbvWWA",
+        "video_title": "21) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -1 (AKARSULAR -1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:00:33.576214"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:01:23.663809",
+    "updated_at": "2026-08-27T22:01:23.663809"
+  },
+  {
+    "chain_id": "rc_fbf69f0f",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Akarsuların şekli ve oluşumu",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Yer şekilleri ve iklim koşulları etkilemektedir."
+      },
+      {
+        "step": 2,
+        "action": "Akarsuların şekli ve oluşumu, aşındırma gücü ve hidrol ettirik potansiyeli ile ilgilidir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "6MWM2vbvWWA",
+        "video_title": "21) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -1 (AKARSULAR -1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:00:33.576214"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:01:14.711597",
+    "updated_at": "2026-08-27T22:01:14.711597"
+  },
+  {
+    "chain_id": "rc_36332341",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Alluvial toprakların oluşumu ve yerleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsuların deltaları alluvial topraklar oluşturur."
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'de en önemli alluvial topraklar Ege Bölgesi'nde yer alır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "NGJ-JL3wNVk",
+        "video_title": "18) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de Topraklar - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T21:57:01.944964"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:01:06.641753",
+    "updated_at": "2026-08-27T22:01:06.641753"
+  },
+  {
+    "chain_id": "rc_d90859e1",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Akarsuların Kaynakları ve Eleme Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Yüksek dağlardan kaynaklanan akarsuların potansiyel enerjisi yüksek olduğu için barajlar kurulur ve hidroelektrik enerji üretilir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "6MWM2vbvWWA",
+        "video_title": "21) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN SU, TOPRAK ve BİTKİ VARLIĞI -1 (AKARSULAR -1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T22:00:33.576214"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:00:59.140301",
+    "updated_at": "2026-08-27T22:00:59.140301"
+  },
+  {
+    "chain_id": "rc_7aa8df94",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+    "description": "Türkiye'nin Toprakları ve Konumları",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin kuzeydoğu bölgelerindeki dağların güney yamaçlarında kahverengi bozgır toprak bulunur."
+      },
+      {
+        "step": 2,
+        "action": "Kahverengi bozgır toprak, Türkiye'de en geniş alanlarda bulunur."
+      },
+      {
+        "step": 3,
+        "action": "Bu toprak türü, ormanların ve çayırların altındaki toprak örneklerini içerir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "NGJ-JL3wNVk",
+        "video_title": "18) KPSS - MEB / AGS Coğrafya - Türkiye&#39;de Topraklar - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Su Varlığı (Akarsular, Göller, Yeraltı Suları)",
+        "date": "2026-08-27T21:57:01.944964"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T22:00:51.294381",
+    "updated_at": "2026-08-27T22:00:51.294381"
+  },
+  {
+    "chain_id": "rc_b75ec092",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Geopolitik Unsurların Eleme Mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Doğal olayların ve insan etkinliklerinin etkilerini ayırma"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ali Can Demirci",
+        "video_id": "Sprk9frJunw",
+        "video_title": "03 - KPSS COĞRAFYA -  Özel Konum Ve Jeopolitik",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:51:57.966186"
+      }
+    ],
+    "teacher_source": "Ali Can Demirci",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:52:12.017982",
+    "updated_at": "2026-08-27T21:52:12.017982"
+  },
+  {
+    "chain_id": "rc_31dd67fb",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Türkiye'nin fiziki özellikleri ve iklim etkileşimi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin yüksek ve engebeli olduğu yerlerde iklim, akarsu ve enerji potansiyeli etkileneceğini anlama."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Ali Can Demirci",
+        "video_id": "Sprk9frJunw",
+        "video_title": "03 - KPSS COĞRAFYA -  Özel Konum Ve Jeopolitik",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:51:57.966186"
+      }
+    ],
+    "teacher_source": "Ali Can Demirci",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:52:05.269667",
+    "updated_at": "2026-08-27T21:52:05.269667"
+  },
+  {
+    "chain_id": "rc_798a82d6",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Jeolojik Yapının Anlaması",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Jeolojik yapı ve yer şekilleri arasındaki ilişkiyi anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'nin fiziki özelliklerinin jeolojik yapı üzerindeki etkilerini analiz etmek"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "4Gca7wxk3_w",
+        "video_title": "7- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 1 ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:47:49.912918"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:48:05.841361",
+    "updated_at": "2026-08-27T21:48:05.841361"
+  },
+  {
+    "chain_id": "rc_2bbdc212",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Türkiye'nin fiziksel özelliklerini anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin fiziksel özelliklerini ve jeolojik yapılarını anlamak için görsel destek ve anlatım kullanmak."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "4Gca7wxk3_w",
+        "video_title": "7- 2026-KPSS&amp;AGS COĞRAFYA MEHMET EĞİT TÜRKİYE&#39;NİN YERŞEKİLLERİ - 1 ",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:47:49.912918"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:47:57.485519",
+    "updated_at": "2026-08-27T21:47:57.485519"
+  },
+  {
+    "chain_id": "rc_0de90353",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Çi olayların nedenleri ve etkileri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Çi olayların nedenlerini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Çi olayların etkilerini analiz etme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "PVcg4Z4GBdY",
+        "video_title": "11)MEB - AGS - KPSS Coğrafya -Türkiye&#39;nin Yeryüzü Şekilleri 1 Jeolojik Zamanlar-Dağlar -Bayram MERAL",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:46:01.575808"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:47:23.646791",
+    "updated_at": "2026-08-27T21:47:23.646791"
+  },
+  {
+    "chain_id": "rc_68e3f805",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Türkiye'nin Toros Dağları'nın uzantısı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin Toros Dağları Antalya'dan başlar"
+      },
+      {
+        "step": 2,
+        "action": "Dağlar İran'a doğru uzanır"
+      },
+      {
+        "step": 3,
+        "action": "Antalya'nın turizm potansiyeli dağların ve sahil hattının birleşimiyle oluşur"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "PVcg4Z4GBdY",
+        "video_title": "11)MEB - AGS - KPSS Coğrafya -Türkiye&#39;nin Yeryüzü Şekilleri 1 Jeolojik Zamanlar-Dağlar -Bayram MERAL",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:46:01.575808"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:47:16.193664",
+    "updated_at": "2026-08-27T21:47:16.193664"
+  },
+  {
+    "chain_id": "rc_09bf2c3b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Taşık alanlarının etkilerini analiz etme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Taşık alanlarının sulanma sorunlarını belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Taşık alanlarının tarım üzerindeki etkileri"
+      },
+      {
+        "step": 3,
+        "action": "Taşık alanlarının toprak yapısını ve sulanma ihtiyaçlarını analiz etme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "PVcg4Z4GBdY",
+        "video_title": "11)MEB - AGS - KPSS Coğrafya -Türkiye&#39;nin Yeryüzü Şekilleri 1 Jeolojik Zamanlar-Dağlar -Bayram MERAL",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:46:01.575808"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:47:07.338412",
+    "updated_at": "2026-08-27T21:47:07.338412"
+  },
+  {
+    "chain_id": "rc_5b3188e9",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Türkiye'nin fiziksel oluşum tarihini belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin oluşum tarihini belirlerken, deniz kıyısı oluşumları ve volkanik etkileri dikkate alınmalıdır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "JNwPwI7mTs4",
+        "video_title": "7) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 2 (JEOLOJİK ZAMANLAR)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:38:59.532575"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:46:59.906438",
+    "updated_at": "2026-08-27T21:46:59.906438"
+  },
+  {
+    "chain_id": "rc_743cf1e6",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Anadolu'nun fiziksel özelliklerini analiz etme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Anadolu'nun genç oluşumlu hale sahip olduğunu anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Bu oluşumun aşındırma sürecine etkisi"
+      },
+      {
+        "step": 3,
+        "action": "Anadolu'nun yüksek ve aşındırılmamış durumunu anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "PVcg4Z4GBdY",
+        "video_title": "11)MEB - AGS - KPSS Coğrafya -Türkiye&#39;nin Yeryüzü Şekilleri 1 Jeolojik Zamanlar-Dağlar -Bayram MERAL",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:46:01.575808"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:46:51.731643",
+    "updated_at": "2026-08-27T21:46:51.731643"
+  },
+  {
+    "chain_id": "rc_38e5ff5b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Anadolu'nun Batıya Atılması ve Ege Boğazı'nın Oluşumu",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Anadolu'nun batıya doğru atılması nedeniyle Ege Boğazı oluşmuştur."
+      },
+      {
+        "step": 2,
+        "action": "Ege Boğazı'nın oluşumu, Anadolu'nun batıya doğru atılmasıyla doğrudan ilgilidir."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "JNwPwI7mTs4",
+        "video_title": "7) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 2 (JEOLOJİK ZAMANLAR)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:38:59.532575"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:46:43.503884",
+    "updated_at": "2026-08-27T21:46:43.503884"
+  },
+  {
+    "chain_id": "rc_77803622",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Anadolu'nun fiziksel yapısal özelliklerinin oluşum süreci",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Kuzeyden Güneye doğru baskı meydana geldi"
+      },
+      {
+        "step": 2,
+        "action": "Baskı sonucu araz sıkıştı ve yükseldi"
+      },
+      {
+        "step": 3,
+        "action": "Yüksek dağlar ve fayatlar oluştu"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "PVcg4Z4GBdY",
+        "video_title": "11)MEB - AGS - KPSS Coğrafya -Türkiye&#39;nin Yeryüzü Şekilleri 1 Jeolojik Zamanlar-Dağlar -Bayram MERAL",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:46:01.575808"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:46:34.785865",
+    "updated_at": "2026-08-27T21:46:34.785865"
+  },
+  {
+    "chain_id": "rc_f634b33b",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Volkanik sahaların oluşum süreci ve etkileri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Volkanik sahaların oluşum sürecini anlama"
+      },
+      {
+        "step": 2,
+        "action": "Volkanik sahaların etkilerini belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:43:27.273393",
+    "updated_at": "2026-08-27T21:43:27.273393"
+  },
+  {
+    "chain_id": "rc_c967158d",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Buzulların dağılımını ve önemini anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin buzullarının nerede olduğunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Buzulların Türkiye'deki su kaynakları sağladıklarını anlama"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:43:19.426256",
+    "updated_at": "2026-08-27T21:43:19.426256"
+  },
+  {
+    "chain_id": "rc_ce52b200",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Genik Dağların Rolü ve Etkileri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Genik Dağların yükseltisi az olduğu için yama çalıları daha zorlu oluyor."
+      },
+      {
+        "step": 2,
+        "action": "Bu dağların yükseltisi az olduğu için iç kesimlerde rolaşım kolay oluyor."
+      },
+      {
+        "step": 3,
+        "action": "Bu dağların yükseltisi az olduğu için kıyının gerisinde önemli iki delta olabiliyor."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:43:11.708341",
+    "updated_at": "2026-08-27T21:43:11.708341"
+  },
+  {
+    "chain_id": "rc_bad96633",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Yer şekillerinin oluşum süreci",
+    "steps": [
+      {
+        "step": 1,
+        "action": "İklim değişiklikleri ve buzul dönemleri nedeniyle yer kabuğunun ağırlığı artmıştır."
+      },
+      {
+        "step": 2,
+        "action": "Bu ağırlık artışı, yer kabuğunun bazı bölgelerinde çökmesine ve bazı bölgelerinde yükselmesine neden olmuştur."
+      },
+      {
+        "step": 3,
+        "action": "Bu süreç, Marmara Ege bölgesinin oluşmasına ve İstanbul Çanakkale Burnu'nun oluşmasına neden olmuştur."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:43:02.267172",
+    "updated_at": "2026-08-27T21:43:02.267172"
+  },
+  {
+    "chain_id": "rc_0e2506ad",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Anadolu'nun yükseliş süreci ve dağların ortaya çıkışı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Anadolu'nun kuzeyden güneye doğru baskıya maruz kaldığını belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Bu baskıya maruz kalmanın dağların ortaya çıkmasına neden olduğunu anlama"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:42:52.258385",
+    "updated_at": "2026-08-27T21:42:52.258385"
+  },
+  {
+    "chain_id": "rc_873d3b65",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+    "description": "Yer şekilleri sorularını çözme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Sorunun iç kuvvetler mi yoksa dış kuvvetler mi etkisiyle oluştuğunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Belirlenen kuvvet türünün etkilerini düşünme"
+      },
+      {
+        "step": 3,
+        "action": "Sonuç olarak, sorunun doğru cevabını belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "qyRcgR0Fs6Y",
+        "video_title": "12) KPSS - MEB / AGS Coğrafya - Yeryüzü Şekilleri 1 - Bayram MERAL - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
+        "date": "2026-08-27T21:42:23.442341"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:42:42.301156",
+    "updated_at": "2026-08-27T21:42:42.301156"
+  },
+  {
+    "chain_id": "rc_a9d22e9d",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Dış kuvvetlerin etkilerini belirleme",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Akarsaların ve rüzgarların etkilerini belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Karstik alanların ve buzulların etkilerini belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "a3wJxWxTZHs",
+        "video_title": "6) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 1 (İÇ ve DIŞ KUVVET)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:38.085756"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:32:38.691334",
+    "updated_at": "2026-08-27T21:32:38.691334"
+  },
+  {
+    "chain_id": "rc_41c3a491",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Volkanik toprakların belirleyici özellikleri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Volkanik toprakların özellikleri ve nüfuz alanlarını belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "a3wJxWxTZHs",
+        "video_title": "6) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 1 (İÇ ve DIŞ KUVVET)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:38.085756"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:32:31.346637",
+    "updated_at": "2026-08-27T21:32:31.346637"
+  },
+  {
+    "chain_id": "rc_1ce03d9d",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin Coğrafi Dinamiklerini Anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin coğrafi konumunu ve dinamiklerini anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Marmara Yarımadası'nın alçalması ve Ege Yarımadası'nın horst-graben yapıları arasındaki ilişkiyi anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "a3wJxWxTZHs",
+        "video_title": "6) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 1 (İÇ ve DIŞ KUVVET)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:38.085756"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:32:24.416031",
+    "updated_at": "2026-08-27T21:32:24.416031"
+  },
+  {
+    "chain_id": "rc_7b1c4be1",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumunun jeopolitik önemini anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin stratejik konumunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Enerji koridoru olarak Türkiye'nin rolünü anlama"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "jS7WtKciIQ4",
+        "video_title": "22 - AYT COĞRAFYA - TÜRKİYE&#39;NİN JEOPOLİTİK KONUMU - MEHMET EĞİT 2022",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:31:42.926287"
+      }
+    ],
+    "teacher_source": "Mehmet Eğit",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:32:16.499631",
+    "updated_at": "2026-08-27T21:32:16.499631"
+  },
+  {
+    "chain_id": "rc_95c0be53",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Zaman yönetimi ve soru çözme stratejileri",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Soruları hızlı oku ve anlamaya çalış"
+      },
+      {
+        "step": 2,
+        "action": "Grafik ve tablo sorularında dikkatli ol"
+      },
+      {
+        "step": 3,
+        "action": "Tüm seçenekleri inceleyerek doğru cevabı belirle"
       },
       {
         "step": 4,
-        "action": "Kaz asker teriminin ilmiye sınıfının bir parçası olduğunu belirleyin."
+        "action": "Zaman kaybetmeyerek soruları ele al"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Hakan Bileyen",
+        "video_id": "ozFGG34FVxo",
+        "video_title": "İYİ Kİ VARSINIZ BAYRAM MERAL ❤️ Sınav taktiği … #kpss #coğrafya #bayrammeral #sınav",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:31:50.810836"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Hakan Bileyen",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:44:25.630408",
-    "updated_at": "2026-08-24T23:44:25.630408"
+    "created_at": "2026-08-27T21:32:12.265604",
+    "updated_at": "2026-08-27T21:32:12.265604"
   },
   {
-    "chain_id": "rc_1171ad7a",
+    "chain_id": "rc_ce4f1d82",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Milli Mücadele Dönemi ve Kongreler",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin mutlak konumunu ve etkilerini anlamak",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun ana hatlarını belirle"
+        "action": "Türkiye'nin mutlak konumunu belirleme"
       },
       {
         "step": 2,
-        "action": "Verilen bilgileri konulara göre sınıflandır"
+        "action": "Belirlenen konumun etkilerini analiz etme"
       }
     ],
     "learned_from": [
-      "yt_IRfQl2Dq6u8"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:44:09.779966",
-    "updated_at": "2026-08-24T23:44:09.779966"
-  },
-  {
-    "chain_id": "rc_3263327c",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
-    "steps": [
       {
-        "step": 1,
-        "action": "Soru anahtar kelimelerini belirle"
-      },
-      {
-        "step": 2,
-        "action": "Belirlenen anahtar kelimelere göre verilen bilgiyi analiz et"
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "nVJr43wjPzg",
+        "video_title": "TÜRKİYE&#39;NİN COĞRAFİ KONUMU/Mutlak Konum-Özel Konum #türkiye #coğrafi #konum #konuanlatımı #coğrafya",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:31:44.611944"
       }
     ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Mehmet Eğit",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:43:59.598884",
-    "updated_at": "2026-08-24T23:43:59.598884"
+    "created_at": "2026-08-27T21:32:07.448301",
+    "updated_at": "2026-08-27T21:32:07.448301"
   },
   {
-    "chain_id": "rc_c7f7a3de",
+    "chain_id": "rc_22a8298b",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Yer şekilleri oluşum süreci",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun ana hatlarını belirle"
+        "action": "İç kuvvetlerin etkisini anlamak"
       },
       {
         "step": 2,
-        "action": "Osmanlı Devleti'nde kadıların yetkilerini ve görevlerini hatırlayın"
-      }
-    ],
-    "learned_from": [
-      "yt_Ym4F2-VcgF4"
-    ],
-    "teacher_source": "Ramazan Yetgin",
-    "times_applied": 0,
-    "success_rate": 1.0,
-    "created_at": "2026-08-24T23:43:35.485705",
-    "updated_at": "2026-08-24T23:43:35.485705"
-  },
-  {
-    "chain_id": "rc_5c0e8dcb",
-    "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Osmanlı Devleti'nin vergi toplama sistemi ve modern devletler arasındaki benzerlikleri anlamak",
-    "steps": [
-      {
-        "step": 1,
-        "action": "Osmanlı Devleti'nin vergi toplama yöntemini anlama"
-      },
-      {
-        "step": 2,
-        "action": "Modern devletlerdeki vergi toplama sistemlerini incelemek"
+        "action": "Dış kuvvetlerin etkisini anlamak"
       },
       {
         "step": 3,
-        "action": "Benzerlikleri ve farklılıkları belirleme"
+        "action": "İki etkinin birlikte etkisi"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "a3wJxWxTZHs",
+        "video_title": "6) 2026 KPSS - AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;NİN YER ŞEKİLLERİ - 1 (İÇ ve DIŞ KUVVET)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:38.085756"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:43:20.716084",
-    "updated_at": "2026-08-24T23:43:20.716084"
+    "created_at": "2026-08-27T21:31:58.738198",
+    "updated_at": "2026-08-27T21:31:58.738198"
   },
   {
-    "chain_id": "rc_b6286d69",
+    "chain_id": "rc_8086c557",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumu ve jeopolitik önemi arasındaki ilişki",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
+        "action": "Türkiye'nin coğrafi konumunu belirleme"
       },
       {
         "step": 2,
-        "action": "Belirlenen kelimelere göre verilen bilgileri ilişkilendir"
+        "action": "Türkiye'nin bu konumundan dolayı jeopolitik öneminin belirlenmesi"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Mehmet Eğit",
+        "video_id": "jS7WtKciIQ4",
+        "video_title": "22 - AYT COĞRAFYA - TÜRKİYE&#39;NİN JEOPOLİTİK KONUMU - MEHMET EĞİT 2022",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:31:42.926287"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Mehmet Eğit",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:43:04.817570",
-    "updated_at": "2026-08-24T23:43:04.817570"
+    "created_at": "2026-08-27T21:31:51.460590",
+    "updated_at": "2026-08-27T21:31:51.460590"
   },
   {
-    "chain_id": "rc_2a4beede",
+    "chain_id": "rc_e6e62b06",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Divan-ı Hümayun'da alınan kararların geçerliliği",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye ile komşu ülkeler arasındaki su sorunları",
     "steps": [
       {
         "step": 1,
-        "action": "Divan-ı Hümayun'daki kararlara mühimme defterlerinde yer verilir."
-      },
-      {
-        "step": 2,
-        "action": "Son karar genellikle padişahın onayına bağlıdır."
+        "action": "Fırhat Nehri'nin Türkiye ve Suriye arasındaki su anlaşmazlıklarına neden olduğu belirtilmiştir."
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "txbQxcm7NLA",
+        "video_title": "28) AYT Coğrafya - Jeopolitik Konum ve Türkiye&#39;nin Jeopolitiği - Bayram MERAL - 2027",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:12.367127"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Bayram Meral",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:42:47.078653",
-    "updated_at": "2026-08-24T23:42:47.078653"
+    "created_at": "2026-08-27T21:31:08.764812",
+    "updated_at": "2026-08-27T21:31:08.764812"
   },
   {
-    "chain_id": "rc_b81e83e8",
+    "chain_id": "rc_ba562297",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Doğrudan ve dolali ilgilendirme mantığı",
     "steps": [
       {
         "step": 1,
-        "action": "Enderun'un özelliklerini belirle"
+        "action": "Doğrudan ilgilendirme: Türkiye'nin doğrudan yaşadığı sorunları belirle."
       },
       {
         "step": 2,
-        "action": "Verilen seçenekleri dikkatlice inceleyin"
+        "action": "Dolali ilgilendirme: Türkiye'nin komşu ülkelerin yaşadığı sorunları belirle ve Türkiye'nin bu sorunlardan etkilenebileceği durumları değerlendir."
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "txbQxcm7NLA",
+        "video_title": "28) AYT Coğrafya - Jeopolitik Konum ve Türkiye&#39;nin Jeopolitiği - Bayram MERAL - 2027",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:12.367127"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Bayram Meral",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:42:33.826480",
-    "updated_at": "2026-08-24T23:42:33.826480"
+    "created_at": "2026-08-27T21:31:00.926387",
+    "updated_at": "2026-08-27T21:31:00.926387"
   },
   {
-    "chain_id": "rc_7cec1119",
+    "chain_id": "rc_39716ba7",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Su bölüm çizgisi ve sınırlar arasındaki ilişki",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun anahtar kelimelerini belirle"
+        "action": "Su bölüm çizgisi, zirvelerden geçen çizgiyi ifade eder."
       },
       {
         "step": 2,
-        "action": "Belirlenen anahtar kelimelere göre verilen bilgileri analiz et"
+        "action": "Bu çizgi, Türkiye'nin bazı bölgelerinde sınırları belirler."
+      },
+      {
+        "step": 3,
+        "action": "Hatay'ın 1990'da Türkiye'ye katılmasıyla su bölüm çizgisi değişmiştir."
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "Ca594ORco30",
+        "video_title": "58)2026 KPSS-AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;DE BÖLGE KAVRAMI ve SİSTEMATİĞİ (JEOPOLİTİK BÖLGE 1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:25:32.236784"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:42:22.804815",
-    "updated_at": "2026-08-24T23:42:22.804815"
+    "created_at": "2026-08-27T21:30:52.671965",
+    "updated_at": "2026-08-27T21:30:52.671965"
   },
   {
-    "chain_id": "rc_72f732a7",
+    "chain_id": "rc_02040a1e",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Osmanlı Padişahının Görevlerini Anlama",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Suyolların ve suyolları kanalların önemini anlamak",
     "steps": [
       {
         "step": 1,
-        "action": "Padişahın asıl görevlerini belirleme"
-      },
-      {
-        "step": 2,
-        "action": "Sadrazam ve diğer vezirlerin görevleri arasındaki farkları inceleme"
+        "action": "Suyolların ve suyolları kanalların yerel ve küresel düzeydeki önemini belirleme"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "txbQxcm7NLA",
+        "video_title": "28) AYT Coğrafya - Jeopolitik Konum ve Türkiye&#39;nin Jeopolitiği - Bayram MERAL - 2027",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:12.367127"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Bayram Meral",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:41:29.227893",
-    "updated_at": "2026-08-24T23:41:29.227893"
+    "created_at": "2026-08-27T21:30:44.355735",
+    "updated_at": "2026-08-27T21:30:44.355735"
   },
   {
-    "chain_id": "rc_dd179762",
+    "chain_id": "rc_bb2d9a2a",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "TARIH",
-    "topic": "Osmanlı Kültür ve Medeniyeti",
-    "description": "Hocanın soru çözme ve eleme mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin komşu ülkeleri ve sınır kapısı",
     "steps": [
       {
         "step": 1,
-        "action": "Sorunun ana hatlarını belirle"
-      },
-      {
-        "step": 2,
-        "action": "Verilen bilgileri dikkatlice incele"
+        "action": "Türkiye'nin komşu ülkelerini ve sınır kapısını belirleme"
       }
     ],
     "learned_from": [
-      "yt_Ym4F2-VcgF4"
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "Ca594ORco30",
+        "video_title": "58)2026 KPSS-AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;DE BÖLGE KAVRAMI ve SİSTEMATİĞİ (JEOPOLİTİK BÖLGE 1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:25:32.236784"
+      }
     ],
-    "teacher_source": "Ramazan Yetgin",
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:41:07.805836",
-    "updated_at": "2026-08-24T23:41:07.805836"
+    "created_at": "2026-08-27T21:30:36.213701",
+    "updated_at": "2026-08-27T21:30:36.213701"
   },
   {
-    "chain_id": "rc_42b651ae",
+    "chain_id": "rc_94006ee3",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "VATANDASLIK",
-    "topic": "1982 Anayasası Yasama",
-    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumu ve jeopolitik önemi arasındaki ilişkiyi anlamak",
     "steps": [
       {
         "step": 1,
-        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+        "action": "Türkiye'nin coğrafi konumunu belirleme"
       },
       {
         "step": 2,
-        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+        "action": "Bu konumun politik ve ekonomik etkilerini analiz etme"
       }
     ],
-    "learned_from": [],
-    "teacher_source": "Emrah Vahap Özkaraca",
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "txbQxcm7NLA",
+        "video_title": "28) AYT Coğrafya - Jeopolitik Konum ve Türkiye&#39;nin Jeopolitiği - Bayram MERAL - 2027",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:30:12.367127"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:22:49.228023",
-    "updated_at": "2026-08-24T23:22:49.228023"
+    "created_at": "2026-08-27T21:30:29.306529",
+    "updated_at": "2026-08-27T21:30:29.306529"
   },
   {
-    "chain_id": "rc_d8476017",
+    "chain_id": "rc_4dcbc4b0",
     "chain_type": "QUESTION_SOLVING",
-    "lesson": "VATANDASLIK",
-    "topic": "1982 Anayasası Yasama",
-    "description": "TBMM Karar Yeter Sayısı Hesaplama Mantığı",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Komşu ülkelerle sorunların çözümü",
     "steps": [
       {
         "step": 1,
-        "action": "Toplantı yeter sayısı: Üye tamsayısının 1/3'ü (200 milletvekili)"
+        "action": "Komşu ülkelerle doğrudan sorunları belirleme"
       },
       {
         "step": 2,
-        "action": "Karar yeter sayısı: Katılanların salt çoğunluğu (en az 151)"
+        "action": "Sınır ve girişim sorunlarını çözümleme"
+      },
+      {
+        "step": 3,
+        "action": "Uçuş bölgesi sorunlarını çözümleme"
       }
     ],
-    "learned_from": [],
-    "teacher_source": "Emrah Vahap Özkaraca",
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Engin Eraydın",
+        "video_id": "Ca594ORco30",
+        "video_title": "58)2026 KPSS-AGS COĞRAFYA ENGİN ERAYDIN TÜRKİYE&#39;DE BÖLGE KAVRAMI ve SİSTEMATİĞİ (JEOPOLİTİK BÖLGE 1)",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:25:32.236784"
+      }
+    ],
+    "teacher_source": "Engin Eraydın",
     "times_applied": 0,
     "success_rate": 1.0,
-    "created_at": "2026-08-24T23:22:37.743047",
-    "updated_at": "2026-08-24T23:22:37.743047"
+    "created_at": "2026-08-27T21:30:22.057952",
+    "updated_at": "2026-08-27T21:30:22.057952"
+  },
+  {
+    "chain_id": "rc_8f586fb0",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumu ve jeopolitik önemi",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin coğrafi konumunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Türkiye'nin jeopolitik önemi hakkında bilgi edinme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "2jkMZOfzHWA",
+        "video_title": "1)MEB - AGS - KPSS Coğrafya - Türkiye&#39;nin Coğrafi Konumu - Göreceli Konum - Bayram MERAL - 2025",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:21:42.557805"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:25:32.245268",
+    "updated_at": "2026-08-27T21:25:32.245268"
+  },
+  {
+    "chain_id": "rc_bc3dfbff",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin Doğal Gaz ve Petrol Kaynakları",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin Doğal Gaz ve Petrol kaynaklarının nereden geldiğini belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "2jkMZOfzHWA",
+        "video_title": "1)MEB - AGS - KPSS Coğrafya - Türkiye&#39;nin Coğrafi Konumu - Göreceli Konum - Bayram MERAL - 2025",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:21:42.557805"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:25:24.917019",
+    "updated_at": "2026-08-27T21:25:24.917019"
+  },
+  {
+    "chain_id": "rc_860f9bd1",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Sınır kapısı konusunda soru çözme ve eleme mantığı",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin sınır kapısı konusunda aktüel bilgileri öğrenmek"
+      },
+      {
+        "step": 2,
+        "action": "Eski bilgileri güncellemek"
+      },
+      {
+        "step": 3,
+        "action": "Sınır kapısının konumunu ve önemini anlamak"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "2jkMZOfzHWA",
+        "video_title": "1)MEB - AGS - KPSS Coğrafya - Türkiye&#39;nin Coğrafi Konumu - Göreceli Konum - Bayram MERAL - 2025",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:21:42.557805"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:25:17.747290",
+    "updated_at": "2026-08-27T21:25:17.747290"
+  },
+  {
+    "chain_id": "rc_85846eba",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumu ve gündüz-gece süresi arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin coğrafi konumunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Gündüz-gece süresi arasındaki ilişkiyi analiz etme"
+      },
+      {
+        "step": 3,
+        "action": "Kuzeyden güneye doğru gündüz süresinin nasıl değiştiğini belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "D_xYTgQHg0w",
+        "video_title": "6) KPSS - MEB / AGS Coğrafya - Coğrafi Konum - Sorularla Genel Tekrar - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:24:29.012735"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:25:09.809971",
+    "updated_at": "2026-08-27T21:25:09.809971"
+  },
+  {
+    "chain_id": "rc_b36b6470",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Sınır kapısının jeopolitik önemini anlama",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin sınır kapıları ve demir yolu bağlantıları arasındaki ilişkiyi anlamak"
+      },
+      {
+        "step": 2,
+        "action": "Bulgaristan ve Yunanistan'daki demir yolu bağlantılarını incelemek"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "2jkMZOfzHWA",
+        "video_title": "1)MEB - AGS - KPSS Coğrafya - Türkiye&#39;nin Coğrafi Konumu - Göreceli Konum - Bayram MERAL - 2025",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:21:42.557805"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:25:00.457174",
+    "updated_at": "2026-08-27T21:25:00.457174"
+  },
+  {
+    "chain_id": "rc_f2e65e00",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Göreceli konum ve mutlak konum arasındaki farkları anlamak",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Göreceli konum, yer şekli, denizlere ve kanallara göre değişkenlik gösterirken, mutlak konum sabittir ve enlem ve boylam konumlarına dayanır."
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "D_xYTgQHg0w",
+        "video_title": "6) KPSS - MEB / AGS Coğrafya - Coğrafi Konum - Sorularla Genel Tekrar - Bayram Meral - 2026",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:24:29.012735"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:24:53.187373",
+    "updated_at": "2026-08-27T21:24:53.187373"
+  },
+  {
+    "chain_id": "rc_19f188fd",
+    "chain_type": "QUESTION_SOLVING",
+    "lesson": "COGRAFYA",
+    "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+    "description": "Türkiye'nin coğrafi konumu ve jeopolitik önem arasındaki ilişki",
+    "steps": [
+      {
+        "step": 1,
+        "action": "Türkiye'nin coğrafi konumunu belirleme"
+      },
+      {
+        "step": 2,
+        "action": "Bu konumun Türkiye'ye getirdiği jeopolitik avantajları belirleme"
+      }
+    ],
+    "learned_from": [
+      {
+        "type": "youtube_lecture",
+        "teacher": "Bayram Meral",
+        "video_id": "2jkMZOfzHWA",
+        "video_title": "1)MEB - AGS - KPSS Coğrafya - Türkiye&#39;nin Coğrafi Konumu - Göreceli Konum - Bayram MERAL - 2025",
+        "lesson": "COGRAFYA",
+        "topic": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
+        "date": "2026-08-27T21:21:42.557805"
+      }
+    ],
+    "teacher_source": "Bayram Meral",
+    "times_applied": 0,
+    "success_rate": 1.0,
+    "created_at": "2026-08-27T21:24:44.394548",
+    "updated_at": "2026-08-27T21:24:44.394548"
   }
 ]

@@ -35,9 +35,33 @@ Claim Text
     ↓ (SHA-256 Hash)
 provenance_hash
     ↓ (Evidence Connection)
-EvidenceRef -> Video ID / Segment ID
-    ↓ (Database Lookup)
-SQLite `transcript_segments` / `sources`
+v15_evidence (source_type = 'DOCUMENT' | 'YOUTUBE')
+    ├─ DOCUMENT: document_id + 1-indexed page_number + SHA-256 original PDF
+    └─ YOUTUBE: video_id + transcript_start_seconds / end_seconds
+    ↓ (Database Lookup & Verification)
+v15_documents / v15_document_pages / transcript_segments
     ↓
-Original YouTube Video Timestamp / Mevzuat URL
+Orijinal PDF Sayfası / Resmi Cevap Anahtarı / Video Zaman Damgası
 ```
+
+---
+
+## 4. Denetim Durum Makinesi (Audit State Machine)
+
+Aday iddialar doğrudan kanonik depoya giremez; aşağıdaki geçiş matrisini takip eder:
+
+```text
+[CANDIDATE] (Yeni çıkarılan ham iddia)
+    │
+    ├── Kanıt doğrulanamaz veya çelişkili ise ──► [REJECTED]
+    ├── Birden fazla kaynaktan destek varsa ───► [SUPPORTED]
+    └── Savcı Denetçi onayladığında ───────────► [VERIFIED] (Kanonik Mühürleme)
+```
+
+---
+
+## 5. Değişmez Güvenlik Kuralları
+
+1. **Halüsinatif Sayfa Numarası Yasağı**: 1-indexed sayfa numarası gerçekte ayrıştırılmış `v15_document_pages` tablosundaki bir kayda karşılık gelmek zorundadır.
+2. **Resmi Cevap Anahtarı Üstünlüğü (Kural 7)**: LLM çözümleri resmi cevap anahtarı ile çelişirse, resmi anahtar asla ezilmez; `LLM_DISAGREEMENT` bayrağı ile kayıt altına alınır.
+3. **Tuzak Kanıtı Zorunluluğu**: Bir çeldirici, en az bir gerçek sınav sorusuna (`supporting_question_id`) ve cazibe gerekçesine (`why_attractive`) bağlanmadan tuzak olarak kaydedilemez.

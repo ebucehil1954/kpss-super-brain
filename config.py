@@ -3,12 +3,51 @@ KPSS Super-Brain: Otonom Zeka Yapılandırma Modülü (Master Config)
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from typing import List, Dict, Any
 
 BASE_DIR = Path(__file__).resolve().parent
+load_dotenv(BASE_DIR / ".env")
 
 class SuperBrainConfig(BaseModel):
+    # YouTube Data API v3 (Resmi Google API Key - .env üzerinden gizli okunur)
+    YOUTUBE_API_KEY: str = os.getenv("YOUTUBE_API_KEY", "")
+
+    @property
+    def youtube_api_key_available(self) -> bool:
+        """API key'in tanımlı olup olmadığını kontrol eder."""
+        return bool(self.YOUTUBE_API_KEY.strip())
+
+    # YouTube Bot Korumasını Aşmak İçin Çerez Dosyası ve Tarayıcı Desteği
+    _configured_cookies_file: str = os.getenv("YOUTUBE_COOKIES_FILE", "")
+    YOUTUBE_COOKIES_BROWSER: str = os.getenv("YOUTUBE_COOKIES_BROWSER", "")  # chrome, edge, firefox vb.
+
+    @property
+    def YOUTUBE_COOKIES_FILE(self) -> Path:
+        """Tanımlı veya varsayılan konumlardaki cookies.txt dosyasını otomatik bulur."""
+        if self._configured_cookies_file and Path(self._configured_cookies_file).exists():
+            return Path(self._configured_cookies_file)
+        
+        # Olası konumları sırayla tara
+        candidates = [
+            BASE_DIR / "data" / "cookies.txt",
+            BASE_DIR / "cookies.txt",
+            BASE_DIR.parent / "cookies.txt",
+            Path.cwd() / "cookies.txt",
+            Path.cwd() / "data" / "cookies.txt"
+        ]
+        for c in candidates:
+            if c.exists() and c.is_file() and c.stat().st_size > 50:
+                return c
+        return BASE_DIR / "data" / "cookies.txt"
+
+    @property
+    def youtube_cookies_available(self) -> bool:
+        """Kullanılabilir bir cookies.txt dosyası olup olmadığını kontrol eder."""
+        target = self.YOUTUBE_COOKIES_FILE
+        return target.exists() and target.is_file() and target.stat().st_size > 50
+
     # Ollama Local LLM Yapılandırması
     OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://127.0.0.1:11434")
     
@@ -53,7 +92,7 @@ class SuperBrainConfig(BaseModel):
     # GPU / Whisper STT Settings
     WHISPER_ENABLED: bool = True
     WHISPER_DEVICE: str = os.getenv("WHISPER_DEVICE", "cuda" if os.getenv("CUDA_VISIBLE_DEVICES") != "" else "auto")
-    WHISPER_MODEL_SIZE: str = os.getenv("WHISPER_MODEL_SIZE", "base")
+    WHISPER_MODEL_SIZE: str = os.getenv("WHISPER_MODEL_SIZE", "tiny")
     
     # State Persistence & Checkpointing
     AUTO_CHECKPOINT_INTERVAL_SEC: int = 30

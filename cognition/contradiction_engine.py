@@ -94,19 +94,22 @@ def _is_ollama_available() -> bool:
     global _OLLAMA_AVAILABLE
     if _OLLAMA_AVAILABLE is None:
         try:
-            with httpx.Client(timeout=0.1) as client:
+            with httpx.Client(timeout=2.0) as client:
                 r = client.get(f"{super_brain_config.OLLAMA_BASE_URL}/api/tags")
                 _OLLAMA_AVAILABLE = (r.status_code == 200)
         except Exception:
             _OLLAMA_AVAILABLE = False
     return _OLLAMA_AVAILABLE
 
-def check_contradiction(text1: str, text2: str) -> Dict[str, Any]:
+def check_contradiction(text1: str, text2: str, precomputed_sim: Optional[float] = None) -> Dict[str, Any]:
     """
     İki metnin all-MiniLM-L6-v2 kosinüs benzerliğini çıkarır.
     Benzerlik > 0.75 ise Ollama (qwen2.5:7b) ile semantik çelişki denetimi yapar.
     """
-    sim = _compute_cosine_similarity(text1, text2)
+    if precomputed_sim is not None:
+        sim = float(precomputed_sim)
+    else:
+        sim = _compute_cosine_similarity(text1, text2)
     
     # 1. Belirli Sayısal Yüklem Uyuşmazlığı Denetimi
     pred1 = _extract_predicate_and_number(text1)
@@ -141,7 +144,7 @@ Sadece aşağıdaki JSON formatında cevap ver:
 {{"is_contradictory": true/false, "severity": "HIGH/MEDIUM/LOW", "explanation": "Kısa açıklama"}}"""
 
         try:
-            with httpx.Client(timeout=1.0) as client:
+            with httpx.Client(timeout=25.0) as client:
                 resp = client.post(ollama_url, json={
                     "model": super_brain_config.FALLBACK_MODEL,
                     "prompt": prompt,
@@ -159,8 +162,8 @@ Sadece aşağıdaki JSON formatında cevap ver:
                             "severity": str(parsed.get("severity", "HIGH")).upper(),
                             "explanation": str(parsed.get("explanation", ""))
                         }
-        except Exception:
-            pass
+        except Exception as e:
+            logger.debug(f"Ollama contradiction check hatası/zaman aşımı: {e}")
 
     # Ollama erişilemediğinde deterministik kural denetimi
     if has_predicate_num_conflict:
@@ -241,17 +244,47 @@ class ContradictionEngine:
         """
         detected: List[ContradictionRecord] = []
         n = len(claims)
+        if n < 2:
+            return detected
+
+        texts = [str(c.get("text", "")) for c in claims]
+        predicates = [_extract_predicate_and_number(t) for t in texts]
+
+        # [AŞAMA 2 OPTİMİZASYON]: Toplu Vektörleşme (Batch Encoding) ile O(n) Benzerlik Matrisi
+        sim_matrix = None
+        model = _get_embedding_model()
+        if model != "FALLBACK" and hasattr(model, "encode"):
+            try:
+                embs = model.encode(texts)
+                norms = np.linalg.norm(embs, axis=1, keepdims=True)
+                norms[norms == 0] = 1.0
+                embs_norm = embs / norms
+                sim_matrix = np.dot(embs_norm, embs_norm.T)
+            except Exception as e:
+                logger.error(f"Batch embedding hatası: {e}", exc_info=True)
 
         for i in range(n):
             for j in range(i + 1, n):
                 c1 = claims[i]
                 c2 = claims[j]
-                t1 = str(c1.get("text", ""))
-                t2 = str(c2.get("text", ""))
+                t1 = texts[i]
+                t2 = texts[j]
                 s1 = c1.get("source", "Kaynak 1")
                 s2 = c2.get("source", "Kaynak 2")
 
-                contra_result = check_contradiction(t1, t2)
+                pred1 = predicates[i]
+                pred2 = predicates[j]
+                has_pred_conflict = bool(pred1 and pred2 and pred1[0] == pred2[0] and pred1[1] != pred2[1])
+
+                sim = float(sim_matrix[i, j]) if sim_matrix is not None else None
+
+                # Hızlı Aday Filtreleme: Benzerlik < 0.75 ve sayısal yüklem çelişkisi yoksa
+                # ve doğrudan zıtlık kalıbı içermiyorsa kontrolü derhal atla
+                has_antonym = ("yapılmıştır" in t1 and "yapılmamıştır" in t2) or ("yapılmamıştır" in t1 and "yapılmıştır" in t2)
+                if sim is not None and sim < 0.75 and not has_pred_conflict and not has_antonym:
+                    continue
+
+                contra_result = check_contradiction(t1, t2, precomputed_sim=sim)
                 if contra_result["is_contradictory"]:
                     severity_str = contra_result.get("severity", "HIGH")
                     severity = ContradictionSeverity.HIGH if severity_str == "HIGH" else (ContradictionSeverity.MEDIUM if severity_str == "MEDIUM" else ContradictionSeverity.LOW)

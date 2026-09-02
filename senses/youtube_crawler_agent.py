@@ -147,8 +147,13 @@ class YouTubeCrawlerAgent:
                 sys.executable, "-m", "yt_dlp",
                 "--flat-playlist",
                 "--dump-single-json",
-                f"ytsearch5:{c_name} KPSS 2026 oynatma listesi"
             ]
+            if super_brain_config.youtube_cookies_available:
+                cmd.extend(["--cookies", str(super_brain_config.YOUTUBE_COOKIES_FILE)])
+            elif super_brain_config.YOUTUBE_COOKIES_BROWSER:
+                cmd.extend(["--cookies-from-browser", super_brain_config.YOUTUBE_COOKIES_BROWSER])
+
+            cmd.append(f"ytsearch5:{c_name} KPSS 2026 oynatma listesi")
             result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=25.0)
             if result.returncode == 0 and result.stdout:
                 data = json.loads(result.stdout)
@@ -199,13 +204,33 @@ class YouTubeCrawlerAgent:
         channel_name: str,
         max_results: int = 3
     ) -> List[Dict[str, Any]]:
-        """yt-dlp ile belirli sorgu için video metaverilerini çeker."""
+        """Önce Resmi YouTube Data API v3 ile arar, yoksa yt-dlp ile çeker."""
+        from senses.youtube_api_client import youtube_api_client
+        if youtube_api_client.is_available():
+            api_vids = youtube_api_client.search_videos(search_query, max_results=max_results)
+            if api_vids:
+                return [{
+                    "video_id": v["video_id"],
+                    "url": v["url"],
+                    "title": v["title"],
+                    "channel": channel_name or v.get("channel", "YouTube"),
+                    "teacher_name": teacher_name,
+                    "lesson": lesson,
+                    "topic": topic_name,
+                    "duration_seconds": v.get("duration_seconds", 0)
+                } for v in api_vids]
+
         cmd = [
             sys.executable, "-m", "yt_dlp",
             "--flat-playlist",
             "--dump-single-json",
-            f"ytsearch{max_results}:{search_query}"
         ]
+        if super_brain_config.youtube_cookies_available:
+            cmd.extend(["--cookies", str(super_brain_config.YOUTUBE_COOKIES_FILE)])
+        elif super_brain_config.YOUTUBE_COOKIES_BROWSER:
+            cmd.extend(["--cookies-from-browser", super_brain_config.YOUTUBE_COOKIES_BROWSER])
+
+        cmd.append(f"ytsearch{max_results}:{search_query}")
         results = []
         try:
             res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", timeout=25.0)
@@ -217,7 +242,7 @@ class YouTubeCrawlerAgent:
                     vid = entry.get("id")
                     title = entry.get("title", "")
                     duration = entry.get("duration", 0) or 0
-                    if vid and len(vid) == 11:
+                    if vid and len(vid) == 11 and not vid.startswith(("fake_", "test_")):
                         results.append({
                             "video_id": vid,
                             "url": f"https://www.youtube.com/watch?v={vid}",
@@ -233,22 +258,8 @@ class YouTubeCrawlerAgent:
         return results
 
     def _get_verified_curated_videos(self, teacher_name: str, lesson: str, topic_name: str, channel: str) -> List[Dict[str, Any]]:
-        """Arama yanıt vermezse devreye giren kanıtlanmış yüksek kaliteli KPSS ders videoları."""
-        clean_title = f"KPSS 2026 {lesson} - {topic_name} - {teacher_name}"
-        # Deterministik video hash ID'si oluştur (tekillik garantisi)
-        import hashlib
-        vid_hash = hashlib.md5(f"{teacher_name}_{lesson}_{topic_name}".encode('utf-8')).hexdigest()[:11]
-        
-        return [{
-            "video_id": vid_hash,
-            "url": f"https://www.youtube.com/watch?v={vid_hash}",
-            "title": clean_title,
-            "channel": channel,
-            "teacher_name": teacher_name,
-            "lesson": lesson,
-            "topic": topic_name,
-            "duration_seconds": 2400
-        }]
+        """Arama yanıt vermezse sahte hash üretmek yerine boş liste döner."""
+        return []
 
     def _infer_lesson_from_title(self, title: str) -> str:
         """Başlıktan dersi çıkarır."""

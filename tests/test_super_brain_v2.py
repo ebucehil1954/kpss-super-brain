@@ -77,7 +77,8 @@ def test_selfcheckgpt_contradiction_detection():
     clean_score = multi_referee.check_consistency("VATANDASLIK", clean_text)
     assert clean_score >= 0.85, f"Doğru metnin tutarlılık skoru >= 0.85 olmalıdır: {clean_score}"
 
-def test_hungry_engine_autonomous_topic_elevation():
+@pytest.mark.asyncio
+async def test_hungry_engine_autonomous_topic_elevation():
     """
     Test 4: Otomatik Güncelleme:
     hungry_engine.py müfredat skoru 0.85 altındaki bir konuyu otonom olarak 0.98 seviyesine çıkarabilmeli.
@@ -90,7 +91,7 @@ def test_hungry_engine_autonomous_topic_elevation():
     assert scores_before.get(test_topic, 0.40) < 0.85
     
     # Otonom araştırma ve doğrulama akışını tetikle
-    res = hungry_engine.evaluate_and_trigger()
+    res = await hungry_engine.evaluate_and_trigger()
     assert res["status"] == "success"
     
     # Konunun skorunun 0.98'e yükseltildiğini doğrula

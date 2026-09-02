@@ -6,11 +6,18 @@ import sqlite3
 from typing import List, Dict, Any, Optional
 from datetime import datetime
 from brain.database import db_session
+from curriculum.queue import is_valid_youtube_video_id
 
 class VideoQueue:
     @classmethod
-    def enqueue_video(cls, video: Dict[str, Any], priority: int = 10) -> bool:
+    def enqueue_video(cls, video: Dict[str, Any], priority: int = 10, strict_validation: bool = False) -> bool:
         """Yeni bir videoyu kuyruğa ekler (zaten varsa yoksayar)."""
+        vid = (video.get("video_id") or "").strip()
+        if not vid:
+            return False
+        if strict_validation and not is_valid_youtube_video_id(vid):
+            return False
+
         now_str = datetime.now().isoformat()
         with db_session() as conn:
             cursor = conn.cursor()
@@ -22,7 +29,7 @@ class VideoQueue:
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'PENDING', ?, 0, 0, 0, ?)
             ON CONFLICT(video_id) DO NOTHING
             """, (
-                video["video_id"],
+                vid,
                 video.get("url", f"https://www.youtube.com/watch?v={video['video_id']}"),
                 video.get("title", "KPSS Dersi"),
                 video.get("channel", "YouTube"),
@@ -80,16 +87,21 @@ class VideoQueue:
             """, (transcript_length, chunks_extracted, now_str, video_id))
 
     @classmethod
-    def mark_no_transcript(cls, video_id: str, error_msg: str = ""):
-        """Altyazısı bulunamayan videoyu işaretler."""
+    def mark_transcript_deferred(cls, video_id: str, error_msg: str = "", status: str = "TRANSCRIPT_DEFERRED"):
+        """Altyazısı temin edilemeyen videoyu DEFERRED olarak işaretler."""
         with db_session() as conn:
             cursor = conn.cursor()
             cursor.execute("""
             UPDATE video_queue
-            SET status = 'NO_TRANSCRIPT',
+            SET status = ?,
                 error_message = ?
             WHERE video_id = ?
-            """, (error_msg, video_id))
+            """, (status, error_msg, video_id))
+
+    @classmethod
+    def mark_no_transcript(cls, video_id: str, error_msg: str = ""):
+        """Altyazısı bulunamayan videoyu işaretler."""
+        cls.mark_transcript_deferred(video_id, error_msg=error_msg, status="NO_TRANSCRIPT")
 
     @classmethod
     def mark_failed(cls, video_id: str, error_msg: str = ""):

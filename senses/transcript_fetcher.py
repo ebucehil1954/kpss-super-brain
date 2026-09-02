@@ -223,69 +223,24 @@ class TranscriptFetcher:
     @classmethod
     async def fetch_transcript_resilient(cls, video_id_or_url: str, enable_whisper_fallback: bool = True) -> Dict[str, Any]:
         """
-        IP engellerini aşan tam asenkron 6 kademeli transkripsiyon motoru.
+        4 Kademeli TranscriptGateway V1 motoruna delege eden dayanıklı transkripsiyon fonksiyonu.
+        Geriye dönük %100 uyumludur.
         """
+        from senses.transcript_gateway import transcript_gateway
         vid = cls.extract_video_id(video_id_or_url)
-
-        # 1. Disk Önbellek
-        res = cls.fetch_transcript(vid)
-        if res.get("success") and res.get("text"):
-            return res
-
-        # 2. Proxy Havuzu ile Deneme
-        if super_brain_config.PROXY_ROTATION_ENABLED:
-            for attempt in range(2):
-                proxy_url = await proxy_pool.get_next_proxy()
-                if proxy_url:
-                    try:
-                        proxies_dict = {"http": proxy_url, "https": proxy_url}
-                        ytt = YouTubeTranscriptApi(proxies=proxies_dict)
-                        transcript_list = await asyncio.to_thread(ytt.list, vid)
-                        transcript = transcript_list.find_transcript(['tr', 'tr-TR']) or transcript_list.find_generated_transcript(['tr', 'tr-TR'])
-                        if transcript:
-                            fetched = await asyncio.to_thread(transcript.fetch)
-                            full_text, segments = cls._extract_text_and_segments(fetched, vid)
-                            if full_text.strip():
-                                cls._save_structured_cache(vid, full_text, segments, "PROXY_POOL_ROTATION")
-                                cls._save_segments_to_db(segments)
-                                return {
-                                    "success": True,
-                                    "video_id": vid,
-                                    "text": full_text,
-                                    "segments": segments,
-                                    "source": "PROXY_POOL_ROTATION",
-                                    "file_path": os.path.join(cls.TRANSCRIPTS_DIR, f"{vid}_transcript.json")
-                                }
-                    except Exception:
-                        proxy_pool.report_proxy_failure(proxy_url)
-                        await asyncio.sleep(1)
-
-        # 3. GPU Destekli Yerel Whisper STT Katmanı
-        if enable_whisper_fallback and super_brain_config.WHISPER_ENABLED:
-            try:
-                whisper_res = await whisper_transcriber.transcribe_video(vid)
-                if whisper_res.get("success") and whisper_res.get("text"):
-                    full_text = whisper_res.get("text")
-                    segments = whisper_res.get("segments", [])
-                    cls._save_structured_cache(vid, full_text, segments, f"LOCAL_WHISPER_{whisper_res.get('device', 'GPU').upper()}")
-                    cls._save_segments_to_db(segments)
-                    return {
-                        "success": True,
-                        "video_id": vid,
-                        "text": full_text,
-                        "segments": segments,
-                        "source": f"LOCAL_WHISPER_{whisper_res.get('device', 'GPU').upper()}",
-                        "file_path": os.path.join(cls.TRANSCRIPTS_DIR, f"{vid}_transcript.json")
-                    }
-            except Exception as e:
-                print(f"⚠️ [WHISPER FALLBACK]: {e}")
-
+        res_obj = await transcript_gateway.get_transcript(vid, allow_whisper=enable_whisper_fallback)
         return {
-            "success": False,
-            "video_id": vid,
-            "error": "TRANSCRIPT_UNAVAILABLE",
-            "text": "",
-            "segments": []
+            "success": res_obj.success,
+            "video_id": res_obj.video_id,
+            "text": res_obj.full_text,
+            "segments": [s.model_dump() for s in res_obj.segments],
+            "error": "TRANSCRIPT_UNAVAILABLE" if not res_obj.success else None,
+            "error_detail": res_obj.error if not res_obj.success else None,
+            "status": res_obj.status.value,
+            "provider": res_obj.provider.value if res_obj.provider else None,
+            "cached": res_obj.cached,
+            "attempts": res_obj.attempts,
+            "diagnostics": [d.model_dump() for d in res_obj.diagnostics]
         }
 
 def datetime_now_iso() -> str:

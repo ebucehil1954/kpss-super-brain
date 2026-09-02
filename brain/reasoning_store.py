@@ -57,6 +57,30 @@ class ReasoningStore:
         return cid
 
     @classmethod
+    def add_chain(
+        cls,
+        chain_type: str,
+        lesson: str,
+        topic: str,
+        description: str,
+        steps: List[Dict[str, Any]],
+        learned_from: Optional[List[str]] = None,
+        teacher_source: str = "GENEL",
+        chain_id: Optional[str] = None
+    ) -> str:
+        """save_reasoning_chain için takma ad (alias)."""
+        return cls.save_reasoning_chain(
+            chain_type=chain_type,
+            lesson=lesson,
+            topic=topic,
+            description=description,
+            steps=steps,
+            learned_from=learned_from,
+            teacher_source=teacher_source,
+            chain_id=chain_id
+        )
+
+    @classmethod
     def get_chains_for_topic(cls, lesson: str, topic: str) -> List[Dict[str, Any]]:
         """Ders ve konuya ait mantık zincirlerini çeker."""
         with db_session() as conn:

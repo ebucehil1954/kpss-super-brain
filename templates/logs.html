@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenManus & Qwen LLM — Saha, Çıkarım, Denetim ve Hata Günlüğü</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            dark: {
+              950: '#040711',
+              900: '#080d1a',
+              850: '#0c1427',
+              800: '#111c35',
+              700: '#1b2a4e',
+              600: '#253866'
+            },
+            brand: {
+              primary: '#6366f1',
+              cyan: '#06b6d4',
+              emerald: '#10b981',
+              amber: '#f59e0b',
+              rose: '#f43f5e',
+              purple: '#a855f7',
+              blue: '#3b82f6'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #040711;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: #f3f4f6;
+    }
+    .glass-card {
+      background: rgba(12, 20, 39, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.15);
+    }
+    .user-card-header {
+      background: rgba(17, 28, 53, 0.9);
+      border: 2px solid #3b82f6;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+    .blue-link {
+      color: #38bdf8;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+      transition: color 0.15s ease, text-shadow 0.15s ease;
+      cursor: pointer;
+    }
+    .blue-link:hover {
+      color: #7dd3fc;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.6);
+    }
+    .modal-backdrop {
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #080d1a; }
+    ::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #374151; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-primary selection:text-white">
+
+  <!-- Üst Navigasyon & Header -->
+  <header class="sticky top-0 z-40 bg-dark-950/80 backdrop-blur-xl border-b border-white/10 px-4 lg:px-8 py-3.5">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      
+      <!-- Marka & Başlık -->
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-xl bg-gradient-to-tr from-brand-primary via-brand-purple to-brand-cyan flex items-center justify-center shadow-lg shadow-brand-primary/20 ring-1 ring-white/20">
+          <span class="text-xl">🌌</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-display font-bold text-lg md:text-xl tracking-tight text-white">KPSS SUPER-BRAIN</h1>
+            <span class="px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-primary/20 text-brand-cyan border border-brand-cyan/30">
+              Canlı Günlük
+            </span>
+          </div>
+          <p class="text-xs text-gray-400">OpenManus İşçi Keşifleri, Qwen LLM Bilişsel Çıkarımları, Denetim & Hata Paneli</p>
+        </div>
+      </div>
+
+      <!-- Navigasyon Butonları & Canlı Durum -->
+      <div class="flex flex-wrap items-center gap-2.5">
+        <a href="/" class="px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-dark-800 transition flex items-center gap-1.5 border border-white/5">
+          <span>🏠</span> Ana Panel
+        </a>
+        <a href="/api/v15/dashboard" class="px-3 py-1.5 rounded-lg text-xs font-medium text-gray-300 hover:text-white hover:bg-dark-800 transition flex items-center gap-1.5 border border-white/5">
+          <span>🎯</span> Mission Control
+        </a>
+        <a href="/logs" class="px-3 py-1.5 rounded-lg text-xs font-semibold text-white bg-brand-primary/30 border border-brand-primary/50 flex items-center gap-1.5 shadow-sm">
+          <span>📋</span> Saha Günlüğü
+        </a>
+        
+        <div class="h-5 w-px bg-white/10 mx-1"></div>
+
+        <!-- Canlı Akış Anahtarı -->
+        <label class="flex items-center gap-2 text-xs font-medium text-gray-300 cursor-pointer select-none bg-dark-850 px-2.5 py-1.5 rounded-lg border border-white/10">
+          <span class="relative flex h-2.5 w-2.5">
+            <span id="live-ping" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <input type="checkbox" id="auto-refresh-toggle" checked class="hidden">
+          <span>Oto-Yenileme (5s)</span>
+        </label>
+
+        <button onclick="loadPipelineLogs()" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-dark-800 hover:bg-dark-700 text-brand-cyan border border-brand-cyan/30 flex items-center gap-1.5 transition">
+          <span id="refresh-spinner" class="inline-block">🔄</span> Şimdi Yenile
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Ana İçerik Alanı -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 lg:p-8 space-y-6">
+
+    <!-- KPI Özet Sayaçları -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5">
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-brand-primary">
+        <div class="text-xs text-gray-400 font-medium">Taranan Videolar</div>
+        <div class="text-xl font-bold font-display text-white mt-1" id="stat-total-videos">-</div>
+      </div>
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-emerald-500">
+        <div class="text-xs text-gray-400 font-medium">Tüketilen (İzlendi)</div>
+        <div class="text-xl font-bold font-display text-emerald-400 mt-1" id="stat-watched-videos">-</div>
+      </div>
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-amber-500">
+        <div class="text-xs text-gray-400 font-medium">Ertelenen / Bekleyen</div>
+        <div class="text-xl font-bold font-display text-amber-400 mt-1" id="stat-deferred-videos">-</div>
+      </div>
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-brand-cyan">
+        <div class="text-xs text-gray-400 font-medium">Çıkarılan Bilgiler</div>
+        <div class="text-xl font-bold font-display text-brand-cyan mt-1" id="stat-total-knowledge">-</div>
+      </div>
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-purple-500">
+        <div class="text-xs text-gray-400 font-medium">Onaylanan İddialar</div>
+        <div class="text-xl font-bold font-display text-purple-400 mt-1" id="stat-verified-claims">-</div>
+      </div>
+      <div class="glass-card rounded-xl p-3.5 border-l-4 border-l-rose-500">
+        <div class="text-xs text-gray-400 font-medium">Karşılaşılan Hatalar</div>
+        <div class="text-xl font-bold font-display text-rose-400 mt-1" id="stat-failed-attempts">-</div>
+      </div>
+    </div>
+
+    <!-- Filtreleme ve Arama Çubuğu -->
+    <div class="glass-card rounded-xl p-4 flex flex-col md:flex-row gap-3 items-center justify-between">
+      
+      <!-- Arama Kutusu -->
+      <div class="relative w-full md:w-80">
+        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">🔍</span>
+        <input type="text" id="search-input" placeholder="Video, hoca, konu veya hata ara..." 
+               class="w-full bg-dark-900 border border-white/10 rounded-lg pl-9 pr-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-brand-primary focus:ring-1 focus:ring-brand-primary">
+      </div>
+
+      <!-- Filtre Butonları -->
+      <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+        
+        <!-- Durum Filtresi -->
+        <select id="filter-status" onchange="loadPipelineLogs()" class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-brand-primary">
+          <option value="ALL">Tüm Durumlar</option>
+          <option value="WATCHED">✅ İzlendi & Çözümlendi</option>
+          <option value="PROCESSING">⏳ İşleniyor (İnceleniyor)</option>
+          <option value="TRANSCRIPT_DEFERRED">⚠️ Transkript Ertelendi</option>
+          <option value="PENDING">🕒 Kuyrukta Bekliyor</option>
+          <option value="FAILED">❌ Başarısız</option>
+        </select>
+
+        <!-- Ders Filtresi -->
+        <select id="filter-lesson" onchange="loadPipelineLogs()" class="bg-dark-900 border border-white/10 rounded-lg px-3 py-2 text-xs text-gray-200 focus:outline-none focus:border-brand-primary">
+          <option value="ALL">Tüm Dersler</option>
+          <option value="TARIH">Tarih</option>
+          <option value="COGRAFYA">Coğrafya</option>
+          <option value="VATANDASLIK">Vatandaşlık</option>
+          <option value="TURKCE">Türkçe</option>
+          <option value="MATEMATIK">Matematik</option>
+        </select>
+
+        <!-- Yalnızca Hatalılar Anahtarı -->
+        <label class="flex items-center gap-2 text-xs text-gray-300 cursor-pointer bg-dark-900 border border-white/10 px-3 py-2 rounded-lg hover:border-rose-500/40">
+          <input type="checkbox" id="filter-only-errors" onchange="loadPipelineLogs()" class="rounded border-gray-700 text-rose-500 focus:ring-0">
+          <span>Yalnızca Hataları Listele</span>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- Kullanıcının Çizdiği Kart Yapısına Birebir Sahip Günlük Akışı -->
+    <div id="logs-container" class="space-y-6">
+      <!-- Yükleniyor Göstergesi -->
+      <div class="text-center py-12 glass-card rounded-2xl">
+        <div class="inline-block animate-spin text-3xl mb-2">🔄</div>
+        <div class="text-sm font-medium text-gray-300">Otonom saha günlüğü veritabanından çekiliyor...</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ============================================================== -->
+  <!-- MODAL 1: QWEN LLM ÇIKARIMLAR VE ANALİZLER MODALI              -->
+  <!-- ============================================================== -->
+  <div id="modal-inferences" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-card bg-dark-900 border border-brand-cyan/30 rounded-2xl w-full max-w-4xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <!-- Modal Başlığı -->
+      <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-dark-850">
+        <div class="flex items-center gap-2.5">
+          <span class="text-2xl">🧠</span>
+          <div>
+            <h3 class="font-display font-bold text-base text-white">Qwen LLM Videodan Yapılan Çıkarımlar & Analizler</h3>
+            <p id="inferences-modal-subtitle" class="text-xs text-brand-cyan truncate max-w-xl">Video Detayları</p>
+          </div>
+        </div>
+        <button onclick="closeModal('modal-inferences')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+
+      <!-- Sekmeler (Tabs) -->
+      <div class="flex border-b border-white/10 bg-dark-950 px-6 gap-2 pt-2">
+        <button onclick="switchInferenceTab('facts')" id="tab-btn-facts" class="px-4 py-2 text-xs font-semibold border-b-2 border-brand-cyan text-brand-cyan">
+          📌 Atomik Bilgiler (<span id="count-facts">0</span>)
+        </button>
+        <button onclick="switchInferenceTab('mnemonics')" id="tab-btn-mnemonics" class="px-4 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-gray-200">
+          🔑 Hafıza Şifreleri (<span id="count-mnemonics">0</span>)
+        </button>
+        <button onclick="switchInferenceTab('traps')" id="tab-btn-traps" class="px-4 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-gray-200">
+          ⚠️ ÖSYM Tuzakları (<span id="count-traps">0</span>)
+        </button>
+        <button onclick="switchInferenceTab('segments')" id="tab-btn-segments" class="px-4 py-2 text-xs font-semibold border-b-2 border-transparent text-gray-400 hover:text-gray-200">
+          ⏱️ Zaman Damgalı Transkript (<span id="count-segments">0</span>)
+        </button>
+      </div>
+
+      <!-- Sekme İçeriği -->
+      <div class="p-6 overflow-y-auto flex-1 space-y-3">
+        <div id="tab-content-facts" class="space-y-2.5"></div>
+        <div id="tab-content-mnemonics" class="space-y-2.5 hidden"></div>
+        <div id="tab-content-traps" class="space-y-2.5 hidden"></div>
+        <div id="tab-content-segments" class="space-y-2 hidden font-mono text-xs"></div>
+      </div>
+
+      <!-- Modal Altbilgisi -->
+      <div class="px-6 py-3 border-t border-white/10 bg-dark-950 flex justify-between items-center text-xs text-gray-400">
+        <span>Bilişsel Analist: <strong class="text-white">Qwen 2.5 14B</strong></span>
+        <button onclick="closeModal('modal-inferences')" class="px-4 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-700 text-white font-medium">Kapat</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- MODAL 2: DENETÇİ DENETİM RAPORU (AUDITOR & FIREWALL)          -->
+  <!-- ============================================================== -->
+  <div id="modal-audit" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop">
+    <div class="glass-card bg-dark-900 border border-purple-500/30 rounded-2xl w-full max-w-3xl max-h-[85vh] flex flex-col shadow-2xl overflow-hidden">
+      
+      <div class="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-dark-850">
+        <div class="flex items-center gap-2.5">
+          <span class="text-2xl">⚖️</span>
+          <div>
+            <h3 class="font-display font-bold text-base text-white">Denetçi Denetim Raporu & Knowledge Firewall</h3>
+            <p id="audit-modal-subtitle" class="text-xs text-purple-400">Çoklu Hakem ve Mantıksal Doğrulama Sonuçları</p>
+          </div>
+        </div>
+        <button onclick="closeModal('modal-audit')" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
+      </div>
+
+      <div class="p-6 overflow-y-auto flex-1 space-y-4">
+        
+        <!-- Denetçi Güvenlik Kuralları -->
+        <div class="bg-dark-950 p-4 rounded-xl border border-white/5 space-y-2">
+          <div class="text-xs font-bold uppercase text-gray-400">Knowledge Firewall Güvenlik Protokolü</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 pt-1 text-xs">
+            <div class="p-2.5 rounded-lg bg-dark-850 border border-emerald-500/20 text-emerald-400">
+              <span class="font-bold">✓ PENDING_BLOCK:</span> Onaylanmamış ham iddia hafızaya giremez.
+            </div>
+            <div class="p-2.5 rounded-lg bg-dark-850 border border-blue-500/20 text-blue-400">
+              <span class="font-bold">✓ Z3_LOGIC:</span> Mantıksal çelişki ve tutarsızlık taraması aktif.
+            </div>
+            <div class="p-2.5 rounded-lg bg-dark-850 border border-purple-500/20 text-purple-400">
+              <span class="font-bold">✓ MULTI_REFEREE:</span> Hoca karşılaştırmalı konsensüs aranır.
+            </div>
+          </div>
+        </div>
+
+        <!-- İddia Doğrulama Durumu Listesi -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Denetlenen Atomik İddialar ve Durumları</h4>
+          <div id="audit-claims-list" class="space-y-2"></div>
+        </div>
+
+      </div>
+
+      <div class="px-6 py-3 border-t border-white/10 bg-dark-950 flex justify-end">
+        <button onclick="closeModal('modal-audit')" class="px-4 py-1.5 rounded-lg bg-dark-800 hover:bg-dark-700 text-white text-xs font-medium">Kapat</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================== -->
+  <!-- JAVASCRIPT: CANLI VERİ ÇEKME & MODAL ETKİLEŞİMLERİ           -->
+  <!-- ============================================================== -->
+  <script>
+    let currentInferencesData = null;
+    let autoRefreshTimer = null;
+
+    // Sayfa Yüklendiğinde Başlat
+    document.addEventListener("DOMContentLoaded", () => {
+      loadStats();
+      loadPipelineLogs();
+      setupAutoRefresh();
+
+      // Arama kutusu canlı filtreleme
+      document.getElementById("search-input").addEventListener("input", filterCardsInDOM);
+    });
+
+    function setupAutoRefresh() {
+      const toggle = document.getElementById("auto-refresh-toggle");
+      const ping = document.getElementById("live-ping");
+
+      function updateTimer() {
+        if (toggle.checked) {
+          ping.classList.remove("hidden");
+          if (!autoRefreshTimer) {
+            autoRefreshTimer = setInterval(() => {
+              loadStats();
+              loadPipelineLogs(false);
+            }, 5000);
+          }
+        } else {
+          ping.classList.add("hidden");
+          if (autoRefreshTimer) {
+            clearInterval(autoRefreshTimer);
+            autoRefreshTimer = null;
+          }
+        }
+      }
+
+      toggle.addEventListener("change", updateTimer);
+      updateTimer();
+    }
+
+    async function loadStats() {
+      try {
+        const res = await fetch("/api/logs/stats");
+        if (!res.ok) return;
+        const d = await res.json();
+        document.getElementById("stat-total-videos").innerText = d.total_videos || 0;
+        document.getElementById("stat-watched-videos").innerText = d.watched_videos || 0;
+        document.getElementById("stat-deferred-videos").innerText = d.deferred_videos || 0;
+        document.getElementById("stat-total-knowledge").innerText = d.total_knowledge || 0;
+        document.getElementById("stat-verified-claims").innerText = d.verified_claims || 0;
+        document.getElementById("stat-failed-attempts").innerText = d.failed_attempts || 0;
+      } catch (e) {
+        console.warn("Stats yüklenemedi:", e);
+      }
+    }
+
+    async function loadPipelineLogs(showSpinner = true) {
+      const spinner = document.getElementById("refresh-spinner");
+      if (showSpinner && spinner) spinner.classList.add("animate-spin");
+
+      const status = document.getElementById("filter-status").value;
+      const lesson = document.getElementById("filter-lesson").value;
+      const onlyErrors = document.getElementById("filter-only-errors").checked;
+
+      const params = new URLSearchParams({
+        limit: 50,
+        offset: 0,
+        status_filter: status,
+        lesson_filter: lesson,
+        only_errors: onlyErrors
+      });
+
+      try {
+        const res = await fetch(`/api/logs/pipeline?${params.toString()}`);
+        if (!res.ok) throw new Error("Veri alınamadı: " + res.status);
+        const data = await res.json();
+        renderPipelineCards(data.cards || []);
+      } catch (err) {
+        document.getElementById("logs-container").innerHTML = `
+          <div class="p-6 glass-card rounded-xl text-center border-rose-500/30 text-rose-400 text-sm">
+            ❌ Günlük verileri yüklenirken hata oluştu: ${err.message}
+          </div>
+        `;
+      } finally {
+        if (spinner) spinner.classList.remove("animate-spin");
+      }
+    }
+
+    function renderPipelineCards(cards) {
+      const container = document.getElementById("logs-container");
+      if (!cards || cards.length === 0) {
+        container.innerHTML = `
+          <div class="py-12 glass-card rounded-2xl text-center text-gray-400 text-sm">
+            🕳️ Henüz kayıtlı video veya iş görevi bulunamadı.
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = cards.map(c => renderSingleCard(c)).join("");
+      filterCardsInDOM();
+    }
+
+    function renderSingleCard(c) {
+      // Durum Rozetleri
+      let statusBadge = "";
+      if (c.status === "WATCHED") {
+        statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">✓ İZLENDİ & ANALİZ EDİLDİ</span>`;
+      } else if (c.status === "PROCESSING") {
+        statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30 animate-pulse">⏳ İŞLENİYOR</span>`;
+      } else if (c.status === "TRANSCRIPT_DEFERRED") {
+        statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">⚠️ TRANSKRİPT ERTELENDİ</span>`;
+      } else {
+        statusBadge = `<span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">❌ ${c.status}</span>`;
+      }
+
+      // Hata Teşhisleri Listesi (Her sorguda alınan hatalar)
+      let attemptsHtml = "";
+      if (c.attempts && c.attempts.length > 0) {
+        attemptsHtml = `
+          <div class="mt-3.5 pt-3.5 border-t border-white/10">
+            <div class="text-xs font-bold text-gray-300 mb-2 flex items-center justify-between">
+              <span>🔍 Her Sorguda / Sağlayıcıda Alınan Sonuçlar ve Hatalar (${c.attempts.length} Deneme):</span>
+              <span class="text-[10px] text-gray-500 font-mono">Gateway Teşhis Günlüğü</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              ${c.attempts.map(a => {
+                const isSuccess = a.status === "TRANSCRIPT_ACQUIRED" || a.status === "SUCCESS";
+                const borderClass = isSuccess ? "border-emerald-500/30 bg-emerald-950/20" : "border-rose-500/30 bg-rose-950/20";
+                const icon = isSuccess ? "✅" : "⚠️";
+                const statusColor = isSuccess ? "text-emerald-400" : "text-rose-400";
+                return `
+                  <div class="p-2 rounded-lg border ${borderClass} text-xs font-mono">
+                    <div class="flex items-center justify-between">
+                      <span class="font-bold text-white">${icon} ${a.provider}</span>
+                      <span class="text-[10px] text-gray-400">${a.duration_ms}ms</span>
+                    </div>
+                    <div class="${statusColor} mt-0.5 text-[11px] font-semibold">${a.status}</div>
+                    ${a.error_message ? `<div class="text-gray-300 text-[10px] mt-1 break-words line-clamp-2" title="${escapeHtml(a.error_message)}">${escapeHtml(a.error_message)}</div>` : ''}
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </div>
+        `;
+      } else {
+        attemptsHtml = `
+          <div class="mt-3 pt-3 border-t border-white/5 text-xs text-gray-500">
+            Sağlayıcı deneme teşhisi henüz kaydedilmedi.
+          </div>
+        `;
+      }
+
+      // Kullanıcının Çizdiği Şablonu Birebir Yansıtan Kart HTML'i:
+      return `
+        <div class="pipeline-card glass-card rounded-2xl overflow-hidden shadow-lg border border-white/10" 
+             data-search="${escapeHtml(c.title + ' ' + c.teacher_name + ' ' + c.lesson + ' ' + c.topic + ' ' + (c.error_message || ''))}">
+          
+          <!-- ÜST KISIM (Kullanıcının çizimindeki büyük başlık kutusu) -->
+          <div class="user-card-header px-6 py-4 text-white flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <span class="text-xl">🤖</span>
+              <h2 class="font-display font-bold text-base md:text-lg text-white">
+                Openmanus - İşçi Bir adet "${escapeHtml(c.title)}" isimli video buldu
+              </h2>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-lg text-xs font-bold uppercase bg-dark-900/80 text-brand-cyan border border-brand-cyan/40">
+                ${c.lesson} — ${c.topic}
+              </span>
+              ${statusBadge}
+            </div>
+          </div>
+
+          <!-- ALT KISIM (Kullanıcının çizimindeki 3 satır ve mavi linkler) -->
+          <div class="p-6 space-y-3 bg-dark-900/60">
+            
+            <!-- SATIR 1: Video Linki -->
+            <div class="text-sm text-gray-200 flex items-start gap-2">
+              <span class="text-brand-cyan mt-0.5">▶️</span>
+              <div>
+                <a href="${c.video_url}" target="_blank" rel="noopener noreferrer" class="blue-link text-base">
+                  ${escapeHtml(c.title)}
+                </a>
+                <span class="text-gray-300"> video işçi tarafından bulundu.</span>
+                <span class="text-xs text-gray-400 block mt-0.5">
+                  Eğitmen: <strong class="text-white">${escapeHtml(c.teacher_name)}</strong> • Kanal: ${escapeHtml(c.channel)} • ID: <code>${c.video_id}</code>
+                </span>
+              </div>
+            </div>
+
+            <!-- SATIR 2: Qwen LLM Videodan Yaptığı Çıkarımlar -->
+            <div class="text-sm text-gray-200 flex items-start gap-2">
+              <span class="text-brand-purple mt-0.5">🧠</span>
+              <div>
+                <span>Qwen llm videodan yaptığı çıkarımlar analizler - </span>
+                <a href="javascript:void(0)" onclick="openInferencesModal('${c.video_id}')" class="blue-link">
+                  Link (${c.inferences_summary.total_count} Bilgi, ${c.inferences_summary.mnemonics_count} Şifre, ${c.inferences_summary.traps_count} Tuzak)
+                </a>
+              </div>
+            </div>
+
+            <!-- SATIR 3: Denetçi Denetimini Yaptı -->
+            <div class="text-sm text-gray-200 flex items-start gap-2">
+              <span class="text-emerald-400 mt-0.5">⚖️</span>
+              <div>
+                <span>Denetçi denetimini yaptı - </span>
+                <a href="javascript:void(0)" onclick="openAuditModal('${c.video_id}')" class="blue-link">
+                  Link (${c.audits_summary.verified_claims} Onaylandı, ${c.audits_summary.pending_claims} Beklemede, ${c.audits_summary.rejected_claims} Red)
+                </a>
+              </div>
+            </div>
+
+            <!-- SATIR 4: Her Sorguda Alınan Hatalar ve Teşhis Listesi -->
+            ${attemptsHtml}
+
+          </div>
+
+        </div>
+      `;
+    }
+
+    // Arama Filtreleme (DOM üzerinde anlık)
+    function filterCardsInDOM() {
+      const q = document.getElementById("search-input").value.toLowerCase().trim();
+      const cards = document.querySelectorAll(".pipeline-card");
+      cards.forEach(card => {
+        const text = (card.getAttribute("data-search") || "").toLowerCase();
+        card.style.display = (!q || text.includes(q)) ? "block" : "none";
+      });
+    }
+
+    // ==============================================================
+    // MODAL YÖNETİMİ
+    // ==============================================================
+    async function openInferencesModal(videoId) {
+      const modal = document.getElementById("modal-inferences");
+      modal.classList.remove("hidden");
+
+      document.getElementById("tab-content-facts").innerHTML = "<div class='text-xs text-gray-400'>Yükleniyor...</div>";
+      document.getElementById("inferences-modal-subtitle").innerText = "Video: " + videoId;
+
+      try {
+        const res = await fetch(`/api/logs/video/${videoId}/details`);
+        if (!res.ok) throw new Error("Detaylar alınamadı.");
+        const data = await res.json();
+        currentInferencesData = data;
+        renderInferencesModal(data);
+      } catch (e) {
+        document.getElementById("tab-content-facts").innerHTML = `<div class="text-xs text-rose-400">Hata: ${e.message}</div>`;
+      }
+    }
+
+    function renderInferencesModal(data) {
+      const records = data.records || [];
+      const facts = records.filter(r => r.record_type === "FACT");
+      const mnemonics = records.filter(r => r.record_type === "MNEMONIC");
+      const traps = records.filter(r => r.record_type === "TRAP");
+      const segments = data.segments || [];
+
+      document.getElementById("count-facts").innerText = facts.length;
+      document.getElementById("count-mnemonics").innerText = mnemonics.length;
+      document.getElementById("count-traps").innerText = traps.length;
+      document.getElementById("count-segments").innerText = segments.length;
+
+      // Facts
+      const factsContainer = document.getElementById("tab-content-facts");
+      if (facts.length === 0) {
+        factsContainer.innerHTML = "<div class='text-xs text-gray-400 py-4 text-center'>Bu videodan henüz fact kaydı çıkarılmadı.</div>";
+      } else {
+        factsContainer.innerHTML = facts.map(f => `
+          <div class="p-3 rounded-xl bg-dark-950 border border-white/5 text-xs text-gray-200">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-brand-cyan">📌 ${f.subtopic || 'Genel Konu'}</span>
+              <span class="text-[10px] text-gray-500">Güven: %${Math.round((f.confidence||0.9)*100)}</span>
+            </div>
+            <div>${escapeHtml(f.text)}</div>
+          </div>
+        `).join("");
+      }
+
+      // Mnemonics
+      const mnemonicsContainer = document.getElementById("tab-content-mnemonics");
+      if (mnemonics.length === 0) {
+        mnemonicsContainer.innerHTML = "<div class='text-xs text-gray-400 py-4 text-center'>Hafıza şifresi veya kodlama bulunamadı.</div>";
+      } else {
+        mnemonicsContainer.innerHTML = mnemonics.map(m => `
+          <div class="p-3 rounded-xl bg-dark-950 border border-amber-500/20 text-xs text-amber-200">
+            <div class="font-bold text-amber-400 mb-1">🔑 Şifreleme / Akrostiş:</div>
+            <div class="text-sm font-semibold">${escapeHtml(m.text)}</div>
+          </div>
+        `).join("");
+      }
+
+      // Traps
+      const trapsContainer = document.getElementById("tab-content-traps");
+      if (traps.length === 0) {
+        trapsContainer.innerHTML = "<div class='text-xs text-gray-400 py-4 text-center'>ÖSYM çeldirici soru tuzağı bulunamadı.</div>";
+      } else {
+        trapsContainer.innerHTML = traps.map(t => `
+          <div class="p-3 rounded-xl bg-dark-950 border border-rose-500/20 text-xs text-rose-200">
+            <div class="font-bold text-rose-400 mb-1">⚠️ Sınav Tuzağı Uyarısı:</div>
+            <div>${escapeHtml(t.text)}</div>
+          </div>
+        `).join("");
+      }
+
+      // Segments
+      const segmentsContainer = document.getElementById("tab-content-segments");
+      if (segments.length === 0) {
+        segmentsContainer.innerHTML = "<div class='text-xs text-gray-400 py-4 text-center'>Kayıtlı segment bulunamadı.</div>";
+      } else {
+        segmentsContainer.innerHTML = segments.map(s => `
+          <div class="p-2 rounded bg-dark-950 border border-white/5 flex gap-3 items-baseline">
+            <span class="text-brand-cyan shrink-0">${formatSeconds(s.start_seconds)} - ${formatSeconds(s.end_seconds)}</span>
+            <span class="text-gray-300">${escapeHtml(s.text)}</span>
+          </div>
+        `).join("");
+      }
+
+      switchInferenceTab("facts");
+    }
+
+    function switchInferenceTab(tabName) {
+      const tabs = ["facts", "mnemonics", "traps", "segments"];
+      tabs.forEach(t => {
+        const btn = document.getElementById(`tab-btn-${t}`);
+        const content = document.getElementById(`tab-content-${t}`);
+        if (t === tabName) {
+          btn.classList.add("border-brand-cyan", "text-brand-cyan");
+          btn.classList.remove("border-transparent", "text-gray-400");
+          content.classList.remove("hidden");
+        } else {
+          btn.classList.remove("border-brand-cyan", "text-brand-cyan");
+          btn.classList.add("border-transparent", "text-gray-400");
+          content.classList.add("hidden");
+        }
+      });
+    }
+
+    async function openAuditModal(videoId) {
+      const modal = document.getElementById("modal-audit");
+      modal.classList.remove("hidden");
+
+      document.getElementById("audit-modal-subtitle").innerText = "Video ID: " + videoId;
+      const list = document.getElementById("audit-claims-list");
+      list.innerHTML = "<div class='text-xs text-gray-400'>Denetçi raporu yükleniyor...</div>";
+
+      try {
+        const res = await fetch(`/api/logs/video/${videoId}/audits`);
+        if (!res.ok) throw new Error("Denetim raporu alınamadı.");
+        const data = await res.json();
+        renderAuditModal(data);
+      } catch (e) {
+        list.innerHTML = `<div class="text-xs text-rose-400">Hata: ${e.message}</div>`;
+      }
+    }
+
+    function renderAuditModal(data) {
+      const claims = data.claims || [];
+      const list = document.getElementById("audit-claims-list");
+
+      if (claims.length === 0) {
+        list.innerHTML = "<div class='text-xs text-gray-400 py-4 text-center'>Bu konuya ait kayıtlı atomik iddia bulunamadı.</div>";
+        return;
+      }
+
+      list.innerHTML = claims.map(c => {
+        let badge = "";
+        if (c.verification_status === "VERIFIED") {
+          badge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">✓ ONAYLANDI</span>`;
+        } else if (c.verification_status === "REJECTED") {
+          badge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30">✕ REDDEDİLDİ</span>`;
+        } else {
+          badge = `<span class="px-2 py-0.5 rounded text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">⏳ BEKLEMEDE</span>`;
+        }
+
+        return `
+          <div class="p-3 rounded-xl bg-dark-950 border border-white/5 text-xs text-gray-200 space-y-1">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-purple-400">${c.claim_type}</span>
+              ${badge}
+            </div>
+            <div class="font-medium text-white">${escapeHtml(c.text)}</div>
+            <div class="text-[10px] text-gray-500 pt-1 flex justify-between">
+              <span>Konu: ${c.lesson} — ${c.topic}</span>
+              <span>Güven: %${Math.round((c.confidence||0.9)*100)}</span>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add("hidden");
+    }
+
+    // Yardımcı fonksiyonlar
+    function escapeHtml(str) {
+      if (!str) return "";
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function formatSeconds(sec) {
+      if (isNaN(sec)) return "00:00";
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60);
+      return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+    }
+  </script>
+
+</body>
+</html>

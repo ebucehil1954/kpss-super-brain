@@ -131,6 +131,14 @@
 
         <!-- Quick Action Buttons -->
         <div class="flex items-center gap-2">
+            <a href="/logs" class="px-3 py-1.5 rounded-xl bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-300 text-xs font-bold flex items-center gap-1.5 transition-all border border-cyan-500/40">
+                <span>📋</span>
+                <span>Saha Günlüğü</span>
+            </a>
+            <a href="/api/v15/dashboard" class="px-3 py-1.5 rounded-xl bg-purple-600/20 hover:bg-purple-600/40 text-purple-300 text-xs font-bold flex items-center gap-1.5 transition-all border border-purple-500/40">
+                <span>🎯</span>
+                <span>Mission Control</span>
+            </a>
             <button id="btn-harvest-once" onclick="triggerHarvestOnce()" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white text-xs font-bold font-display shadow-lg shadow-indigo-600/30 flex items-center gap-1.5 transition-all active:scale-95">
                 <span>🚀</span>
                 <span>Sıradaki Dersi Yut</span>
@@ -244,6 +252,10 @@
             <button onclick="switchTab('tab-logs')" id="btn-tab-logs" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
                 <span>📜</span>
                 <span>Canlı Epizodik Akış</span>
+            </button>
+            <button onclick="switchTab('tab-pdf-intelligence')" id="btn-tab-pdf-intelligence" class="tab-btn px-4 py-2.5 rounded-xl border border-transparent text-slate-400 hover:text-slate-200 text-xs font-display font-bold flex items-center gap-2 whitespace-nowrap">
+                <span>📄</span>
+                <span>PDF & Sınav Yükleme (V1.5)</span>
             </button>
         </div>
     </div>
@@ -564,6 +576,167 @@
             </div>
         </section>
 
+        <!-- ============================================================== -->
+        <!-- TAB 6: V1.5 DOKÜMAN & SINAV ZEKASI (PDF UPLOAD & INTELLIGENCE)  -->
+        <!-- ============================================================== -->
+        <section id="tab-pdf-intelligence" class="hidden space-y-6">
+            <!-- 1. ÜST PANEL: YÜKLEME VE CANLI DURUM -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Sol 2 Sütun: Yükleme Formu & Dropzone -->
+                <div class="lg:col-span-2 glass-panel p-6 rounded-3xl space-y-4 border border-indigo-500/20">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                        <div class="flex items-center gap-3">
+                            <span class="w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-base">📤</span>
+                            <div>
+                                <h2 class="text-sm font-display font-black text-white">PDF / DOKÜMAN VE SINAV KİTAPÇIĞI YÜKLE</h2>
+                                <p class="text-[10px] text-slate-400 font-mono">Ders Notu &bull; ÖSYM Sınavı &bull; Soru Bankası (SHA-256 İdempotent)</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-500/20 text-cyan-300 font-bold">V1.5 INGESTION</span>
+                    </div>
+
+                    <form id="v15-upload-form" onsubmit="handlePdfUpload(event)" class="space-y-4">
+                        <!-- Dropzone -->
+                        <div id="v15-dropzone" onclick="document.getElementById('v15-file-input').click()"
+                             class="border-2 border-dashed border-slate-700/80 hover:border-indigo-500/80 rounded-2xl p-8 text-center cursor-pointer bg-dark-900/40 hover:bg-indigo-950/10 transition-all">
+                            <div class="text-3xl mb-2">📥</div>
+                            <div class="text-xs font-bold text-slate-200" id="v15-file-name">PDF veya DOCX dosyasını buraya sürükleyin veya tıklayarak seçin</div>
+                            <div class="text-[10px] text-slate-500 mt-1">Örn: KPSS Tarih Ders Notu, 2023 Lisans GYGK Deneme Kitapçığı</div>
+                        </div>
+                        <input type="file" id="v15-file-input" accept=".pdf,.docx" class="hidden" onchange="v15FileSelected(this)">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-400 mb-1">Ders (İsteğe Bağlı)</label>
+                                <select id="v15-lesson-select" class="w-full bg-dark-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 font-mono focus:border-indigo-500 outline-none">
+                                    <option value="">Otomatik Çözümle (Cascade Classifier)</option>
+                                    <option value="TARIH">Tarih</option>
+                                    <option value="COGRAFYA">Coğrafya</option>
+                                    <option value="VATANDASLIK">Vatandaşlık / Hukuk</option>
+                                    <option value="TURKCE">Türkçe</option>
+                                    <option value="MATEMATIK">Matematik</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-slate-400 mb-1">Sınav Kodu / Yıl</label>
+                                <input type="text" id="v15-exam-code-input" placeholder="Örn: KPSS_LISANS / 2023" class="w-full bg-dark-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-200 font-mono focus:border-indigo-500 outline-none">
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-1">
+                            <label class="flex items-center gap-2 text-xs text-slate-400 cursor-pointer">
+                                <input type="checkbox" id="v15-auto-analyze-check" checked class="rounded border-slate-800 bg-dark-900 text-indigo-500 focus:ring-0">
+                                <span>Ayrıştırma sonrası Savcı Denetçi ile iddiaları otomatik doğrula</span>
+                            </label>
+                            <button type="submit" id="v15-submit-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-500 hover:from-indigo-500 hover:to-cyan-400 text-white text-xs font-display font-bold shadow-lg shadow-indigo-500/25 transition-all">
+                                🚀 Dokümanı Güvenle Yükle ve Ayrıştır
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Canlı Durum Kartı -->
+                    <div id="v15-job-box" class="hidden p-4 rounded-2xl bg-dark-950/80 border border-slate-800 space-y-2">
+                        <div class="flex items-center justify-between text-xs">
+                            <span class="font-bold text-white flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-indigo-400 animate-ping"></span>
+                                <span id="v15-job-title">İşlem Durumu</span>
+                            </span>
+                            <span id="v15-job-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-amber-500/20 text-amber-300">BEKLENİYOR</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2 overflow-hidden">
+                            <div id="v15-progress-bar" class="bg-gradient-to-r from-indigo-500 to-cyan-400 h-2 rounded-full transition-all duration-300" style="width: 15%"></div>
+                        </div>
+                        <div id="v15-job-msg" class="text-[11px] text-slate-400 font-mono">Dosya sunucuya aktarılıyor...</div>
+                    </div>
+                </div>
+
+                <!-- Sağ 1 Sütun: V1.5 Zeka Prensipleri -->
+                <div class="glass-panel p-6 rounded-3xl space-y-3.5 border border-slate-800/80">
+                    <h3 class="text-xs font-bold font-display uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                        <span>🛡️</span>
+                        <span>V1.5 Değişmez Güvenlik Prensipleri</span>
+                    </h3>
+                    <div class="space-y-3 text-[11px] text-slate-400 leading-relaxed">
+                        <div class="p-2.5 rounded-xl bg-dark-900/60 border border-slate-800">
+                            <strong class="text-slate-200">1. Kaynak Hakikat Değildir:</strong> Ham PDF doğrudan kanonik depoya giremez; Savcı Denetçi (`ProsecutorAuditor`) onaylamalıdır.
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-dark-900/60 border border-slate-800">
+                            <strong class="text-slate-200">2. Cevap Anahtarı Üstünlüğü (Kural 7):</strong> LLM resmi anahtarı ezemez. Çelişki olursa resmi anahtar korunur, `LLM_DISAGREEMENT` bayrağı konur.
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-dark-900/60 border border-slate-800">
+                            <strong class="text-slate-200">3. 1-Indexed Sayfalama:</strong> Tüm referanslar gerçek 1-indexed sayfa numaralarına bağlanır; halüsinatif sayfa yasaktır.
+                        </div>
+                        <div class="p-2.5 rounded-xl bg-dark-900/60 border border-slate-800">
+                            <strong class="text-slate-200">4. Türetilmiş Bilgi Grafiği (Kural 6):</strong> Graf, SQLite kanonik verilerinden kayıpsız yeniden üretilebilir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. ALT PANEL: SİSTEMDEKİ DOKÜMANLAR & SINAVLAR -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Sol Kart: Kayıtlı Dokümanlar -->
+                <div class="glass-panel p-5 rounded-3xl space-y-3 border border-slate-800/80">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                        <h3 class="text-xs font-display font-black text-white flex items-center gap-2">
+                            <span>📚</span>
+                            <span>Sistemdeki Kayıtlı Dokümanlar</span>
+                        </h3>
+                        <button onclick="loadV15Documents()" class="text-[10px] text-indigo-400 hover:text-indigo-300 font-mono">🔄 Yenile</button>
+                    </div>
+                    <div class="space-y-2 max-h-96 overflow-y-auto pr-1" id="v15-docs-list">
+                        <div class="text-center text-slate-500 text-xs py-6">Dokümanlar yükleniyor...</div>
+                    </div>
+                </div>
+
+                <!-- Sağ Kart: Sınavlar ve Çıkarılan Sorular -->
+                <div class="glass-panel p-5 rounded-3xl space-y-3 border border-slate-800/80">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                        <h3 class="text-xs font-display font-black text-white flex items-center gap-2">
+                            <span>📝</span>
+                            <span>Sınav Kitapçıkları & Soru Gezgini</span>
+                        </h3>
+                        <button onclick="loadV15Exams()" class="text-[10px] text-indigo-400 hover:text-indigo-300 font-mono">🔄 Yenile</button>
+                    </div>
+                    <div id="v15-exams-select-area" class="flex gap-2 pb-2 overflow-x-auto">
+                        <!-- Sınav butonları -->
+                    </div>
+                    <div class="space-y-3 max-h-96 overflow-y-auto pr-1" id="v15-questions-list">
+                        <div class="text-center text-slate-500 text-xs py-6">Lütfen yukarıdan bir sınav seçin.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. PANEL: 11 ÖSYM KALIBI & TUZAKLAR -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="glass-panel p-5 rounded-3xl space-y-3 border border-slate-800/80">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                        <h3 class="text-xs font-display font-black text-white flex items-center gap-2">
+                            <span>📊</span>
+                            <span>11 ÖSYM Soru Kalıbı Kataloğu</span>
+                        </h3>
+                        <span class="text-[10px] font-mono text-indigo-400" id="v15-patterns-count">11 Kalıp</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 max-h-80 overflow-y-auto pr-1" id="v15-patterns-container">
+                        <!-- Kalıplar -->
+                    </div>
+                </div>
+
+                <div class="glass-panel p-5 rounded-3xl space-y-3 border border-slate-800/80">
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                        <h3 class="text-xs font-display font-black text-white flex items-center gap-2">
+                            <span>🎯</span>
+                            <span>Bilişsel Tuzaklar & Çeldirici Taksonomisi</span>
+                        </h3>
+                        <span class="text-[10px] font-mono text-rose-400" id="v15-traps-count">0 Tuzak</span>
+                    </div>
+                    <div class="space-y-2 max-h-80 overflow-y-auto pr-1" id="v15-traps-container">
+                        <!-- Tuzaklar -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -590,7 +763,7 @@
         // Tab Switcher
         function switchTab(tabId) {
             currentTab = tabId;
-            const tabSections = ['tab-control-room', 'tab-curriculum', 'tab-teachers', 'tab-correlations', 'tab-logs'];
+            const tabSections = ['tab-control-room', 'tab-curriculum', 'tab-teachers', 'tab-correlations', 'tab-logs', 'tab-pdf-intelligence'];
             tabSections.forEach(id => {
                 const el = document.getElementById(id);
                 const btn = document.getElementById(`btn-${id}`);
@@ -607,6 +780,293 @@
             if (tabId === 'tab-teachers') loadTeachersData();
             if (tabId === 'tab-correlations') loadCorrelationsData();
             if (tabId === 'tab-logs') loadEpisodicLogs();
+            if (tabId === 'tab-pdf-intelligence') {
+                loadV15Documents();
+                loadV15Exams();
+                loadV15PatternsAndTraps();
+            }
+        }
+
+        // ==============================================================
+        // V1.5 DOKÜMAN & SINAV ZEKASI İŞLEVLERİ
+        // ==============================================================
+        function v15FileSelected(input) {
+            if (input.files && input.files[0]) {
+                const f = input.files[0];
+                document.getElementById('v15-file-name').innerHTML = `📄 <span class="text-indigo-400 font-bold">${f.name}</span> (${(f.size / (1024 * 1024)).toFixed(2)} MB)`;
+            }
+        }
+
+        async function handlePdfUpload(e) {
+            e.preventDefault();
+            const input = document.getElementById('v15-file-input');
+            const file = input.files[0];
+            if (!file) {
+                showToast("Lütfen önce bir PDF veya DOCX dosyası seçin.", "warning");
+                return;
+            }
+
+            const submitBtn = document.getElementById('v15-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span>⏳</span><span>Yükleniyor...</span>';
+
+            const formData = new FormData();
+            formData.append('file', file);
+            const lesson = document.getElementById('v15-lesson-select').value;
+            if (lesson) formData.append('lesson', lesson);
+            const examCode = document.getElementById('v15-exam-code-input').value;
+            if (examCode) formData.append('exam_code', examCode);
+            formData.append('auto_analyze', document.getElementById('v15-auto-analyze-check').checked ? 'true' : 'false');
+
+            const jobBox = document.getElementById('v15-job-box');
+            const jobBadge = document.getElementById('v15-job-badge');
+            const pBar = document.getElementById('v15-progress-bar');
+            const jobMsg = document.getElementById('v15-job-msg');
+
+            jobBox.classList.remove('hidden');
+            jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-amber-500/20 text-amber-300';
+            jobBadge.innerText = 'YÜKLENİYOR';
+            pBar.style.width = '20%';
+            jobMsg.innerText = 'Dosya sunucuya aktarılıyor ve SHA-256 hesaplanıyor...';
+
+            try {
+                const res = await fetch('/api/v15/documents/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.detail || 'Yükleme başarısız.');
+
+                showToast(`Dosya başarıyla yüklendi! Doküman ID: ${data.document_id}`, "info");
+                jobBadge.innerText = 'KUYRUĞA ALINDI';
+                pBar.style.width = '35%';
+                jobMsg.innerText = `Doküman ID: ${data.document_id} — Ayrıştırma işlemi başlatıldı.`;
+
+                pollV15JobStatus(data.document_id);
+                loadV15Documents();
+            } catch (err) {
+                jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-rose-500/20 text-rose-300';
+                jobBadge.innerText = 'HATA';
+                jobMsg.innerText = err.message;
+                showToast("Yükleme hatası: " + err.message, "error");
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+            }
+        }
+
+        function pollV15JobStatus(docId) {
+            const jobBadge = document.getElementById('v15-job-badge');
+            const pBar = document.getElementById('v15-progress-bar');
+            const jobMsg = document.getElementById('v15-job-msg');
+            const submitBtn = document.getElementById('v15-submit-btn');
+
+            const interval = setInterval(async () => {
+                try {
+                    const res = await fetch(`/api/v15/documents/${docId}/status`);
+                    if (!res.ok) return;
+                    const st = await res.json();
+                    const status = st.status || st.parsing_status;
+
+                    if (status === 'PARSING') {
+                        jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-cyan-500/20 text-cyan-300';
+                        jobBadge.innerText = 'SAYFALAR AYRIŞTIRILIYOR';
+                        pBar.style.width = '55%';
+                        jobMsg.innerText = 'Sayfalar taranıyor, OCR kontrolü yapılıyor ve metin temizleniyor...';
+                    } else if (status === 'EXTRACTING') {
+                        jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-purple-500/20 text-purple-300';
+                        jobBadge.innerText = 'İDDİALAR ÇIKARILIYOR';
+                        pBar.style.width = '75%';
+                        jobMsg.innerText = 'Kavramlar, olgusal iddialar ve soru yapıları taranıyor...';
+                    } else if (status === 'AUDITING') {
+                        jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-pink-500/20 text-pink-300';
+                        jobBadge.innerText = 'SAVCI DENETÇİ (PROSECUTOR)';
+                        pBar.style.width = '90%';
+                        jobMsg.innerText = 'ProsecutorAuditor iddiaları ve çelişkileri denetliyor...';
+                    } else if (status === 'COMPLETED' || status === 'PARSED') {
+                        clearInterval(interval);
+                        jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-emerald-500/20 text-emerald-300';
+                        jobBadge.innerText = 'TAMAMLANDI';
+                        pBar.style.width = '100%';
+                        jobMsg.innerText = 'Ayrıştırma ve graf entegrasyonu tamamlandı! Kanonik hafıza güncellendi.';
+                        showToast("Doküman analizi başarıyla tamamlandı!", "success");
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+                        loadV15Documents();
+                        loadV15Exams();
+                    } else if (status === 'FAILED') {
+                        clearInterval(interval);
+                        jobBadge.className = 'px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase bg-rose-500/20 text-rose-300';
+                        jobBadge.innerText = 'BAŞARISIZ';
+                        jobMsg.innerText = st.error || st.parsing_error || 'İşlem sırasında hata oluştu.';
+                        showToast("Ayrıştırma başarısız oldu.", "error");
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+                    }
+                } catch (e) {}
+            }, 1000);
+        }
+
+        async function loadV15Documents() {
+            const list = document.getElementById('v15-docs-list');
+            if (!list) return;
+            try {
+                const res = await fetch('/api/v15/documents?limit=30');
+                if (!res.ok) return;
+                const data = await res.json();
+                const docs = data.documents || [];
+
+                if (docs.length === 0) {
+                    list.innerHTML = '<div class="text-center text-slate-500 text-xs py-6">Henüz kayıtlı doküman bulunamadı.</div>';
+                    return;
+                }
+
+                list.innerHTML = docs.map(d => `
+                    <div class="p-3 rounded-2xl bg-dark-900/80 border border-slate-800 hover:border-indigo-500/40 transition-colors flex items-center justify-between gap-3 text-xs">
+                        <div class="space-y-1 truncate">
+                            <div class="font-bold text-white truncate">${d.filename}</div>
+                            <div class="flex items-center gap-2 text-[10px] font-mono text-slate-400">
+                                <span class="px-2 py-0.2 rounded bg-slate-800 text-slate-300">${d.lesson || 'UNKNOWN'}</span>
+                                <span>${d.classification || 'UNKNOWN'}</span>
+                                <span class="text-slate-500">${(d.created_at || '').substring(0, 16).replace('T', ' ')}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2 flex-shrink-0">
+                            <span class="px-2 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase ${
+                                d.parsing_status === 'PARSED' || d.parsing_status === 'COMPLETED' ? 'bg-emerald-500/20 text-emerald-300' :
+                                d.parsing_status === 'FAILED' ? 'bg-rose-500/20 text-rose-300' : 'bg-amber-500/20 text-amber-300'
+                            }">${d.parsing_status}</span>
+                            <button onclick="reprocessV15Doc('${d.document_id}')" title="Yeniden Analiz Et" class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 text-[10px]">🔄</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {}
+        }
+
+        async function reprocessV15Doc(docId) {
+            if (!confirm('Bu dokümanı sıfırdan yeniden ayrıştırmak istiyor musunuz?')) return;
+            showToast("Doküman yeniden ayrıştırma kuyruğuna alındı...", "info");
+            await fetch(`/api/v15/documents/${docId}/reprocess`, { method: 'POST' });
+            loadV15Documents();
+        }
+
+        async function loadV15Exams() {
+            const area = document.getElementById('v15-exams-select-area');
+            if (!area) return;
+            try {
+                const res = await fetch('/api/v15/exams');
+                if (!res.ok) return;
+                const data = await res.json();
+                const exams = data.exams || [];
+
+                if (exams.length === 0) {
+                    area.innerHTML = '<div class="text-slate-500 text-[11px] py-2">Henüz sınav kitapçığı işlenmedi.</div>';
+                    return;
+                }
+
+                area.innerHTML = exams.map(e => `
+                    <button onclick="loadV15ExamQuestions('${e.exam_id}')" class="px-3 py-1.5 rounded-xl border border-slate-800 hover:border-indigo-500 bg-dark-900 text-xs font-bold text-slate-200 whitespace-nowrap">
+                        <span>📝 ${e.exam_name}</span>
+                        <span class="text-[10px] font-mono text-cyan-400">(${e.total_questions} Soru)</span>
+                    </button>
+                `).join('');
+
+                if (exams.length > 0) {
+                    loadV15ExamQuestions(exams[0].exam_id);
+                }
+            } catch (e) {}
+        }
+
+        async function loadV15ExamQuestions(examId) {
+            const container = document.getElementById('v15-questions-list');
+            if (!container) return;
+            container.innerHTML = '<div class="text-center text-slate-500 text-xs py-4">Sorular yükleniyor...</div>';
+            try {
+                const res = await fetch(`/api/v15/exams/${examId}/questions`);
+                if (!res.ok) return;
+                const data = await res.json();
+                const questions = data.questions || [];
+
+                if (questions.length === 0) {
+                    container.innerHTML = '<div class="text-center text-slate-500 text-xs py-4">Bu sınavda soru bulunamadı.</div>';
+                    return;
+                }
+
+                container.innerHTML = questions.map(q => {
+                    const official = q.official_correct_option;
+                    const optionsHtml = (q.options || []).map(opt => {
+                        const isCorrect = official && opt.option_key === official;
+                        const isTrap = opt.is_trap;
+                        return `
+                            <div class="p-2 rounded-xl text-xs flex items-center justify-between gap-2 ${
+                                isCorrect ? 'bg-emerald-950/30 border border-emerald-500/40 text-emerald-200 font-bold' :
+                                isTrap ? 'bg-amber-950/20 border border-amber-500/30 text-amber-200' : 'bg-dark-900 border border-slate-800 text-slate-300'
+                            }">
+                                <span><strong>${opt.option_key})</strong> ${opt.option_text}</span>
+                                <div class="flex items-center gap-1.5 flex-shrink-0">
+                                    ${isCorrect ? '<span class="px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-300 font-mono text-[9px] font-bold">DOĞRU CEVAP</span>' : ''}
+                                    ${isTrap ? `<span class="px-1.5 py-0.2 rounded bg-amber-500/20 text-amber-300 font-mono text-[9px] font-bold">TUZAK (${opt.trap_type || 'Çeldirici'})</span>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+
+                    return `
+                        <div class="p-3.5 rounded-2xl bg-dark-900/90 border border-slate-800 space-y-2 text-xs">
+                            <div class="flex items-center justify-between text-[10px] font-mono">
+                                <span class="px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">Soru ${q.question_number_in_exam} &bull; Sayfa ${q.page_number}</span>
+                                ${q.is_negative ? '<span class="px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold">OLUMSUZ KÖK</span>' : ''}
+                            </div>
+                            <div class="text-white font-bold leading-relaxed">${q.stem_text}</div>
+                            <div class="space-y-1 pt-1">${optionsHtml}</div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (e) {}
+        }
+
+        async function loadV15PatternsAndTraps() {
+            try {
+                // Kalıplar
+                const pRes = await fetch('/api/v15/patterns');
+                if (pRes.ok) {
+                    const pData = await pRes.json();
+                    const pContainer = document.getElementById('v15-patterns-container');
+                    const pats = pData.patterns || [];
+                    document.getElementById('v15-patterns-count').innerText = `${pats.length} Kalıp`;
+                    pContainer.innerHTML = pats.map(p => `
+                        <div class="p-2.5 rounded-xl bg-dark-900 border border-slate-800 text-xs space-y-1">
+                            <div class="flex items-center justify-between">
+                                <strong class="text-white text-[11px]">${p.pattern_name}</strong>
+                                <span class="text-[9px] font-mono px-1.5 py-0.2 rounded bg-indigo-500/20 text-indigo-300">${p.usage_count || 0} Soru</span>
+                            </div>
+                            <div class="text-[10px] text-slate-400 truncate">${p.description}</div>
+                        </div>
+                    `).join('');
+                }
+
+                // Tuzaklar
+                const tRes = await fetch('/api/v15/traps');
+                if (tRes.ok) {
+                    const tData = await tRes.json();
+                    const tContainer = document.getElementById('v15-traps-container');
+                    const traps = tData.traps || [];
+                    document.getElementById('v15-traps-count').innerText = `${traps.length} Tuzak`;
+                    if (traps.length === 0) {
+                        tContainer.innerHTML = '<div class="text-slate-500 text-xs text-center py-4">Henüz tuzak kaydedilmedi.</div>';
+                        return;
+                    }
+                    tContainer.innerHTML = traps.map(t => `
+                        <div class="p-3 rounded-2xl bg-rose-950/15 border border-rose-500/25 text-xs space-y-1">
+                            <div class="flex items-center justify-between text-[10px] font-mono">
+                                <span class="text-amber-400 font-bold">${t.trap_type}</span>
+                                <span class="text-slate-500">Güven: %${Math.round((t.confidence || 0.9) * 100)}</span>
+                            </div>
+                            <div class="font-bold text-white text-[11px]">${t.target_concept} vs ${t.distractor_concept}</div>
+                            <div class="text-[10px] text-slate-400">${t.why_attractive || ''}</div>
+                        </div>
+                    `).join('');
+                }
+            } catch (e) {}
         }
 
         // Toast Helper

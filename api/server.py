@@ -38,6 +38,68 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+from api.v15_routes import v15_router
+app.include_router(v15_router)
+
+from api.logs_routes import logs_router
+app.include_router(logs_router)
+
+from fastapi import FastAPI, HTTPException, Query, Body, Request
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
+
+TEMPLATES_DIR = Path(__file__).parent.parent / "templates"
+try:
+    templates = Jinja2Templates(directory=str(TEMPLATES_DIR))
+except Exception:
+    templates = None
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_root_panel(request: Request):
+    """Ana Kontrol Panelini render eder."""
+    context = {
+        "request": request,
+        "title": "Promius KPSS Super-Brain",
+        "app_name": "PROMIUS KPSS SUPER-BRAIN",
+        "default_confidence": "95.0",
+        "min_sources": "8-10"
+    }
+    if templates:
+        try:
+            return templates.TemplateResponse(request=request, name="index.html", context=context)
+        except TypeError:
+            return templates.TemplateResponse("index.html", context)
+    index_path = TEMPLATES_DIR / "index.html"
+    if index_path.exists():
+        return HTMLResponse(content=index_path.read_text(encoding="utf-8"))
+    return HTMLResponse(content="<h1>Ana Panel bulunamadı</h1>", status_code=404)
+
+@app.get("/dashboard", response_class=HTMLResponse)
+async def serve_root_dashboard():
+    p = Path(__file__).parent / "dashboard.html"
+    if p.exists():
+        return HTMLResponse(content=p.read_text(encoding="utf-8"))
+    return RedirectResponse(url="/api/v15/dashboard")
+
+@app.get("/logs", response_class=HTMLResponse)
+async def serve_logs_page(request: Request):
+    """Otonom Saha, Çıkarım, Denetim ve Hata Günlüğü görsel paneli."""
+    context = {
+        "request": request,
+        "title": "OpenManus & Qwen LLM — Saha, Çıkarım, Denetim ve Hata Günlüğü",
+        "app_name": "PROMIUS KPSS SUPER-BRAIN"
+    }
+    if templates:
+        try:
+            return templates.TemplateResponse(request=request, name="logs.html", context=context)
+        except TypeError:
+            return templates.TemplateResponse("logs.html", context)
+    template_path = TEMPLATES_DIR / "logs.html"
+    if template_path.exists():
+        return HTMLResponse(content=template_path.read_text(encoding="utf-8"))
+    return HTMLResponse(content="<h1>Logs şablonu hazırlanıyor...</h1>", status_code=200)
+
 class KnowledgeQueryRequest(BaseModel):
     query: str
     lesson: Optional[str] = None

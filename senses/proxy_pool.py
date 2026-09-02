@@ -101,25 +101,52 @@ class ProxyPoolManager:
         except Exception:
             return False
 
-    async def get_next_proxy(self) -> Optional[str]:
-        """Sıradaki geçerli proxy'yi döner."""
-        if not self.proxies:
-            await self.fetch_public_proxies()
+    def has_configured_proxies(self) -> bool:
+        """Kullanıcı tarafından yapılandırılmış veya çalışan geçerli proxy varlığını denetler."""
+        import os
+        return bool(
+            os.getenv("RESIDENTIAL_PROXY_URL") or
+            os.getenv("HTTPS_PROXY") or
+            os.getenv("HTTP_PROXY") or
+            (os.getenv("ENABLE_PUBLIC_PROXIES", "false").lower() == "true" and len(self.working_proxies) > 0)
+        )
 
-        if not self.proxies:
+    async def get_next_proxy(self) -> Optional[str]:
+        """Sıradaki geçerli ve test edilmiş proxy'yi döner."""
+        import os
+        # 1. Öncelik: Kullanıcının .env veya sistem ortamında tanımladığı konut/residential proxy
+        configured_proxy = os.getenv("RESIDENTIAL_PROXY_URL") or os.getenv("HTTPS_PROXY") or os.getenv("HTTP_PROXY")
+        if configured_proxy:
+            return configured_proxy
+
+        # 2. Açık proxy kullanımı açıkça izin verilmemişse ölü proxy'lerde asılı kalmayı engelle
+        if os.getenv("ENABLE_PUBLIC_PROXIES", "false").lower() != "true":
+            return None
+
+        if not self.working_proxies:
+            if not self.proxies:
+                await self.fetch_public_proxies()
+            # Yalnızca hızlı yanıt veren ilk birkaç adayı test et
+            for cand in self.proxies[:5]:
+                if await self.test_proxy(cand):
+                    self.working_proxies.append(cand)
+                    break
+
+        if not self.working_proxies:
             return None
 
         async with self._lock:
-            self.current_index = (self.current_index + 1) % len(self.proxies)
-            proxy = self.proxies[self.current_index]
-            return proxy
+            self.current_index = (self.current_index + 1) % len(self.working_proxies)
+            return self.working_proxies[self.current_index]
 
     def report_proxy_failure(self, proxy_url: str):
         """Hata veren proxy'nin ceza puanını artırır ve gereğinde havuzdan atar."""
         if not proxy_url:
             return
         self.failed_counts[proxy_url] = self.failed_counts.get(proxy_url, 0) + 1
-        if self.failed_counts[proxy_url] >= 3:
+        if self.failed_counts[proxy_url] >= 2:
+            if proxy_url in self.working_proxies:
+                self.working_proxies.remove(proxy_url)
             if proxy_url in self.proxies:
                 self.proxies.remove(proxy_url)
 

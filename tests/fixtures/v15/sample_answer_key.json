@@ -1,0 +1,13 @@
+{
+  "exam_id": "exam_sample_fixture_2023",
+  "exam_name": "2023 KPSS Lisans Ornek Deneme",
+  "exam_code": "KPSS_LISANS",
+  "year": 2023,
+  "keys": {
+    "1": "E",
+    "2": "C",
+    "3": "A",
+    "4": "D",
+    "5": "E"
+  }
+}

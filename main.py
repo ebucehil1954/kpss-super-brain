@@ -54,7 +54,9 @@ def run_health_check():
     print(f"Toplam Bilgi Kaydı: {health['total_records']}")
     print(f"Kritik Konu Eksikleri ({health['gaps_count']}):")
     for g in health.get("critical_gaps", [])[:5]:
-        print(f"  - [{g['lesson']}] {g['topic']} (Mevcut: {g['current_records']})")
+        consumed = g.get('consumed_videos', g.get('current_records', 0))
+        target = g.get('target_videos', 4)
+        print(f"  - [{g['lesson']}] {g['topic']} ({consumed}/{target} Video, {g.get('status', '')})")
 
 async def run_sync():
     print("🏛️ Resmi Mevzuat ve TÜİK/MTA Verileri Senkronize Ediliyor...")

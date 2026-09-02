@@ -25,15 +25,38 @@ def get_db_connection():
 
 @contextmanager
 def db_session():
-    conn = get_db_connection()
-    try:
-        yield conn
-        conn.commit()
-    except Exception:
-        conn.rollback()
-        raise
-    finally:
-        conn.close()
+    """
+    SQLite bağlantı context manager'ı.
+    [P1-4 DÜZELTME] SQLITE_BUSY hatalarında otomatik retry mekanizması.
+    """
+    import time as _time
+    max_retries = 3
+    retry_delay = 0.5
+
+    last_error = None
+    for attempt in range(max_retries):
+        conn = get_db_connection()
+        try:
+            yield conn
+            conn.commit()
+            return  # Başarılı, çık
+        except sqlite3.OperationalError as e:
+            conn.rollback()
+            conn.close()
+            if "database is locked" in str(e) and attempt < max_retries - 1:
+                _time.sleep(retry_delay * (attempt + 1))
+                last_error = e
+                continue
+            raise
+        except Exception:
+            conn.rollback()
+            conn.close()
+            raise
+        finally:
+            try:
+                conn.close()
+            except Exception:
+                pass  # Zaten kapatılmış olabilir
 
 def initialize_database():
     """Tüm tabloları ve FTS indekslerini oluşturur."""
@@ -140,6 +163,23 @@ def initialize_database():
         
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_vq_status ON video_queue(status, priority DESC);")
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_vq_teacher ON video_queue(teacher_name);")
+
+        # 4B. TRANSCRIPT SAĞLAYICI DENEME TEŞHİS GÜNLÜĞÜ (Transcript Provider Attempts)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS transcript_provider_attempts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            video_id TEXT NOT NULL,
+            provider TEXT NOT NULL,
+            attempt_number INTEGER DEFAULT 1,
+            status TEXT NOT NULL,
+            error_code TEXT,
+            error_message TEXT,
+            started_at TEXT NOT NULL,
+            finished_at TEXT NOT NULL,
+            duration_ms INTEGER DEFAULT 0
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_tpa_vid ON transcript_provider_attempts(video_id);")
 
         # 5. EPİZODİK ÖĞRENME GÜNLÜĞÜ (Activity & Episode Journal)
         cursor.execute("""
@@ -390,6 +430,233 @@ def initialize_database():
         """)
         cursor.execute("CREATE INDEX IF NOT EXISTS idx_ms_topic ON mastery_snapshots(topic_id, calculated_at DESC);")
 
+        # ==========================================
+        # 18. V1.5 DOKÜMAN & KANIT TABLOLARI (Document & Exam Intelligence)
+        # ==========================================
+
+        # 18.1. DOKÜMANLAR TABLOSU (Documents)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_documents (
+            document_id TEXT PRIMARY KEY,
+            sha256 TEXT NOT NULL UNIQUE,
+            filename TEXT NOT NULL,
+            storage_path TEXT NOT NULL,
+            mime_type TEXT NOT NULL,
+            file_size INTEGER NOT NULL,
+            source_type TEXT NOT NULL DEFAULT 'UPLOAD_MANUAL',
+            authority_level INTEGER NOT NULL DEFAULT 1,
+            exam_code TEXT,
+            year INTEGER,
+            lesson TEXT DEFAULT 'UNKNOWN',
+            topic_id TEXT DEFAULT 'UNKNOWN',
+            classification TEXT DEFAULT 'UNKNOWN',
+            parsing_status TEXT DEFAULT 'PENDING', -- PENDING, PARSED, PARTIAL, FAILED
+            parsing_error TEXT,
+            created_at TEXT NOT NULL,
+            updated_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_doc_sha ON v15_documents(sha256);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_doc_lesson ON v15_documents(lesson, topic_id);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_doc_status ON v15_documents(parsing_status);")
+
+        # 18.2. DOKÜMAN SAYFALARI (Document Pages)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_document_pages (
+            page_id TEXT PRIMARY KEY,
+            document_id TEXT NOT NULL,
+            page_number INTEGER NOT NULL,
+            raw_text TEXT NOT NULL,
+            cleaned_text TEXT,
+            is_ocr INTEGER DEFAULT 0,
+            ocr_confidence REAL,
+            char_count INTEGER NOT NULL DEFAULT 0,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (document_id) REFERENCES v15_documents(document_id) ON DELETE CASCADE,
+            CONSTRAINT uq_v15_doc_page UNIQUE (document_id, page_number)
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_dp_doc ON v15_document_pages(document_id);")
+
+        # 18.3. ORTAK KANIT TABLOSU (Unified Evidence: Document & YouTube)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_evidence (
+            evidence_id TEXT PRIMARY KEY,
+            source_type TEXT NOT NULL DEFAULT 'DOCUMENT', -- DOCUMENT, YOUTUBE
+            document_id TEXT,
+            page_number INTEGER,
+            section_id TEXT,
+            video_id TEXT,
+            transcript_start_seconds REAL,
+            transcript_end_seconds REAL,
+            evidence_text TEXT NOT NULL,
+            content_hash TEXT NOT NULL,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (document_id) REFERENCES v15_documents(document_id) ON DELETE CASCADE
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_ev_doc ON v15_evidence(document_id, page_number);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_ev_yt ON v15_evidence(video_id);")
+
+        # 18.4. ADAY İDDİALAR TABLOSU (Candidate Claims Staging)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_candidate_claims (
+            claim_id TEXT PRIMARY KEY,
+            evidence_id TEXT NOT NULL,
+            claim_type TEXT NOT NULL, -- FACT, DEFINITION, DATE, NUMBER, CLASSIFICATION, RELATION, CAUSE_EFFECT, COMPARISON, EXCEPTION, PROCESS, RULE, TEACHING_INSIGHT
+            subject TEXT NOT NULL,
+            predicate TEXT NOT NULL,
+            object_val TEXT NOT NULL,
+            raw_statement TEXT NOT NULL,
+            topic_id TEXT DEFAULT 'UNKNOWN',
+            confidence_score REAL DEFAULT 0.5,
+            audit_status TEXT DEFAULT 'CANDIDATE', -- CANDIDATE, SUPPORTED, VERIFIED, REJECTED, DISPUTED, OUTDATED, UNKNOWN
+            audit_reason TEXT,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (evidence_id) REFERENCES v15_evidence(evidence_id) ON DELETE CASCADE
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_cc_status ON v15_candidate_claims(audit_status);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_cc_evidence ON v15_candidate_claims(evidence_id);")
+
+        # ==========================================
+        # 19. PART 2: SINAV, SORU, KALIP VE TUZAK TABLOLARI
+        # ==========================================
+
+        # 19.1. SINAVLAR TABLOSU (Exams)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_exams (
+            exam_id TEXT PRIMARY KEY,
+            document_id TEXT,
+            exam_name TEXT NOT NULL,
+            exam_code TEXT NOT NULL, -- KPSS_LISANS, KPSS_ONLISANS, KPSS_ORTAOGRETIM, KPSS_ALAN
+            year INTEGER NOT NULL,
+            total_questions INTEGER NOT NULL DEFAULT 0,
+            has_official_key INTEGER DEFAULT 0,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (document_id) REFERENCES v15_documents(document_id) ON DELETE CASCADE
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_exam_year ON v15_exams(year, exam_code);")
+
+        # 19.2. SORULAR TABLOSU (Questions)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_questions (
+            question_id TEXT PRIMARY KEY,
+            exam_id TEXT NOT NULL,
+            document_id TEXT NOT NULL,
+            page_number INTEGER NOT NULL,
+            question_number_in_exam INTEGER NOT NULL,
+            lesson TEXT NOT NULL,
+            topic_id TEXT DEFAULT 'UNKNOWN',
+            stem_text TEXT NOT NULL,
+            passage_text TEXT,
+            premises_json TEXT NOT NULL DEFAULT '[]',
+            is_negative INTEGER DEFAULT 0,
+            extraction_status TEXT DEFAULT 'COMPLETE', -- COMPLETE, EXTRACTION_INCOMPLETE
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (exam_id) REFERENCES v15_exams(exam_id) ON DELETE CASCADE,
+            FOREIGN KEY (document_id) REFERENCES v15_documents(document_id) ON DELETE CASCADE,
+            CONSTRAINT uq_v15_exam_qnum UNIQUE (exam_id, question_number_in_exam)
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_q_exam ON v15_questions(exam_id);")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_q_topic ON v15_questions(lesson, topic_id);")
+
+        # 19.3. SEÇENEKLER TABLOSU (Question Options: A, B, C, D, E)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_question_options (
+            option_id TEXT PRIMARY KEY,
+            question_id TEXT NOT NULL,
+            option_key TEXT NOT NULL, -- 'A', 'B', 'C', 'D', 'E'
+            option_text TEXT NOT NULL,
+            is_correct_official INTEGER DEFAULT 0,
+            is_trap INTEGER DEFAULT 0,
+            trap_type TEXT,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (question_id) REFERENCES v15_questions(question_id) ON DELETE CASCADE,
+            CONSTRAINT uq_v15_q_opt UNIQUE (question_id, option_key)
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_opt_q ON v15_question_options(question_id);")
+
+        # 19.4. RESMİ CEVAP ANAHTARLARI TABLOSU (Official Answer Keys)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_answer_keys (
+            key_id TEXT PRIMARY KEY,
+            exam_id TEXT NOT NULL,
+            question_number INTEGER NOT NULL,
+            correct_option TEXT NOT NULL, -- 'A', 'B', 'C', 'D', 'E'
+            source_document_id TEXT,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (exam_id) REFERENCES v15_exams(exam_id) ON DELETE CASCADE,
+            CONSTRAINT uq_v15_ak UNIQUE (exam_id, question_number)
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_ak_exam ON v15_answer_keys(exam_id);")
+
+        # 19.5. SORU KALIPLARI TAKSONOMİSİ (Question Patterns)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_question_patterns (
+            pattern_id TEXT PRIMARY KEY,
+            pattern_code TEXT NOT NULL UNIQUE,
+            pattern_name TEXT NOT NULL,
+            description TEXT NOT NULL,
+            cognitive_level TEXT,
+            structural_indicators_json TEXT NOT NULL DEFAULT '[]',
+            created_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_pat_code ON v15_question_patterns(pattern_code);")
+
+        # 19.6. SORU - KALIP BAĞLANTILARI
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_question_pattern_links (
+            link_id TEXT PRIMARY KEY,
+            question_id TEXT NOT NULL,
+            pattern_id TEXT NOT NULL,
+            confidence REAL DEFAULT 1.0,
+            created_at TEXT NOT NULL,
+            FOREIGN KEY (question_id) REFERENCES v15_questions(question_id) ON DELETE CASCADE,
+            FOREIGN KEY (pattern_id) REFERENCES v15_question_patterns(pattern_id) ON DELETE CASCADE,
+            CONSTRAINT uq_v15_q_pat UNIQUE (question_id, pattern_id)
+        );
+        """)
+
+        # 19.7. SINAV TUZAKLARI VE ÇELDİRİCİ ZEKASI (Traps)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_traps (
+            trap_id TEXT PRIMARY KEY,
+            topic_id TEXT NOT NULL,
+            target_concept TEXT NOT NULL,
+            distractor_concept TEXT NOT NULL,
+            trap_type TEXT NOT NULL,
+            why_attractive TEXT NOT NULL,
+            supporting_questions_json TEXT NOT NULL DEFAULT '[]',
+            confidence REAL DEFAULT 0.5,
+            created_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_trap_topic ON v15_traps(topic_id);")
+
+        # 19.8. YENİDEN HESAPLANABİLİR SINAV İSTATİSTİKLERİ (Exam Statistics)
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS v15_exam_statistics (
+            stat_id TEXT PRIMARY KEY,
+            metric_type TEXT NOT NULL, -- TOPIC_FREQ, CONCEPT_FREQ, PATTERN_FREQ, TRAP_FREQ, YEAR_DIST, DIFFICULTY_DIST
+            metric_key TEXT NOT NULL,
+            exam_code TEXT,
+            year INTEGER,
+            count_value INTEGER NOT NULL DEFAULT 0,
+            percentage_value REAL,
+            meta_details_json TEXT NOT NULL DEFAULT '{}',
+            last_computed_at TEXT NOT NULL
+        );
+        """)
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_v15_stat_type ON v15_exam_statistics(metric_type, metric_key);")
+
 # Veritabanını otomatik ilklendir
 initialize_database()
+
+
 

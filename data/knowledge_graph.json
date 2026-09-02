@@ -16,7 +16,6 @@
         "siyasi_parti_grubu_en_az": 20,
         "siyasi_parti_kurulusu_en_az": 30,
         "secilme_yasi": 18,
-        "cumhurbaskani_aday_gosterme_mv_sayisi": 20,
         "cumhurbaskani_secilme_yasi": 40
       }
     },
@@ -80,7 +79,7 @@
           "Yugoslavya",
           "Romanya"
         ],
-        "sifresi": "TAYYAR (Türkiye, [Arnavutluk katılmadı], Yunanistan, Yugoslavya, [Bulgaristan katılmadı], Romanya)",
+        "sifresi": "TAYYAR",
         "katilmayan_revizyonistler": [
           "Bulgaristan",
           "Arnavutluk"
@@ -101,7 +100,7 @@
           "Irak",
           "Afganistan"
         ],
-        "sifresi": "TİAİ (veya ATİİ)",
+        "sifresi": "TİAİ",
         "katilmayan": "Suriye (Hatay sorunu nedeniyle)",
         "tehdit": "İtalya'nın Habeşistan'ı işgali ve Akdeniz tehdidi"
       }
@@ -112,2365 +111,1090 @@
       "type": "GEOGRAPHY_TOPIC",
       "lesson": "COGRAFYA",
       "properties": {
-        "bor_rezervi": "%72 ile dünyada 1. sırada (Balıkesir Susurluk/Bigadiç, Bursa M.Kemalpaşa, Kütahya Emet, Eskişehir Seyitgazi)",
+        "bor_rezervi": "%72 ile dünyada 1. sırada (Balıkesir, Bursa, Kütahya, Eskişehir)",
         "baksit_aluminyum": "Konya Seydişehir, Antalya Akseki",
         "krom": "Elazığ Guleman, Muğla Fethiye-Köyceğiz",
         "bakir": "Artvin Murgul, Kastamonu Küre, Elazığ Maden, Rize Çayeli (Şifre: KADER)",
-        "demir": "Sivas Divriği, Malatya Hekimhan-Hasançelebi, Balıkesir Eymir"
+        "demir": "Sivas Divriği, Malatya Hekimhan-Hasançelebi"
       }
     },
-    "VATANDASLIK_TEMEL_HUKUK": {
-      "id": "VATANDASLIK_TEMEL_HUKUK",
-      "label": "Temel Hukuk Kavramları",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "TEMEL_HUKUK",
-        "subtopics": [
-          "Hukukun Tanımı ve Dalları",
-          "Yaptırım Türleri",
-          "Hakkın Kazanılması ve Korunması",
-          "Ehliyet Türleri (Fiil/Hak)",
-          "Tüzel Kişilikler"
-        ],
-        "keywords": [
-          "ceza",
-          "iptal",
-          "tazminat",
-          "hükümsüzlük",
-          "butlan",
-          "ehliyet",
-          "ayırt etme",
-          "erginlik",
-          "kısıtlılık"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_DEVLET_BIZ": {
-      "id": "VATANDASLIK_DEVLET_BIZ",
-      "label": "Devlet Biçimleri ve Demokrasi",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "DEVLET_BIZ",
-        "subtopics": [
-          "Devlet Şekilleri (Üniter/Federal)",
-          "Hükümet Sistemleri (Parlamenter/Başkanlık/Cumhurbaşkanlığı Hükümet Sistemi)",
-          "Egemenlik Türleri"
-        ],
-        "keywords": [
-          "üniter",
-          "federal",
-          "konfederasyon",
-          "kuvvetler ayrılığı",
-          "başkanlık",
-          "cumhurbaşkanlığı hükümet sistemi"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_ANAYASA_TARIHI": {
-      "id": "VATANDASLIK_ANAYASA_TARIHI",
-      "label": "Türk Anayasa Tarihi",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "ANAYASA_TARIHI",
-        "subtopics": [
-          "Sened-i İttifak (1808)",
-          "Tanzimat ve Islahat Fermanları",
-          "Kanun-i Esasi (1876)",
-          "1921 Teşkilat-ı Esasiye",
-          "1924 Anayasası",
-          "1961 Anayasası",
-          "1982 Anayasası"
-        ],
-        "keywords": [
-          "sened-i ittifak",
-          "kanun-i esasi",
-          "meşrutiyet",
-          "1921 anayasası",
-          "1924 anayasası",
-          "1961 anayasası",
-          "1982 anayasası",
-          "çift meclis",
-          "kuvvetler birliği"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_TEMEL_HAKLAR": {
-      "id": "VATANDASLIK_TEMEL_HAKLAR",
-      "label": "1982 Anayasası Temel Hak ve Hürriyetler",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "TEMEL_HAKLAR",
-        "subtopics": [
-          "Kişi Hak ve Ödevleri (Koruyucu)",
-          "Sosyal ve Ekonomik Haklar (İsteme)",
-          "Siyasi Hak ve Ödevler (Katılma)",
-          "Sert Çekirdek Haklar",
-          "Hakların Sınırlanması ve Durdurulması"
-        ],
-        "keywords": [
-          "koruyucu haklar",
-          "isteme hakları",
-          "katılma hakları",
-          "sert çekirdek",
-          "olağanüstü hal",
-          "ölçülülük",
-          "yaşama hakkı",
-          "masumiyet karinesi"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_YASAMA": {
-      "id": "VATANDASLIK_YASAMA",
-      "label": "1982 Anayasası Yasama Organı",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "YASAMA",
-        "subtopics": [
-          "TBMM Kuruluşu ve Üye Sayısı (600)",
-          "Milletvekili Seçilme Yeterliliği",
-          "Milletvekilliğinin Sona Ermesi",
-          "Dokunulmazlık ve Yasama Bağışıklığı",
-          "TBMM Görev ve Yetkileri",
-          "Karar ve Toplantı Yeter Sayıları",
-          "Kanun Yapım Süreci"
-        ],
-        "keywords": [
-          "tbmm",
-          "600 milletvekili",
-          "salt çoğunluk",
-          "301",
-          "360",
-          "400",
-          "dokunulmazlık",
-          "yasama sorumsuzluğu",
-          "parlamento kararı",
-          "kanun teklifi"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_YURUTME": {
-      "id": "VATANDASLIK_YURUTME",
-      "label": "1982 Anayasası Yürütme Organı",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "YURUTME",
-        "subtopics": [
-          "Cumhurbaşkanı Seçimi ve Görevleri",
-          "Cumhurbaşkanlığı Kararnameleri (CBK)",
-          "Olağanüstü Hal (OHAL)",
-          "Bakanlıklar ve Üst Düzey Yöneticiler",
-          "Milli Güvenlik Kurulu (MGK)"
-        ],
-        "keywords": [
-          "cumhurbaşkanı",
-          "cbk",
-          "ohal",
-          "mgk",
-          "devlet denetleme kurulu",
-          "ddk",
-          "bakan",
-          "cumhurbaşkanı yardımcısı",
-          "yönetmelik"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_YARGI": {
-      "id": "VATANDASLIK_YARGI",
-      "label": "1982 Anayasası Yargı Organı",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "YARGI",
-        "subtopics": [
-          "Yüksek Mahkemeler (AYM, Yargıtay, Danıştay, Uyuşmazlık)",
-          "Anayasa Mahkemesi Yapısı ve Görevleri",
-          "Bireysel Başvuru",
-          "Hakimler ve Savcılar Kurulu (HSK)",
-          "Sayıştay"
-        ],
-        "keywords": [
-          "aym",
-          "yargıtay",
-          "danıştay",
-          "uyuşmazlık mahkemesi",
-          "hsk",
-          "sayıştay",
-          "yüce divan",
-          "somut norm",
-          "soyut norm",
-          "iptal davası"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "VATANDASLIK_IDARE_HUKUKU": {
-      "id": "VATANDASLIK_IDARE_HUKUKU",
-      "label": "İdare Hukuku ve Türkiye'nin İdari Teşkilatı",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic_code": "IDARE_HUKUKU",
-        "subtopics": [
-          "İdarenin Bütünlüğü (Hiyerarşi ve İdari Vesayet)",
-          "Merkezden Yönetim (Başkent ve Taşra)",
-          "Yerinden Yönetim (Mahalli ve Hizmet)",
-          "Kamu Görevlileri (Memurlar ve Disiplin Cezaları)",
-          "İdari İşlemler ve İdarenin Malları"
-        ],
-        "keywords": [
-          "hiyerarşi",
-          "idari vesayet",
-          "vali",
-          "kaymakam",
-          "belediye",
-          "il özel idaresi",
-          "köy",
-          "memur",
-          "kamu tüzel kişiliği",
-          "kamulaştırma"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TARIH_ILK_TURK_DEVLETLERI": {
-      "id": "TARIH_ILK_TURK_DEVLETLERI",
-      "label": "İlk ve Orta Çağlarda Türk Dünyası",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_ed48ff79e59f": {
+      "id": "doc_doc_ed48ff79e59f",
+      "label": "test_lecture.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "ILK_TURK_DEVLETLERI",
-        "subtopics": [
-          "Asya Hun Devleti",
-          "Kavimler Göçü",
-          "I. ve II. Köktürk Devletleri",
-          "Uygur Devleti",
-          "Kültür ve Medeniyet (Kut, Kurultay, Ordu-Millet, Töre)"
-        ],
-        "keywords": [
-          "mete han",
-          "teoman",
-          "bumin kağan",
-          "bilge kağan",
-          "orhun abideleri",
-          "uygurlar",
-          "maniheizm",
-          "kut",
-          "ikili teşkilat",
-          "töre",
-          "kurultay"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_ed48ff79e59f",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_TURK_ISLAM_DEVLETLERI": {
-      "id": "TARIH_TURK_ISLAM_DEVLETLERI",
-      "label": "İlk Türk-İslam Devletleri",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_aed10451ec2d": {
+      "id": "doc_doc_aed10451ec2d",
+      "label": "multipage_note.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_aed10451ec2d",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_e15f77c2c67e": {
+      "id": "doc_doc_e15f77c2c67e",
+      "label": "scanned_page.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_e15f77c2c67e",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_70be61d1b6b4": {
+      "id": "doc_doc_70be61d1b6b4",
+      "label": "corrupt.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_70be61d1b6b4",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_fb0de471a512": {
+      "id": "doc_doc_fb0de471a512",
+      "label": "amasya_genelgesi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "TURK_ISLAM_DEVLETLERI",
-        "subtopics": [
-          "Karahanlılar",
-          "Gazneliler",
-          "Büyük Selçuklu Devleti",
-          "Anadolu Selçuklu Devleti ve Beylikler",
-          "Türk-İslam Kültür ve Medeniyeti"
-        ],
-        "keywords": [
-          "satuk buğra han",
-          "gazneli mahmut",
-          "dandanakan",
-          "malazgirt",
-          "nizamülmülk",
-          "divan-ı lügati't-türk",
-          "kutadgu bilig",
-          "atabetü'l hakayık",
-          "divan-ı hikmet"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_fb0de471a512",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_OSMANLI_KURULUS_YUKSELME": {
-      "id": "TARIH_OSMANLI_KURULUS_YUKSELME",
-      "label": "Osmanlı Devleti Kuruluş ve Yükselme Dönemleri",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_cab69958b96e": {
+      "id": "doc_doc_cab69958b96e",
+      "label": "erzurum_kongresi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "OSMANLI_KURULUS_YUKSELME",
-        "subtopics": [
-          "Kuruluş Dönemi Padişahları ve Savaşları",
-          "İstanbul'un Fethi ve II. Mehmed",
-          "Yavuz Sultan Selim ve Mısır Seferi",
-          "Kanuni Sultan Süleyman Dönemi",
-          "Kültür ve Teşkilat (Divan, Tımar, Yeniçeri)"
-        ],
-        "keywords": [
-          "osman bey",
-          "orhan bey",
-          "i. murat",
-          "yıldırım bayezid",
-          "fetret devri",
-          "fatih",
-          "yavuz",
-          "kanuni",
-          "tımar",
-          "devşirme",
-          "yeniçeri",
-          "divan-ı hümayun"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_cab69958b96e",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_OSMANLI_DURAKLAMA_GERILEME": {
-      "id": "TARIH_OSMANLI_DURAKLAMA_GERILEME",
-      "label": "Osmanlı Duraklama ve Gerileme Dönemi Islahatları",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_2ab94463e399": {
+      "id": "doc_doc_2ab94463e399",
+      "label": "kpss_2023_lisans_gygk.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "OSMANLI_DURAKLAMA_GERILEME",
-        "subtopics": [
-          "17. Yüzyıl Islahatçıları (Tarhuncu, Köprülüler, Genç Osman)",
-          "18. Yüzyıl Islahatları (Lale Devri, I. Mahmut, III. Mustafa, I. Abdülhamit, III. Selim Nizam-ı Cedit)",
-          "Önemli Antlaşmalar (Pasarofça, Belgrat, Küçük Kaynarca, Yaş)"
-        ],
-        "keywords": [
-          "lale devri",
-          "iii. ahmet",
-          "nevşehirli damat ibrahim",
-          "iii. selim",
-          "nizam-ı cedit",
-          "küçük kaynarca",
-          "kırım",
-          "hendesehane",
-          "irad-ı cedit",
-          "matbaa-i amire"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_2ab94463e399",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_OSMANLI_DAGILMA": {
-      "id": "TARIH_OSMANLI_DAGILMA",
-      "label": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma ve Islahatlar)",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_bccc42afda9e": {
+      "id": "doc_doc_bccc42afda9e",
+      "label": "amasya_erzurum_lecture.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "OSMANLI_DAGILMA",
-        "subtopics": [
-          "II. Mahmut Islahatları",
-          "Tanzimat ve Islahat Fermanları",
-          "I. ve II. Meşrutiyet",
-          "31 Mart Vakası",
-          "Trablusgarp ve Balkan Savaşları",
-          "Fikir Akımları (Osmanlıcılık, İslamcılık, Türkçülük, Batıcılık)"
-        ],
-        "keywords": [
-          "ii. mahmut",
-          "yeniçeri ocağının kaldırılması",
-          "vaka-i hayriye",
-          "tanzimat fermanı",
-          "ıslahat fermanı",
-          "kanun-i esasi",
-          "ii. abdülhamit",
-          "ittihat ve terakki",
-          "trablusgarp",
-          "balkan savaşları"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_bccc42afda9e",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_MILLI_MUCADELE_HAZIRLIK": {
-      "id": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "label": "Milli Mücadele Hazırlık Dönemi",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_e3b44c276588": {
+      "id": "doc_doc_e3b44c276588",
+      "label": "kpss_2023_deneme.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "MILLI_MUCADELE_HAZIRLIK",
-        "subtopics": [
-          "I. Dünya Savaşı ve Mondros Mütarekesi",
-          "Mustafa Kemal'in Samsun'a Çıkışı",
-          "Havza ve Amasya Genelgeleri",
-          "Erzurum ve Sivas Kongreleri",
-          "Amasya Görüşmeleri ve Son Osmanlı Mebusan Meclisi",
-          "Misak-ı Milli ve I. TBMM'nin Açılışı"
-        ],
-        "keywords": [
-          "mondros",
-          "cemiyetler",
-          "havza genelgesi",
-          "amasya genelgesi",
-          "erzurum kongresi",
-          "sivas kongresi",
-          "misak-ı milli",
-          "i. tbmm",
-          "hıyanet-i vataniye",
-          "sevr"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_e3b44c276588",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_MILLI_MUCADELE_MUHAREBELER": {
-      "id": "TARIH_MILLI_MUCADELE_MUHAREBELER",
-      "label": "Milli Mücadele Muharebeler Dönemi ve Antlaşmalar",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_f65c2aa32be9": {
+      "id": "doc_doc_f65c2aa32be9",
+      "label": "multipage_note.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_f65c2aa32be9",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_008cfdeb2bc4": {
+      "id": "doc_doc_008cfdeb2bc4",
+      "label": "scanned_page.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_008cfdeb2bc4",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_3f4c87543772": {
+      "id": "doc_doc_3f4c87543772",
+      "label": "amasya_genelgesi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "MILLI_MUCADELE_MUHAREBELER",
-        "subtopics": [
-          "Doğu Cephesi (Gümrü)",
-          "Güney Cephesi (Ankara Antlaşması)",
-          "Batı Cephesi (I. ve II. İnönü, Kütahya-Eskişehir, Sakarya, Büyük Taarruz)",
-          "Mudanya Ateşkesi",
-          "Lozan Barış Antlaşması"
-        ],
-        "keywords": [
-          "gümrü",
-          "i. inönü",
-          "londra konferansı",
-          "istiklal marşı",
-          "ii. inönü",
-          "sakarya meydan muharebesi",
-          "başkomutanlık",
-          "büyük taarruz",
-          "mudanya",
-          "lozan"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_3f4c87543772",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_ATATURK_INKILAPLARI": {
-      "id": "TARIH_ATATURK_INKILAPLARI",
-      "label": "Atatürk Dönemi İnkılapları ve İlkeleri",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_24400bb056f8": {
+      "id": "doc_doc_24400bb056f8",
+      "label": "erzurum_kongresi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "ATATURK_INKILAPLARI",
-        "subtopics": [
-          "Siyasal Alanda İnkılaplar (Saltanat, Cumhuriyet, Halifelik)",
-          "Hukuk, Eğitim ve Kültür İnkılapları",
-          "Toplumsal ve Ekonomik Alanda İnkılaplar",
-          "Atatürk İlkeleri (Cumhuriyetçilik, Milliyetçilik, Halkçılık, Devletçilik, Laiklik, İnkılapçılık)"
-        ],
-        "keywords": [
-          "saltanatın kaldırılması",
-          "cumhuriyetin ilanı",
-          "halifeliğin kaldırılması",
-          "tevhid-i tedrisat",
-          "medeni kanun",
-          "harf inkılabı",
-          "izmir iktisat kongresi",
-          "atatürk ilkeleri"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_24400bb056f8",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH_ATATURK_DIS_POLITIKA": {
-      "id": "TARIH_ATATURK_DIS_POLITIKA",
-      "label": "Atatürk Dönemi Türk Dış Politikası ve Çağdaş Türk Dünyası",
-      "type": "CURRICULUM_TOPIC",
+    "doc_doc_e6600f8994d8": {
+      "id": "doc_doc_e6600f8994d8",
+      "label": "multipage_note.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_e6600f8994d8",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_3ba330628e66": {
+      "id": "doc_doc_3ba330628e66",
+      "label": "scanned_page.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_3ba330628e66",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_596558d45f42": {
+      "id": "doc_doc_596558d45f42",
+      "label": "amasya_genelgesi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "topic_code": "ATATURK_DIS_POLITIKA",
-        "subtopics": [
-          "Musul Sorunu",
-          "Bozkurt-Lotus Olayı",
-          "Milletler Cemiyeti'ne Giriş (1932)",
-          "Balkan Antantı (1934 - TAYYAR)",
-          "Montrö Boğazlar Sözleşmesi (1936)",
-          "Sadabat Paktı (1937 - TİAİ)",
-          "Hatay'ın Anavatana Katılması (1939)",
-          "II. Dünya Savaşı ve Soğuk Savaş Dönemi"
-        ],
-        "keywords": [
-          "balkan antantı",
-          "sadabat paktı",
-          "montrö",
-          "hatay",
-          "milletler cemiyeti",
-          "tayyar",
-          "tiai",
-          "soğuk savaş",
-          "bağlantısızlar",
-          "kore savaşı",
-          "nato"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
+        "document_id": "doc_596558d45f42",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "COGRAFYA_TURKIYE_KONUMU": {
-      "id": "COGRAFYA_TURKIYE_KONUMU",
-      "label": "Türkiye'nin Coğrafi Konumu ve Jeopolitiği",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic_code": "TURKIYE_KONUMU",
-        "subtopics": [
-          "Matematik (Mutlak) Konum ve Sonuçları",
-          "Özel (Göreceli) Konum ve Sonuçları",
-          "Yerel Saat ve Saat Dilimleri",
-          "Sınırlar ve Komşular"
-        ],
-        "keywords": [
-          "enlem",
-          "boylam",
-          "36-42 kuzey",
-          "26-45 doğu",
-          "yerel saat",
-          "gölge boyu",
-          "jeopolitik",
-          "boğazlar",
-          "sınır kapıları"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "COGRAFYA_TURKIYE_FIZIKI": {
-      "id": "COGRAFYA_TURKIYE_FIZIKI",
-      "label": "Türkiye'nin Fiziki Coğrafyası ve Yerşekilleri",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic_code": "TURKIYE_FIZIKI",
-        "subtopics": [
-          "Jeolojik Zamanlar ve Türkiye",
-          "Dağlar (Kıvrım, Kırık, Volkanik)",
-          "Ovalar ve Platolar",
-          "Akarsular ve Göller",
-          "Kıyı Tipleri ve Dış Kuvvetler (Rüzgar, Karstik, Buzul)"
-        ],
-        "keywords": [
-          "orojenez",
-          "epirojenez",
-          "kırık dağlar",
-          "volkanik dağlar",
-          "karstik şekiller",
-          "delta ovaları",
-          "çukurova",
-          "bafra",
-          "çarşamba",
-          "kıyı tipleri"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "COGRAFYA_TURKIYE_IKLIM_BITKI": {
-      "id": "COGRAFYA_TURKIYE_IKLIM_BITKI",
-      "label": "Türkiye'nin İklimi ve Bitki Örtüsü",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic_code": "TURKIYE_IKLIM_BITKI",
-        "subtopics": [
-          "Sıcaklık, Basınç ve Rüzgarlar",
-          "Nemlilik ve Yağış Tipleri",
-          "İklim Tipleri (Akdeniz, Karadeniz, Karasal, Sert Karasal)",
-          "Toprak Tipleri ve Bitki Formasyonları"
-        ],
-        "keywords": [
-          "akdeniz iklimi",
-          "karadeniz iklimi",
-          "karasal iklim",
-          "orografik yağış",
-          "konveksiyonel yağış",
-          "cephe yağışı",
-          "maki",
-          "bozkır",
-          "çernezyom",
-          "terra rossa"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "COGRAFYA_TURKIYE_NUFUS_YERLESME": {
-      "id": "COGRAFYA_TURKIYE_NUFUS_YERLESME",
-      "label": "Türkiye'de Nüfus, Yerleşme ve Göç",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic_code": "TURKIYE_NUFUS_YERLESME",
-        "subtopics": [
-          "Nüfusun Dağılışı ve Yoğunluğu",
-          "Nüfus Piramitleri ve Demografik Dönüşüm",
-          "Göç Türleri ve Nedenleri",
-          "Kır ve Kent Yerleşmeleri"
-        ],
-        "keywords": [
-          "nüfus yoğunluğu",
-          "tunceli",
-          "istanbul",
-          "aritmetik nüfus",
-          "fizyolojik nüfus",
-          "iç göç",
-          "mevsimlik göç",
-          "köy altı yerleşmeleri",
-          "mezra",
-          "oba",
-          "kom"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "COGRAFYA_TURKIYE_EKONOMI": {
-      "id": "COGRAFYA_TURKIYE_EKONOMI",
-      "label": "Türkiye'nin Ekonomik Coğrafyası (Tarım, Hayvancılık, Madenler, Sanayi)",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic_code": "TURKIYE_EKONOMI",
-        "subtopics": [
-          "Tarım Ürünleri ve Yetişme Alanları",
-          "Hayvancılık Türleri ve Dağılışı",
-          "Madenler ve Enerji Kaynakları",
-          "Sanayi Kolları ve Ulaşım-Turizm"
-        ],
-        "keywords": [
-          "buğday",
-          "pamuk",
-          "fındık",
-          "çay",
-          "zeytin",
-          "bor",
-          "baksit",
-          "krom",
-          "bakır",
-          "demir",
-          "kader",
-          "hidroelektrik",
-          "güneş enerjisi",
-          "rüzgar enerjisi"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_SOZCUKTE_ANLAM": {
-      "id": "TURKCE_SOZCUKTE_ANLAM",
-      "label": "Sözcükte ve Söz Öbeklerinde Anlam",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "SOZCUKTE_ANLAM",
-        "subtopics": [
-          "Gerçek, Yan ve Mecaz Anlam",
-          "Terim Anlam",
-          "Eş, Zıt ve Yakın Anlam",
-          "Deyimler ve Atasözleri",
-          "Dolaylama ve Güzel Adlandırma"
-        ],
-        "keywords": [
-          "gerçek anlam",
-          "mecaz",
-          "yan anlam",
-          "terim",
-          "deyim",
-          "atasözü",
-          "dolaylama"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_CUMLEDE_ANLAM": {
-      "id": "TURKCE_CUMLEDE_ANLAM",
-      "label": "Cümlede Anlam ve Anlatım Özellikleri",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "CUMLEDE_ANLAM",
-        "subtopics": [
-          "Neden-Sonuç, Amaç-Sonuç, Koşul-Sonuç",
-          "Öznel ve Nesnel Yargılar",
-          "Doğrudan ve Dolaylı Anlatım",
-          "Cümlenin İfade Ettiği Duygu ve Kavramlar"
-        ],
-        "keywords": [
-          "neden-sonuç",
-          "amaç-sonuç",
-          "koşul",
-          "öznel",
-          "nesnel",
-          "varsayım",
-          "olasılık",
-          "tanım",
-          "içerik",
-          "üslup"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_PARAGRAF_BILGISI": {
-      "id": "TURKCE_PARAGRAF_BILGISI",
-      "label": "Paragrafta Anlam, Yapı ve Ana Düşünce",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "PARAGRAF_BILGISI",
-        "subtopics": [
-          "Ana Düşünce ve Yardımcı Düşünceler",
-          "Paragraf Tamamlama ve Akışı Bozan Cümle",
-          "Paragrafı İkiye Bölme",
-          "Anlatım Teknikleri ve Düşünceyi Geliştirme Yolları"
-        ],
-        "keywords": [
-          "ana fikir",
-          "yardımcı fikir",
-          "akışı bozan",
-          "ikiye bölme",
-          "öyküleme",
-          "betimleme",
-          "tartışma",
-          "açıklama",
-          "tanık gösterme",
-          "örneklendirme"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_SES_YAZIM_NOKTALAMA": {
-      "id": "TURKCE_SES_YAZIM_NOKTALAMA",
-      "label": "Ses Bilgisi, Yazım Kuralları ve Noktalama İşaretleri",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "SES_YAZIM_NOKTALAMA",
-        "subtopics": [
-          "Ses Olayları (Ünlü Düşmesi, Ünsüz Benzeşmesi, Yumuşama)",
-          "Yazımı Karıştırılan Sözcükler ve 'de/ki/mi' Yazımı",
-          "Büyük Harflerin Yazımı ve Birleşik Sözcükler",
-          "Noktalama İşaretleri Kullanımı"
-        ],
-        "keywords": [
-          "ünlü düşmesi",
-          "ünsüz benzeşmesi",
-          "yumuşama",
-          "daralma",
-          "büyük harfler",
-          "ayrı yazılan da",
-          "ki yazımı",
-          "noktalı virgül",
-          "iki nokta",
-          "kesme işareti"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_DIL_BILGISI": {
-      "id": "TURKCE_DIL_BILGISI",
-      "label": "Sözcük Türleri, Ekler ve Cümle Bilgisi",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "DIL_BILGISI",
-        "subtopics": [
-          "Sözcükte Yapı ve Ekler (Yapım/Çekim)",
-          "İsim, Sıfat, Zamir, Zarf, Edat, Bağlaç, Ünlem",
-          "Fiiller, Ek Fiil ve Fiilimsiler",
-          "Cümlenin Ögeleri ve Cümle Türleri",
-          "Anlatım Bozuklukları"
-        ],
-        "keywords": [
-          "fiilimsi",
-          "özne",
-          "yüklem",
-          "nesne",
-          "dolaylı tümleç",
-          "zarf tümleci",
-          "birleşik cümle",
-          "anlatım bozukluğu",
-          "yapım eki",
-          "çekim eki"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "TURKCE_SOZEL_MANTIK": {
-      "id": "TURKCE_SOZEL_MANTIK",
-      "label": "Sözel Mantık ve Muhakeme",
-      "type": "CURRICULUM_TOPIC",
-      "lesson": "TURKCE",
-      "properties": {
-        "topic_code": "SOZEL_MANTIK",
-        "subtopics": [
-          "Sıralama ve Tablo Oluşturma",
-          "Grup ve Kategori Eşleştirme",
-          "Değişkenler Arası Kısıt Çözümü",
-          "Tekil ve Kesin Olasılık Hesaplama"
-        ],
-        "keywords": [
-          "sözel mantık",
-          "kesinlikle doğrudur",
-          "kesinlikle yanlıştır",
-          "olabilir",
-          "sıralama",
-          "tablo",
-          "kısıt",
-          "öncül"
-        ],
-        "saturation_count": 0,
-        "is_mastered": false,
-        "exam_weight": 0.85
-      }
-    },
-    "ENT_9bf7b58a": {
-      "id": "ENT_9bf7b58a",
-      "label": "1982 Anayasası",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_YASAMA",
-        "source_text_snippet": "1982 Anayasası Madde 87 uyarınca TBMM üye tamsayısının salt çoğunluğu ile kanun teklifleri kabul edilir.",
-        "times_observed": 1
-      }
-    },
-    "ENT_e81b003a": {
-      "id": "ENT_e81b003a",
-      "label": "Anayasası Madde",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_YASAMA",
-        "source_text_snippet": "1982 Anayasası Madde 87 uyarınca TBMM üye tamsayısının salt çoğunluğu ile kanun teklifleri kabul edilir.",
-        "times_observed": 1
-      }
-    },
-    "ENT_537d05b3": {
-      "id": "ENT_537d05b3",
-      "label": "Madde 87",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_YASAMA",
-        "source_text_snippet": "1982 Anayasası Madde 87 uyarınca TBMM üye tamsayısının salt çoğunluğu ile kanun teklifleri kabul edilir.",
-        "times_observed": 1
-      }
-    },
-    "TARIH_18__VE_19__Y_ZYIL_IS": {
-      "id": "TARIH_18__VE_19__Y_ZYIL_IS",
-      "label": "18. ve 19. Yüzyıl Islahatları",
-      "type": "TOPIC",
+    "doc_doc_c81196f0a7c6": {
+      "id": "doc_doc_c81196f0a7c6",
+      "label": "erzurum_kongresi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
+        "document_id": "doc_c81196f0a7c6",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "ENT_7f8cfbb8": {
-      "id": "ENT_7f8cfbb8",
-      "label": "Osmanlı Tarihi",
-      "type": "ENTITY",
+    "doc_doc_8c92e466d98d": {
+      "id": "doc_doc_8c92e466d98d",
+      "label": "multipage_note.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_8c92e466d98d",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_67ed6fe6a864": {
+      "id": "doc_doc_67ed6fe6a864",
+      "label": "scanned_page.pdf",
+      "type": "DOCUMENT",
+      "lesson": "UNKNOWN",
+      "properties": {
+        "document_id": "doc_67ed6fe6a864",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
+      }
+    },
+    "doc_doc_8c79255f628b": {
+      "id": "doc_doc_8c79255f628b",
+      "label": "amasya_genelgesi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "parent_topic": "TARIH_18__VE_19__Y_ZYIL_IS",
-        "source_text_snippet": "Osmanlı Tarihi: 18. ve 19. Yüzyıl Islahatları - 18. ve 19. Yüzyıl Islahatları konusunda 18. ve 19. yüzyıl ıslahatlarının",
-        "times_observed": 1
+        "document_id": "doc_8c79255f628b",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "ENT_d6536e1c": {
-      "id": "ENT_d6536e1c",
-      "label": "Yüzyıl Islahatları",
-      "type": "ENTITY",
+    "doc_doc_6459625b6823": {
+      "id": "doc_doc_6459625b6823",
+      "label": "erzurum_kongresi.pdf",
+      "type": "DOCUMENT",
       "lesson": "TARIH",
       "properties": {
-        "parent_topic": "TARIH_18__VE_19__Y_ZYIL_IS",
-        "source_text_snippet": "Osmanlı Tarihi: 18. ve 19. Yüzyıl Islahatları - 18. ve 19. Yüzyıl Islahatları konusunda 18. ve 19. yüzyıl ıslahatlarının",
-        "times_observed": 1
+        "document_id": "doc_6459625b6823",
+        "source_type": "UPLOAD_MANUAL",
+        "topic_id": "UNKNOWN",
+        "year": null,
+        "exam_code": null
       }
     },
-    "TARIH__LK_T_RK_DEVLETLERI": {
-      "id": "TARIH__LK_T_RK_DEVLETLERI",
-      "label": "İlk Türk Devletleri",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_68e57032": {
-      "id": "ENT_68e57032",
-      "label": "Öğretim Yılına İlişkin İş",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__LK_T_RK_DEVLETLERI",
-        "source_text_snippet": "Bakan TEKİN'in İmzasıyla İllere Giden 2025-2026 Eğitim ve Öğretim Yılına İlişkin İş ve İşlemler Konulu Genelge, Yayınlan",
-        "times_observed": 1
-      }
-    },
-    "ENT_f123c95c": {
-      "id": "ENT_f123c95c",
-      "label": "2026 Eğitim",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__LK_T_RK_DEVLETLERI",
-        "source_text_snippet": "Bakan TEKİN'in İmzasıyla İllere Giden 2025-2026 Eğitim ve Öğretim Yılına İlişkin İş ve İşlemler Konulu Genelge, Yayınlan",
-        "times_observed": 1
-      }
-    },
-    "ENT_0aeb767d": {
-      "id": "ENT_0aeb767d",
-      "label": "İmzasıyla İllere Giden",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__LK_T_RK_DEVLETLERI",
-        "source_text_snippet": "Bakan TEKİN'in İmzasıyla İllere Giden 2025-2026 Eğitim ve Öğretim Yılına İlişkin İş ve İşlemler Konulu Genelge, Yayınlan",
-        "times_observed": 1
-      }
-    },
-    "ENT_1e9e9858": {
-      "id": "ENT_1e9e9858",
-      "label": "İşlemler Konulu Genelge",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__LK_T_RK_DEVLETLERI",
-        "source_text_snippet": "Bakan TEKİN'in İmzasıyla İllere Giden 2025-2026 Eğitim ve Öğretim Yılına İlişkin İş ve İşlemler Konulu Genelge, Yayınlan",
-        "times_observed": 1
-      }
-    },
-    "TARIH_ATAT_RK_D_NEMI____VE": {
-      "id": "TARIH_ATAT_RK_D_NEMI____VE",
-      "label": "Atatürk Dönemi İç ve Dış Politika",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_2ef54c7e": {
-      "id": "ENT_2ef54c7e",
-      "label": "Soru Dağılımı Tablosu  Sabah",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_ATAT_RK_D_NEMI____VE",
-        "source_text_snippet": "Ortaöğretim KPSS Konuları 2024 - Ortaöğretim KPSS Konuları ve Soru Dağılımı Tablosu - Sabah - Ortaöğretim KPSS Konuları ",
-        "times_observed": 1
-      }
-    },
-    "ENT_8a0d46b2": {
-      "id": "ENT_8a0d46b2",
-      "label": "Soru Dağılımı Tablosu",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_ATAT_RK_D_NEMI____VE",
-        "source_text_snippet": "Ortaöğretim KPSS Konuları 2024 - Ortaöğretim KPSS Konuları ve Soru Dağılımı Tablosu - Sabah - Ortaöğretim KPSS Konuları ",
-        "times_observed": 1
-      }
-    },
-    "TARIH__A_DA__T_RK_VE_D_NYA": {
-      "id": "TARIH__A_DA__T_RK_VE_D_NYA",
-      "label": "Çağdaş Türk ve Dünya Tarihi",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_ad22ba67": {
-      "id": "ENT_ad22ba67",
-      "label": "2026 MEB",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__A_DA__T_RK_VE_D_NYA",
-        "source_text_snippet": "AGS SINAV TAKVİMİ VE KONU DAĞILIMI YENİ TABLOSU || 2026 MEB AGS konu dağılımı değişti mi, nasıl olacak, hangi dersten ka",
-        "times_observed": 1
-      }
-    },
-    "ENT_0d947923": {
-      "id": "ENT_0d947923",
-      "label": "Akademi Giriş Sınavı",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__A_DA__T_RK_VE_D_NYA",
-        "source_text_snippet": "MEB AGS SINAVI NE ZAMAN, KAÇ DAKİKA? 2025 ÖSYM ile MEB Akademi Giriş Sınavı AGS sınav süresi, soru sayısı - Sabah - MEB ",
-        "times_observed": 1
-      }
-    },
-    "ENT_622c3cc2": {
-      "id": "ENT_622c3cc2",
-      "label": "2025 ÖSYM",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH__A_DA__T_RK_VE_D_NYA",
-        "source_text_snippet": "MEB AGS SINAVI NE ZAMAN, KAÇ DAKİKA? 2025 ÖSYM ile MEB Akademi Giriş Sınavı AGS sınav süresi, soru sayısı - Sabah - MEB ",
-        "times_observed": 1
-      }
-    },
-    "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM": {
-      "id": "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM",
-      "label": "Hukukun Temel Kavramları",
-      "type": "TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_2c6c1ccd": {
-      "id": "ENT_2c6c1ccd",
-      "label": "Türkiye Belediyeler Birliği",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM",
-        "source_text_snippet": "TBB YÖNETİCİ YETİŞTİRME PROGRAMI İÇİN KAYITLAR BAŞLADI - Türkiye Belediyeler Birliği - TBB YÖNETİCİ YETİŞTİRME PROGRAMI ",
-        "times_observed": 1
-      }
-    },
-    "ENT_00e83b2c": {
-      "id": "ENT_00e83b2c",
-      "label": "2026 MEB",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM",
-        "source_text_snippet": "AGS SINAV TAKVİMİ VE KONU DAĞILIMI YENİ TABLOSU || 2026 MEB AGS konu dağılımı değişti mi, nasıl olacak, hangi dersten ka",
-        "times_observed": 1
-      }
-    },
-    "COGRAFYA_T_RKIYE_NIN_STRATEJI": {
-      "id": "COGRAFYA_T_RKIYE_NIN_STRATEJI",
-      "label": "Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır)",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_3f16e2d3": {
-      "id": "ENT_3f16e2d3",
-      "label": "Stratejik Madenleri",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_STRATEJI",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır) - Türkiye'nin Stratejik Madenleri (Bor, Bo",
-        "times_observed": 1
-      }
-    },
-    "ENT_dea5186c": {
-      "id": "ENT_dea5186c",
-      "label": "Müfredat Kazanımı",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_STRATEJI",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Stratejik Madenleri (Bor, Boksit, Krom, Bakır) - Türkiye'nin Stratejik Madenleri (Bor, Bo",
-        "times_observed": 1
-      }
-    },
-    "VATANDASLIK__DARE_HUKUKU___HIYER": {
-      "id": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "label": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
-      "type": "TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_9a8e772d": {
-      "id": "ENT_9a8e772d",
-      "label": "200 milletvekili",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK__DARE_HUKUKU___HIYER",
-        "source_text_snippet": "1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının e",
-        "times_observed": 1
-      }
-    },
-    "ENT_f796dc53": {
-      "id": "ENT_f796dc53",
-      "label": "İdari Vesayet Ayrımı",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK__DARE_HUKUKU___HIYER",
-        "source_text_snippet": "1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının e",
-        "times_observed": 1
-      }
-    },
-    "ENT_32786228": {
-      "id": "ENT_32786228",
-      "label": "96 uyarınca",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK__DARE_HUKUKU___HIYER",
-        "source_text_snippet": "1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının e",
-        "times_observed": 1
-      }
-    },
-    "ENT_935c9a09": {
-      "id": "ENT_935c9a09",
-      "label": "İdare Hukuku",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK__DARE_HUKUKU___HIYER",
-        "source_text_snippet": "1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının e",
-        "times_observed": 1
-      }
-    },
-    "TARIH_ATAT_RK_D_NEMI_DI__P": {
-      "id": "TARIH_ATAT_RK_D_NEMI_DI__P",
-      "label": "Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı)",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_48e4134b": {
-      "id": "ENT_48e4134b",
-      "label": "Sadabat Paktı",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_ATAT_RK_D_NEMI_DI__P",
-        "source_text_snippet": "Osmanlı Tarihi: Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı) - Atatürk Dönemi Dış Politika (Balkan Anta",
-        "times_observed": 1
-      }
-    },
-    "ENT_d11f617a": {
-      "id": "ENT_d11f617a",
-      "label": "Atatürk Dönemi Dış Politika",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_ATAT_RK_D_NEMI_DI__P",
-        "source_text_snippet": "Osmanlı Tarihi: Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı) - Atatürk Dönemi Dış Politika (Balkan Anta",
-        "times_observed": 1
-      }
-    },
-    "ENT_2abd700d": {
-      "id": "ENT_2abd700d",
-      "label": "Balkan Antantı",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_ATAT_RK_D_NEMI_DI__P",
-        "source_text_snippet": "Osmanlı Tarihi: Atatürk Dönemi Dış Politika (Balkan Antantı ve Sadabat Paktı) - Atatürk Dönemi Dış Politika (Balkan Anta",
-        "times_observed": 1
-      }
-    },
-    "COGRAFYA_T_RKIYE_N_FUS_DA_ILI": {
-      "id": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-      "label": "Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_34abca95": {
-      "id": "ENT_34abca95",
-      "label": "Demografi Trendleri",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri - Türkiye Nüfus Dağılımı ve TÜİK 2026 Demogra",
-        "times_observed": 1
-      }
-    },
-    "ENT_786ff0a7": {
-      "id": "ENT_786ff0a7",
-      "label": "2026 Demografi",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri - Türkiye Nüfus Dağılımı ve TÜİK 2026 Demogra",
-        "times_observed": 1
-      }
-    },
-    "ENT_e729b648": {
-      "id": "ENT_e729b648",
-      "label": "Türkiye Nüfus Dağılımı",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye Nüfus Dağılımı ve TÜİK 2026 Demografi Trendleri - Türkiye Nüfus Dağılımı ve TÜİK 2026 Demogra",
-        "times_observed": 1
-      }
-    },
-    "TARIH_9______AGS_TARIH___A": {
-      "id": "TARIH_9______AGS_TARIH___A",
-      "label": "9)   / AGS Tarih   Anadolu Selçuklu Devleti    Ramazan YETGİN",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_408268bd": {
-      "id": "ENT_408268bd",
-      "label": "Tarih   Anadolu Selçuklu Devleti",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_9______AGS_TARIH___A",
-        "source_text_snippet": "Osmanlı Tarihi: 9)   / AGS Tarih   Anadolu Selçuklu Devleti    Ramazan YETGİN - 9)   / AGS Tarih   Anadolu Selçuklu Devl",
-        "times_observed": 1
-      }
-    },
-    "TARIH_5______AGS_TARIH____": {
-      "id": "TARIH_5______AGS_TARIH____",
-      "label": "5)   / AGS Tarih   İlk Türk İslam Devletleri    Ramazan Yetgin",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_dea52750": {
-      "id": "ENT_dea52750",
-      "label": "Tarih   İlk Türk İslam",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_5______AGS_TARIH____",
-        "source_text_snippet": "Osmanlı Tarihi: 5)   / AGS Tarih   İlk Türk İslam Devletleri    Ramazan Yetgin - 5)   / AGS Tarih   İlk Türk İslam Devle",
-        "times_observed": 1
-      }
-    },
-    "ENT_ebc2c6ec": {
-      "id": "ENT_ebc2c6ec",
-      "label": "Devletleri    Ramazan Yetgin",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_5______AGS_TARIH____",
-        "source_text_snippet": "Osmanlı Tarihi: 5)   / AGS Tarih   İlk Türk İslam Devletleri    Ramazan Yetgin - 5)   / AGS Tarih   İlk Türk İslam Devle",
-        "times_observed": 1
-      }
-    },
-    "TARIH_14______AGS_TARIH___": {
-      "id": "TARIH_14______AGS_TARIH___",
-      "label": "14)   / AGS Tarih   Osmanlı Devleti Kültür ve Medeniyeti IV   Ramazan YETGİN",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_7f8e0b77": {
-      "id": "ENT_7f8e0b77",
-      "label": "Tarih   Osmanlı Devleti Kültür",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_14______AGS_TARIH___",
-        "source_text_snippet": "Osmanlı Tarihi: 14)   / AGS Tarih   Osmanlı Devleti Kültür ve Medeniyeti IV   Ramazan YETGİN - 14)   / AGS Tarih   Osman",
-        "times_observed": 1
-      }
-    },
-    "TARIH_2______AGS_TARIH____": {
-      "id": "TARIH_2______AGS_TARIH____",
-      "label": "2)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_062dedf4": {
-      "id": "ENT_062dedf4",
-      "label": "Tarihi    Ramazan",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_2______AGS_TARIH____",
-        "source_text_snippet": "Osmanlı Tarihi: 2)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN - 2)   / AGS Tarih   İslamiyet Öncesi ",
-        "times_observed": 1
-      }
-    },
-    "ENT_2d8e97b3": {
-      "id": "ENT_2d8e97b3",
-      "label": "Tarih   İslamiyet Öncesi Türk",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_2______AGS_TARIH____",
-        "source_text_snippet": "Osmanlı Tarihi: 2)   / AGS Tarih   İslamiyet Öncesi Türk Tarihi    Ramazan YETGİN - 2)   / AGS Tarih   İslamiyet Öncesi ",
-        "times_observed": 1
-      }
-    },
-    "TARIH_34______AGS_TARIH___": {
-      "id": "TARIH_34______AGS_TARIH___",
-      "label": "34)   / AGS Tarih   Mondros Ateşkes Antlaşması ve Cemiyetler   Ramazan YETGİN",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_027fd22b": {
-      "id": "ENT_027fd22b",
-      "label": "Tarih   Mondros Ateşkes Antlaşması",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_34______AGS_TARIH___",
-        "source_text_snippet": "Osmanlı Tarihi: 34)   / AGS Tarih   Mondros Ateşkes Antlaşması ve Cemiyetler   Ramazan YETGİN - 34)   / AGS Tarih   Mond",
-        "times_observed": 1
-      }
-    },
-    "ENT_327725dd": {
-      "id": "ENT_327725dd",
-      "label": "Cemiyetler   Ramazan",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_34______AGS_TARIH___",
-        "source_text_snippet": "Osmanlı Tarihi: 34)   / AGS Tarih   Mondros Ateşkes Antlaşması ve Cemiyetler   Ramazan YETGİN - 34)   / AGS Tarih   Mond",
-        "times_observed": 1
-      }
-    },
-    "TARIH_TAR_H_GENEL_TEKRAR__": {
-      "id": "TARIH_TAR_H_GENEL_TEKRAR__",
-      "label": "TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal ÖZYILDIZ",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_1dd8788c": {
-      "id": "ENT_1dd8788c",
-      "label": "Mehmet Celal",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_TAR_H_GENEL_TEKRAR__",
-        "source_text_snippet": "Osmanlı Tarihi: TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal ÖZYILDIZ - TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal Ö",
-        "times_observed": 1
-      }
-    },
-    "ENT_2c509a37": {
-      "id": "ENT_2c509a37",
-      "label": "Genel Tekrar",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "TARIH_TAR_H_GENEL_TEKRAR__",
-        "source_text_snippet": "Osmanlı Tarihi: TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal ÖZYILDIZ - TARİH Genel Tekrar / TEK VİDEO ~ Mehmet Celal Ö",
-        "times_observed": 1
-      }
-    },
-    "ENT_d074821f": {
-      "id": "ENT_d074821f",
-      "label": "Tüm Sınavlar   Mehmet Celal",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: Tarih Genel Tekrar Kampı   TEK VİDEO   Tüm Sınavlar   Mehmet Celal ÖZYILDIZ - Tarih Genel Tekrar Kampı  ",
-        "times_observed": 1
-      }
-    },
-    "ENT_4e26f604": {
-      "id": "ENT_4e26f604",
-      "label": "Tarih Genel Tekrar Kampı",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: Tarih Genel Tekrar Kampı   TEK VİDEO   Tüm Sınavlar   Mehmet Celal ÖZYILDIZ - Tarih Genel Tekrar Kampı  ",
-        "times_observed": 1
-      }
-    },
-    "ENT_4a1b557c": {
-      "id": "ENT_4a1b557c",
-      "label": "Tarih Genel Tekrar Tek",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: Tarih Genel Tekrar Tek Video / Mehmet Celal Özyıldız - Tarih Genel Tekrar Tek Video / Mehmet Celal Özyıl",
-        "times_observed": 1
-      }
-    },
-    "ENT_3a04763b": {
-      "id": "ENT_3a04763b",
-      "label": "Mehmet Celal Özyıldız",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: Tarih Genel Tekrar Tek Video / Mehmet Celal Özyıldız - Tarih Genel Tekrar Tek Video / Mehmet Celal Özyıl",
-        "times_observed": 1
-      }
-    },
-    "ENT_c4f923f5": {
-      "id": "ENT_c4f923f5",
-      "label": "Pre Islamic Turkish History",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: 1) Pre Islamic Turkish History   1   Mehmet Celal ÖZYILDIZ - 1) Pre Islamic Turkish History   1   Mehmet",
-        "times_observed": 1
-      }
-    },
-    "ENT_8f127133": {
-      "id": "ENT_8f127133",
-      "label": "Practice Test Solutions",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: Practice Test Solutions   1 ~ Mehmet Celal ÖZYILDIZ - Practice Test Solutions   1 ~ Mehmet Celal ÖZYILDI",
-        "times_observed": 1
-      }
-    },
-    "ENT_7b802e99": {
-      "id": "ENT_7b802e99",
-      "label": "Tripoli War   Mehmet Celal",
-      "type": "ENTITY",
-      "lesson": "TARIH",
-      "properties": {
-        "parent_topic": "ENT_1dd8788c",
-        "source_text_snippet": "Osmanlı Tarihi: 80) Tripoli War   Mehmet Celal ÖZYILDIZ - 80) Tripoli War   Mehmet Celal ÖZYILDIZ konusunda 18. ve 19. y",
-        "times_observed": 1
-      }
-    },
-    "TARIH_PRACTICE_2_EXPORT": {
-      "id": "TARIH_PRACTICE_2_EXPORT",
-      "label": "Practice 2 export",
-      "type": "TOPIC",
-      "lesson": "TARIH",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "COGRAFYA_1_____MEB___AGS_CO_R": {
-      "id": "COGRAFYA_1_____MEB___AGS_CO_R",
-      "label": "1)    MEB / AGS Coğrafya   Coğrafyaya Giriş   Bayram Meral",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_d834b6c1": {
-      "id": "ENT_d834b6c1",
-      "label": "Coğrafya   Coğrafyaya Giriş   Bayram",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_1_____MEB___AGS_CO_R",
-        "source_text_snippet": "Müfredat Kazanımı: 1)    MEB / AGS Coğrafya   Coğrafyaya Giriş   Bayram Meral - 1)    MEB / AGS Coğrafya   Coğrafyaya Gi",
-        "times_observed": 1
-      }
-    },
-    "COGRAFYA_7_____MEB___AGS_CO_R": {
-      "id": "COGRAFYA_7_____MEB___AGS_CO_R",
-      "label": "7)    MEB / AGS Coğrafya   Türkiye'de İklim Bilgisi   Sıcaklık   Bayram Meral",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_f28e720e": {
-      "id": "ENT_f28e720e",
-      "label": "Coğrafya   Türkiye",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_7_____MEB___AGS_CO_R",
-        "source_text_snippet": "Müfredat Kazanımı: 7)    MEB / AGS Coğrafya   Türkiye'de İklim Bilgisi   Sıcaklık   Bayram Meral - 7)    MEB / AGS Coğra",
-        "times_observed": 1
-      }
-    },
-    "ENT_c5a4f91d": {
-      "id": "ENT_c5a4f91d",
-      "label": "İklim Bilgisi   Sıcaklık   Bayram",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_7_____MEB___AGS_CO_R",
-        "source_text_snippet": "Müfredat Kazanımı: 7)    MEB / AGS Coğrafya   Türkiye'de İklim Bilgisi   Sıcaklık   Bayram Meral - 7)    MEB / AGS Coğra",
-        "times_observed": 1
-      }
-    },
-    "ENT_#_[KPSS": {
-      "id": "ENT_#_[KPSS",
-      "label": "# [KPSS",
-      "type": "ENTITY",
+    "pat_negative_selection": {
+      "id": "pat_negative_selection",
+      "label": "Olumsuz Seçim ve Kök Analizi",
+      "type": "PATTERN",
       "lesson": "GENEL",
       "properties": {
-        "ilişki": "RESMİ MÜFREDAT ARAŞTIRMA"
+        "pattern_code": "NEGATIVE_SELECTION",
+        "cognitive_level": "ANALYSIS",
+        "description": "Soru kökünde olumsuz ifade barındıran, olmayanı veya yanlış olanı buldurmayı amaçlayan kalıp."
       }
     },
-    "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA": {
-      "id": "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA",
-      "label": "RESMİ MÜFREDAT ARAŞTIRMA",
-      "type": "VALUE_ENTITY",
-      "lesson": "GENEL",
-      "properties": {}
-    },
-    "ENT_##_⚖️": {
-      "id": "ENT_##_⚖️",
-      "label": "## ⚖️",
-      "type": "ENTITY",
+    "pat_statement_analysis": {
+      "id": "pat_statement_analysis",
+      "label": "Öncüllü Yargı / İfade Analizi (I, II, III)",
+      "type": "PATTERN",
       "lesson": "GENEL",
       "properties": {
-        "ilişki": "Hukuki & Akademik"
+        "pattern_code": "STATEMENT_ANALYSIS",
+        "cognitive_level": "EVALUATION",
+        "description": "Romen rakamlarıyla verilen birden fazla öncülün doğruluğunu veya uygulanabilirliğini sorgulayan kalıp."
       }
     },
-    "ENT_HUKUKI_&_AKADEMIK": {
-      "id": "ENT_HUKUKI_&_AKADEMIK",
-      "label": "Hukuki & Akademik",
-      "type": "VALUE_ENTITY",
-      "lesson": "GENEL",
-      "properties": {}
-    },
-    "COGRAFYA_T_RKIYE_NIN_CO_RAFI_": {
-      "id": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-      "label": "Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Doğrulanmış Web Araştırması"
-        ]
-      }
-    },
-    "ENT_3d8d2043": {
-      "id": "ENT_3d8d2043",
-      "label": "Jeopolitik Önemi",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konus",
-        "times_observed": 1
-      }
-    },
-    "ENT_88601c86": {
-      "id": "ENT_88601c86",
-      "label": "Coğrafi Konumu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-        "source_text_snippet": "Müfredat Kazanımı: Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi - Türkiye'nin Coğrafi Konumu ve Jeopolitik Önemi konus",
-        "times_observed": 1
-      }
-    },
-    "VATANDASLIK_ANAYASA_MAHKEMESI": {
-      "id": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "label": "Anayasa Mahkemesi",
-      "type": "TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "auto_created": true,
-        "subtopics": []
-      }
-    },
-    "ENT_aa0099bd": {
-      "id": "ENT_aa0099bd",
-      "label": "Anayasa Mahkemesi",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
-        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
-        "times_observed": 1
-      }
-    },
-    "ENT_a3b2d9c4": {
-      "id": "ENT_a3b2d9c4",
-      "label": "Madde 146",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
-        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
-        "times_observed": 1
-      }
-    },
-    "ENT_a3d956ee": {
-      "id": "ENT_a3d956ee",
-      "label": "15 üyeden",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
-        "source_text_snippet": "1982 Anayasası Madde 146 uyarınca Anayasa Mahkemesi 15 üyeden oluşur",
-        "times_observed": 1
-      }
-    },
-    "ENT_5f250f5d": {
-      "id": "ENT_5f250f5d",
-      "label": "12 yıl",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "VATANDASLIK_ANAYASA_MAHKEMESI",
-        "source_text_snippet": "Üyeler 12 yıl için seçilir.",
-        "times_observed": 1
-      }
-    },
-    "VATANDASLIK_GENEL": {
-      "id": "VATANDASLIK_GENEL",
-      "label": "GENEL",
-      "type": "TOPIC",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "auto_created": true,
-        "subtopics": []
-      }
-    },
-    "ENT_AKADEMIK_KPSS": {
-      "id": "ENT_AKADEMIK_KPSS",
-      "label": "Akademik KPSS",
-      "type": "ENTITY",
+    "pat_chronology": {
+      "id": "pat_chronology",
+      "label": "Kronolojik Sıralama ve Zaman Dizilimi",
+      "type": "PATTERN",
       "lesson": "GENEL",
       "properties": {
-        "ilişki": "Kaynakları: COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER KPSS"
+        "pattern_code": "CHRONOLOGY",
+        "cognitive_level": "KNOWLEDGE",
+        "description": "Olayların, antlaşmaların veya dönemlerin kronolojik gelişim sırasını test eden kalıp."
       }
     },
-    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS": {
-      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS",
-      "label": "Kaynakları: COGRAFYA_TURKIYE_IKLIM_VE_BITKI KPSS",
-      "type": "VALUE_ENTITY",
+    "pat_cause_result": {
+      "id": "pat_cause_result",
+      "label": "Neden - Sonuç Bağıntısı",
+      "type": "PATTERN",
       "lesson": "GENEL",
-      "properties": {}
+      "properties": {
+        "pattern_code": "CAUSE_RESULT",
+        "cognitive_level": "COMPREHENSION",
+        "description": "Tarihsel veya coğrafi bir olayın gerekçesini veya doğurduğu sonuçları sorgulayan kalıp."
+      }
     },
-    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS": {
-      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS",
-      "label": "Kaynakları: COGRAFYA_TURKIYE_MADENLER_VE_ENERJI KPSS",
-      "type": "VALUE_ENTITY",
+    "pat_comparison": {
+      "id": "pat_comparison",
+      "label": "Karşılaştırma ve Mukayese",
+      "type": "PATTERN",
       "lesson": "GENEL",
-      "properties": {}
+      "properties": {
+        "pattern_code": "COMPARISON",
+        "cognitive_level": "ANALYSIS",
+        "description": "İki veya daha fazla antlaşma, kurum, ilke veya coğrafi bölge arasındaki benzerlik/farklılıkları test eden kalıp."
+      }
     },
-    "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS": {
-      "id": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS",
-      "label": "Kaynakları: COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER KPSS",
-      "type": "VALUE_ENTITY",
+    "pat_matching": {
+      "id": "pat_matching",
+      "label": "Eşleştirme ve Tablo",
+      "type": "PATTERN",
       "lesson": "GENEL",
-      "properties": {}
-    },
-    "ENT_68cb7548": {
-      "id": "ENT_68cb7548",
-      "label": "600 milletvekilidir",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "1982 Anayasası'na göre TBMM üye sayısı 600 milletvekilidir",
-        "times_observed": 1
+        "pattern_code": "MATCHING",
+        "cognitive_level": "KNOWLEDGE",
+        "description": "Kavram-tanım, yazar-eser, padişah-ıslahat gibi ikili veya çoklu eşleştirmeleri içeren kalıp."
       }
     },
-    "ENT_8be8f28e": {
-      "id": "ENT_8be8f28e",
-      "label": "18 olarak",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "pat_inference": {
+      "id": "pat_inference",
+      "label": "Paragraftan Çıkarım ve Yorumlama",
+      "type": "PATTERN",
+      "lesson": "GENEL",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "Milletvekili seçilme yaşı 18 olarak belirlenmiştir",
-        "times_observed": 1
+        "pattern_code": "INFERENCE",
+        "cognitive_level": "INFERENCE",
+        "description": "Verilen paragraf veya alıntıya dayanarak mantıksal ve pedagojik çıkarım yapmayı gerektiren kalıp."
       }
     },
-    "ENT_6830eebd": {
-      "id": "ENT_6830eebd",
-      "label": "200 milletvekilidir",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "pat_exception": {
+      "id": "pat_exception",
+      "label": "Kural Dışı / İstisna Tespiti",
+      "type": "PATTERN",
+      "lesson": "GENEL",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "TBMM toplantı yeter sayısı 200 milletvekilidir",
-        "times_observed": 1
+        "pattern_code": "EXCEPTION",
+        "cognitive_level": "ANALYSIS",
+        "description": "Genel bir kuralın, kanunun veya ilkenin özel istisnasını sorgulayan kalıp."
       }
     },
-    "ENT_54de8af0": {
-      "id": "ENT_54de8af0",
-      "label": "360 milletvekili",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "pat_counting": {
+      "id": "pat_counting",
+      "label": "Sayısal Nicelik ve Adet Sayma",
+      "type": "PATTERN",
+      "lesson": "GENEL",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "Genel af ilanı için üye tamsayısının beşte üçü olan 360 milletvekili çoğunluğu aranır",
-        "times_observed": 1
+        "pattern_code": "COUNTING",
+        "cognitive_level": "ANALYSIS",
+        "description": "Verilen öncül veya unsurlardan kaç tanesinin belirtilen şarta uyduğunu sorgulayan kalıp."
       }
     },
-    "ENT_3df87adc": {
-      "id": "ENT_3df87adc",
-      "label": "360 çoğunlukla",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "pat_classification": {
+      "id": "pat_classification",
+      "label": "Tasnif ve Gruplandırma",
+      "type": "PATTERN",
+      "lesson": "GENEL",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "TBMM seçimleri 5 yılda bir yapılır ve seçim yenilenmesi 360 çoğunlukla olur",
-        "times_observed": 1
+        "pattern_code": "CLASSIFICATION",
+        "cognitive_level": "COMPREHENSION",
+        "description": "Bir unsuru ait olduğu doğru zümreye, döneme veya sınıfa yerleştirmeyi test eden kalıp."
       }
     },
-    "ENT_075dd146": {
-      "id": "ENT_075dd146",
-      "label": "18 yaşını",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "pat_direct_fact": {
+      "id": "pat_direct_fact",
+      "label": "Doğrudan Olgusal Bilgi (Spot Bilgi)",
+      "type": "PATTERN",
+      "lesson": "GENEL",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "Milletvekili seçilme yeterliliği şartları en az 18 yaşını doldurmak ve ilkokul mezunu olmaktır",
-        "times_observed": 1
+        "pattern_code": "DIRECT_FACT",
+        "cognitive_level": "KNOWLEDGE",
+        "description": "Ek bağlam olmadan doğrudan bir kavramı, kişiyi, eseri veya terimi sorgulayan spot kalıp."
       }
     },
-    "ENT_7f19632e": {
-      "id": "ENT_7f19632e",
-      "label": "Genel Kurulu",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
+    "q_q_exam_kpss_2023_gygk_1": {
+      "id": "q_q_exam_kpss_2023_gygk_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "Milletvekili dokunulmazlığı ve yasama bağışıklıkları TBMM Genel Kurulu kararıyla kaldırılabilir",
-        "times_observed": 1
+        "question_id": "q_exam_kpss_2023_gygk_1",
+        "exam_id": "exam_kpss_2023_gygk",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
       }
     },
-    "ENT_c935549a": {
-      "id": "ENT_c935549a",
-      "label": "151 milletvekilidir",
-      "type": "ENTITY",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "TBMM toplantı yeter sayısı 200, en az karar yeter sayısı 151 milletvekilidir",
-        "times_observed": 1
-      }
-    },
-    "COGRAFYA_T_RKIYE_NIN_FIZIKI__": {
-      "id": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "label": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-      "type": "TOPIC",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "auto_created": true,
-        "subtopics": [
-          "Kısa Mesafede İklim Değişimleri"
-        ]
-      }
-    },
-    "ENT_18975008": {
-      "id": "ENT_18975008",
-      "label": "Doğu Karadeniz",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "Türkiye'de kısa mesafede iklim değiştiği iki önemli yer: Doğu Karadeniz (Rize-Ordu) ve Akdeniz (Antalya-Mersin) hattı.",
-        "times_observed": 1
-      }
-    },
-    "ENT_3131f11a": {
-      "id": "ENT_3131f11a",
-      "label": "Kuzey Anadolu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "Katner ve tersiyer dönemler genellikle Kuzey Anadolu dağlarının oluşumunu ve petrol yataklarının ortaya çıkmasını içerir",
-        "times_observed": 1
-      }
-    },
-    "ENT_a689be25": {
-      "id": "ENT_a689be25",
-      "label": "Jeolojik Zamanlar",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[PAMAK] Jeolojik Zamanlar: Jeolojik zamanların sırasını hatırlamak için: Paleozoik, Mezozoik, Katerner (Senozoik) ve Pre",
-        "times_observed": 1
-      }
-    },
-    "ENT_7c9ebf97": {
-      "id": "ENT_7c9ebf97",
-      "label": "Jeolojik Dönemler",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[KATNER] Jeolojik Dönemler: Jeolojik dönemlerin sırasını hatırlamak için: Katner ve Tersiyer dönemler",
-        "times_observed": 1
-      }
-    },
-    "ENT_895c4286": {
-      "id": "ENT_895c4286",
-      "label": "İç Anadolu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "Türkiye'de volkanik araziler genellikle Doğu Anadolu hattı ve İç Anadolu hattında bulunur. Bursa ve Hatay-Hassa hattında",
-        "times_observed": 1
-      }
-    },
-    "ENT_2b605781": {
-      "id": "ENT_2b605781",
-      "label": "Doğu Anadolu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "Türkiye'de volkanik araziler genellikle Doğu Anadolu hattı ve İç Anadolu hattında bulunur. Bursa ve Hatay-Hassa hattında",
-        "times_observed": 1
-      }
-    },
-    "ENT_a0558c08": {
-      "id": "ENT_a0558c08",
-      "label": "Lav Platosu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
-        "times_observed": 1
-      }
-    },
-    "ENT_d57c549e": {
-      "id": "ENT_d57c549e",
-      "label": "Volkanik Araziler",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
-        "times_observed": 1
-      }
-    },
-    "ENT_801af3da": {
-      "id": "ENT_801af3da",
-      "label": "İç Anadolu Volkanik Arazileri",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
-        "times_observed": 1
-      }
-    },
-    "ENT_fa1471d7": {
-      "id": "ENT_fa1471d7",
-      "label": "Öncelikle Doğu Anadolu",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[VOLKANO] Doğu Anadolu ve İç Anadolu Volkanik Arazileri: V: Volkanik Araziler, O: Öncelikle Doğu Anadolu, L: Lav Platosu",
-        "times_observed": 1
-      }
-    },
-    "ENT_8abcc965": {
-      "id": "ENT_8abcc965",
-      "label": "Karstik Araziler",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[KARST] Karstik Araziler: K: Konya, A: Antalya, R: Rize, S: Sakarya, T: Tekirdağ",
-        "times_observed": 1
-      }
-    },
-    "ENT_ab05affa": {
-      "id": "ENT_ab05affa",
-      "label": "Tabaka Düz",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[PLATO] Türkiye'deki Platoslar: P: Platos, L: Lav, A: Teketaş Eli, T: Tabaka Düz, O: Obruk",
-        "times_observed": 1
-      }
-    },
-    "ENT_46c04358": {
-      "id": "ENT_46c04358",
-      "label": "Teketaş Eli",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[PLATO] Türkiye'deki Platoslar: P: Platos, L: Lav, A: Teketaş Eli, T: Tabaka Düz, O: Obruk",
-        "times_observed": 1
-      }
-    },
-    "ENT_c4806415": {
-      "id": "ENT_c4806415",
-      "label": "Güney Marmara",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "Güney Marmara'da karsik şekillerin oluşumu ve bu şekillerin oluşumuna katkıda bulunan faktörler anlatılıyor.",
-        "times_observed": 1
-      }
-    },
-    "ENT_e75639a9": {
-      "id": "ENT_e75639a9",
-      "label": "Karsik Ovalar",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[POLYE] Karsik Ovalar: Polye, karsik ovaların bir örneği, genellikle Türkiye'nin bazı yüksek dağlarında ve ovaların oluş",
-        "times_observed": 1
-      }
-    },
-    "ENT_1da5ed1d": {
-      "id": "ENT_1da5ed1d",
-      "label": "Kalıcı Karlar",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[KAR] Kalıcı Karlar: Kalıcı karlar, 12 ay boyunca orada kalan karlar, özellikle Eskişehir ve Bursa gibi yüksek dağlık bö",
-        "times_observed": 1
-      }
-    },
-    "ENT_647b569a": {
-      "id": "ENT_647b569a",
-      "label": "12 ay",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "[KAR] Kalıcı Karlar: Kalıcı karlar, 12 ay boyunca orada kalan karlar, özellikle Eskişehir ve Bursa gibi yüksek dağlık bö",
-        "times_observed": 1
-      }
-    },
-    "ENT_96efd2fa": {
-      "id": "ENT_96efd2fa",
-      "label": "da ve Ege",
-      "type": "ENTITY",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "parent_topic": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-        "source_text_snippet": "⚠️ [ÖSYM TUZAĞI] Kalıcı karların tüm Türkiye'de oluştuğu iddiası -> Doğrusu: Kalıcı karlar genellikle Eskişehir ve Bursa",
-        "times_observed": 1
-      }
-    },
-    "CONC_TOPLANTI_YETER_SAYISI": {
-      "id": "CONC_TOPLANTI_YETER_SAYISI",
-      "label": "Toplantı Yeter Sayısı",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "1982 Anayasası Yasama Organı",
-        "confused_with": "Karar Yeter Sayısı",
-        "difference": "Toplantı için üye tamsayısının 1/3'ü (200) gerekir; karar için katılanların salt çoğunluğu (en az 151) gerekir."
-      }
-    },
-    "CONC_KARAR_YETER_SAYISI": {
-      "id": "CONC_KARAR_YETER_SAYISI",
-      "label": "Karar Yeter Sayısı",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "1982 Anayasası Yasama Organı",
-        "confused_with": "Toplantı Yeter Sayısı",
-        "difference": "Toplantı için üye tamsayısının 1/3'ü (200) gerekir; karar için katılanların salt çoğunluğu (en az 151) gerekir."
-      }
-    },
-    "CONC_VALI": {
-      "id": "CONC_VALI",
-      "label": "Vali",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
-        "confused_with": "Kaymakam",
-        "difference": "Vali istisnai memurdur ve yetki genişliğine sahiptir; Kaymakam güvenceli meslek memurudur, yetki genişliği yoktur."
-      }
-    },
-    "CONC_KAYMAKAM": {
-      "id": "CONC_KAYMAKAM",
-      "label": "Kaymakam",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "İdare Hukuku ve Türkiye'nin İdari Teşkilat Yapısı",
-        "confused_with": "Vali",
-        "difference": "Vali istisnai memurdur ve yetki genişliğine sahiptir; Kaymakam güvenceli meslek memurudur, yetki genişliği yoktur."
-      }
-    },
-    "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI": {
-      "id": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
-      "label": "İptal Davası (Soyut Norm Denetimi)",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
-        "confused_with": "İtiraz Yolu (Somut Norm Denetimi / Def'i)",
-        "difference": "İptal davası doğrudan 60 gün içinde açılır; İtiraz yolu ise görülmekte olan bir dava sırasında mahkemece AYM'ye taşınır."
-      }
-    },
-    "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI": {
-      "id": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
-      "label": "İtiraz Yolu (Somut Norm Denetimi / Def'i)",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "1982 Anayasası Yargı Organı ve Yüksek Mahkemeler",
-        "confused_with": "İptal Davası (Soyut Norm Denetimi)",
-        "difference": "İptal davası doğrudan 60 gün içinde açılır; İtiraz yolu ise görülmekte olan bir dava sırasında mahkemece AYM'ye taşınır."
-      }
-    },
-    "CONC_GAIPLIK": {
-      "id": "CONC_GAIPLIK",
-      "label": "Gaiplik",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
-        "confused_with": "Ölüm Karinesi",
-        "difference": "Ölüm karinesinde ceset bulunamaz ama ölümüne kesin gözle bakılır (mahallin en büyük mülki amiri kütüğe ölü yazar); gaiplikte ise mahkeme kararı ve bekleme süreleri (1 yıl / 5 yıl) şarttır."
-      }
-    },
-    "CONC_LM_KARINESI": {
-      "id": "CONC_LM_KARINESI",
-      "label": "Ölüm Karinesi",
-      "type": "CONCEPT",
-      "lesson": "VATANDASLIK",
-      "properties": {
-        "topic": "Temel Hukuk Kavramları ve Hukukun Dalları",
-        "confused_with": "Gaiplik",
-        "difference": "Ölüm karinesinde ceset bulunamaz ama ölümüne kesin gözle bakılır (mahallin en büyük mülki amiri kütüğe ölü yazar); gaiplikte ise mahkeme kararı ve bekleme süreleri (1 yıl / 5 yıl) şarttır."
-      }
-    },
-    "CONC_ATALCAKOCAELI_PLATOSU": {
-      "id": "CONC_ATALCAKOCAELI_PLATOSU",
-      "label": "Çatalca-Kocaeli Platosu",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Taşeli Platosu",
-        "difference": "Çatalca-Kocaeli aşınım (peneplen) platosudur ve sanayi yoğunlukludur; Taşeli karstik platodur ve yerleşme seyrektir."
-      }
-    },
-    "CONC_TAELI_PLATOSU": {
-      "id": "CONC_TAELI_PLATOSU",
-      "label": "Taşeli Platosu",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Çatalca-Kocaeli Platosu",
-        "difference": "Çatalca-Kocaeli aşınım (peneplen) platosudur ve sanayi yoğunlukludur; Taşeli karstik platodur ve yerleşme seyrektir."
-      }
-    },
-    "CONC_UKUROVA_DELTA_OVASI": {
-      "id": "CONC_UKUROVA_DELTA_OVASI",
-      "label": "Çukurova (Delta Ovası)",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Konya Ovası (Tektonik/Tabaka Ovası)",
-        "difference": "Çukurova Seyhan ve Ceyhan akarsularının alüvyon biriktirmesiyle oluşan deltadır; Konya ovası tektonik kökenlidir."
-      }
-    },
-    "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI": {
-      "id": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
-      "label": "Konya Ovası (Tektonik/Tabaka Ovası)",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
-      "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Çukurova (Delta Ovası)",
-        "difference": "Çukurova Seyhan ve Ceyhan akarsularının alüvyon biriktirmesiyle oluşan deltadır; Konya ovası tektonik kökenlidir."
-      }
-    },
-    "CONC_TANZIMAT_FERMANI_1839": {
-      "id": "CONC_TANZIMAT_FERMANI_1839",
-      "label": "Tanzimat Fermanı (1839)",
+    "concept_milli_mucadele_hazirlik": {
+      "id": "concept_milli_mucadele_hazirlik",
+      "label": "MILLI_MUCADELE_HAZIRLIK",
       "type": "CONCEPT",
       "lesson": "TARIH",
       "properties": {
-        "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
-        "confused_with": "Islahat Fermanı (1856)",
-        "difference": "Tanzimat tüm Osmanlı tebaasına eşit haklar getirirken; Islahat Fermanı özellikle gayrimüslimlere ayrıcalıklar tanımıştır."
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
       }
     },
-    "CONC_ISLAHAT_FERMANI_1856": {
-      "id": "CONC_ISLAHAT_FERMANI_1856",
-      "label": "Islahat Fermanı (1856)",
-      "type": "CONCEPT",
+    "q_q_exam_kpss_2023_gygk_2": {
+      "id": "q_q_exam_kpss_2023_gygk_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "19. ve 20. Yüzyıl Osmanlı Devleti (Dağılma Dönemi Islahatları)",
-        "confused_with": "Tanzimat Fermanı (1839)",
-        "difference": "Tanzimat tüm Osmanlı tebaasına eşit haklar getirirken; Islahat Fermanı özellikle gayrimüslimlere ayrıcalıklar tanımıştır."
+        "question_id": "q_exam_kpss_2023_gygk_2",
+        "exam_id": "exam_kpss_2023_gygk",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_I_TBMM": {
-      "id": "CONC_I_TBMM",
-      "label": "I. TBMM",
-      "type": "CONCEPT",
+    "q_q_exam_pat_test_1": {
+      "id": "q_q_exam_pat_test_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "I. TBMM Dönemi ve Ayaklanmalar",
-        "confused_with": "II. TBMM",
-        "difference": "I. TBMM kurucu, ihtilalci ve savaş meclisidir (güçler birliği); II. TBMM ise inkılap meclisidir ve Lozan'ı onaylamıştır."
+        "question_id": "q_exam_pat_test_1",
+        "exam_id": "exam_pat_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_II_TBMM": {
-      "id": "CONC_II_TBMM",
-      "label": "II. TBMM",
-      "type": "CONCEPT",
+    "q_q_exam_pat_test_2": {
+      "id": "q_q_exam_pat_test_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "I. TBMM Dönemi ve Ayaklanmalar",
-        "confused_with": "I. TBMM",
-        "difference": "I. TBMM kurucu, ihtilalci ve savaş meclisidir (güçler birliği); II. TBMM ise inkılap meclisidir ve Lozan'ı onaylamıştır."
+        "question_id": "q_exam_pat_test_2",
+        "exam_id": "exam_pat_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_EITIM": {
-      "id": "CONC_EITIM",
-      "label": "eğitim",
-      "type": "CONCEPT",
+    "q_q_exam_stats_test_1": {
+      "id": "q_q_exam_stats_test_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "yeteneklere göre",
-        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Devşirme sisteminde seçilen çocuklar sadece asker veya memur değil, aynı zamanda yüksek düzeyli yöneticiler olabilir. (Doğrusu: Enderun'da yetiştirilenler, eğitim ve yeteneklere göre farklı kariyerleri olabilir.)"
+        "question_id": "q_exam_stats_test_1",
+        "exam_id": "exam_stats_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_YETENEKLERE_GRE": {
-      "id": "CONC_YETENEKLERE_GRE",
-      "label": "yeteneklere göre",
-      "type": "CONCEPT",
+    "q_q_exam_stats_test_2": {
+      "id": "q_q_exam_stats_test_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "eğitim",
-        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Devşirme sisteminde seçilen çocuklar sadece asker veya memur değil, aynı zamanda yüksek düzeyli yöneticiler olabilir. (Doğrusu: Enderun'da yetiştirilenler, eğitim ve yeteneklere göre farklı kariyerleri olabilir.)"
+        "question_id": "q_exam_stats_test_2",
+        "exam_id": "exam_stats_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_VERGILERIN_TARIHSEL_KKENLERI": {
-      "id": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
-      "label": "vergilerin tarihsel kökenleri",
-      "type": "CONCEPT",
+    "q_q_exam_prov_test_1": {
+      "id": "q_q_exam_prov_test_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "uygulanma süreleri",
-        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Şeri ve örfi vergilerin tarihsel kökenleri ve uygulanma süreleri karıştırılabilir. (Doğrusu: Şeri vergiler peygamber döneminden itibaren uygulandı, örfi vergiler daha sonraki dönemlerde uygulandı.)"
+        "question_id": "q_exam_prov_test_1",
+        "exam_id": "exam_prov_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_UYGULANMA_SRELERI": {
-      "id": "CONC_UYGULANMA_SRELERI",
-      "label": "uygulanma süreleri",
-      "type": "CONCEPT",
+    "q_q_exam_prov_test_2": {
+      "id": "q_q_exam_prov_test_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "topic": "Osmanlı Kültür ve Medeniyeti",
-        "confused_with": "vergilerin tarihsel kökenleri",
-        "difference": "⚠️ [ÖSYM Sınav Tuzağı] Şeri ve örfi vergilerin tarihsel kökenleri ve uygulanma süreleri karıştırılabilir. (Doğrusu: Şeri vergiler peygamber döneminden itibaren uygulandı, örfi vergiler daha sonraki dönemlerde uygulandı.)"
+        "question_id": "q_exam_prov_test_2",
+        "exam_id": "exam_prov_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_KATNER": {
-      "id": "CONC_KATNER",
-      "label": "Katner",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
+    "q_q_exam_multipage_test_1": {
+      "id": "q_q_exam_multipage_test_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
       "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "tersiyer dönemlerin",
-        "difference": "⚠️ [ÖSYM TUZAĞI] Katner ve tersiyer dönemlerin farklı jeolojik zamanlara ait olduğu düşünülmesi. -> Doğrusu: Katner ve tersiyer dönemler, jeolojik zamanların senozoik dönemine ait dönemlerdir."
+        "question_id": "q_exam_multipage_test_1",
+        "exam_id": "exam_multipage_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_TERSIYER_DNEMLERIN": {
-      "id": "CONC_TERSIYER_DNEMLERIN",
-      "label": "tersiyer dönemlerin",
-      "type": "CONCEPT",
-      "lesson": "COGRAFYA",
+    "q_q_exam_multipage_test_2": {
+      "id": "q_q_exam_multipage_test_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
       "properties": {
-        "topic": "Türkiye'nin Fiziki Özellikleri, Jeolojik Yapısı ve Yer Şekilleri",
-        "confused_with": "Katner",
-        "difference": "⚠️ [ÖSYM TUZAĞI] Katner ve tersiyer dönemlerin farklı jeolojik zamanlara ait olduğu düşünülmesi. -> Doğrusu: Katner ve tersiyer dönemler, jeolojik zamanların senozoik dönemine ait dönemlerdir."
+        "question_id": "q_exam_multipage_test_2",
+        "exam_id": "exam_multipage_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "ENT_58e614ce": {
-      "id": "ENT_58e614ce",
-      "label": "Madde 75",
-      "type": "ENTITY",
+    "q_q_exam_trap_tag_test_1": {
+      "id": "q_q_exam_trap_tag_test_1",
+      "label": "Soru 1: Amasya Genelgesi'nde yer alan \"Milletin bağımsızlığını yine ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_trap_tag_test_1",
+        "exam_id": "exam_trap_tag_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_trap_tag_test_2": {
+      "id": "q_q_exam_trap_tag_test_2",
+      "label": "Soru 2: Osmanlı Devleti'nde 17. yüzyılda çıkan Celali İsyanları ile ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_trap_tag_test_2",
+        "exam_id": "exam_trap_tag_test",
+        "document_id": "doc_2ab94463e399",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_graph_rebuild_test_1": {
+      "id": "q_q_exam_graph_rebuild_test_1",
+      "label": "Soru 1: Amasya Genelgesi’nde yer alan kararlar dikkate alindiginda a...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_graph_rebuild_test_1",
+        "exam_id": "exam_graph_rebuild_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_graph_rebuild_test_2": {
+      "id": "q_q_exam_graph_rebuild_test_2",
+      "label": "Soru 2: 17. yuzyil Celali Isyanlari ile ilgili olarak;\nI. Can ve mal...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_graph_rebuild_test_2",
+        "exam_id": "exam_graph_rebuild_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_graph_rebuild_test_3": {
+      "id": "q_q_exam_graph_rebuild_test_3",
+      "label": "Soru 3: Kurtulus Savasi hazirlik doneminde gerceklesen gelismelerin ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_graph_rebuild_test_3",
+        "exam_id": "exam_graph_rebuild_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_graph_rebuild_test_4": {
+      "id": "q_q_exam_graph_rebuild_test_4",
+      "label": "Soru 4: Erzurum Kongresi’nde Heyet-i Temsiliye baskanligina asagidak...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_graph_rebuild_test_4",
+        "exam_id": "exam_graph_rebuild_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_graph_rebuild_test_5": {
+      "id": "q_q_exam_graph_rebuild_test_5",
+      "label": "Soru 5: Asagidakilerden hangisi 1982 Anayasasi’na gore yuksek mahkem...",
+      "type": "QUESTION",
       "lesson": "VATANDASLIK",
       "properties": {
-        "parent_topic": "ENT_9bf7b58a",
-        "source_text_snippet": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası Madde 87: TBMM üye tamsayısının salt çoğunluğu (301) ile kanun teklifleri kab",
-        "times_observed": 1
+        "question_id": "q_exam_graph_rebuild_test_5",
+        "exam_id": "exam_graph_rebuild_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "1982_ANAYASASI_DEVLET_ORG",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "CONC_HIYERARI": {
-      "id": "CONC_HIYERARI",
-      "label": "Hiyerarşi",
+    "concept_1982_anayasasi_devlet_org": {
+      "id": "concept_1982_anayasasi_devlet_org",
+      "label": "1982_ANAYASASI_DEVLET_ORG",
       "type": "CONCEPT",
       "lesson": "VATANDASLIK",
       "properties": {
-        "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
-        "confused_with": "İdari Vesayet",
-        "difference": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının en az üçte biriyle (200 milletvekili) toplanır ve katılanların salt çoğunluğuyla (en az 151) karar alır.' iddiası yanlıştır! Doğrusu: 1982 Anayasası Madde 75: TBMM altıyüz milletvekilinden oluşur."
+        "topic_id": "1982_ANAYASASI_DEVLET_ORG"
       }
     },
-    "CONC_DARI_VESAYET": {
-      "id": "CONC_DARI_VESAYET",
-      "label": "İdari Vesayet",
-      "type": "CONCEPT",
+    "q_q_exam_neigh_test_1": {
+      "id": "q_q_exam_neigh_test_1",
+      "label": "Soru 1: Amasya Genelgesi’nde yer alan kararlar dikkate alindiginda a...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_neigh_test_1",
+        "exam_id": "exam_neigh_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_neigh_test_2": {
+      "id": "q_q_exam_neigh_test_2",
+      "label": "Soru 2: 17. yuzyil Celali Isyanlari ile ilgili olarak;\nI. Can ve mal...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_neigh_test_2",
+        "exam_id": "exam_neigh_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_neigh_test_3": {
+      "id": "q_q_exam_neigh_test_3",
+      "label": "Soru 3: Kurtulus Savasi hazirlik doneminde gerceklesen gelismelerin ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_neigh_test_3",
+        "exam_id": "exam_neigh_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_neigh_test_4": {
+      "id": "q_q_exam_neigh_test_4",
+      "label": "Soru 4: Erzurum Kongresi’nde Heyet-i Temsiliye baskanligina asagidak...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_neigh_test_4",
+        "exam_id": "exam_neigh_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_neigh_test_5": {
+      "id": "q_q_exam_neigh_test_5",
+      "label": "Soru 5: Asagidakilerden hangisi 1982 Anayasasi’na gore yuksek mahkem...",
+      "type": "QUESTION",
       "lesson": "VATANDASLIK",
       "properties": {
-        "topic": "İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı",
-        "confused_with": "Hiyerarşi",
-        "difference": "⚠️ [ÖSYM ÇELDIRICI TUZAĞI] '1982 Anayasası: İdare Hukuku - Hiyerarşi ve İdari Vesayet Ayrımı - 1982 Anayasası m. 96 uyarınca TBMM üye tamsayısının en az üçte biriyle (200 milletvekili) toplanır ve katılanların salt çoğunluğuyla (en az 151) karar alır.' iddiası yanlıştır! Doğrusu: 1982 Anayasası Madde 75: TBMM altıyüz milletvekilinden oluşur."
+        "question_id": "q_exam_neigh_test_5",
+        "exam_id": "exam_neigh_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "1982_ANAYASASI_DEVLET_ORG",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "ENT_17b6f2cf": {
-      "id": "ENT_17b6f2cf",
-      "label": "Osmanlı Devleti",
-      "type": "ENTITY",
+    "q_q_exam_api_endpoint_test_1": {
+      "id": "q_q_exam_api_endpoint_test_1",
+      "label": "Soru 1: Amasya Genelgesi’nde yer alan kararlar dikkate alindiginda a...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "parent_topic": "ENT_1e9e9858",
-        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'Osmanlı Devleti'nde ilk kağıt para Fatih Sultan Mehmet döneminde basılmıştır' id",
-        "times_observed": 1
+        "question_id": "q_exam_api_endpoint_test_1",
+        "exam_id": "exam_api_endpoint_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
       }
     },
-    "ENT_a953ed71": {
-      "id": "ENT_a953ed71",
-      "label": "Fatih Sultan Mehmet",
-      "type": "ENTITY",
+    "q_q_exam_api_endpoint_test_2": {
+      "id": "q_q_exam_api_endpoint_test_2",
+      "label": "Soru 2: 17. yuzyil Celali Isyanlari ile ilgili olarak;\nI. Can ve mal...",
+      "type": "QUESTION",
       "lesson": "TARIH",
       "properties": {
-        "parent_topic": "ENT_1e9e9858",
-        "source_text_snippet": "⚠️ [ÖSYM ÇELDİRİCİSİ - SAVCI DENETİMİ] 'Osmanlı Devleti'nde ilk kağıt para Fatih Sultan Mehmet döneminde basılmıştır' id",
-        "times_observed": 1
+        "question_id": "q_exam_api_endpoint_test_2",
+        "exam_id": "exam_api_endpoint_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_api_endpoint_test_3": {
+      "id": "q_q_exam_api_endpoint_test_3",
+      "label": "Soru 3: Kurtulus Savasi hazirlik doneminde gerceklesen gelismelerin ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_api_endpoint_test_3",
+        "exam_id": "exam_api_endpoint_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_api_endpoint_test_4": {
+      "id": "q_q_exam_api_endpoint_test_4",
+      "label": "Soru 4: Erzurum Kongresi’nde Heyet-i Temsiliye baskanligina asagidak...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_api_endpoint_test_4",
+        "exam_id": "exam_api_endpoint_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_api_endpoint_test_5": {
+      "id": "q_q_exam_api_endpoint_test_5",
+      "label": "Soru 5: Asagidakilerden hangisi 1982 Anayasasi’na gore yuksek mahkem...",
+      "type": "QUESTION",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "question_id": "q_exam_api_endpoint_test_5",
+        "exam_id": "exam_api_endpoint_test",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "1982_ANAYASASI_DEVLET_ORG",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_e2e_2023_1": {
+      "id": "q_q_exam_e2e_2023_1",
+      "label": "Soru 1: Amasya Genelgesi’nde yer alan kararlar dikkate alindiginda a...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_e2e_2023_1",
+        "exam_id": "exam_e2e_2023",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_e2e_2023_2": {
+      "id": "q_q_exam_e2e_2023_2",
+      "label": "Soru 2: 17. yuzyil Celali Isyanlari ile ilgili olarak;\nI. Can ve mal...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_e2e_2023_2",
+        "exam_id": "exam_e2e_2023",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "UNKNOWN",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_e2e_2023_3": {
+      "id": "q_q_exam_e2e_2023_3",
+      "label": "Soru 3: Kurtulus Savasi hazirlik doneminde gerceklesen gelismelerin ...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_e2e_2023_3",
+        "exam_id": "exam_e2e_2023",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_e2e_2023_4": {
+      "id": "q_q_exam_e2e_2023_4",
+      "label": "Soru 4: Erzurum Kongresi’nde Heyet-i Temsiliye baskanligina asagidak...",
+      "type": "QUESTION",
+      "lesson": "TARIH",
+      "properties": {
+        "question_id": "q_exam_e2e_2023_4",
+        "exam_id": "exam_e2e_2023",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "is_negative": false,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "q_q_exam_e2e_2023_5": {
+      "id": "q_q_exam_e2e_2023_5",
+      "label": "Soru 5: Asagidakilerden hangisi 1982 Anayasasi’na gore yuksek mahkem...",
+      "type": "QUESTION",
+      "lesson": "VATANDASLIK",
+      "properties": {
+        "question_id": "q_exam_e2e_2023_5",
+        "exam_id": "exam_e2e_2023",
+        "document_id": "doc_e3b44c276588",
+        "topic_id": "1982_ANAYASASI_DEVLET_ORG",
+        "is_negative": true,
+        "extraction_status": "COMPLETE"
+      }
+    },
+    "trap_trap_milli_mucadele_hazirlik_erzurum_kongresi": {
+      "id": "trap_trap_milli_mucadele_hazirlik_erzurum_kongresi",
+      "label": "Tuzak: AMASYA_GENELGESI vs ERZURUM_KONGRESI",
+      "type": "TRAP",
+      "lesson": "GENEL",
+      "properties": {
+        "trap_id": "trap_milli_mucadele_hazirlik_erzurum_kongresi",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "target_concept": "AMASYA_GENELGESI",
+        "distractor_concept": "ERZURUM_KONGRESI",
+        "trap_type": "CONCEPT_SWAP",
+        "why_attractive": "Öğrenciler milli egemenlik ilkesinin ilk kez Amasya'da mı Erzurum'da mı yer aldığını sıklıkla karıştırır.",
+        "confidence": 0.99
+      }
+    },
+    "concept_amasya_genelgesi": {
+      "id": "concept_amasya_genelgesi",
+      "label": "AMASYA_GENELGESI",
+      "type": "CONCEPT",
+      "lesson": "GENEL",
+      "properties": {
+        "concept_name": "AMASYA_GENELGESI"
+      }
+    },
+    "trap_trap_milli_mucadele_manda_himaye": {
+      "id": "trap_trap_milli_mucadele_manda_himaye",
+      "label": "Tuzak: EGEMENLIK vs MANDA_HIMAYE",
+      "type": "TRAP",
+      "lesson": "GENEL",
+      "properties": {
+        "trap_id": "trap_milli_mucadele_manda_himaye",
+        "topic_id": "MILLI_MUCADELE",
+        "target_concept": "EGEMENLIK",
+        "distractor_concept": "MANDA_HIMAYE",
+        "trap_type": "SIMILAR_TERM_CONFUSION",
+        "why_attractive": "Manda ve himaye fikri sıklıkla egemenlik kavramıyla karıştırılır.",
+        "confidence": 0.99
+      }
+    },
+    "concept_egemenlik": {
+      "id": "concept_egemenlik",
+      "label": "EGEMENLIK",
+      "type": "CONCEPT",
+      "lesson": "GENEL",
+      "properties": {
+        "concept_name": "EGEMENLIK"
+      }
+    },
+    "trap_trap_milli_mucadele_hazirlik_manda_himaye": {
+      "id": "trap_trap_milli_mucadele_hazirlik_manda_himaye",
+      "label": "Tuzak: AMASYA_GENELGESI vs MANDA_HIMAYE",
+      "type": "TRAP",
+      "lesson": "GENEL",
+      "properties": {
+        "trap_id": "trap_milli_mucadele_hazirlik_manda_himaye",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK",
+        "target_concept": "AMASYA_GENELGESI",
+        "distractor_concept": "MANDA_HIMAYE",
+        "trap_type": "CONCEPT_SWAP",
+        "why_attractive": "Amasya Genelgesi ile Erzurum Kongresi'ndeki manda-himaye reddi karari sikca karistirilir.",
+        "confidence": 0.99
+      }
+    },
+    "clm_clm_6e6b10cbf89d": {
+      "id": "clm_clm_6e6b10cbf89d",
+      "label": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararl",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_6e6b10cbf89d",
+        "subject": "Erzurum Kongresi toplanış bakımından böl",
+        "predicate": "ASSERTED",
+        "object_val": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararlar bakımından ulusaldır.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_f0a4d7314b9e": {
+      "id": "clm_clm_f0a4d7314b9e",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_f0a4d7314b9e",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_8f0fe91b87d4": {
+      "id": "clm_clm_8f0fe91b87d4",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_8f0fe91b87d4",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_3159233413d4": {
+      "id": "clm_clm_3159233413d4",
+      "label": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararl",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_3159233413d4",
+        "subject": "Erzurum Kongresi toplanış bakımından böl",
+        "predicate": "ASSERTED",
+        "object_val": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararlar bakımından ulusaldır.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_ea8ad5971f64": {
+      "id": "clm_clm_ea8ad5971f64",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_ea8ad5971f64",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_1ef74d876011": {
+      "id": "clm_clm_1ef74d876011",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_1ef74d876011",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_50dcea463b9e": {
+      "id": "clm_clm_50dcea463b9e",
+      "label": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararl",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_50dcea463b9e",
+        "subject": "Erzurum Kongresi toplanış bakımından böl",
+        "predicate": "ASSERTED",
+        "object_val": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararlar bakımından ulusaldır.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_2bca650eeb65": {
+      "id": "clm_clm_2bca650eeb65",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_2bca650eeb65",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_d128859c439e": {
+      "id": "clm_clm_d128859c439e",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_d128859c439e",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_bd2ba5576b37": {
+      "id": "clm_clm_bd2ba5576b37",
+      "label": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararl",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_bd2ba5576b37",
+        "subject": "Erzurum Kongresi toplanış bakımından böl",
+        "predicate": "ASSERTED",
+        "object_val": "Erzurum Kongresi toplanış bakımından bölgesel, aldığı kararlar bakımından ulusaldır.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_80f4b404f4b7": {
+      "id": "clm_clm_80f4b404f4b7",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_80f4b404f4b7",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
+      }
+    },
+    "clm_clm_8fdafde59a54": {
+      "id": "clm_clm_8fdafde59a54",
+      "label": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI",
+      "type": "CLAIM",
+      "lesson": "GENEL",
+      "properties": {
+        "claim_id": "clm_8fdafde59a54",
+        "subject": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCA",
+        "predicate": "ASSERTED",
+        "object_val": "KPSS TARIH DERS NOTLARI\nKONU: MILLI MUCADELE HAZIRLIK DONEMI\nAmasya Genelgesi (22 Haziran 1919)\nMustafa Kemal Pasa tarafindan yayimlanan Amasya Genelgesi, Kurtulus Savasi’nin amaci, gerekcesi ve yontemini belirlemistir.",
+        "topic_id": "MILLI_MUCADELE_HAZIRLIK"
       }
     }
   },
@@ -2494,1143 +1218,699 @@
       "weight": 0.8
     },
     {
-      "source": "VATANDASLIK_TEMEL_HUKUK",
-      "target": "VATANDASLIK_DEVLET_BIZ",
-      "relation": "PREREQUISITE_OF",
+      "source": "q_q_exam_kpss_2023_gygk_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_TEMEL_HUKUK",
-      "target": "VATANDASLIK_DEVLET_BIZ",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_DEVLET_BIZ",
-      "target": "VATANDASLIK_ANAYASA_TARIHI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_DEVLET_BIZ",
-      "target": "VATANDASLIK_ANAYASA_TARIHI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_ANAYASA_TARIHI",
-      "target": "VATANDASLIK_TEMEL_HAKLAR",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_ANAYASA_TARIHI",
-      "target": "VATANDASLIK_TEMEL_HAKLAR",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_TEMEL_HAKLAR",
-      "target": "VATANDASLIK_YASAMA",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_TEMEL_HAKLAR",
-      "target": "VATANDASLIK_YASAMA",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_YASAMA",
-      "target": "VATANDASLIK_YURUTME",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_YASAMA",
-      "target": "VATANDASLIK_YURUTME",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_YURUTME",
-      "target": "VATANDASLIK_YARGI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_YURUTME",
-      "target": "VATANDASLIK_YARGI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_YARGI",
-      "target": "VATANDASLIK_IDARE_HUKUKU",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_YARGI",
-      "target": "VATANDASLIK_IDARE_HUKUKU",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_ILK_TURK_DEVLETLERI",
-      "target": "TARIH_TURK_ISLAM_DEVLETLERI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_ILK_TURK_DEVLETLERI",
-      "target": "TARIH_TURK_ISLAM_DEVLETLERI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_TURK_ISLAM_DEVLETLERI",
-      "target": "TARIH_OSMANLI_KURULUS_YUKSELME",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_TURK_ISLAM_DEVLETLERI",
-      "target": "TARIH_OSMANLI_KURULUS_YUKSELME",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_OSMANLI_KURULUS_YUKSELME",
-      "target": "TARIH_OSMANLI_DURAKLAMA_GERILEME",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_OSMANLI_KURULUS_YUKSELME",
-      "target": "TARIH_OSMANLI_DURAKLAMA_GERILEME",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_OSMANLI_DURAKLAMA_GERILEME",
-      "target": "TARIH_OSMANLI_DAGILMA",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_OSMANLI_DURAKLAMA_GERILEME",
-      "target": "TARIH_OSMANLI_DAGILMA",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_OSMANLI_DAGILMA",
-      "target": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_OSMANLI_DAGILMA",
-      "target": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "target": "TARIH_MILLI_MUCADELE_MUHAREBELER",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "target": "TARIH_MILLI_MUCADELE_MUHAREBELER",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_MILLI_MUCADELE_MUHAREBELER",
-      "target": "TARIH_ATATURK_INKILAPLARI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_MILLI_MUCADELE_MUHAREBELER",
-      "target": "TARIH_ATATURK_INKILAPLARI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TARIH_ATATURK_INKILAPLARI",
-      "target": "TARIH_ATATURK_DIS_POLITIKA",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_ATATURK_INKILAPLARI",
-      "target": "TARIH_ATATURK_DIS_POLITIKA",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_KONUMU",
-      "target": "COGRAFYA_TURKIYE_FIZIKI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_KONUMU",
-      "target": "COGRAFYA_TURKIYE_FIZIKI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_FIZIKI",
-      "target": "COGRAFYA_TURKIYE_IKLIM_BITKI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_FIZIKI",
-      "target": "COGRAFYA_TURKIYE_IKLIM_BITKI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_IKLIM_BITKI",
-      "target": "COGRAFYA_TURKIYE_NUFUS_YERLESME",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_IKLIM_BITKI",
-      "target": "COGRAFYA_TURKIYE_NUFUS_YERLESME",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_NUFUS_YERLESME",
-      "target": "COGRAFYA_TURKIYE_EKONOMI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_NUFUS_YERLESME",
-      "target": "COGRAFYA_TURKIYE_EKONOMI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TURKCE_SOZCUKTE_ANLAM",
-      "target": "TURKCE_CUMLEDE_ANLAM",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TURKCE_SOZCUKTE_ANLAM",
-      "target": "TURKCE_CUMLEDE_ANLAM",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TURKCE_CUMLEDE_ANLAM",
-      "target": "TURKCE_PARAGRAF_BILGISI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TURKCE_CUMLEDE_ANLAM",
-      "target": "TURKCE_PARAGRAF_BILGISI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TURKCE_PARAGRAF_BILGISI",
-      "target": "TURKCE_SES_YAZIM_NOKTALAMA",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TURKCE_SES_YAZIM_NOKTALAMA",
-      "target": "TURKCE_DIL_BILGISI",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TURKCE_SES_YAZIM_NOKTALAMA",
-      "target": "TURKCE_DIL_BILGISI",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "TURKCE_PARAGRAF_BILGISI",
-      "target": "TURKCE_SOZEL_MANTIK",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TURKCE_DIL_BILGISI",
-      "target": "TURKCE_SOZEL_MANTIK",
-      "relation": "PREREQUISITE_OF",
-      "weight": 1.0
-    },
-    {
-      "source": "TURKCE_DIL_BILGISI",
-      "target": "TURKCE_SOZEL_MANTIK",
-      "relation": "CURRICULUM_FLOW",
-      "weight": 0.8
-    },
-    {
-      "source": "VATANDASLIK_ANAYASA_TARIHI",
-      "target": "TARIH_OSMANLI_DAGILMA",
-      "relation": "HISTORICAL_PARALLEL",
-      "weight": 0.9
-    },
-    {
-      "source": "VATANDASLIK_ANAYASA_TARIHI",
-      "target": "TARIH_MILLI_MUCADELE_HAZIRLIK",
-      "relation": "HISTORICAL_PARALLEL",
-      "weight": 0.9
-    },
-    {
-      "source": "COGRAFYA_TURKIYE_EKONOMI",
-      "target": "COGRAFYA_TURKIYE_FIZIKI",
-      "relation": "GEOGRAPHIC_DEPENDENCY",
-      "weight": 0.85
-    },
-    {
-      "source": "TURKCE_SOZEL_MANTIK",
-      "target": "TURKCE_DIL_BILGISI",
-      "relation": "SKILL_FOUNDATION",
-      "weight": 0.75
-    },
-    {
-      "source": "VATANDASLIK_YASAMA",
-      "target": "ENT_9bf7b58a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_YASAMA",
-      "target": "ENT_e81b003a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_YASAMA",
-      "target": "ENT_537d05b3",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_18__VE_19__Y_ZYIL_IS",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_18__VE_19__Y_ZYIL_IS",
-      "target": "ENT_d6536e1c",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__LK_T_RK_DEVLETLERI",
-      "target": "ENT_68e57032",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__LK_T_RK_DEVLETLERI",
-      "target": "ENT_f123c95c",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__LK_T_RK_DEVLETLERI",
-      "target": "ENT_0aeb767d",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__LK_T_RK_DEVLETLERI",
-      "target": "ENT_1e9e9858",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_ATAT_RK_D_NEMI____VE",
-      "target": "ENT_2ef54c7e",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH_ATAT_RK_D_NEMI____VE",
-      "target": "ENT_8a0d46b2",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__A_DA__T_RK_VE_D_NYA",
-      "target": "ENT_ad22ba67",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__A_DA__T_RK_VE_D_NYA",
-      "target": "ENT_0d947923",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "TARIH__A_DA__T_RK_VE_D_NYA",
-      "target": "ENT_622c3cc2",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM",
-      "target": "ENT_2c6c1ccd",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_HUKUKUN_TEMEL_KAVRAM",
-      "target": "ENT_00e83b2c",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_T_RKIYE_NIN_STRATEJI",
-      "target": "ENT_3f16e2d3",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "COGRAFYA_T_RKIYE_NIN_STRATEJI",
-      "target": "ENT_dea5186c",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_9a8e772d",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_f796dc53",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_32786228",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_kpss_2023_gygk_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_9bf7b58a",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_kpss_2023_gygk_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_935c9a09",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_pat_test_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_ATAT_RK_D_NEMI_DI__P",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_pat_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_ATAT_RK_D_NEMI_DI__P",
-      "target": "ENT_48e4134b",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_pat_test_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_ATAT_RK_D_NEMI_DI__P",
-      "target": "ENT_d11f617a",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_stats_test_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_ATAT_RK_D_NEMI_DI__P",
-      "target": "ENT_2abd700d",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_stats_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-      "target": "ENT_34abca95",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_stats_test_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-      "target": "ENT_786ff0a7",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_prov_test_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-      "target": "ENT_e729b648",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_prov_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_N_FUS_DA_ILI",
-      "target": "ENT_dea5186c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_prov_test_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_9______AGS_TARIH___A",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_multipage_test_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_9______AGS_TARIH___A",
-      "target": "ENT_408268bd",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_multipage_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_5______AGS_TARIH____",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_multipage_test_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_5______AGS_TARIH____",
-      "target": "ENT_dea52750",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_trap_tag_test_1",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_5______AGS_TARIH____",
-      "target": "ENT_ebc2c6ec",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_trap_tag_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_14______AGS_TARIH___",
-      "target": "ENT_7f8e0b77",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_trap_tag_test_2",
+      "target": "doc_doc_2ab94463e399",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_14______AGS_TARIH___",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_1",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_2______AGS_TARIH____",
-      "target": "ENT_062dedf4",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_2______AGS_TARIH____",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_2",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_2______AGS_TARIH____",
-      "target": "ENT_2d8e97b3",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_3",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_34______AGS_TARIH___",
-      "target": "ENT_027fd22b",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_3",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_34______AGS_TARIH___",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_4",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_34______AGS_TARIH___",
-      "target": "ENT_327725dd",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_7f8e0b77",
-      "target": "ENT_7f8e0b77",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_5",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_7f8e0b77",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_graph_rebuild_test_5",
+      "target": "concept_1982_anayasasi_devlet_org",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_TAR_H_GENEL_TEKRAR__",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_1",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_TAR_H_GENEL_TEKRAR__",
-      "target": "ENT_1dd8788c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "TARIH_TAR_H_GENEL_TEKRAR__",
-      "target": "ENT_2c509a37",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_2",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_d074821f",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_3",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_3",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_4e26f604",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_4",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_4a1b557c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_3a04763b",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_5",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_c4f923f5",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_neigh_test_5",
+      "target": "concept_1982_anayasasi_devlet_org",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_1dd8788c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_1",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_8f127133",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_1dd8788c",
-      "target": "ENT_7b802e99",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_2",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "TARIH_PRACTICE_2_EXPORT",
-      "target": "ENT_7f8cfbb8",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_3",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_1_____MEB___AGS_CO_R",
-      "target": "ENT_d834b6c1",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_3",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_1_____MEB___AGS_CO_R",
-      "target": "ENT_dea5186c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_4",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_7_____MEB___AGS_CO_R",
-      "target": "ENT_f28e720e",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_7_____MEB___AGS_CO_R",
-      "target": "ENT_c5a4f91d",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_5",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_7_____MEB___AGS_CO_R",
-      "target": "ENT_dea5186c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_api_endpoint_test_5",
+      "target": "concept_1982_anayasasi_devlet_org",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "ENT_#_[KPSS",
-      "target": "ENT_RESMİ_MÜFREDAT_ARAŞTIRMA",
-      "relation": "ILIŞKI",
+      "source": "q_q_exam_e2e_2023_1",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "ENT_##_⚖️",
-      "target": "ENT_HUKUKI_&_AKADEMIK",
-      "relation": "ILIŞKI",
+      "source": "q_q_exam_e2e_2023_1",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-      "target": "ENT_3d8d2043",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_2",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-      "target": "ENT_88601c86",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_3",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_CO_RAFI_",
-      "target": "ENT_dea5186c",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_3",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_aa0099bd",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_4",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_9bf7b58a",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_a3b2d9c4",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_5",
+      "target": "doc_doc_e3b44c276588",
+      "relation": "SOURCE_DOC",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_a3d956ee",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "q_q_exam_e2e_2023_5",
+      "target": "concept_1982_anayasasi_devlet_org",
+      "relation": "TESTS",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_e81b003a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "VATANDASLIK_ANAYASA_MAHKEMESI",
-      "target": "ENT_5f250f5d",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
-    },
-    {
-      "source": "ENT_AKADEMIK_KPSS",
-      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_IKLIM_VE_BITKI_KPSS",
-      "relation": "ILIŞKI",
-      "weight": 1.0
+      "source": "q_q_exam_pat_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_AKADEMIK_KPSS",
-      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_MADENLER_VE_ENERJI_KPSS",
-      "relation": "ILIŞKI",
-      "weight": 1.0
-    },
-    {
-      "source": "ENT_AKADEMIK_KPSS",
-      "target": "ENT_KAYNAKLARI:_COGRAFYA_TURKIYE_SANAYI_ULASIM_TURIZM_PROJELER_KPSS",
-      "relation": "ILIŞKI",
-      "weight": 1.0
+      "source": "q_q_exam_pat_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_68cb7548",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_stats_test_1",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_9bf7b58a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_stats_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_8be8f28e",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_stats_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_6830eebd",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_multipage_test_1",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_54de8af0",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_multipage_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_a3d956ee",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_multipage_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_aa0099bd",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_1",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_3df87adc",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_075dd146",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_7f19632e",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_3",
+      "target": "pat_chronology",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_c935549a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_4",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_18975008",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_graph_rebuild_test_5",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_3131f11a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_1",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_a689be25",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_7c9ebf97",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_895c4286",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_3",
+      "target": "pat_chronology",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_2b605781",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_4",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_a0558c08",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_neigh_test_5",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_d57c549e",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_1",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_801af3da",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_fa1471d7",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_8abcc965",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_3",
+      "target": "pat_chronology",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_ab05affa",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_4",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_46c04358",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_api_endpoint_test_5",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_c4806415",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_1",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_e75639a9",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_2",
+      "target": "pat_statement_analysis",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_1da5ed1d",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_2",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_647b569a",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_3",
+      "target": "pat_chronology",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "COGRAFYA_T_RKIYE_NIN_FIZIKI__",
-      "target": "ENT_96efd2fa",
-      "relation": "CONTAINS_CONCEPT",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_4",
+      "target": "pat_direct_fact",
+      "relation": "USES_PATTERN",
+      "weight": 0.7
     },
     {
-      "source": "CONC_TOPLANTI_YETER_SAYISI",
-      "target": "CONC_KARAR_YETER_SAYISI",
-      "relation": "OFTEN_CONFUSED_WITH",
-      "weight": 1.0
+      "source": "q_q_exam_e2e_2023_5",
+      "target": "pat_negative_selection",
+      "relation": "USES_PATTERN",
+      "weight": 0.95
     },
     {
-      "source": "CONC_KARAR_YETER_SAYISI",
-      "target": "CONC_TOPLANTI_YETER_SAYISI",
-      "relation": "OFTEN_CONFUSED_WITH",
-      "weight": 1.0
+      "source": "trap_trap_milli_mucadele_hazirlik_erzurum_kongresi",
+      "target": "concept_amasya_genelgesi",
+      "relation": "CONFUSED_WITH",
+      "weight": 0.99
     },
     {
-      "source": "CONC_VALI",
-      "target": "CONC_KAYMAKAM",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "trap_trap_milli_mucadele_hazirlik_erzurum_kongresi",
+      "target": "q_q_exam_kpss_2023_gygk_1",
+      "relation": "EXEMPLIFIED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_KAYMAKAM",
-      "target": "CONC_VALI",
-      "relation": "OFTEN_CONFUSED_WITH",
-      "weight": 1.0
+      "source": "trap_trap_milli_mucadele_manda_himaye",
+      "target": "concept_egemenlik",
+      "relation": "CONFUSED_WITH",
+      "weight": 0.99
     },
     {
-      "source": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
-      "target": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "trap_trap_milli_mucadele_manda_himaye",
+      "target": "q_q_exam_trap_tag_test_1",
+      "relation": "EXEMPLIFIED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_TIRAZ_YOLU_SOMUT_NORM_DENETIMI__DEFI",
-      "target": "CONC_PTAL_DAVASI_SOYUT_NORM_DENETIMI",
-      "relation": "OFTEN_CONFUSED_WITH",
-      "weight": 1.0
+      "source": "trap_trap_milli_mucadele_hazirlik_manda_himaye",
+      "target": "concept_amasya_genelgesi",
+      "relation": "CONFUSED_WITH",
+      "weight": 0.99
     },
     {
-      "source": "CONC_GAIPLIK",
-      "target": "CONC_LM_KARINESI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "trap_trap_milli_mucadele_hazirlik_manda_himaye",
+      "target": "q_q_exam_e2e_2023_1",
+      "relation": "EXEMPLIFIED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_LM_KARINESI",
-      "target": "CONC_GAIPLIK",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_6e6b10cbf89d",
+      "target": "doc_doc_cab69958b96e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_ATALCAKOCAELI_PLATOSU",
-      "target": "CONC_TAELI_PLATOSU",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_6e6b10cbf89d",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_TAELI_PLATOSU",
-      "target": "CONC_ATALCAKOCAELI_PLATOSU",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_f0a4d7314b9e",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_UKUROVA_DELTA_OVASI",
-      "target": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_f0a4d7314b9e",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_KONYA_OVASI_TEKTONIKTABAKA_OVASI",
-      "target": "CONC_UKUROVA_DELTA_OVASI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_8f0fe91b87d4",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_TANZIMAT_FERMANI_1839",
-      "target": "CONC_ISLAHAT_FERMANI_1856",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_8f0fe91b87d4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_ISLAHAT_FERMANI_1856",
-      "target": "CONC_TANZIMAT_FERMANI_1839",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_3159233413d4",
+      "target": "doc_doc_24400bb056f8",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_I_TBMM",
-      "target": "CONC_II_TBMM",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_3159233413d4",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_II_TBMM",
-      "target": "CONC_I_TBMM",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_ea8ad5971f64",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_EITIM",
-      "target": "CONC_YETENEKLERE_GRE",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_ea8ad5971f64",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_YETENEKLERE_GRE",
-      "target": "CONC_EITIM",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_1ef74d876011",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
-      "target": "CONC_UYGULANMA_SRELERI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_1ef74d876011",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_UYGULANMA_SRELERI",
-      "target": "CONC_VERGILERIN_TARIHSEL_KKENLERI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_50dcea463b9e",
+      "target": "doc_doc_c81196f0a7c6",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_KATNER",
-      "target": "CONC_TERSIYER_DNEMLERIN",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_50dcea463b9e",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_TERSIYER_DNEMLERIN",
-      "target": "CONC_KATNER",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_2bca650eeb65",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_e81b003a",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_2bca650eeb65",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_58e614ce",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_d128859c439e",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "ENT_9bf7b58a",
-      "target": "ENT_537d05b3",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_d128859c439e",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_e81b003a",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_bd2ba5576b37",
+      "target": "doc_doc_6459625b6823",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "VATANDASLIK__DARE_HUKUKU___HIYER",
-      "target": "ENT_58e614ce",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_bd2ba5576b37",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "CONC_HIYERARI",
-      "target": "CONC_DARI_VESAYET",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_80f4b404f4b7",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "CONC_DARI_VESAYET",
-      "target": "CONC_HIYERARI",
-      "relation": "OFTEN_CONFUSED_WITH",
+      "source": "clm_clm_80f4b404f4b7",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     },
     {
-      "source": "ENT_1e9e9858",
-      "target": "ENT_17b6f2cf",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_8fdafde59a54",
+      "target": "doc_doc_bccc42afda9e",
+      "relation": "EVIDENCED_BY",
       "weight": 1.0
     },
     {
-      "source": "ENT_1e9e9858",
-      "target": "ENT_a953ed71",
-      "relation": "CONTAINS_CONCEPT",
+      "source": "clm_clm_8fdafde59a54",
+      "target": "concept_milli_mucadele_hazirlik",
+      "relation": "RELATES_TO",
       "weight": 1.0
     }
   ]

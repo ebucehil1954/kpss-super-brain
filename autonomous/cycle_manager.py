@@ -87,29 +87,53 @@ class CycleManager:
         if not t_res.get("success") or not full_text:
             err = t_res.get("error", "Transkript çekilemedi")
             print(f"  └─ ⚠️ YouTube altyazısı doğrudan alınamadı ({err[:60]}...).")
-            print(f"  └─ 🌐 [ÖĞRENME DEVAM EDİYOR] '{teacher}' hocanın '{topic}' konusu için web araştırması ve müfredat ontolojisi devreye alınıyor...")
+            print(f"  └─ 🌐 [WEB ARAŞTIRMA MODU] '{teacher}' hocanın '{topic}' konusu için web araştırması yapılıyor...")
             
-            # YouTube IP engelinde öğrenmeyi durdurma: Canlı Web ve Müfredat ile zenginleştir
+            # [P0-5 DÜZELTME] Sahte transkript üretmek yerine web araştırma sonuçlarını
+            # ayrı kaynak tipiyle staging'e yaz ve videoyu DEFERRED olarak işaretle
             from senses.web_researcher import web_researcher
+            from brain.knowledge_store import knowledge_store
             web_data = await web_researcher.deep_research_and_ingest(topic, lesson)
-            sources_text = "\n".join([f"- {s.get('title')}: {s.get('summary')}" for s in web_data.get("sources", [])])
             
-            full_text = f"""
-            DERS: {lesson}
-            KONU: {topic}
-            EĞİTMEN: {teacher}
-            VİDEO BAŞLIĞI: {title}
+            # Web verilerini WEB_SYNTHESIZED kaynak tipiyle staging'e yaz (kanonik ambara DEĞİL)
+            web_facts_count = 0
+            for s in web_data.get("sources", []):
+                summary = s.get("summary", "").strip()
+                if summary and len(summary) > 20:
+                    knowledge_store.stage_pending_record(
+                        text=summary,
+                        record_type="FACT",
+                        lesson=lesson,
+                        topic=topic,
+                        confidence=0.85,  # Web kaynakları daha düşük güvenle staging'e girer
+                        source={
+                            "type": "WEB_SYNTHESIZED",
+                            "title": s.get("title", ""),
+                            "url": s.get("url", ""),
+                            "teacher_context": teacher,
+                            "original_video_id": video_id
+                        },
+                        tags=["web_synthesized", teacher.lower(), "needs_verification"]
+                    )
+                    web_facts_count += 1
             
-            KONU ANLATIMI VE MÜFREDAT BİLGİLERİ:
-            {sources_text}
+            # Video'yu DEFERRED olarak işaretle (WATCHED değil!)
+            video_queue.mark_transcript_deferred(
+                video_id=video_id,
+                error_msg=f"Transkript bulunamadı. Web araştırmasından {web_facts_count} bilgi staging'e alındı."
+            )
             
-            EĞİTMEN PEDAGOJİK YAKLAŞIMI:
-            Bu derste {teacher} hoca {lesson} - {topic} konusunun ÖSYM sınavındaki kritik yerlerini, çıkmış soru tuzaklarını,
-            hafıza şifrelerini ve adayların dikkat etmesi gereken ince ayrımları vurgulamaktadır.
-            """
+            print(f"  └─ 📋 Web araştırmasından {web_facts_count} bilgi PENDING staging'e yazıldı (kaynak: WEB_SYNTHESIZED)")
+            return {
+                "status": "web_fallback",
+                "source_type": "WEB_SYNTHESIZED",
+                "facts_extracted": web_facts_count,
+                "video_id": video_id
+            }
 
+        # === NORMAL AKIŞ: Transkript başarıyla çekildi ===
         words_count = len(full_text.split())
-        print(f"  └─ 📝 Pedagojik metin hazırlandı ({words_count} kelime). LLM ile derin analiz başlıyor...")
+        print(f"  └─ 📝 Transkript hazır ({words_count} kelime). LLM ile derin analiz başlıyor...")
 
         # 2. Transkripti Bölümle ve Çıkarım Yap
         proc_result = await transcript_processor.process_video_transcript(

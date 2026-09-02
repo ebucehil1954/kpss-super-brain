@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KPSS Super-Brain — Mission Control & PDF Analiz Paneli</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0a0e17;
+      --bg-surface: #111827;
+      --bg-card: #1f2937;
+      --bg-card-hover: #283548;
+      --border: #374151;
+      --border-focus: #6366f1;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --info: #3b82f6;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', -apple-system, sans-serif; }
+    body { background-color: var(--bg-base); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+
+    header {
+      background: rgba(17, 24, 39, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand { display: flex; align-items: center; gap: 0.75rem; font-size: 1.25rem; font-weight: 700; }
+    .brand-badge { background: linear-gradient(135deg, #6366f1, #a855f7); padding: 0.25rem 0.6rem; border-radius: 6px; font-size: 0.75rem; font-weight: 800; }
+    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover { color: var(--text-main); background: var(--bg-card); }
+    .nav-btn.active { color: #fff; background: var(--primary); border-color: var(--primary); }
+
+    main { flex: 1; max-width: 1300px; width: 100%; margin: 0 auto; padding: 2rem; }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* Cards & Layout */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .card-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between; }
+
+    /* Upload Zone */
+    .dropzone {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(31, 41, 55, 0.4);
+      transition: all 0.2s ease;
+    }
+    .dropzone:hover, .dropzone.dragover { border-color: var(--primary); background: rgba(99, 102, 241, 0.08); }
+    .dropzone-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .dropzone-text { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem; }
+    .dropzone-sub { font-size: 0.8rem; color: var(--text-muted); }
+
+    /* Form Controls */
+    .form-group { margin-bottom: 1rem; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 0.35rem; color: var(--text-muted); }
+    .form-control {
+      width: 100%;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.85rem;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-control:focus { border-color: var(--border-focus); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s;
+    }
+    .btn:hover { background: var(--primary-hover); }
+    .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Status Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .badge-pending { background: rgba(245, 158, 11, 0.2); color: var(--warning); border: 1px solid rgba(245, 158, 11, 0.4); }
+    .badge-parsing { background: rgba(59, 130, 246, 0.2); color: var(--info); border: 1px solid rgba(59, 130, 246, 0.4); }
+    .badge-extracting { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+    .badge-auditing { background: rgba(236, 72, 153, 0.2); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.4); }
+    .badge-completed { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-failed { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.4); }
+
+    /* Job Live Box */
+    .job-box {
+      background: rgba(31, 41, 55, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-top: 1rem;
+      display: none;
+    }
+    .progress-bar-container {
+      width: 100%;
+      height: 8px;
+      background: var(--bg-card);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 0.75rem 0;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #a855f7);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    /* Tables */
+    .table-responsive { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.875rem; }
+    th { padding: 0.75rem 1rem; background: var(--bg-card); color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); }
+    td { padding: 0.85rem 1rem; border-bottom: 1px solid rgba(55, 65, 81, 0.5); }
+    tr:hover td { background: rgba(31, 41, 55, 0.4); }
+
+    /* Question Cards */
+    .question-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .question-stem { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.75rem; line-height: 1.5; }
+    .options-list { display: flex; flex-direction: column; gap: 0.4rem; }
+    .option-row {
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      background: rgba(17, 24, 39, 0.5);
+      border: 1px solid rgba(55, 65, 81, 0.5);
+      font-size: 0.875rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .option-row.correct {
+      border-color: var(--success);
+      background: rgba(16, 185, 129, 0.1);
+      font-weight: 600;
+    }
+    .option-row.trap {
+      border-color: var(--warning);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    /* Code & JSON viewer */
+    pre {
+      background: #05070d;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: monospace;
+      font-size: 0.8rem;
+      color: #a7f3d0;
+      overflow-x: auto;
+      max-height: 350px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">
+      <span>🧠 KPSS Super-Brain</span>
+      <span class="brand-badge">V1.5 MISSION CONTROL</span>
+    </div>
+    <div class="nav-links">
+      <button class="nav-btn active" onclick="switchTab('upload')">📤 PDF Yükleme & Analiz</button>
+      <button class="nav-btn" onclick="switchTab('documents')">📚 Dokümanlar</button>
+      <button class="nav-btn" onclick="switchTab('exams')">📝 Sınavlar & Sorular</button>
+      <a href="/logs" class="nav-btn" style="text-decoration:none; color:#38bdf8; border-color:rgba(56,189,248,0.4);">📋 Saha & Denetim Günlüğü</a>
+      <a href="/" class="nav-btn" style="text-decoration:none;">🏠 Ana Panel</a>
+      <a href="/docs" target="_blank" class="nav-btn" style="text-decoration:none;">⚡ Swagger API</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- TAB 1: UPLOAD & ANALYZE -->
+    <section id="tab-upload" class="tab-content active">
+      <div class="grid-2">
+        <!-- Upload Form -->
+        <div class="card">
+          <h2 class="card-title">📄 Yeni PDF / Sınav Kitapçığı Yükle</h2>
+          <form id="uploadForm" onsubmit="handleUpload(event)">
+            
+            <div class="form-group">
+              <div class="dropzone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+                <div class="dropzone-icon">📥</div>
+                <div class="dropzone-text" id="fileNameDisplay">PDF veya DOCX dosyasını buraya sürükleyin ya da tıklayın</div>
+                <div class="dropzone-sub">Örn: KPSS Tarih Ders Notu, 2023 Lisans Deneme Kitapçığı</div>
+              </div>
+              <input type="file" id="fileInput" name="file" accept=".pdf,.docx" style="display:none" onchange="fileSelected(this)">
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label class="form-label">Ders (İsteğe Bağlı)</label>
+                <select class="form-control" id="lessonSelect">
+                  <option value="">Otomatik Algıla (Auto-Detect)</option>
+                  <option value="TARIH">Tarih</option>
+                  <option value="COGRAFYA">Coğrafya</option>
+                  <option value="VATANDASLIK">Vatandaşlık / Hukuk</option>
+                  <option value="TURKCE">Türkçe</option>
+                  <option value="MATEMATIK">Matematik</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Sınav Kodu / Yıl</label>
+                <input type="text" class="form-control" id="examCodeInput" placeholder="Örn: KPSS_LISANS / 2023">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem; cursor:pointer;">
+                <input type="checkbox" id="autoAnalyzeCheck" checked>
+                Yüklemeden sonra otomatik olarak iddia çıkarımını ve denetçiyi çalıştır
+              </label>
+            </div>
+
+            <button type="submit" class="btn" id="uploadBtn">
+              🚀 Dokümanı Güvenle Yükle ve Ayrıştır
+            </button>
+          </form>
+
+          <!-- Live Status Box -->
+          <div class="job-box" id="jobBox">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+              <span style="font-weight:600; font-size:0.9rem;" id="jobTitle">İşlem Durumu</span>
+              <span class="badge badge-pending" id="jobBadge">BEKLENİYOR</span>
+            </div>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-muted);" id="jobMsg">Kuyruğa alındı...</div>
+          </div>
+        </div>
+
+        <!-- How it works guide -->
+        <div class="card">
+          <h2 class="card-title">🔍 Sistem Arka Planda Nasıl Çalışır?</h2>
+          <div style="font-size:0.875rem; line-height:1.6; color:var(--text-muted);">
+            <p style="margin-bottom:0.8rem;"><strong style="color:#fff;">1. SHA-256 Sağlama & Depolama:</strong> Dosya diskte hash tabanlı tekil isimle saklanır. Aynı dosya tekrar yüklenirse mükerrer işlem yapılmaz.</p>
+            <p style="margin-bottom:0.8rem;"><strong style="color:#fff;">2. Sayfalama & OCR Kontrolü:</strong> PDF <code>pypdf</code> ile 1-indexed sayfalara ayrıştırılır. Görsel ise OCR bayrağı atanır.</p>
+            <p style="margin-bottom:0.8rem;"><strong style="color:#fff;">3. Kaskat Müfredat Eşleme:</strong> 8 sınıflı taksonomi ile dokümanın tipi (Ders Notu, Sınav vb.) ve dersi belirlenir. Yeterli kanıt yoksa katı <code>UNKNOWN</code> kuralı uygulanır.</p>
+            <p style="margin-bottom:0.8rem;"><strong style="color:#fff;">4. Savcı Denetçi Kapısı:</strong> Çıkarılan aday iddialar <code>ProsecutorAuditor</code> tarafından sorgulanır. Doğrulanmayan hiçbir iddia kanonik hafızaya alınmaz.</p>
+            <p><strong style="color:#fff;">5. Bilgi Grafiği Senkronizasyonu:</strong> Doğrulanan bilgiler, sorular, kalıplar ve tuzaklar çok modlu grafiğe (Knowledge Graph) mühürlenir.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: DOCUMENTS -->
+    <section id="tab-documents" class="tab-content">
+      <div class="card">
+        <div class="card-title">
+          <span>📚 Sistemdeki Kayıtlı Dokümanlar</span>
+          <button class="nav-btn" style="border:1px solid var(--border);" onclick="loadDocuments()">🔄 Yenile</button>
+        </div>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Doküman Adı</th>
+                <th>Ders</th>
+                <th>Sınıflandırma</th>
+                <th>Ayrıştırma Durumu</th>
+                <th>Kayıt Tarihi</th>
+                <th>İşlem</th>
+              </tr>
+            </thead>
+            <tbody id="documentsTableBody">
+              <tr><td colspan="6" style="text-align:center;">Yükleniyor...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: EXAMS & QUESTIONS -->
+    <section id="tab-exams" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>📝 Sınav Kitapçıkları</span>
+            <button class="nav-btn" style="border:1px solid var(--border);" onclick="loadExams()">🔄 Yenile</button>
+          </div>
+          <div id="examsList">Yükleniyor...</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>🔎 Soru Detayları & Seçenekler</span>
+          </div>
+          <div id="questionsContainer">Soldaki listeden bir sınav seçin.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: STATS & GRAPH -->
+    <section id="tab-stats" class="tab-content">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-title">
+            <span>📊 Soru Kalıbı Dağılımı (11 ÖSYM Kalıbı)</span>
+            <button class="nav-btn" style="border:1px solid var(--border);" onclick="loadStats()">🔄 Güncelle</button>
+          </div>
+          <div id="patternsList">Yükleniyor...</div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">
+            <span>🎯 Bilişsel Tuzaklar & Çeldiriciler</span>
+          </div>
+          <div id="trapsList">Yükleniyor...</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Tab switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      event.target.classList.add('active');
+
+      if (tabId === 'documents') loadDocuments();
+      if (tabId === 'exams') loadExams();
+      if (tabId === 'stats') loadStats();
+    }
+
+    // Drag & Drop
+    const dropzone = document.getElementById('dropzone');
+    const fileInput = document.getElementById('fileInput');
+
+    dropzone.addEventListener('dragover', (e) => { e.preventDefault(); dropzone.classList.add('dragover'); });
+    dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+    dropzone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropzone.classList.remove('dragover');
+      if (e.dataTransfer.files.length) {
+        fileInput.files = e.dataTransfer.files;
+        fileSelected(fileInput);
+      }
+    });
+
+    function fileSelected(input) {
+      if (input.files && input.files[0]) {
+        document.getElementById('fileNameDisplay').innerHTML = `📄 <strong>${input.files[0].name}</strong> (${(input.files[0].size / 1024 / 1024).toFixed(2)} MB)`;
+      }
+    }
+
+    // Upload & Polling
+    async function handleUpload(e) {
+      e.preventDefault();
+      const file = fileInput.files[0];
+      if (!file) {
+        alert('Lütfen bir PDF veya DOCX dosyası seçin.');
+        return;
+      }
+
+      const uploadBtn = document.getElementById('uploadBtn');
+      uploadBtn.disabled = true;
+      uploadBtn.innerText = '⏳ Yükleniyor...';
+
+      const formData = new FormData();
+      formData.append('file', file);
+      const lesson = document.getElementById('lessonSelect').value;
+      if (lesson) formData.append('lesson', lesson);
+      const examCode = document.getElementById('examCodeInput').value;
+      if (examCode) formData.append('exam_code', examCode);
+      formData.append('auto_analyze', document.getElementById('autoAnalyzeCheck').checked ? 'true' : 'false');
+
+      const jobBox = document.getElementById('jobBox');
+      const jobBadge = document.getElementById('jobBadge');
+      const progressBar = document.getElementById('progressBar');
+      const jobMsg = document.getElementById('jobMsg');
+      jobBox.style.display = 'block';
+      jobBadge.className = 'badge badge-pending';
+      jobBadge.innerText = 'YÜKLENİYOR';
+      progressBar.style.width = '15%';
+      jobMsg.innerText = 'Dosya sunucuya aktarılıyor...';
+
+      try {
+        const res = await fetch('/api/v15/documents/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.detail || 'Yükleme başarısız');
+        }
+
+        jobBadge.innerText = 'KUYRUĞA ALINDI';
+        progressBar.style.width = '30%';
+        jobMsg.innerText = `Doküman ID: ${data.document_id} — İşleniyor...`;
+
+        // Poll status
+        pollJobStatus(data.document_id);
+
+      } catch (err) {
+        jobBadge.className = 'badge badge-failed';
+        jobBadge.innerText = 'HATA';
+        jobMsg.innerText = err.message;
+        uploadBtn.disabled = false;
+        uploadBtn.innerText = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+      }
+    }
+
+    async function pollJobStatus(docId) {
+      const jobBadge = document.getElementById('jobBadge');
+      const progressBar = document.getElementById('progressBar');
+      const jobMsg = document.getElementById('jobMsg');
+      const uploadBtn = document.getElementById('uploadBtn');
+
+      const interval = setInterval(async () => {
+        try {
+          const res = await fetch(`/api/v15/documents/${docId}/status`);
+          const statusData = await res.json();
+          const st = statusData.status || statusData.parsing_status;
+
+          if (st === 'PARSING') {
+            jobBadge.className = 'badge badge-parsing';
+            jobBadge.innerText = 'SAYFALAR AYRIŞTIRILIYOR';
+            progressBar.style.width = '50%';
+            jobMsg.innerText = 'PDF metinleri ve sayfalar temizleniyor...';
+          } else if (st === 'EXTRACTING') {
+            jobBadge.className = 'badge badge-extracting';
+            jobBadge.innerText = 'İDDİALAR ÇIKARILIYOR';
+            progressBar.style.width = '70%';
+            jobMsg.innerText = 'Kavramlar ve olgusal cümleler taranıyor...';
+          } else if (st === 'AUDITING') {
+            jobBadge.className = 'badge badge-auditing';
+            jobBadge.innerText = 'SAVCI DENETÇİ KONTROLÜ';
+            progressBar.style.width = '85%';
+            jobMsg.innerText = 'ProsecutorAuditor kanıtları ve çelişkileri denetliyor...';
+          } else if (st === 'COMPLETED' || st === 'PARSED') {
+            clearInterval(interval);
+            jobBadge.className = 'badge badge-completed';
+            jobBadge.innerText = 'TAMAMLANDI';
+            progressBar.style.width = '100%';
+            jobMsg.innerText = 'Doküman başarıyla işlendi ve Bilgi Grafiğine bağlandı!';
+            uploadBtn.disabled = false;
+            uploadBtn.innerText = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+          } else if (st === 'FAILED') {
+            clearInterval(interval);
+            jobBadge.className = 'badge badge-failed';
+            jobBadge.innerText = 'BAŞARISIZ';
+            jobMsg.innerText = statusData.error || 'Ayrıştırma işlemi sırasında hata oluştu.';
+            uploadBtn.disabled = false;
+            uploadBtn.innerText = '🚀 Dokümanı Güvenle Yükle ve Ayrıştır';
+          }
+        } catch (e) {
+          // ignore
+        }
+      }, 1000);
+    }
+
+    // Load Documents
+    async function loadDocuments() {
+      const tbody = document.getElementById('documentsTableBody');
+      tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Yükleniyor...</td></tr>';
+      try {
+        const res = await fetch('/api/v15/documents?limit=50');
+        const data = await res.json();
+        if (!data.documents || !data.documents.length) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;">Henüz kayıtlı doküman bulunamadı.</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = data.documents.map(d => `
+          <tr>
+            <td><strong>${d.filename}</strong><br><small style="color:var(--text-muted);">${d.document_id}</small></td>
+            <td><span class="badge" style="background:#374151;">${d.lesson || 'UNKNOWN'}</span></td>
+            <td>${d.classification || '-'}</td>
+            <td><span class="badge badge-${(d.parsing_status || '').toLowerCase()}">${d.parsing_status}</span></td>
+            <td>${d.created_at ? d.created_at.substring(0, 16).replace('T', ' ') : '-'}</td>
+            <td>
+              <button class="nav-btn" style="padding:0.25rem 0.5rem; font-size:0.75rem; border:1px solid var(--border);" onclick="reprocessDoc('${d.document_id}')">Yeniden Analiz</button>
+            </td>
+          </tr>
+        `).join('');
+      } catch (err) {
+        tbody.innerHTML = `<tr><td colspan="6" style="color:var(--danger);">${err.message}</td></tr>`;
+      }
+    }
+
+    async function reprocessDoc(docId) {
+      if (!confirm('Bu dokümanı sıfırdan yeniden ayrıştırmak istiyor musunuz?')) return;
+      await fetch(`/api/v15/documents/${docId}/reprocess`, { method: 'POST' });
+      alert('Doküman yeniden işleme alındı.');
+      loadDocuments();
+    }
+
+    // Load Exams
+    async function loadExams() {
+      const listEl = document.getElementById('examsList');
+      listEl.innerHTML = 'Yükleniyor...';
+      try {
+        const res = await fetch('/api/v15/exams');
+        const data = await res.json();
+        if (!data.exams || !data.exams.length) {
+          listEl.innerHTML = 'Henüz ayrıştırılmış sınav kitapçığı bulunmuyor.';
+          return;
+        }
+
+        listEl.innerHTML = data.exams.map(e => `
+          <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem; margin-bottom:0.75rem; cursor:pointer;" onclick="loadExamQuestions('${e.exam_id}')">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+              <strong>${e.exam_name}</strong>
+              <span class="badge badge-completed">${e.year || '2023'}</span>
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-muted);">
+              Soru Sayısı: ${e.total_questions || 0} | Kod: ${e.exam_code}
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        listEl.innerHTML = e.message;
+      }
+    }
+
+    async function loadExamQuestions(examId) {
+      const qContainer = document.getElementById('questionsContainer');
+      qContainer.innerHTML = 'Sorular yükleniyor...';
+      try {
+        const res = await fetch(`/api/v15/exams/${examId}/questions`);
+        const data = await res.json();
+
+        if (!data.questions || !data.questions.length) {
+          qContainer.innerHTML = 'Bu sınava ait soru bulunamadı.';
+          return;
+        }
+
+        qContainer.innerHTML = data.questions.map(q => {
+          const official = q.official_correct_option;
+          const optionsHtml = (q.options || []).map(opt => {
+            const isCorrect = official && opt.option_key === official;
+            const isTrap = opt.is_trap;
+            let cls = 'option-row';
+            if (isCorrect) cls += ' correct';
+            if (isTrap) cls += ' trap';
+            return `
+              <div class="${cls}">
+                <span><strong>${opt.option_key})</strong> ${opt.option_text}</span>
+                <span>
+                  ${isCorrect ? '<span class="badge badge-completed">DOĞRU CEVAP</span>' : ''}
+                  ${isTrap ? `<span class="badge badge-pending">TUZAK (${opt.trap_type || 'Çeldirici'})</span>` : ''}
+                </span>
+              </div>
+            `;
+          }).join('');
+
+          return `
+            <div class="question-item">
+              <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem;">
+                <span class="badge" style="background:#374151;">Soru ${q.question_number_in_exam} (Sayfa ${q.page_number})</span>
+                ${q.is_negative ? '<span class="badge badge-failed">OLUMSUZ KÖK</span>' : ''}
+              </div>
+              <div class="question-stem">${q.stem_text}</div>
+              <div class="options-list">${optionsHtml}</div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        qContainer.innerHTML = e.message;
+      }
+    }
+
+    // Load Stats
+    async function loadStats() {
+      const patEl = document.getElementById('patternsList');
+      const trapEl = document.getElementById('trapsList');
+      patEl.innerHTML = 'Yükleniyor...';
+      trapEl.innerHTML = 'Yükleniyor...';
+
+      try {
+        const pRes = await fetch('/api/v15/patterns');
+        const pData = await pRes.json();
+        patEl.innerHTML = (pData.patterns || []).map(p => `
+          <div style="padding:0.6rem 0.8rem; background:var(--bg-card); border-radius:6px; margin-bottom:0.5rem; display:flex; justify-content:space-between;">
+            <div>
+              <strong>${p.pattern_name}</strong>
+              <div style="font-size:0.75rem; color:var(--text-muted);">${p.pattern_code} | Bilişsel Seviye: ${p.cognitive_level}</div>
+            </div>
+            <span class="badge" style="background:rgba(99,102,241,0.2); color:#a5b4fc;">${p.usage_count || 0} Soru</span>
+          </div>
+        `).join('');
+
+        const tRes = await fetch('/api/v15/traps');
+        const tData = await tRes.json();
+        trapEl.innerHTML = (tData.traps || []).map(t => `
+          <div style="padding:0.75rem; background:var(--bg-card); border-left:3px solid var(--warning); border-radius:4px; margin-bottom:0.5rem;">
+            <strong>${t.target_concept} vs ${t.distractor_concept}</strong>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin:0.25rem 0;">${t.why_attractive || '-'}</div>
+            <div style="font-size:0.75rem;"><span class="badge badge-pending">${t.trap_type}</span> Güven: ${(t.confidence * 100).toFixed(0)}%</div>
+          </div>
+        `).join('') || 'Kayıtlı tuzak bulunmuyor.';
+
+      } catch (e) {
+        patEl.innerHTML = e.message;
+        trapEl.innerHTML = e.message;
+      }
+    }
+  </script>
+</body>
+</html>
